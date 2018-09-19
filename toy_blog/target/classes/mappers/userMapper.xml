@@ -10,8 +10,9 @@
 		insert into user value(#{user_email}, #{user_pwd}, #{user_name}, #{user_auth_yn})
 	</insert>
 
-	<select id="login" resultType="org.blog.domain.UserVO">
+	<select id="user_login" resultType="org.blog.domain.UserVO">
 	
+		select * from user where user_name = #{user_name} and user_pwd = #{user_pwd}
 	
 	</select>
 

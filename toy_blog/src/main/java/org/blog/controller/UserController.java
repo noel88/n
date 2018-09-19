@@ -1,6 +1,14 @@
 package org.blog.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+
+import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
+
+import org.blog.domain.UserVO;
+import org.blog.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -9,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class UserController {
 
 	
-	
+	@Inject
+	private UserService service;
 	
 
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
@@ -18,10 +27,18 @@ public class UserController {
 		return "user/join";
 	}
 
-	@RequestMapping(value = "/joinAction", method = RequestMethod.GET)
-	public String joinAction() {
+	@RequestMapping(value = "/joinAction", method = RequestMethod.POST)
+	public String joinAction(UserVO vo) {
 		
-		return "user/join";
+		int result = service.join(vo);
+		
+		if(result > 0) {
+			return "redirect:/user/login";
+		}else {
+			//에러출력 
+		}
+	
+		return "redirect:/user/login";
 	}
 	
 	
@@ -33,8 +50,27 @@ public class UserController {
 		
 		return "user/login";
 	}
-
 	
+	@RequestMapping(value = "/loginAction", method = RequestMethod.GET)
+	public String logincheck(@ModelAttribute UserVO vo, HttpSession session) {
+		
+		boolean isCheck = service.loginCheck(vo, session);
+
+		if(isCheck == true) {
+			model().attribute("user", vo);
+			return "redirect:/";
+		}else {
+			return "/user/loginForm";
+		}
+
+	}
+
+	@RequestMapping(value = "logout", method = RequestMethod.GET)
+	public String logOut(HttpSession session) throws Exception {
+		service.logout(session);
+		return "redirect:/";
+
+	}	
 	
 	
 	
