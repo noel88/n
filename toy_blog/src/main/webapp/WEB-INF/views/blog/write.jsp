@@ -40,16 +40,16 @@
       <li class="nav-item">
         <a class="nav-link" href="/user/login">Login</a>
       </li>
-  
+
       <li class="nav-item active">
         <a class="nav-link" href="/blog/write">Write</a>
       </li>
-  
+
       <li class="nav-item">
         <a class="nav-link" href="#">List</a>
       </li>
     </ul>
-   
+
   </div>
 </nav>
 
@@ -65,12 +65,16 @@
       <textarea class="editable" rows="70"></textarea>
     </div>
 	</td>
-    
+
 </tr>
-    
+    <tr>
+    	   	<td><button type="submit" style = "margin-left: auto; margin-right: auto;" class="btn btn-primary">Write</button></td>
+    </tr>
+
+
    </table>
 
-    
+
     <script src="<c:url value="/resources/js/medium-editor.js" />"></script>
 
     <script>
