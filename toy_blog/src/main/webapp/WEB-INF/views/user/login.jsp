@@ -35,16 +35,16 @@
       <li class="nav-item active">
         <a class="nav-link" href="/user/login">Login</a>
       </li>
-  
+
       <li class="nav-item">
         <a class="nav-link" href="/blog/write">Write</a>
       </li>
-  
+
       <li class="nav-item">
         <a class="nav-link" href="#">List</a>
       </li>
     </ul>
-   
+
   </div>
 </nav>
 
@@ -56,23 +56,22 @@
 	<td>  <div class="form-group" >
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" style="width: 320px; ">
-      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      <small id="emailHelp" class="form-text text-muted">Please enter your email address.</small>
     </div></td>
-	</tr>    
+	</tr>
   	<tr>
   		<td> <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
       <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" style="width: 320px; ">
     </div></td>
-  		
+
   	</tr>
-   
+
     <tr>
-    	<td><button type="submit" class="btn btn-primary">Submit</button></td>
+    	<td><button type="submit" style = "float:left;" class="btn btn-primary">Login</button><button type="button" style = "float:right;" class="btn btn-primary">Forget</button></td>
     </tr>
-    
-   
-    
+
+
 
 </table>
 
