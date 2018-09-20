@@ -8,19 +8,21 @@
 		http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
-	
+
 	<!-- Root Context: defines shared resources visible to all other web components -->
-		
-		
-		
-		
-		
+
+
+
+
+
 		<!-- MySQL dataSource -->
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 		<property name="url"
-			value="jdbc:log4jdbc:mysql://127.0.0.1:3306/blog?useSSL=false&amp;serverTimezone=UTC"></property>
+			value="jdbc:log4jdbc:mysql://127.0.0.1:3306/blog?useSSL=false&amp;serverTimezone=UTC&amp;useUnicode=true&amp;characterEncoding=utf8
+
+출처: http://bryan7.tistory.com/484 [민서네집]"></property>
 		<property name="username" value="root"></property>
 		<property name="password" value="root"></property>
 	</bean>
@@ -31,13 +33,13 @@
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
 		<property name="mapperLocations" value="classpath:mappers/**/*Mapper.xml"></property>
 	</bean>
-	
+
 		<!-- mybatis 	 -->
 	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate"
 		destroy-method="clearCache">
 		<constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"></constructor-arg>
 	</bean>
-	
-	
+
+
 		<context:component-scan base-package="org.blog" />
 </beans>
