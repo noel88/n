@@ -16,10 +16,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/user/")
 public class UserController {
 
-	
+
 	@Inject
 	private UserService service;
-	
+
 
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join() {
@@ -29,31 +29,31 @@ public class UserController {
 
 	@RequestMapping(value = "/joinAction", method = RequestMethod.POST)
 	public String joinAction(UserVO vo) {
-		
+
 		int result = service.join(vo);
-		
+
 		if(result > 0) {
 			return "redirect:/user/login";
 		}else {
-			//에러출력 
+			//에러출력
 		}
-	
+
 		return "redirect:/user/login";
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
-		
+
 		return "user/login";
 	}
-	
+
 	@RequestMapping(value = "/loginAction", method = RequestMethod.GET)
 	public String logincheck(@ModelAttribute UserVO vo, HttpSession session) {
-		
+
 		boolean isCheck = service.loginCheck(vo, session);
 
 		if(isCheck == true) {
@@ -70,11 +70,16 @@ public class UserController {
 		service.logout(session);
 		return "redirect:/";
 
-	}	
-	
-	
-	
-	
-	
-	
+	}
+
+	@RequestMapping(value = "/page", method = RequestMethod.GET)
+	public String user_page() {
+
+		return "user/user_page";
+	}
+
+
+
+
+
 }

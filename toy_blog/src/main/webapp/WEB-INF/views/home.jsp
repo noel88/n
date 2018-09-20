@@ -39,27 +39,27 @@
         <a class="nav-link" href="/user/login">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">List</a>
+        <a class="nav-link" href="/blog/list">List</a>
       </li>
  </c:when>
-      <c:otherwise>  
+      <c:otherwise>
       <li class="nav-item">
-        <a class="nav-link" href="#">List</a>
+        <a class="nav-link" href="/blog/list">List</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/blog/write">Write</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">${sessionScope.name}, page</a>
+        <a class="nav-link" href="/user/page">${sessionScope.name}, page</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/user/logout">Logout</a>
       </li>
-  
+
          </c:otherwise>
 </c:choose>
     </ul>
-   
+
   </div>
 </nav>
 

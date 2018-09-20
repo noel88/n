@@ -40,40 +40,65 @@
         <a class="nav-link" href="/user/login">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">List</a>
+        <a class="nav-link" href="/blog/list">List</a>
       </li>
  </c:when>
-      <c:otherwise>  
+      <c:otherwise>
       <li class="nav-item">
-        <a class="nav-link" href="#">List</a>
+        <a class="nav-link" href="/blog/list">List</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/blog/write">Write</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="#">${sessionScope.name}, page</a>
+        <a class="nav-link" href="/user/page">${sessionScope.name}, page</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/user/logout">Logout</a>
       </li>
-  
+
          </c:otherwise>
 </c:choose>
     </ul>
-   
+
   </div>
 </nav>
 
 
+<form action= "create" method="get">
+
+   <table style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 
 
-   <table style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 550px;">
+
+
+   	<tr>
+   		<td><div class="form-group">
+      <label for="exampleInputname1">Title</label>
+      <input type="text" class="form-control" name = "title" id="exampleInputPassword1" placeholder="Title" >
+
+    </div></td>
+   	</tr>
+  	<tr>
+
+   	<tr>
+   		<td><div class="form-group">
+      <label for="exampleInputname1">Name</label>
+      <input type="text" class="form-control" name = "name" id="exampleInputPassword1" value = "${sessionScope.name}" readonly="readonly" >
+
+    </div></td>
+   	</tr>
+  	<tr>
+
+
+
+
 <tr>
 	<td><div class="form-group">
       <label for="exampleTextarea">write</label>
 	<hr>
 	<br>
-      <textarea class="editable" rows="70"></textarea>
+      <textarea class="editable" rows="70" name = "context"></textarea>
     </div>
 	</td>
 
@@ -85,6 +110,7 @@
 
    </table>
 
+</form>
 
     <script src="<c:url value="/resources/js/medium-editor.js" />"></script>
 
@@ -98,5 +124,11 @@
             cssLink.href = '../dist/css/' + this.value + '.css';
         });
     </script>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script><!-- ie10-viewport-bug-workaround.js -->
+<script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script>
+
 </body>
 </html>

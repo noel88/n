@@ -37,27 +37,27 @@
         <a class="nav-link" href="/user/login">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">List</a>
+        <a class="nav-link" href="/blog/list">List</a>
       </li>
  </c:when>
-      <c:otherwise>  
+      <c:otherwise>
       <li class="nav-item">
-        <a class="nav-link" href="#">List</a>
+        <a class="nav-link" href="/blog/list">List</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/blog/write">Write</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">${sessionScope.name}, page</a>
+        <a class="nav-link" href="/user/page">${sessionScope.name}, page</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/user/logout">Logout</a>
       </li>
-  
+
          </c:otherwise>
 </c:choose>
     </ul>
-   
+
   </div>
 </nav>
 
@@ -71,11 +71,11 @@
       <input type="text" class="form-control" name = "user_name" id="exampleInputPassword1" placeholder="Name" style="width: 320px; ">
       <small id="emailHelp" class="form-text text-muted">Please enter a name for your blog.</small>
     </div></td>
-   	
+
    	</tr>
-  	
+
   	<tr>
-  	
+
   		<td> <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
       <input type="password" class="form-control" name = "user_pwd" id="exampleInputPassword1" placeholder="Password" style="width: 320px; ">
