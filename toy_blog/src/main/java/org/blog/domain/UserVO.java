@@ -7,10 +7,17 @@ public class UserVO {
 	private String user_email;
 	private String user_pwd;
 	private String user_name;
+	private String user_authCode;
 	private String user_auth_yn;
 	
 	
 	
+	public String getUser_authCode() {
+		return user_authCode;
+	}
+	public void setUser_authCode(String user_authCode) {
+		this.user_authCode = user_authCode;
+	}
 	public String getUser_email() {
 		return user_email;
 	}

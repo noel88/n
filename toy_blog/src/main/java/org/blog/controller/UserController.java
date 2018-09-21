@@ -8,6 +8,7 @@ import javax.servlet.http.HttpSession;
 import org.blog.domain.UserVO;
 import org.blog.service.UserService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,7 +29,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/joinAction", method = RequestMethod.POST)
-	public String joinAction(UserVO vo) {
+	public String joinAction(UserVO vo) throws Exception {
 
 		int result = service.join(vo);
 
@@ -41,7 +42,14 @@ public class UserController {
 		return "redirect:/user/login";
 	}
 
+	
+	@RequestMapping(value = "/emailConfirm", method = RequestMethod.GET)
+	public String emailConfirm(String user_email, Model model) throws Exception { // 이메일인증
+		service.userAuth(user_email);
+		model.addAttribute("user_email", user_email);
 
+		return "/user/emailConfirm";
+	}
 
 
 

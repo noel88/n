@@ -7,7 +7,7 @@
 
 
 	<insert id="user_join">
-		insert into user value(#{user_email}, #{user_pwd}, #{user_name}, #{user_auth_yn})
+		insert into user value(#{user_email}, #{user_pwd}, #{user_name}, #{user_authCode}, #{user_auth_yn})
 	</insert>
 
 	<select id="user_login" resultType="org.blog.domain.UserVO">
@@ -15,7 +15,17 @@
 		select * from user where user_name = #{user_name} and user_pwd = #{user_pwd}
 	
 	</select>
+	<select id="userAuth" resultType="org.blog.domain.UserVO">
+	
+		select * from user where user_email = #{user_email}
+	
+	</select>
 
+	<update id="createAuthKey">
+
+	update USER set user_authCode = #{user_authCode} where user_email = #{user_email}
+
+	</update>
 
 
 	
