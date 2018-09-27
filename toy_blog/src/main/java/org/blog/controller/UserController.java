@@ -35,13 +35,14 @@ public class UserController {
 		int result = service.join(vo);
 
 		if(result > 0) {
-			return "redirect:/user/login";
+			return "redirect:/user/emailConfirmCheck";
 		}else {
 			//에러출력
 		}
 
 		return "redirect:/user/login";
 	}
+
 
 
 	@RequestMapping(value = "/emailConfirm", method = RequestMethod.GET)

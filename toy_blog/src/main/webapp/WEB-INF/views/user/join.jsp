@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -51,6 +51,7 @@ function checkEmail() {
         }
     });
 }
+
 function checkName() {
    var inputed = $('.name').val();
    console.log(inputed);
@@ -174,7 +175,7 @@ function checkPwd() {
 	<tr>
    		<td><div class="form-group">
       <label for="exampleInputname1">Name</label>
-      <input type="text" class="form-control name" name = "user_name" id="exampleInputPassword1" placeholder="Name" oninput="checkEmail()" style="width: 320px;" id="checkname" autofocuss>
+      <input type="text" class="form-control name" name = "user_name" placeholder="Name" oninput="checkEmail()" style="width: 320px;" id="checkname" autofocuss>
       <small id="emailHelp" class="form-text text-muted">Please enter a name for your blog.</small>
     </div></td>
    	</tr>
@@ -182,7 +183,7 @@ function checkPwd() {
   	<tr>
   		<td> <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control pass" name = "user_pwd" id="exampleInputPassword1" placeholder="Password" oninput="checkPwd()" style="width: 320px;">
+      <input type="password" class="form-control pass" name = "user_pwd" placeholder="Password" oninput="checkPwd()" style="width: 320px;">
     </div></td>
 
   	</tr>
@@ -190,13 +191,13 @@ function checkPwd() {
   	<tr>
   		<td> <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control pass" name = "user_pwdcheck" id="exampleInputPassword1" placeholder="Password"  id="repwd" oninput="checkPwd()" style="width: 320px;">
+      <input type="password" class="form-control pass" name = "user_pwdcheck" placeholder="Password"  id="repwd" oninput="checkPwd()" style="width: 320px;">
     </div></td>
 
   	</tr>
 
 	<tr>
-	<td>  <div class="form-group" >
+	<td>  <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
       <input type="email" class="form-control email" name="user_email" placeholder="Email" oninput="checkEmail()" style="width: 320px;" id="checkaa" autofocus>
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
@@ -205,7 +206,7 @@ function checkPwd() {
 
 
     <tr>
-    	<td><button type="submit" class="btn btn-primary signupbtn"  disabled="disabled">Join</button></td>
+    	<td><button type="submit" class="btn btn-primary signupbtn"  disabled="disabled" onclick = "">Join</button></td>
     </tr>
 
 
