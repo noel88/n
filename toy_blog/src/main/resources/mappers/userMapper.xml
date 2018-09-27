@@ -26,14 +26,14 @@
 	<select id="email_check"
 	    parameterType="org.blog.domain.UserVO"
 	    resultType="java.lang.Integer">
-	    SELECT NVL(COUNT(*),0)
+	    SELECT ifnull(COUNT(*),0)
 	    FROM user WHERE user_email = #{user_email}
 	</select>
 
 	<select id="name_check"
 	    parameterType="org.blog.domain.UserVO"
 	    resultType="java.lang.Integer">
-	    SELECT NVL(COUNT(*),0)
+	    SELECT ifnull(COUNT(*),0)
 	    FROM user WHERE user_name = #{user_name}
 	</select>
 

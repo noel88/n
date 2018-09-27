@@ -166,16 +166,23 @@ function checkPwd() {
   </div>
 </nav>
 
+<script type="text/javascript">
+
+	function validate() {
+		alert('회원가입이 완료되었습니다. 더 많은 서비스 사용을 위해 이메일 인증을 해주세요');
+	}
+
+</script>
 
 
-<form action = "joinAction" method="post">
+<form action = "joinAction" method="post" onsubmit = "return validate()">
 <table style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
 
 
 	<tr>
    		<td><div class="form-group">
       <label for="exampleInputname1">Name</label>
-      <input type="text" class="form-control name" name = "user_name" placeholder="Name" oninput="checkEmail()" style="width: 320px;" id="checkname" autofocuss>
+      <input type="text" class="form-control name" name = "user_name" placeholder="Name" oninput="checkName()" style="width: 320px;" id="checkname" autofocuss>
       <small id="emailHelp" class="form-text text-muted">Please enter a name for your blog.</small>
     </div></td>
    	</tr>
@@ -206,7 +213,7 @@ function checkPwd() {
 
 
     <tr>
-    	<td><button type="submit" class="btn btn-primary signupbtn"  disabled="disabled" onclick = "">Join</button></td>
+    	<td><button type="submit" class="btn btn-primary signupbtn"  disabled="disabled">Join</button></td>
     </tr>
 
 

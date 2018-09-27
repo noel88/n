@@ -28,6 +28,12 @@ public class UserController {
 
 		return "user/join";
 	}
+	
+//	
+//	@RequestMapping(value = "/emailconfirmCheck", method = RequestMethod.GET)
+//	public String email_confirm() {
+//		return "/user/emailConfirmCheck";
+//	}
 
 	@RequestMapping(value = "/joinAction", method = RequestMethod.POST)
 	public String joinAction(UserVO vo) throws Exception {
@@ -35,7 +41,7 @@ public class UserController {
 		int result = service.join(vo);
 
 		if(result > 0) {
-			return "redirect:/user/emailConfirmCheck";
+			return "redirect:/user/login";
 		}else {
 			//에러출력
 		}
@@ -43,6 +49,8 @@ public class UserController {
 		return "redirect:/user/login";
 	}
 
+	
+	
 
 
 	@RequestMapping(value = "/emailConfirm", method = RequestMethod.GET)

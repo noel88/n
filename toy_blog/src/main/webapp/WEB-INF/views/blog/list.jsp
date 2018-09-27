@@ -4,7 +4,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -105,9 +105,9 @@ a.btn:hover:before, a.btn:hover::after {
 	outline: none;
 	position: relative;
 	z-index: 2;
-/* 	background-color: #333;
-	border: 2px solid #333; */
-/* 	color: #fff; */
+ 	background-color: #333;
+	border: 2px solid #333;
+ 	color: #fff; 
 	line-height: 50px;
 	margin-bottom: 4rem;
 }
@@ -151,30 +151,10 @@ a.btn:hover:before, a.btn:hover::after {
 </style>
 <script type="text/javascript" src="https://nanati.me/common/js/jquery-1.11.2.min.js"></script>
 
-<script type="text/javascript">
-$(window).on('load', function () {
-	load('#js-load', '5');
-	$("#js-btn-wrap .button").on("click", function () {
-		load('#js-load', '5', '#js-btn-wrap');
-	})
-});
-
-function load(id, cnt, btn) {
-	var girls_list = id + " .js-load:not(.active)";
-	var girls_length = $(girls_list).length;
-	var girls_total_cnt;
-	if (cnt < girls_length) {
-		girls_total_cnt = cnt;
-	} else {
-		girls_total_cnt = girls_length;
-		$('.button').hide()
-	}
-	$(girls_list + ":lt(" + girls_total_cnt + ")").addClass("active");
-}
-</script>
 
 </head>
 <body>
+
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">한글 테스트</a>
@@ -222,14 +202,38 @@ function load(id, cnt, btn) {
   </div>
 </nav>
 
+<script type="text/javascript">
+$(window).on('load', function () {
+	load('#js-load', '5');
+	$("#js-btn-wrap .button").on("click", function () {
+		load('#js-load', '5', '#js-btn-wrap');
+	})
+});
+
+function load(id, cnt, btn) {
+	var girls_list = id + " .js-load:not(.active)";
+	var girls_length = $(girls_list).length;
+	var girls_total_cnt;
+	if (cnt < girls_length) {
+		girls_total_cnt = cnt;
+	} else {
+		girls_total_cnt = girls_length;
+		$('.button').hide()
+	}
+	$(girls_list + ":lt(" + girls_total_cnt + ")").addClass("active");
+}
+</script>
+
+
+
 <div id="contents">
   <div id="js-load" class="lists">
 
 
-		<c:forEach items = "${list}" var = "BlogVO">
-   <table class="lists__item js-load" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
+<c:forEach items = "${list}" var = "BlogVO">
+   <table class="lists__item js-load" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 80%;">
 			<tr class="table-secondary">
-				<td style="width: 80%">
+				<td style="width: 70%; text-align: left;">
 					<h3>
 					  ${BlogVO.title}
 					  <small class="text-muted">${BlogVO.name}</small>
@@ -242,6 +246,9 @@ function load(id, cnt, btn) {
 
 				<!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
 
+				</td>
+				<td style="width:5%;">
+				
 				</td>
 				<td>
 					  <small class="text-muted">${BlogVO.cnt} </small>
