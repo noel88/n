@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 @RequestMapping("/user/")
@@ -42,7 +43,7 @@ public class UserController {
 		return "redirect:/user/login";
 	}
 
-	
+
 	@RequestMapping(value = "/emailConfirm", method = RequestMethod.GET)
 	public String emailConfirm(String user_email, Model model) throws Exception { // 이메일인증
 		service.userAuth(user_email);
@@ -50,6 +51,20 @@ public class UserController {
 
 		return "/user/emailConfirm";
 	}
+
+
+	@RequestMapping(value = "nameCheck", method = { RequestMethod.GET, RequestMethod.POST})
+    public @ResponseBody int name_Check(UserVO vo, Model model) {
+        return service.name_check(vo);
+    }
+
+	@RequestMapping(value = "emailCheck", method = { RequestMethod.GET, RequestMethod.POST})
+	public @ResponseBody int email_Check(UserVO vo, Model model) {
+		return service.email_check(vo);
+	}
+
+
+
 
 
 

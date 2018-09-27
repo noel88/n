@@ -11,13 +11,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class UserDAOImpl implements UserDAO {
 
-	
+
 	@Inject
 	private SqlSession sqlsession;
 	private static String namespace = "org.blog.mapper.userMapper";
-	
 
-	
+
+
 	@Override
 	public int join(UserVO vo) {
 		return sqlsession.insert(namespace + ".user_join", vo);
@@ -31,25 +31,35 @@ public class UserDAOImpl implements UserDAO {
 		vo.setUser_email(user_email);
 
 		sqlsession.selectOne(namespace + ".createAuthKey", vo);
-	
+
 	}
-	
+
 	@Override
 	public void userAuth(String user_email) throws Exception {
 		sqlsession.update(namespace + ".userAuth", user_email);
 	}
-	
-	
-	
+
+
+
 
 	@Override
 	public boolean login(UserVO vo) {
 		vo = sqlsession.selectOne(namespace + ".user_login", vo);
-		boolean isCheck = (vo == null) ? false : true; 
+		boolean isCheck = (vo == null) ? false : true;
 		return isCheck;
 	}
 
+	@Override
+	public int name_check(UserVO vo) {
+		return sqlsession.selectOne(namespace + ".name_check", vo);
+	}
 
-	
-	
+	@Override
+	public int email_check(UserVO vo) {
+		return sqlsession.selectOne(namespace + ".email_check", vo);
+	}
+
+
+
+
 }

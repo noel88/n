@@ -11,22 +11,31 @@
 	</insert>
 
 	<select id="user_login" resultType="org.blog.domain.UserVO">
-	
 		select * from user where user_name = #{user_name} and user_pwd = #{user_pwd}
-	
 	</select>
+
 	<select id="userAuth" resultType="org.blog.domain.UserVO">
-	
 		select * from user where user_email = #{user_email}
-	
 	</select>
 
 	<update id="createAuthKey">
-
 	update USER set user_authCode = #{user_authCode} where user_email = #{user_email}
-
 	</update>
 
 
-	
+	<select id="email_check"
+	    parameterType="org.blog.domain.UserVO"
+	    resultType="java.lang.Integer">
+	    SELECT NVL(COUNT(*),0)
+	    FROM user WHERE user_email = #{user_email}
+	</select>
+
+	<select id="name_check"
+	    parameterType="org.blog.domain.UserVO"
+	    resultType="java.lang.Integer">
+	    SELECT NVL(COUNT(*),0)
+	    FROM user WHERE user_name = #{user_name}
+	</select>
+
+
 </mapper>
