@@ -30,6 +30,18 @@ public class BlogDAOImpl implements BlogDAO {
 		return sqlsession.selectList(namespace + ".list");
 	}
 
+	@Override
+	public void update_cnt(Integer no) {
+		sqlsession.update(namespace + ".update_cnt", no);
+		
+	}
+
+	@Override
+	public BlogVO blog_detail(Integer no) {
+		
+		return sqlsession.selectOne(namespace + ".selectList", no);
+	}
+
 
 
 

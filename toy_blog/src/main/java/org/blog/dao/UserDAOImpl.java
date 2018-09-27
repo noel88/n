@@ -41,7 +41,6 @@ public class UserDAOImpl implements UserDAO {
 
 
 
-
 	@Override
 	public boolean login(UserVO vo) {
 		vo = sqlsession.selectOne(namespace + ".user_login", vo);
@@ -58,6 +57,7 @@ public class UserDAOImpl implements UserDAO {
 	public int email_check(UserVO vo) {
 		return sqlsession.selectOne(namespace + ".email_check", vo);
 	}
+
 
 
 

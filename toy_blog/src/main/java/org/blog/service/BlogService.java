@@ -8,6 +8,7 @@ public interface BlogService {
 
 	public int create(BlogVO vo);
 	public List<BlogVO> list();
+	public BlogVO blog_detail(Integer no);
 
 
 }

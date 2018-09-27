@@ -18,10 +18,12 @@
 
 	<select id="selectList" resultType="org.blog.domain.BlogVO">
 
-		select * from blog where no = {no}
+		select * from blog where no = #{no}
 	</select>
 
-
+	<insert id="update_cnt">
+		update blog set cnt = cnt+1 where no = #{no}
+	</insert>
 
 
 </mapper>

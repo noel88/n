@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 @RequestMapping("/blog/")
@@ -43,6 +44,12 @@ public class BlogController {
 	public String list(Model model) {
 		model.addAttribute("list", service.list());
 		return "blog/list";
+	}
+	
+	@RequestMapping(value = "/detail", method = RequestMethod.GET)
+	public Model list_detail(@RequestParam("no") int no, Model model) {
+		model.addAttribute(service.blog_detail(no));
+		return model;
 	}
 
 

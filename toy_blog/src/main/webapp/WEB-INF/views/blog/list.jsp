@@ -235,10 +235,10 @@ function load(id, cnt, btn) {
 			<tr class="table-secondary">
 				<td style="width: 70%; text-align: left;">
 					<h3>
-					  ${BlogVO.title}
+					  <a href = "/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a>
 					  <small class="text-muted">${BlogVO.name}</small>
 					</h3>
-					<p class="lead"><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 50)}' />.. <small class="text-muted"> 더보기 </small> </p>
+					<p class="lead"><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 200)}' />.. <small class="text-muted"> 더보기 </small> </p>
 				</td>
 
 				<td>

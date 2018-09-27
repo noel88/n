@@ -26,4 +26,10 @@ public class BlogServiceImpl implements BlogService{
 		return dao.list();
 	}
 
+	@Override
+	public BlogVO blog_detail(Integer no) {
+		dao.update_cnt(no);
+		return dao.blog_detail(no);
+	}
+
 }
