@@ -107,7 +107,7 @@ a.btn:hover:before, a.btn:hover::after {
 	z-index: 2;
  	background-color: #333;
 	border: 2px solid #333;
- 	color: #fff; 
+ 	color: #fff;
 	line-height: 50px;
 	margin-bottom: 4rem;
 }
@@ -229,34 +229,32 @@ function load(id, cnt, btn) {
 <div id="contents">
   <div id="js-load" class="lists">
 
+<!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
 
 <c:forEach items = "${list}" var = "BlogVO">
-   <table class="lists__item js-load" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 80%;">
-			<tr class="table-secondary">
-				<td style="width: 70%; text-align: left;">
+   <table class="lists__item js-load" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+			<tr>
+				<td scope="row" style="text-align: left;">
 					<h3>
 					  <a href = "/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a>
-					  <small class="text-muted">${BlogVO.name}</small>
 					</h3>
-					<p class="lead"><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 200)}' />.. <small class="text-muted"> 더보기 </small> </p>
 				</td>
-
-				<td>
-					  <small class="text-muted">${BlogVO.now} </small>
-
-				<!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
-
-				</td>
-				<td style="width:5%;">
-				
-				</td>
-				<td>
+				<td style="width: 25px;">
 					  <small class="text-muted">${BlogVO.cnt} </small>
 
 				</td>
-
+				<td rowspan="2">
+				</td>
+				<td rowspan="2" style="width: 150px;">
+					이미지
+				</td>
 			</tr>
-
+			<tr>
+				<td colspan="2" style="width: 600px; text-align: left;">
+					<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 200)}' />.. <small class="text-muted"> 더보기 </small></p>
+					   <small class="text-muted">${BlogVO.now} <cite title="Source Title">by.${BlogVO.name}</cite></small>
+			 	</td>
+			</tr>
 
    </table>
 		</c:forEach>
