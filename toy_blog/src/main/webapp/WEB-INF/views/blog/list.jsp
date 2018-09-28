@@ -13,6 +13,7 @@
     <link href="<c:url value="/resources/css/medium-editor.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/default.css" />" rel="stylesheet"id="medium-editor-theme">
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
     <link href="<c:url value="/resources/css//bootstrap.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css//bootstrap.min.css" />" rel="stylesheet">
 <style type="text/css">
@@ -232,9 +233,9 @@ function load(id, cnt, btn) {
 <!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
 
 <c:forEach items = "${list}" var = "BlogVO">
-   <table class="lists__item js-load" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+   <table class="lists__item js-load table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
 			<tr>
-				<td scope="row" style="text-align: left;">
+				<td style="text-align: left;">
 					<h3>
 					  <a href = "/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a>
 					</h3>
@@ -244,14 +245,15 @@ function load(id, cnt, btn) {
 
 				</td>
 				<td rowspan="2">
+
 				</td>
 				<td rowspan="2" style="width: 150px;">
-					이미지
+					<img src="/resources/img/books-1245690_640.jpg" width="150px;" height="150px;">
 				</td>
 			</tr>
 			<tr>
 				<td colspan="2" style="width: 600px; text-align: left;">
-					<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 200)}' />.. <small class="text-muted"> 더보기 </small></p>
+					<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 200)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
 					   <small class="text-muted">${BlogVO.now} <cite title="Source Title">by.${BlogVO.name}</cite></small>
 			 	</td>
 			</tr>
