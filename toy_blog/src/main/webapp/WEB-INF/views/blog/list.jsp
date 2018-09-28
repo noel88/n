@@ -240,21 +240,19 @@ function load(id, cnt, btn) {
 					  <a href = "/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a>
 					</h3>
 				</td>
-				<td style="width: 25px;">
-					  <small class="text-muted">${BlogVO.cnt} </small>
+				<td style="float: right;">
+
+					  <small class="text-muted"><i class="fas fa-eye">&nbsp;${BlogVO.cnt}</i> </small>
 
 				</td>
-				<td rowspan="2">
-
-				</td>
-				<td rowspan="2" style="width: 150px;">
-					<img src="/resources/img/books-1245690_640.jpg" width="150px;" height="150px;">
-				</td>
+				
 			</tr>
 			<tr>
-				<td colspan="2" style="width: 600px; text-align: left;">
-					<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 200)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
+				<td colspan="2" style="width: 750px; text-align: left;">
+					<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
 					   <small class="text-muted">${BlogVO.now} <cite title="Source Title">by.${BlogVO.name}</cite></small>
+					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">comment</i>&nbsp;
+									<i class="fas fa-heart" >like</i></span>
 			 	</td>
 			</tr>
 

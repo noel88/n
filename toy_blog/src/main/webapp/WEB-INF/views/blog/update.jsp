@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -13,14 +11,12 @@
     <link href="<c:url value="/resources/css/medium-editor.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css/default.css" />" rel="stylesheet"id="medium-editor-theme">
 <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
     <link href="<c:url value="/resources/css//bootstrap.css" />" rel="stylesheet">
     <link href="<c:url value="/resources/css//bootstrap.min.css" />" rel="stylesheet">
 
+
 </head>
 <body>
-
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <a class="navbar-brand" href="/">한글 테스트</a>
@@ -69,61 +65,71 @@
 </nav>
 
 
+<form action= "update" method="get">
+
+   <table style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 
 
-   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 80%;">
-			<tr class="table-secondary">
-				<td style="width: 70%; text-align: left;">
-					<h3>
-					 ${blogVO.title}
-					  <small class="text-muted">${blogVO.name}</small>
-					</h3>
-				</td>
 
-				<td>
-					  <small class="text-muted">${blogVO.now} </small>
 
-				<!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
+   	<tr>
+   		<td><div class="form-group">
+      <label for="exampleInputname1">Title</label>
+      <input type="text" class="form-control" name = "title" id="exampleInputPassword1" placeholder="Title" value="${blogVO.title}">
+   	  <input type="hidden" class="form-control" name = "no" value="${blogVO.no}">
 
-				</td>
-				<td style="width:5%;">
-				
-				</td>
-				<td>
-					  <small class="text-muted">${blogVO.cnt} </small>
+    </div></td>
+   	</tr>
+  	<tr>
 
-				</td>
+   	<tr>
+   		<td><div class="form-group">
+      <label for="exampleInputname1">Name</label>
+      <input type="text" class="form-control" name = "name" id="exampleInputPassword1" value = "${sessionScope.name}" readonly="readonly" >
 
-			</tr>
-			<tr>
-			<td colspan="4">${blogVO.context}</td>
-			</tr>
-		
-			<tr>
-				<td scope="row" colspan="4">
-				<c:choose>
-					<c:when test = "${sessionScope.name == null}">
-				
-				      	 <a href= "list" class="btn btn-primary"><i class="fas fa-list">&nbsp;list</i></a>
-				      	   </c:when>
-					<c:when test = "${sessionScope.name == blogVO.name}">
-				
-				      	 <a href= "list" class="btn btn-primary"><i class="fas fa-list">&nbsp;list</i></a>
-				      	 <a href= "updateForm?no=${blogVO.no}" class="btn btn-primary"><i class="fas fa-edit">&nbsp;update</i></a>
-				      	 <a href= "delete?no=${blogVO.no}" class="btn btn-primary"><i class="fas fa-trash-alt">&nbsp;delete</i></a>
-				      	   </c:when>
-				      <c:otherwise>
-				      	 <a href= "list" class="btn btn-primary"><i class="fas fa-list">&nbsp;list</i></a>			      
-				      </c:otherwise>
-				 
-				      
-				</c:choose>
-				 </td>
-		    </tr>
+    </div></td>
+   	</tr>
+  	<tr>
+
+
+
+
+<tr>
+	<td><div class="form-group">
+      <label for="exampleTextarea">Update</label>
+	<hr>
+	<br>
+      <textarea class="editable" rows="70" name = "context">${blogVO.context}</textarea>
+    </div>
+	</td>
+
+</tr>
+    <tr>
+    	   	<td><button type="submit" style = "margin-left: auto; margin-right: auto;" class="btn btn-primary">Update</button></td>
+    </tr>
+
 
    </table>
 
+</form>
 
+    <script src="<c:url value="/resources/js/medium-editor.js" />"></script>
+
+    <script>
+        var editor = new MediumEditor('.editable', {
+            buttonLabels: 'fontawesome'
+        }),
+        cssLink = document.getElementById('medium-editor-theme');
+
+        document.getElementById('sel-themes').addEventListener('change', function () {
+            cssLink.href = '../dist/css/' + this.value + '.css';
+        });
+    </script>
+
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script src="http://googledrive.com/host/0B-QKv6rUoIcGREtrRTljTlQ3OTg"></script><!-- ie10-viewport-bug-workaround.js -->
+<script src="http://googledrive.com/host/0B-QKv6rUoIcGeHd6VV9JczlHUjg"></script>
 
 </body>
 </html>

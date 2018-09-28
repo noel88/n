@@ -176,13 +176,13 @@ function checkPwd() {
 
 
 <form action = "joinAction" method="post" onsubmit = "return validate()">
-<table style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+<table style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 
 
 	<tr>
    		<td><div class="form-group">
       <label for="exampleInputname1">Name</label>
-      <input type="text" class="form-control name" name = "user_name" placeholder="Name" oninput="checkName()" style="width: 320px;" id="checkname" autofocuss>
+      <input type="text" class="form-control name" name = "user_name" placeholder="Name" oninput="checkName()" id="checkname" autofocuss>
       <small id="emailHelp" class="form-text text-muted">Please enter a name for your blog.</small>
     </div></td>
    	</tr>
@@ -190,7 +190,7 @@ function checkPwd() {
   	<tr>
   		<td> <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control pass" name = "user_pwd" placeholder="Password" oninput="checkPwd()" style="width: 320px;">
+      <input type="password" class="form-control pass" name = "user_pwd" placeholder="Password" oninput="checkPwd()">
     </div></td>
 
   	</tr>
@@ -198,7 +198,7 @@ function checkPwd() {
   	<tr>
   		<td> <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control pass" name = "user_pwdcheck" placeholder="Password"  id="repwd" oninput="checkPwd()" style="width: 320px;">
+      <input type="password" class="form-control pass" name = "user_pwdcheck" placeholder="Password"  id="repwd" oninput="checkPwd()">
     </div></td>
 
   	</tr>
@@ -206,7 +206,7 @@ function checkPwd() {
 	<tr>
 	<td>  <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control email" name="user_email" placeholder="Email" oninput="checkEmail()" style="width: 320px;" id="checkaa" autofocus>
+      <input type="email" class="form-control email" name="user_email" placeholder="Email" oninput="checkEmail()" id="checkaa" autofocus>
       <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
     </div></td>
 	</tr>

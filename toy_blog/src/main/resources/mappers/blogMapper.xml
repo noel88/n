@@ -12,7 +12,13 @@
 
 	<select id="list" resultType="org.blog.domain.BlogVO">
 
-		select * from blog
+		select * from blog order by no desc
+
+	</select>
+	
+	<select id="my_list" resultType="org.blog.domain.BlogVO">
+
+		select * from blog where name = #{name}
 
 	</select>
 
@@ -24,6 +30,14 @@
 	<insert id="update_cnt">
 		update blog set cnt = cnt+1 where no = #{no}
 	</insert>
+
+	<update id="blog_update">
+		update blog set title = #{title}, context = #{context} where no = #{no}
+	</update>
+	
+	<delete id="blog_delete">
+		delete from blog where no = #{no}
+	</delete>
 
 
 </mapper>

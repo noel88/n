@@ -63,12 +63,12 @@
 
 
 <form action = "loginAction">
-<table style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+<table style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 
 	<tr>
    		<td><div class="form-group">
       <label for="exampleInputname1">Name</label>
-      <input type="text" class="form-control" name = "user_name" id="exampleInputPassword1" placeholder="Name" style="width: 320px; ">
+      <input type="text" class="form-control" name = "user_name" id="exampleInputPassword1" placeholder="Name">
       <small id="emailHelp" class="form-text text-muted">Please enter a name for your blog.</small>
     </div></td>
 
@@ -78,7 +78,7 @@
 
   		<td> <div class="form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" name = "user_pwd" id="exampleInputPassword1" placeholder="Password" style="width: 320px; ">
+      <input type="password" class="form-control" name = "user_pwd" id="exampleInputPassword1" placeholder="Password">
     </div></td>
 
   	</tr>

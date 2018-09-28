@@ -51,6 +51,30 @@ public class BlogController {
 		model.addAttribute(service.blog_detail(no));
 		return model;
 	}
+	
+	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
+	public String blog_updateForm(@RequestParam("no") int no, BlogVO vo, Model model) {
+		model.addAttribute(service.blog_detail(no));
+		return "blog/update";
+	}
+	
+	@RequestMapping(value = "/update", method = RequestMethod.GET)
+	public String blog_update(@RequestParam("no") int no, BlogVO vo) {
+		int result = service.update(vo);
+		
+		if(result != 0) {	
+			return "redirect:/blog/list";
+		}else {
+			return "";
+		}
+	}
+	
+	@RequestMapping(value = "/delete", method = RequestMethod.GET)
+	public String blog_delete(@RequestParam("no") int no) {
+		service.delete(no);
+		return "redirect:/blog/list";
+		
+	}
 
 
 

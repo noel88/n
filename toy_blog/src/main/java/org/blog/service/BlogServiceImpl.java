@@ -32,4 +32,20 @@ public class BlogServiceImpl implements BlogService{
 		return dao.blog_detail(no);
 	}
 
+	@Override
+	public int update(BlogVO vo) {
+		return dao.update(vo);
+	}
+
+	@Override
+	public List<BlogVO> my_list(String name) {
+		return dao.my_list(name);
+	}
+
+	@Override
+	public void delete(Integer no) {
+		dao.delete(no);
+		
+	}
+
 }

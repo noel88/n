@@ -5,7 +5,9 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.blog.domain.BlogVO;
 import org.blog.domain.UserVO;
+import org.blog.service.BlogService;
 import org.blog.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,8 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserController {
 
 
-	@Inject
-	private UserService service;
+	@Inject private UserService service;
+	@Inject private BlogService blogservice;
 
 
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
@@ -99,8 +101,12 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/page", method = RequestMethod.GET)
-	public String user_page() {
+	public String user_page(BlogVO vo, Model model, HttpSession session) {
 
+		String name = (String)session.getAttribute("name");
+		model.addAttribute("my",blogservice.my_list(name));
+		
+		
 		return "user/user_page";
 	}
 
