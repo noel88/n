@@ -3483,6 +3483,7 @@ MediumEditor.extensions = {};
             contentDefault: '<b>&ldquo;</b>',
             contentFA: '<i class="fa fa-quote-right"></i>'
         },
+        
         'pre': {
             name: 'pre',
             action: 'append-pre',

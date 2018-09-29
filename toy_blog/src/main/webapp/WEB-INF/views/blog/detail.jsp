@@ -71,7 +71,7 @@
 
 
 
-   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 80%;">
+   <table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 80%;">
 			<tr class="table-secondary">
 				<td style="width: 70%; text-align: left;">
 					<h3>
@@ -81,16 +81,14 @@
 				</td>
 
 				<td>
-					  <small class="text-muted">${blogVO.now} </small>
+					  <small class="text-muted"><i class="fas fa-calendar-alt">&nbsp;${blogVO.now}</i> </small>
 
 				<!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
 
 				</td>
-				<td style="width:5%;">
-				
-				</td>
+			
 				<td>
-					  <small class="text-muted">${blogVO.cnt} </small>
+					  <small class="text-muted"><i class="fas fa-eye">&nbsp;${blogVO.cnt}</i></small>
 
 				</td>
 
@@ -99,8 +97,27 @@
 			<td colspan="4">${blogVO.context}</td>
 			</tr>
 		
-			<tr>
-				<td scope="row" colspan="4">
+
+   </table>
+
+ <table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 80%;">
+		
+			<tr class="table-secondary">
+				<td>
+					comment ${count}
+				</td>
+			</tr>
+			<tr class="table-secondary">
+				<td>
+					<form action="comment">
+					<textarea style="resize: none; width: 100%; height: 100px;" name = "comment" placeholder="post a comment"></textarea>
+					<input type ="hidden" name = "reply_name" value="${sessionScope.name}">
+					<input type ="hidden" name = "blog_no" value="${blogVO.no}">
+
+				</td>
+			</tr>
+			<tr class="table-secondary">
+				<td>
 				<c:choose>
 					<c:when test = "${sessionScope.name == null}">
 				
@@ -118,12 +135,26 @@
 				 
 				      
 				</c:choose>
-				 </td>
-		    </tr>
-
-   </table>
-
-
-
+					
+					<button type="submit" class="btn btn-primary" style="float: right;"><i class="fas fa-comment-dots">&nbsp;comment</i></button>
+					</form>
+				</td>
+			</tr>
+			
+</table>
+<table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 80%;">
+<c:forEach items = "${comment}" var = "ReplyVO">   
+		
+			<tr class="table-secondary">
+				<td>
+				<h5><i class="fas fa-user">&nbsp;${ReplyVO.reply_name}</i></h5><hr>
+				<i class="fas fa-comment">${ReplyVO.comment}</i>
+				</td>
+			</tr>
+</c:forEach>
+ 			<tr style="height: 70px;">
+  			  </tr>
+</table>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>

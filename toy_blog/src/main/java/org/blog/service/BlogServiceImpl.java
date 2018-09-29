@@ -48,4 +48,9 @@ public class BlogServiceImpl implements BlogService{
 		
 	}
 
+	@Override
+	public List<BlogVO> my_comment(String name) {
+		return dao.my_comment(name);
+	}
+
 }

@@ -58,6 +58,11 @@ public class BlogDAOImpl implements BlogDAO {
 		
 	}
 
+	@Override
+	public List<BlogVO> my_comment(String name) {
+		return sqlsession.selectList(namespace + ".my_comment", name);
+	}
+
 
 
 

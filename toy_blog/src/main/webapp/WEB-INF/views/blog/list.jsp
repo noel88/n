@@ -1,21 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-    <link href="<c:url value="/resources/css/demo.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/medium-editor.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css/default.css" />" rel="stylesheet"id="medium-editor-theme">
-<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-    <link href="<c:url value="/resources/css//bootstrap.css" />" rel="stylesheet">
-    <link href="<c:url value="/resources/css//bootstrap.min.css" />" rel="stylesheet">
+
 <style type="text/css">
 
 #contents {
@@ -151,57 +141,13 @@ a.btn:hover:before, a.btn:hover::after {
 
 </style>
 <script type="text/javascript" src="https://nanati.me/common/js/jquery-1.11.2.min.js"></script>
-
-
+<%@ include file="/WEB-INF/views/include/head.jsp"%>
 </head>
 <body>
 
+<%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="/">한글 테스트</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarColor02">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li>
-<c:choose>
-	<c:when test = "${sessionScope.name == null}">
-      <li class="nav-item">
-        <a class="nav-link" href="/user/join">Start</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/user/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/blog/list">List</a>
-      </li>
- </c:when>
-      <c:otherwise>
-      <li class="nav-item">
-        <a class="nav-link" href="/blog/list">List</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/blog/write">Write</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="/user/page">${sessionScope.name}, page</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/user/logout">Logout</a>
-      </li>
 
-         </c:otherwise>
-</c:choose>
-    </ul>
-
-  </div>
-</nav>
 
 <script type="text/javascript">
 $(window).on('load', function () {
@@ -251,7 +197,7 @@ function load(id, cnt, btn) {
 				<td colspan="2" style="width: 750px; text-align: left;">
 					<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
 					   <small class="text-muted">${BlogVO.now} <cite title="Source Title">by.${BlogVO.name}</cite></small>
-					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">comment</i>&nbsp;
+					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp; ${BlogVO.comment_Cnt}</i>&nbsp;
 									<i class="fas fa-heart" >like</i></span>
 			 	</td>
 			</tr>
@@ -263,6 +209,6 @@ function load(id, cnt, btn) {
   <div id="js-btn-wrap" class="btn-wrap"> <a href="javascript:;" class="button">more</a> </div>
 </div>
 
-
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>

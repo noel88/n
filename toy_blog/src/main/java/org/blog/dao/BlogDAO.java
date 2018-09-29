@@ -12,6 +12,7 @@ public interface BlogDAO {
 	public void delete(Integer no);
 	public List<BlogVO> list();
 	public List<BlogVO> my_list(String name);
+	public List<BlogVO> my_comment(String name);
 	public void update_cnt(Integer no);
 	public BlogVO blog_detail(Integer no);
 

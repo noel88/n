@@ -105,6 +105,7 @@ public class UserController {
 
 		String name = (String)session.getAttribute("name");
 		model.addAttribute("my",blogservice.my_list(name));
+		model.addAttribute("my_comment",blogservice.my_comment(name));
 		
 		
 		return "user/user_page";

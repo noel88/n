@@ -9,8 +9,15 @@ public class BlogVO {
 	private String now;
 	private String context;
 	private int cnt;
+	private int comment_Cnt;
 
-
+	
+	public int getComment_Cnt() {
+		return comment_Cnt;
+	}
+	public void setComment_Cnt(int comment_Cnt) {
+		this.comment_Cnt = comment_Cnt;
+	}
 	public int getNo() {
 		return no;
 	}
