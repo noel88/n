@@ -43,12 +43,7 @@
 
 	
 	<select id="my_comment" resultType="org.blog.domain.JoinVO">
-		SELECT r.comment, r.reply_name, 
-			   b.title, b.name, b.no
-	      FROM blog b
-		  JOIN reply r
-		    ON b.name = r.reply_name
-		    where name = #{name}
+		SELECT r.comment, r.reply_name, b.title, b.no FROM reply r JOIN blog b ON r.reply_name = #{name}
 	</select>
 
 

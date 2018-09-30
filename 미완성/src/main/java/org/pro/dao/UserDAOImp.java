@@ -40,19 +40,16 @@ public class UserDAOImp implements UserDAO{
 
 	@Override
 	public boolean update(String id, UserVo mem) {
-
 		return false;
 	}
 
 	@Override
 	public List<UserVo> getList() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<UserVo> find(String id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 

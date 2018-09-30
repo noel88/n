@@ -136,6 +136,7 @@
 				      
 				</c:choose>
 					
+					<button type="button" class="btn btn-primary" style="float: right;"><i class="fab fa-gratipay">&nbsp;like</i></button>
 					<button type="submit" class="btn btn-primary" style="float: right;"><i class="fas fa-comment-dots">&nbsp;comment</i></button>
 					</form>
 				</td>

@@ -25,7 +25,6 @@ public class ReplyServiceImp implements ReplyService{
 
 	@Override
 	public void remove(Integer code) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -36,13 +35,12 @@ public class ReplyServiceImp implements ReplyService{
 
 	@Override
 	public void updateLike(Integer code) {
-		// TODO Auto-generated method stub
+
 		
 	}
 
 	@Override
 	public void updateHatd(Integer code) {
-		// TODO Auto-generated method stub
 		
 	}
 

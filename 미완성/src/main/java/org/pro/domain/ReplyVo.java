@@ -10,7 +10,6 @@ public class ReplyVo {
 	
 	
 	public ReplyVo() {
-		// TODO Auto-generated constructor stub
 	}
 
 

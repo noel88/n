@@ -16,6 +16,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+/**
+ * @author n
+ * @Class name : UserController.java
+ */
+
 @Controller
 @RequestMapping("/user/")
 public class UserController {
@@ -24,7 +29,14 @@ public class UserController {
 	@Inject private UserService service;
 	@Inject private BlogService blogservice;
 
-
+	
+	
+	/**
+	 * 회원가입 폼으로 이동
+	 * @param
+	 * @return String
+	 */
+		
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join() {
 
@@ -32,6 +44,15 @@ public class UserController {
 	}
 	
 
+	/**
+	 * 회원가입 처리
+	 * 
+	 * 회원가입이 완료가 되면 login페이지 이동 아니면 [error alert출력 [예정]]
+	 * 
+	 * @param UserVO
+	 * @return String
+	 * @throws exception
+	 */
 
 	@RequestMapping(value = "/joinAction", method = RequestMethod.POST)
 	public String joinAction(UserVO vo) throws Exception {
@@ -41,43 +62,81 @@ public class UserController {
 		if(result > 0) {
 			return "redirect:/user/login";
 		}else {
-			//에러출력
+			// TODO 회원가입이 되지 않으면 에 alert출력 필요.
 		}
 
 		return "redirect:/user/login";
 	}
 
-
+	/**
+	 * 회원가입후 이메일 인증을 위한 이메일 보내는 메소드
+	 * 
+	 * 회원이메일로 인증확인 URL보내기 AND USER TABLE에 AUTH_CODE UPDATE. 
+	 * 
+	 * @param String, Model
+	 * @return String
+	 * @throws exception
+	 */
 
 	@RequestMapping(value = "/emailConfirm", method = RequestMethod.GET)
-	public String emailConfirm(String user_email, Model model) throws Exception { // 이메일인증
+	public String emailConfirm(String user_email, Model model) throws Exception { 
 		service.userAuth(user_email);
 		model.addAttribute("user_email", user_email);
 
 		return "/user/emailConfirm";
 	}
 
-
+	/**
+	 * 이름 중복을 확인하는 메소드 
+	 * 
+	 * 
+	 * @param UserVO, Model
+	 * @return @ResponseBody, int
+	 * @throws exception
+	 */
+	
 	@RequestMapping(value = "nameCheck", method = { RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody int name_Check(UserVO vo, Model model) {
         return service.name_check(vo);
     }
 
+	/**
+	 * 이메일 중복을 확인하는 메소드 
+	 * 
+	 * 
+	 * @param UserVO, Model
+	 * @return @ResponseBody, int
+	 * @throws exception
+	 */
+	
 	@RequestMapping(value = "emailCheck", method = { RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody int email_Check(UserVO vo, Model model) {
 		return service.email_check(vo);
 	}
 
-
-
-
-
+	/**
+	 * 로그인 폼으로 이동 
+	 * 
+	 * @param 
+	 * @return 
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String login() {
 
 		return "user/login";
 	}
+	
+	/**
+	 * 로그인 액션 처리 메소드 
+	 * 
+	 * 로그인 확인이 되면 USER의 세션 정보를 가지고 메인페이지로 이동, 로그인 실패하면 로그인폼으로 이동.
+	 * 
+	 * @param UserVO, HttpSession
+	 * @return String
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/loginAction", method = RequestMethod.GET)
 	public String logincheck(@ModelAttribute UserVO vo, HttpSession session) {
@@ -93,12 +152,32 @@ public class UserController {
 
 	}
 
+	/**
+	 * 로그아웃 처리를 위한 메소드
+	 * 
+	 * 세션 초기화시킴 
+	 * 
+	 * @param HttpSession
+	 * @return String
+	 * @throws Exception
+	 */
+	
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logOut(HttpSession session) throws Exception {
 		service.logout(session);
 		return "redirect:/";
 
 	}
+	
+	/**
+	 * 마이페이지
+	 * 
+	 * 한 페이지에서 태그를 이용하여 이동, 나의 게시물 확인, 나의 덧글 확인, 나의 정보 수정, 회원 탈퇴.
+	 * 
+	 * @param BlogVO, Model, HttpSession
+	 * @return String
+	 * @throws 
+	 */	
 
 	@RequestMapping(value = "/page", method = RequestMethod.GET)
 	public String user_page(BlogVO vo, Model model, HttpSession session) {
@@ -106,7 +185,6 @@ public class UserController {
 		String name = (String)session.getAttribute("name");
 		model.addAttribute("my",blogservice.my_list(name));
 		model.addAttribute("my_comment",blogservice.my_comment(name));
-		
 		
 		return "user/user_page";
 	}

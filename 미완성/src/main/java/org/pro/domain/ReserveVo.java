@@ -12,7 +12,7 @@ public class ReserveVo {
 
 
 	public ReserveVo() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 

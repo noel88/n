@@ -25,7 +25,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public void createAuthKey(String user_email, String user_authCode) throws Exception {
-		// TODO Auto-generated method stub
+	
 		UserVO vo = new UserVO();
 		vo.setUser_authCode(user_authCode);
 		vo.setUser_email(user_email);

@@ -18,7 +18,7 @@ public class BoardVo {
 
 
 	public BoardVo() {
-		// TODO Auto-generated constructor stub
+
 	}
 
 

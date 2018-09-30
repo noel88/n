@@ -1,5 +1,12 @@
 package org.blog.domain;
 
+
+/**
+ * @author n
+ *
+ */
+
+
 public class BlogVO {
 
 
@@ -10,14 +17,8 @@ public class BlogVO {
 	private String context;
 	private int cnt;
 	private int comment_Cnt;
-
 	
-	public int getComment_Cnt() {
-		return comment_Cnt;
-	}
-	public void setComment_Cnt(int comment_Cnt) {
-		this.comment_Cnt = comment_Cnt;
-	}
+	
 	public int getNo() {
 		return no;
 	}
@@ -48,14 +49,22 @@ public class BlogVO {
 	public void setContext(String context) {
 		this.context = context;
 	}
+	
 	public int getCnt() {
 		return cnt;
 	}
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
 	}
+	public int getComment_Cnt() {
+		return comment_Cnt;
+	}
+	public void setComment_Cnt(int comment_Cnt) {
+		this.comment_Cnt = comment_Cnt;
+	}
 
-
+	
+	
 
 
 

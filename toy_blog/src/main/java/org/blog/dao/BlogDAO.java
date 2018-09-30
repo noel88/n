@@ -4,6 +4,12 @@ import java.util.List;
 
 import org.blog.domain.BlogVO;
 
+
+/**
+ * @author n
+ *
+ */
+
 public interface BlogDAO {
 
 

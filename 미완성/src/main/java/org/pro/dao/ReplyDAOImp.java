@@ -32,13 +32,11 @@ public class ReplyDAOImp implements ReplyDAO{
 
 	@Override
 	public void updateLike(Integer code) {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void updateHatd(Integer code) {
-		// TODO Auto-generated method stub
 		
 	}
 
