@@ -139,6 +139,19 @@ public class UserServiceImpl implements UserService{
 		return dao.email_check(vo);
 	}
 
+	/**
+	 * 회원정보 수정 메소드
+	 * 
+	 * @see org.blog.service.UserService#email_check(org.blog.domain.UserVO)
+	 * @param UserVO
+	 * @return int
+	 * @throws
+	 */
+	
+	@Override
+	public int user_update(UserVO vo) {
+		return dao.user_update(vo);
+	}
 
 
 

@@ -67,6 +67,29 @@ public class UserController {
 
 		return "redirect:/user/login";
 	}
+	
+	/**
+	 * 회원 수정 메소드
+	 * 
+	 * 수정이 완료되면 페이지 이동 아니면 [error alert출력 [예정]]
+	 * 
+	 * @param UserVO
+	 * @return String
+	 * @throws exception
+	 */
+	
+	@RequestMapping(value = "/user_update", method = RequestMethod.POST)
+	public String user_update(UserVO vo) throws Exception {
+		
+		int result = service.user_update(vo);
+		
+		if(result > 0) {
+			return "redirect:/";
+		}else {
+			// TODO 회원가입이 되지 않으면 에 alert출력 필요.
+		}
+		return "redirect:/user/login";
+	}
 
 	/**
 	 * 회원가입후 이메일 인증을 위한 이메일 보내는 메소드

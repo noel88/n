@@ -10,7 +10,9 @@ public class ReplyVO {
 	private String reply_name;
 	private String comment;
 	private String comment_now;
+	private int like_count;
 	
+
 	public int getReply_no() {
 		return reply_no;
 	}

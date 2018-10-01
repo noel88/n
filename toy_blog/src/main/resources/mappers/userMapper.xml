@@ -18,6 +18,9 @@
 		update USER set user_auth_yn = 'y' where user_email = #{user_email}	
 	</select>
 	
+	<update id="user_update">
+		update user set user_name = #{user_name}, user_pwd = #{user_pwd}
+	</update>
 
 	<update id="createAuthKey">
 		update USER set user_authCode = #{user_authCode} where user_email = #{user_email}

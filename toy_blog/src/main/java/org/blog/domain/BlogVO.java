@@ -17,8 +17,17 @@ public class BlogVO {
 	private String context;
 	private int cnt;
 	private int comment_Cnt;
+	private int like_count;
 	
 	
+	
+	
+	public int getLike_count() {
+		return like_count;
+	}
+	public void setLike_count(int like_count) {
+		this.like_count = like_count;
+	}
 	public int getNo() {
 		return no;
 	}

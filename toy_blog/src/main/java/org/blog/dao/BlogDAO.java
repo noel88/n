@@ -20,6 +20,8 @@ public interface BlogDAO {
 	public List<BlogVO> my_list(String name);
 	public List<BlogVO> my_comment(String name);
 	public void update_cnt(Integer no);
+	public void like_cnt(Integer no);
+	public int select_like_count(Integer no);
 	public BlogVO blog_detail(Integer no);
 
 }

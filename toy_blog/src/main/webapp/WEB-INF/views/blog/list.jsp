@@ -197,8 +197,8 @@ function load(id, cnt, btn) {
 				<td colspan="2" style="width: 750px; text-align: left;">
 					<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
 					   <small class="text-muted">${BlogVO.now} <cite title="Source Title">by.${BlogVO.name}</cite></small>
-					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp; ${BlogVO.comment_Cnt}</i>&nbsp;
-									<i class="fas fa-heart" >like</i></span>
+					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${BlogVO.comment_Cnt}</i>&nbsp;
+									<i class="fas fa-heart" >&nbsp;${BlogVO.like_count}</i></span>
 			 	</td>
 			</tr>
 

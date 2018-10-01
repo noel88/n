@@ -55,4 +55,7 @@ public class ReplyServiceImpl implements ReplyService{
 		return dao.comment_count(blog_no);
 	}
 
+	
+
+	
 }

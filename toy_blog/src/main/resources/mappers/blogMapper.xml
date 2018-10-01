@@ -11,16 +11,11 @@
 	</insert>
 
 	<select id="list" resultType="org.blog.domain.BlogVO">
-
-		select no, title, name, now, context, cnt, (select count(*) from reply where blog_no = blog.no) as comment_Cnt from blog order by no desc
-		
-
+		select no, title, name, now, context, cnt, like_count, (select count(*) from reply where blog_no = blog.no) as comment_Cnt from blog order by no desc
 	</select>
 	
 	<select id="my_list" resultType="org.blog.domain.BlogVO">
-
-		select no, title, name, now, context, cnt, (select count(*) from reply where blog_no = blog.no) as comment_Cnt from blog where name = #{name} order by no desc
-
+		select no, title, name, now, context, cnt, like_count, (select count(*) from reply where blog_no = blog.no) as comment_Cnt from blog where name = #{name} order by no desc
 	</select>
 	
 
@@ -36,20 +31,24 @@
 	<update id="blog_update">
 		update blog set title = #{title}, context = #{context} where no = #{no}
 	</update>
+
 	
-	<delete id="blog_delete">
+	<delete id="blog_delete" parameterType="java.lang.Integer">
 		delete from blog where no = #{no}
 	</delete>
 
-	
+
 	<select id="my_comment" resultType="org.blog.domain.JoinVO">
-		SELECT r.comment, r.reply_name, b.title, b.no FROM reply r JOIN blog b ON r.reply_name = #{name}
+		SELECT r.comment, r.reply_name, b.title, b.no FROM reply r left JOIN blog b ON r.blog_no = b.no where name = #{name}
 	</select>
 
+	<update id="like_count">
+		update blog set like_count= like_count+1 where no = #{no}
+	</update>
 
-
-
-
+	<select id="select_like_count" resultType="java.lang.Integer">
+		SELECT like_count FROM blog WHERE no = #{no} 
+	</select>
 
 
 </mapper>

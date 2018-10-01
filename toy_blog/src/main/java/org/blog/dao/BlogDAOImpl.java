@@ -54,13 +54,25 @@ public class BlogDAOImpl implements BlogDAO {
 
 	@Override
 	public void delete(Integer no) {
-		sqlsession.delete(namespace + ".blog_delete");
+		sqlsession.delete(namespace + ".blog_delete", no);
 		
 	}
 
 	@Override
 	public List<BlogVO> my_comment(String name) {
 		return sqlsession.selectList(namespace + ".my_comment", name);
+	}
+
+	@Override
+	public void like_cnt(Integer no) {
+		sqlsession.update(namespace + ".like_count", no);
+		
+	}
+
+	@Override
+	public int select_like_count(Integer no) {
+		return sqlsession.selectOne(namespace + ".select_like_count", no);
+		
 	}
 
 

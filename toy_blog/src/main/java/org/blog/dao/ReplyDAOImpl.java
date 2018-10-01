@@ -29,5 +29,6 @@ public class ReplyDAOImpl implements ReplyDAO {
 	public int comment_count(Integer blog_no) {
 		return sqlsession.selectOne(namespace + ".comment_count", blog_no);
 	}
+	
 
 }

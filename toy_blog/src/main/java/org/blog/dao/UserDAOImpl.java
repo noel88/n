@@ -58,6 +58,11 @@ public class UserDAOImpl implements UserDAO {
 		return sqlsession.selectOne(namespace + ".email_check", vo);
 	}
 
+	@Override
+	public int user_update(UserVO vo) {
+		return sqlsession.update(namespace + ".user_update", vo);
+	}
+
 
 
 

@@ -81,7 +81,7 @@ public class BlogController {
 	/**
 	 * 글 상세페이지
 	 * 
-	 * 글 번호에 해당하는 글 내용, 댓글 목록, 댓글 카운트 노출
+	 * 글 번호에 해당하는 글 내용, 댓글 목록, 댓글 카운트, like 개수 노출
 	 * 
 	 * @param @RequestParam, Model
 	 * @return String
@@ -93,6 +93,7 @@ public class BlogController {
 		model.addAttribute(service.blog_detail(no));
 		model.addAttribute("comment", reservice.comment_list(no));
 		model.addAttribute("count", reservice.comment_count(no));
+		model.addAttribute("like", service.select_like_count(no));
 		
 		return model;
 	}
@@ -128,10 +129,9 @@ public class BlogController {
 		int result = service.update(vo);
 		
 		if(result != 0) {	
-			return "redirect:/blog/list";
+			return "redirect:/blog/success";
 		}else {
-			// TODO 글 업데이트가 되지 않으면 예외처리 필요.
-			return "";
+			return "/blog/error";
 		}
 	}
 	
@@ -142,12 +142,11 @@ public class BlogController {
 	 * @return String
 	 * @throws 
 	 */	
-	
-	// FIXME 게시물 삭제 안되는것 확인. no값이 null로 들어감.
+
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String blog_delete(@RequestParam("no") int no) {
 		service.delete(no);
-		return "redirect:/blog/list";
+		return "redirect:/blog/success";
 		
 	}
 
@@ -165,13 +164,72 @@ public class BlogController {
 		int result = reservice.comment(vo);	
 		if(result != 0) {
 			// TODO 코멘트 등록 완료되면 alert 띄우기 
-			// FIXME 코멘트 등록후 상세페이지로 이동. [오류 해결]
-			return "redirect:/blog/list";
+			return "redirect:/blog/detail?no=" + no;
 		}else {
-			// TODO comment 등록이 되지 않으면 예외처리 필요.
-			return "";
+			return "/blog/error";
 		}
 		
+		
+	}
+	
+	/**
+	 * like버튼 누르면 카운트 증가
+	 * 
+	 * @param @RequestParam
+	 * @return String
+	 * @throws 
+	 */	
+	 
+	@RequestMapping(value = "/like_count", method = RequestMethod.GET)
+	public String like_count(@RequestParam("no") int no) {
+		
+		service.like_cnt(no);
+		return "redirect:/blog/detail?no=" + no;
+		
+	}
+	
+	/**
+	 * 비 로그인시 알림창 띄워줌. -> 로그인 페이지로 이동할수 있게.
+	 * 
+	 * @param @RequestParam
+	 * @return String
+	 * @throws 
+	 */	
+
+	@RequestMapping(value = "/loginCheck", method = RequestMethod.GET)
+	public String loginCheck() {
+		
+		return "/blog/loginCheck";
+		
+	}
+	
+	/**
+	 * 에러페이지 알람창 -> 목록으로 이동함.
+	 * 
+	 * @param
+	 * @return String
+	 * @throws 
+	 */	
+	
+	@RequestMapping(value = "/error", method = RequestMethod.GET)
+	public String error() {
+		
+		return "/blog/error";
+		
+	}
+	
+	/**
+	 * 성공페이지 알람창 -> 목록으로 이동함. 
+	 * 
+	 * @param 
+	 * @return String
+	 * @throws 
+	 */	
+	
+	@RequestMapping(value = "/success", method = RequestMethod.GET)
+	public String success() {
+		
+		return "/blog/success";
 		
 	}
 

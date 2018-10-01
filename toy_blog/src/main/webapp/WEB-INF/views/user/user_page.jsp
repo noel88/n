@@ -244,7 +244,10 @@ function load(id, cnt, btn) {
 						<c:forEach items = "${my}" var = "BlogVO">
 						<li class="lists__item js-load">
 						<h3 style="text-align: left;"><a href="/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a></h3>
-						<span><button>update</button>&nbsp;<button>delete</button></span>
+						<span>
+						<i class="fas fa-edit">&nbsp;update</i>
+				      	<i class="fas fa-trash-alt">&nbsp;delete</i>
+				      	 </span>
 						<span style="float: right;">${BlogVO.now}&nbsp;<i class="fas fa-eye">&nbsp;${BlogVO.cnt}</i>&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${BlogVO.comment_Cnt}</i>&nbsp; <i class="fas fa-heart">like</i></span>
 						</li>
 						</c:forEach>
@@ -279,12 +282,8 @@ function load(id, cnt, btn) {
   			  </tr>
 
    			</table>
-					
-						
-				
-				
-			
 		</div>
+		
 		<!-- 회원정보 수정 -->		
 		<div class="tab-pane fade show" id="profile">
 			<script type="text/javascript">
@@ -295,7 +294,7 @@ function load(id, cnt, btn) {
 					alert('탈퇴가 완료되었습니다.');
 				}
 			</script>
-			<form action="update" method="post" onsubmit="return validate()">
+			<form action="user_update" method="post" onsubmit="return validate()">
 				<table style="margin-left : auto; margin-right : auto; margin-top : 30px; width: 70%;">
 				<tr>
 					<td>

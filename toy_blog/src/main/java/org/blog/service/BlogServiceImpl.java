@@ -104,7 +104,6 @@ public class BlogServiceImpl implements BlogService{
 	@Override
 	public void delete(Integer no) {
 		dao.delete(no);
-		
 	}
 
 	/**
@@ -119,6 +118,17 @@ public class BlogServiceImpl implements BlogService{
 	@Override
 	public List<BlogVO> my_comment(String name) {
 		return dao.my_comment(name);
+	}
+
+	@Override
+	public void like_cnt(Integer no) {
+		dao.like_cnt(no);
+		
+	}
+
+	@Override
+	public int select_like_count(Integer no) {
+		return dao.select_like_count(no);
 	}
 
 	
