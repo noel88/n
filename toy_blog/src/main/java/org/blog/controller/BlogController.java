@@ -29,11 +29,11 @@ public class BlogController {
 
 	/**
 	 * 글쓰기 폼으로 이동
-	 * 
-	 * @param 
+	 *
+	 * @param
 	 * @return String
-	 * @throws 
-	 */	
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public String write() {
@@ -43,14 +43,14 @@ public class BlogController {
 
 	/**
 	 * 글쓰기 등록을 위한 메소드
-	 * 
+	 *
 	 * 등록 처리가 완료되면 list 페이지 이동, [글 등록이 되지 않으면 error alert 출력 [미정]]
-	 * 
+	 *
 	 * @param BlogVO
 	 * @return String
 	 * @throws Exception
-	 */	
-	
+	 */
+
 	@RequestMapping(value = "/create" , method = RequestMethod.GET)
 	public String insert(BlogVO vo) throws Exception{
 
@@ -63,179 +63,179 @@ public class BlogController {
 			return "";
 		}
 	}
-	
+
 	/**
 	 * 게시글 목록 이동
-	 * 
+	 *
 	 * @param Model
 	 * @return String
-	 * @throws 
-	 */	
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(Model model) {
 		model.addAttribute("list", service.list());
 		return "blog/list";
 	}
-	
+
 	/**
 	 * 글 상세페이지
-	 * 
+	 *
 	 * 글 번호에 해당하는 글 내용, 댓글 목록, 댓글 카운트, like 개수 노출
-	 * 
+	 *
 	 * @param @RequestParam, Model
 	 * @return String
-	 * @throws 
-	 */	
-	
+	 * @throws
+	 */
+
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
 	public Model list_detail(@RequestParam("no") int no, Model model) {
 		model.addAttribute(service.blog_detail(no));
 		model.addAttribute("comment", reservice.comment_list(no));
 		model.addAttribute("count", reservice.comment_count(no));
 		model.addAttribute("like", service.select_like_count(no));
-		
+
 		return model;
 	}
-	
+
 	/**
 	 * 글 수정 페이지
-	 * 
+	 *
 	 * 글 번호에 해당하는 글 내용을 그대로 가지고 감.
-	 * 
+	 *
 	 * @param @RequestParam, Model, BlogVO
 	 * @return String
-	 * @throws 
-	 */	
-	
+	 * @throws
+	 */
+
 	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
 	public String blog_updateForm(@RequestParam("no") int no, BlogVO vo, Model model) {
 		model.addAttribute(service.blog_detail(no));
 		return "blog/update";
 	}
-	
+
 	/**
 	 * 글 수정 로직 메소드
-	 * 
+	 *
 	 * 글 수정이 되면 list페이지 이동, [글 업데이트가 되지 않으면 예외처리 [미정]]
-	 * 
+	 *
 	 * @param @RequestParam, BlogVO
 	 * @return String
-	 * @throws 
-	 */	
-	
+	 * @throws
+	 */
+
 	@RequestMapping(value = "/update", method = RequestMethod.GET)
 	public String blog_update(@RequestParam("no") int no, BlogVO vo) {
 		int result = service.update(vo);
-		
-		if(result != 0) {	
+
+		if(result != 0) {
 			return "redirect:/blog/success";
 		}else {
 			return "/blog/error";
 		}
 	}
-	
+
 	/**
 	 * 글 삭제
-	 * 
+	 *
 	 * @param @RequestParam
 	 * @return String
-	 * @throws 
-	 */	
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public String blog_delete(@RequestParam("no") int no) {
 		service.delete(no);
 		return "redirect:/blog/success";
-		
+
 	}
 
 	/**
 	 * 코멘트 등록
-	 * 
+	 *
 	 * @param @RequestParam, ReplyVO
 	 * @return String
-	 * @throws 
-	 */	
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/comment", method = RequestMethod.GET)
 	public String write_comment(ReplyVO vo, @RequestParam("blog_no") int no) {
-	
-		int result = reservice.comment(vo);	
+
+		int result = reservice.comment(vo);
 		if(result != 0) {
-			// TODO 코멘트 등록 완료되면 alert 띄우기 
+			// TODO 코멘트 등록 완료되면 alert 띄우기
 			return "redirect:/blog/detail?no=" + no;
 		}else {
 			return "/blog/error";
 		}
-		
-		
+
+
 	}
-	
+
 	/**
 	 * like버튼 누르면 카운트 증가
-	 * 
+	 *
 	 * @param @RequestParam
 	 * @return String
-	 * @throws 
-	 */	
-	 
+	 * @throws
+	 */
+
 	@RequestMapping(value = "/like_count", method = RequestMethod.GET)
 	public String like_count(@RequestParam("no") int no) {
-		
+
 		service.like_cnt(no);
 		return "redirect:/blog/detail?no=" + no;
-		
+
 	}
-	
+
 	/**
 	 * 비 로그인시 알림창 띄워줌. -> 로그인 페이지로 이동할수 있게.
-	 * 
+	 *
 	 * @param @RequestParam
 	 * @return String
-	 * @throws 
-	 */	
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/loginCheck", method = RequestMethod.GET)
 	public String loginCheck() {
-		
+
 		return "/blog/loginCheck";
-		
+
 	}
-	
+
 	/**
 	 * 에러페이지 알람창 -> 목록으로 이동함.
-	 * 
+	 *
 	 * @param
 	 * @return String
-	 * @throws 
-	 */	
-	
+	 * @throws
+	 */
+
 	@RequestMapping(value = "/error", method = RequestMethod.GET)
 	public String error() {
-		
+
 		return "/blog/error";
-		
+
 	}
-	
+
 	/**
-	 * 성공페이지 알람창 -> 목록으로 이동함. 
-	 * 
-	 * @param 
+	 * 성공페이지 알람창 -> 목록으로 이동함.
+	 *
+	 * @param
 	 * @return String
-	 * @throws 
-	 */	
-	
+	 * @throws
+	 */
+
 	@RequestMapping(value = "/success", method = RequestMethod.GET)
 	public String success() {
-		
+
 		return "/blog/success";
-		
+
 	}
 
 
-	
-	
+
+
 
 
 

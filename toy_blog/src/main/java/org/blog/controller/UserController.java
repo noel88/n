@@ -29,26 +29,26 @@ public class UserController {
 	@Inject private UserService service;
 	@Inject private BlogService blogservice;
 
-	
-	
+
+
 	/**
 	 * 회원가입 폼으로 이동
 	 * @param
 	 * @return String
 	 */
-		
+
 	@RequestMapping(value = "/join", method = RequestMethod.GET)
 	public String join() {
 
 		return "user/join";
 	}
-	
+
 
 	/**
 	 * 회원가입 처리
-	 * 
+	 *
 	 * 회원가입이 완료가 되면 login페이지 이동 아니면 [error alert출력 [예정]]
-	 * 
+	 *
 	 * @param UserVO
 	 * @return String
 	 * @throws exception
@@ -67,22 +67,22 @@ public class UserController {
 
 		return "redirect:/user/login";
 	}
-	
+
 	/**
 	 * 회원 수정 메소드
-	 * 
+	 *
 	 * 수정이 완료되면 페이지 이동 아니면 [error alert출력 [예정]]
-	 * 
+	 *
 	 * @param UserVO
 	 * @return String
 	 * @throws exception
 	 */
-	
+
 	@RequestMapping(value = "/user_update", method = RequestMethod.POST)
 	public String user_update(UserVO vo) throws Exception {
-		
+
 		int result = service.user_update(vo);
-		
+
 		if(result > 0) {
 			return "redirect:/";
 		}else {
@@ -93,16 +93,16 @@ public class UserController {
 
 	/**
 	 * 회원가입후 이메일 인증을 위한 이메일 보내는 메소드
-	 * 
-	 * 회원이메일로 인증확인 URL보내기 AND USER TABLE에 AUTH_CODE UPDATE. 
-	 * 
+	 *
+	 * 회원이메일로 인증확인 URL보내기 AND USER TABLE에 AUTH_CODE UPDATE.
+	 *
 	 * @param String, Model
 	 * @return String
 	 * @throws exception
 	 */
 
 	@RequestMapping(value = "/emailConfirm", method = RequestMethod.GET)
-	public String emailConfirm(String user_email, Model model) throws Exception { 
+	public String emailConfirm(String user_email, Model model) throws Exception {
 		service.userAuth(user_email);
 		model.addAttribute("user_email", user_email);
 
@@ -110,38 +110,38 @@ public class UserController {
 	}
 
 	/**
-	 * 이름 중복을 확인하는 메소드 
-	 * 
-	 * 
+	 * 이름 중복을 확인하는 메소드
+	 *
+	 *
 	 * @param UserVO, Model
 	 * @return @ResponseBody, int
 	 * @throws exception
 	 */
-	
+
 	@RequestMapping(value = "nameCheck", method = { RequestMethod.GET, RequestMethod.POST})
     public @ResponseBody int name_Check(UserVO vo, Model model) {
         return service.name_check(vo);
     }
 
 	/**
-	 * 이메일 중복을 확인하는 메소드 
-	 * 
-	 * 
+	 * 이메일 중복을 확인하는 메소드
+	 *
+	 *
 	 * @param UserVO, Model
 	 * @return @ResponseBody, int
 	 * @throws exception
 	 */
-	
+
 	@RequestMapping(value = "emailCheck", method = { RequestMethod.GET, RequestMethod.POST})
 	public @ResponseBody int email_Check(UserVO vo, Model model) {
 		return service.email_check(vo);
 	}
 
 	/**
-	 * 로그인 폼으로 이동 
-	 * 
-	 * @param 
-	 * @return 
+	 * 로그인 폼으로 이동
+	 *
+	 * @param
+	 * @return
 	 * @throws
 	 */
 
@@ -150,12 +150,12 @@ public class UserController {
 
 		return "user/login";
 	}
-	
+
 	/**
-	 * 로그인 액션 처리 메소드 
-	 * 
+	 * 로그인 액션 처리 메소드
+	 *
 	 * 로그인 확인이 되면 USER의 세션 정보를 가지고 메인페이지로 이동, 로그인 실패하면 로그인폼으로 이동.
-	 * 
+	 *
 	 * @param UserVO, HttpSession
 	 * @return String
 	 * @throws
@@ -177,30 +177,30 @@ public class UserController {
 
 	/**
 	 * 로그아웃 처리를 위한 메소드
-	 * 
-	 * 세션 초기화시킴 
-	 * 
+	 *
+	 * 세션 초기화시킴
+	 *
 	 * @param HttpSession
 	 * @return String
 	 * @throws Exception
 	 */
-	
+
 	@RequestMapping(value = "logout", method = RequestMethod.GET)
 	public String logOut(HttpSession session) throws Exception {
 		service.logout(session);
 		return "redirect:/";
 
 	}
-	
+
 	/**
 	 * 마이페이지
-	 * 
+	 *
 	 * 한 페이지에서 태그를 이용하여 이동, 나의 게시물 확인, 나의 덧글 확인, 나의 정보 수정, 회원 탈퇴.
-	 * 
+	 *
 	 * @param BlogVO, Model, HttpSession
 	 * @return String
-	 * @throws 
-	 */	
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/page", method = RequestMethod.GET)
 	public String user_page(BlogVO vo, Model model, HttpSession session) {
@@ -208,7 +208,7 @@ public class UserController {
 		String name = (String)session.getAttribute("name");
 		model.addAttribute("my",blogservice.my_list(name));
 		model.addAttribute("my_comment",blogservice.my_comment(name));
-		
+
 		return "user/user_page";
 	}
 

@@ -191,7 +191,7 @@ function load(id, cnt, btn) {
 					  <small class="text-muted"><i class="fas fa-eye">&nbsp;${BlogVO.cnt}</i> </small>
 
 				</td>
-				
+
 			</tr>
 			<tr>
 				<td colspan="2" style="width: 750px; text-align: left;">
