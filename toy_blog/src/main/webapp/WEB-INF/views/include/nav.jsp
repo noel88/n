@@ -14,7 +14,7 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/lxa">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
@@ -22,27 +22,27 @@
 <c:choose>
 	<c:when test = "${sessionScope.name == null}">
       <li class="nav-item">
-        <a class="nav-link" href="/user/join">Start</a>
+        <a class="nav-link" href="/lxa/user/join">Start</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/user/login">Login</a>
+        <a class="nav-link" href="/lxa/user/login">Login</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/blog/list">List</a>
+        <a class="nav-link" href="/lxa/blog/list">List</a>
       </li>
  </c:when>
       <c:otherwise>
       <li class="nav-item">
-        <a class="nav-link" href="/blog/list">List</a>
+        <a class="nav-link" href="/lxa/blog/list">List</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/blog/write">Write</a>
+        <a class="nav-link" href="/lxa/blog/write">Write</a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="/user/page">${sessionScope.name}, page</a>
+        <a class="nav-link" href="/lxa/user/page">${sessionScope.name}, page</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/user/logout">Logout</a>
+        <a class="nav-link" href="/lxa/user/logout">Logout</a>
       </li>
 
          </c:otherwise>
