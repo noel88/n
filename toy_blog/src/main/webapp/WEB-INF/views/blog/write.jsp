@@ -48,7 +48,8 @@
 			</tr>
 			</table>
 		</form>
-		<script src="<c:url value=" /resources/js/medium-editor.js"/>"></script>
+		<script src="<c:url value="../resources/js/medium-editor.js"/>"></script>
+
 		<script>
         var editor = new MediumEditor('.editable', {
             buttonLabels: 'fontawesome',
