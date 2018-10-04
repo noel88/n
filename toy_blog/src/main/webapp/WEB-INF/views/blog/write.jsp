@@ -58,9 +58,8 @@
       			'orderedlist', 'unorderedlist', 'indent', 'outdent', 'justifyLeft', 'justifyCenter', 'justifyRight' ]}
         }),
         cssLink = document.getElementById('medium-editor-theme');
-        document.getElementById('sel-themes').addEventListener('change', function () {
-            cssLink.href = '../dist/css/' + this.value + '.css';
-        });
+
+
     </script>
 		<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 	</body>
