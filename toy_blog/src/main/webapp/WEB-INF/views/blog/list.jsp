@@ -183,7 +183,7 @@ function load(id, cnt, btn) {
 			<tr>
 				<td style="text-align: left;">
 					<h3>
-					  <a href = "lxa/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a>
+					  <a href = "/lxa/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a>
 					</h3>
 				</td>
 				<td style="float: right;">
