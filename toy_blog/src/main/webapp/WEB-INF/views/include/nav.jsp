@@ -14,7 +14,7 @@
   <div class="collapse navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="/lxa">Home11111 <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/lxa">Home<span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
