@@ -64,13 +64,15 @@
 
     <script>
         var editor = new MediumEditor('.editable', {
-            buttonLabels: 'fontawesome'
+            buttonLabels: 'fontawesome',
+            toolbar: {
+      		buttons: ['bold', 'italic', 'anchor', 'quote', 'pre', 'underline', 'h1', 'h2', 'h3', 'h4',
+      			'orderedlist', 'unorderedlist', 'indent', 'outdent', 'justifyLeft', 'justifyCenter', 'justifyRight' ]}
         }),
         cssLink = document.getElementById('medium-editor-theme');
 
-        document.getElementById('sel-themes').addEventListener('change', function () {
-            cssLink.href = '../dist/css/' + this.value + '.css';
-        });
+
+
     </script>
 
 

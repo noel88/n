@@ -60,50 +60,13 @@ public class BlogController {
 
 	@RequestMapping(value = "/create" , method = RequestMethod.POST)
 			public String create(BlogVO vo) {
-//		    public String upload(MultipartHttpServletRequest multipartRequest, BlogVO vo) { 
-//		
-//		 Iterator<String> itr =  multipartRequest.getFileNames();
-//       
-//	      String filePath = "/Users/n/Desktop/img_test"; //설정파일로 뺀다.
-//	       ImgVO img = new ImgVO();
-//	       img.setBlog_name(vo.getName());
-//	       
-//	      while (itr.hasNext()) { //받은 파일들을 모두 돌린다.
-//	           
-//	          /* 기존 주석처리
-//	          MultipartFile mpf = multipartRequest.getFile(itr.next());
-//	          String originFileName = mpf.getOriginalFilename();
-//	          System.out.println("FILE_INFO: "+originFileName); //받은 파일 리스트 출력'
-//	          */
-//	           
-//	          MultipartFile mpf = multipartRequest.getFile(itr.next());
-//	    
-//	          String originalFilename = mpf.getOriginalFilename(); //파일명
-//	          img.setBlog_img1(originalFilename);
-//	          service.create_img(img);
-//	          String fileFullPath = filePath+"/"+originalFilename; //파일 전체 경로
-//	    
-//	          try {
-//	              //파일 저장
-//	        	  mpf.transferTo(new File(fileFullPath)); //파일저장 실제로는 service에서 처리
-//	        	  
-//	              System.out.println("originalFilename => "+originalFilename);
-//	              System.out.println("fileFullPath => "+fileFullPath);
-//	    
-//	          } catch (Exception e) {
-//	              System.out.println("postTempFile_ERROR======>"+fileFullPath);
-//	              e.printStackTrace();
-//	          }
-//	                        
-//	     }
-//			
-		
+
+
 		        service.create(vo);
 		        return "redirect:/blog/list";
-
 	}
-	
-	
+
+
 
 
 	/**
@@ -276,46 +239,46 @@ public class BlogController {
 	}
 
 
-       
-	     
+
+
 //	@RequestMapping(value = "/fileUpload/post") //ajax에서 호출하는 부분
 //    @ResponseBody
 //    public String upload(MultipartHttpServletRequest multipartRequest) { //Multipart로 받는다.
-//          
+//
 //        Iterator<String> itr =  multipartRequest.getFileNames();
-//         
+//
 //        String filePath = "/Users/n/Desktop/img_test"; //설정파일로 뺀다.
 //        ImgVO vo = new ImgVO();
 //        while (itr.hasNext()) { //받은 파일들을 모두 돌린다.
-//             
+//
 //            /* 기존 주석처리
 //            MultipartFile mpf = multipartRequest.getFile(itr.next());
 //            String originFileName = mpf.getOriginalFilename();
 //            System.out.println("FILE_INFO: "+originFileName); //받은 파일 리스트 출력'
 //            */
-//             
+//
 //            MultipartFile mpf = multipartRequest.getFile(itr.next());
-//      
+//
 //            String originalFilename = mpf.getOriginalFilename(); //파일명
 //            vo.setBlog_img1(originalFilename);
-//      
+//
 //            String fileFullPath = filePath+"/"+originalFilename; //파일 전체 경로
-//      
+//
 //            try {
 //                //파일 저장
 //                mpf.transferTo(new File(fileFullPath)); //파일저장 실제로는 service에서 처리
 //                System.out.println("originalFilename => "+originalFilename);
 //                System.out.println("fileFullPath => "+fileFullPath);
-//      
+//
 //            } catch (Exception e) {
 //                System.out.println("postTempFile_ERROR======>"+fileFullPath);
 //                e.printStackTrace();
 //            }
-//                          
+//
 //       }
-//          
+//
 //        return "success";
-    
+
 	}
 
 

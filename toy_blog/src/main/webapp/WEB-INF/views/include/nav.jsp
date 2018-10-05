@@ -16,6 +16,9 @@
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/lxa/event/evnetList">evnet</a>
+      </li>
 <c:choose>
 	<c:when test = "${sessionScope.name == null}">
       <li class="nav-item">

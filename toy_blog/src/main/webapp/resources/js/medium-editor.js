@@ -3370,7 +3370,7 @@ MediumEditor.extensions = {};
             action: 'image',
             aria: 'image',
             tagNames: ['img'],
-            contentDefault: '<img scr ="image"/>',
+            contentDefault: '<b></b>',
             contentFA: '<i class="fa fa-picture-o"></i>'
         },
         'html': {

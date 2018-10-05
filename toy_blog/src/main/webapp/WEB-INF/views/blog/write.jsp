@@ -10,7 +10,7 @@
 </head>
 <body>
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
-<form action="create" method="post"> 
+<form action="create" method="post">
 	<table style="margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 	<tr>
 		<td>
@@ -30,7 +30,7 @@
 				</div>
 			</td>
 		</tr>
-			<tr>		
+			<tr>
 				<td>
 					<div class="form-group">
 						<label for="exampleTextarea">write</label>
@@ -48,10 +48,10 @@
 					<button type="submit" style="margin-left: auto; margin-right: auto;" class="btn btn-primary"><i class="fas fa-pen">&nbsp;Write</i></button>
 				</td>
 			</tr>
-			
+
 			<tr style="height: 70px;">
 			</tr>
-			
+
 			</table>
 		</form>
 		<script src="<c:url value="../resources/js/medium-editor.js"/>"></script>
@@ -61,17 +61,17 @@
         var editor = new MediumEditor('.editable', {
             buttonLabels: 'fontawesome',
             toolbar: {
-      		buttons: ['bold', 'italic', 'anchor', 'quote', 'pre', 'underline', 'image', 'html', 'h1', 'h2', 'h3', 'h4',
+      		buttons: ['bold', 'italic', 'anchor', 'quote', 'pre', 'image', 'underline', 'h1', 'h2', 'h3', 'h4',
       			'orderedlist', 'unorderedlist', 'indent', 'outdent', 'justifyLeft', 'justifyCenter', 'justifyRight' ]}
         }),
         cssLink = document.getElementById('medium-editor-theme');
 
-        
-    
-        
+
+
+
 
     </script>
-    
+
      <br>
      <br>
 		<%@ include file="/WEB-INF/views/include/footer.jsp" %>
