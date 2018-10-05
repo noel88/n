@@ -13,7 +13,7 @@
 
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
-
+<div style="max-width: 1500px; margin-right: auto; margin-left: auto;">
 
    <table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 			<tr class="table-secondary">
@@ -44,7 +44,7 @@
 
    </table>
 
- <table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 80%;">
+ <table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 
 			<tr class="table-secondary">
 				<td>
@@ -115,6 +115,7 @@
  			<tr style="height: 70px;">
   			  </tr>
 </table>
+</div>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>

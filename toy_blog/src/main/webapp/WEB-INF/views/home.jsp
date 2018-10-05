@@ -14,17 +14,19 @@ pageEncoding="UTF-8"%>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
+<div style="max-width: 1500px; margin-right: auto; margin-left: auto;">
 
-<table style="margin-left: auto; margin-right: auto; width: 65%; margin-top: 30px; table-layout:fixed;">
+
+<table style="margin-left: auto; margin-right: auto; width: 65%; margin-top: 30px; ">
 	<tr>
 		<td colspan="4"><h2><p class="text-danger"><i class="far fa-comment-alt">Event</i></p></h2></td>
 	</tr>
-	<tr style="height: 200px;">
-		<td style="width: 50%;" colspan="2" rowspan="2"><img src = "./resources/img/books-1245690_640.jpg" style="max-width: 100%; height: auto;"></td>
+	<tr style="height: 160px;">
+		<td style="width: 50%;" colspan="2" rowspan="2"><img src = "./resources/img/books-1245690_640.jpg" style=" max-width: 100%; height: auto;"></td>
 		<td style="width: 25%;"><img src = "./resources/img/adwords-793034_640.jpg" style="max-width: 100%; height: auto;"></td>
 		<td style="width: 25%;"><img src = "./resources/img/social-media-1989152_640.jpg"  style="max-width: 100%; height: auto;"></td>
 	</tr>
-	<tr style="height: 200px;">
+	<tr style="height: 160px;">
 		<td><img src = "./resources/img/typewriter-801921_640.jpg"  style="max-width: 100%; height: auto;"></td>
 		<td><img src = "./resources/img/books-1245690_640.jpg"  style="max-width: 100%; height: auto;"></td>
 	</tr>
@@ -41,20 +43,9 @@ pageEncoding="UTF-8"%>
 		<td colspan="4"><h2><p class="text-warning"><i class="fas fa-star">NEW</i></p></h2></td>
 	</tr>
 
-	<tr style="height: 200px;">
+	<tr style="height: 150px;">
 		<td style="width: 20%;">
-			<blockquote class="blockquote">
-		  	<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-		  	<footer class="blockquote-footer">블로그 작가 <cite title="Source Title">by. ###</cite></footer>
-			</blockquote>
-		</td>
-
-		<td style="width: 20%;">
-			<img src = "./resources/img/typewriter-801921_640.jpg"  style="max-width: 100%; height: auto;">
-		</td>
-
-		<td style="width: 20%;">
-			<div class="list-group" style=" height: 110%; padding-top: 6px;" >
+			<div class="list-group" style=" height: 100%;" >
 			  <a href="#" class="list-group-item list-group-item-action active">
 			    블로그명
 			  </a>
@@ -62,14 +53,25 @@ pageEncoding="UTF-8"%>
 			  </a>
 			  <a href="#" class="list-group-item list-group-item-action disabled">블로그제목2
 			  </a>
-			  <a href="#" class="list-group-item list-group-item-action disabled">블로그제목3
-			  </a>
+
 			</div>
 		</td>
+		<td style="width: 20%;">
+			<blockquote class="blockquote">
+		  	<p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+		  	<footer class="blockquote-footer">블로그 작가 <cite title="Source Title">by. ###</cite></footer>
+			</blockquote>
+		</td>
+
+
+		<td style="width: 20%;">
+			<img src = "./resources/img/typewriter-801921_640.jpg"  style="max-width: 100%; height: auto;">
+		</td>
+
 
 		<td style="width: 20%;">
 			<div class="card" >
-			 	<div class="card-body" style="height:90%;">
+			 	<div class="card-body" style="height:70%;">
 				    <h4 class="card-title">Card title</h4>
 				    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
 				    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -147,7 +149,7 @@ pageEncoding="UTF-8"%>
 </table>
 
 
-
+</div>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 
