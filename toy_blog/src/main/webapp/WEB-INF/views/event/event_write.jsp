@@ -5,44 +5,52 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<%@ include file="/WEB-INF/views/include/head.jsp" %>
 
-</head>
-<body>
-<%@ include file="/WEB-INF/views/include/nav.jsp" %>
-<form action="create" method="post">
-	<table style="margin-left : auto; margin-right : auto; margin-top : 30px; width: 40%;">
-	<tr>
-		<td>
-			<div class="form-group">
-				<label for="title">Title</label>
-				<input type="text" class="form-control" name="title" id="title" placeholder="Title">
-			</div>
-		</td>
+		<form action="event_create" method="get">
+	<table  style="margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 
+		<tr>
+
+				<td colspan="2">
+				<div class="form-group">
+			      <label>이벤트 제목</label>
+			      <input type="text" class="form-control" name = "event_title" placeholder="이벤트 제목을 입력해주세요">
+			    </div>
+			</td>
+
+		</tr>
+
+		<tr>
 			<td>
 				<div class="form-group">
-					<label for="name">Name</label>
-					<input type="text" class="form-control" name="name" id="name" value="${sessionScope.name}" readonly="readonly">
-					<input type="hidden" name="blog_name" value="${sessionScope.name}">
-				</div>
+			      <label>이벤트 시작날짜</label>
+			      <input type="date" class="form-control" name = "event_startDate" >
+			    </div>
 			</td>
+			<td>
+			    <div class ="form-group">
+			      <label>이벤트 종료날짜</label>
+			      <input type="date" class="form-control" name="event_endDate">
+			    </div>
+    		</td>
 		</tr>
+		<tr>
+			<td colspan="2"><small id="emailHelp" class="form-text text-muted">이벤트 시작날짜와 끝 날짜를 정확히 기입해주세요. 이벤트 페이지는 수정이 불가능합니다.</small></td>
+		</tr>
+
 			<tr>
 				<td colspan="2">
 					<div class="form-group">
-						<label for="exampleTextarea">write</label>
+
 						<hr>
 						<br>
-						<textarea class="editable" rows="70" name="context"></textarea>
+						<textarea class="editable" rows="70" name="event_content">글을 드래그하면 에디터가 나와 글자를 편집하거나, 이미지를 삽입할수 있습니다.</textarea>
 					</div>
 				</td>
 			</tr>
-			<!-- <tr>
-			<td> <div id="fileUpload" class="dragAndDropDiv">블로그 메인 이미지를 넣어주세요.</div></td>
-			</tr> -->
+
 			<tr>
-				<td>
+				<td colspan="2">
 					<button type="submit" style="margin-left: auto; margin-right: auto;" class="btn btn-primary"><i class="fas fa-pen">&nbsp;Write</i></button>
 				</td>
 			</tr>
@@ -65,13 +73,8 @@
         cssLink = document.getElementById('medium-editor-theme');
 
 
-
-
-
     </script>
 
-     <br>
-     <br>
-		<%@ include file="/WEB-INF/views/include/footer.jsp" %>
+
 	</body>
 </html>

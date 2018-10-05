@@ -15,7 +15,7 @@
 
 
 
-   <table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 80%;">
+   <table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 			<tr class="table-secondary">
 				<td style="width: 70%; text-align: left;">
 					<h3>

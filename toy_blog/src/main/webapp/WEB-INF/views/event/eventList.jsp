@@ -172,6 +172,10 @@ function load(id, cnt, btn) {
 </script>
 
 
+<a href = "event_write">이벤트 등록하기</a>
+<a href = "event_cal">이벤트 달력</a>
+
+
 
 <div id="contents">
   <div id="js-load" class="lists">
@@ -183,22 +187,19 @@ function load(id, cnt, btn) {
 			<tr>
 				<td style="text-align: left;">
 					<h3>
-					  <a href = "/lxa/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a>
+					  블로그 제목
 					</h3>
 				</td>
 				<td style="float: right;">
 
-					  <small class="text-muted"><i class="fas fa-eye">&nbsp;${BlogVO.cnt}</i> </small>
+
 
 				</td>
 
 			</tr>
 			<tr>
-				<td colspan="2" style="width: 750px; text-align: left;">
-					<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-					   <small class="text-muted">${BlogVO.now} <cite title="Source Title">by.${BlogVO.name}</cite></small>
-					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${BlogVO.comment_Cnt}</i>&nbsp;
-									<i class="fas fa-heart" >&nbsp;${BlogVO.like_count}</i></span>
+				<td>
+				내용
 			 	</td>
 			</tr>
 

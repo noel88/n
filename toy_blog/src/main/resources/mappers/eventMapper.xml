@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.blog.mapper.eventMapper">
+
+	<insert id="event">
+		insert into event value(#{event_no}, #{event_title}, #{event_startDate}, #{event_endDate}, #{event_content}, #{event_click})
+	</insert>
+
+	<select id="eventList" resultType = "org.blog.domain.EventVO">
+		select * from event
+	</select>
+
+</mapper>

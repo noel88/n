@@ -1,27 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<%@ include file="/WEB-INF/views/include/head.jsp" %>
 
 <style type="text/css">
-
 #contents {
 	max-width: 780px;
 	margin: 0 auto;
 	text-align: center;
 	padding-bottom: 50px;
 }
-
 .ad {
 	text-align: center;
 	border: 1px dotted #ccc;
 	max-width: 780px;
 	margin: 0 auto 6rem;
 }
-
 a.btn {
 	background: #59b1eb;
 	color: #fff;
@@ -33,7 +32,6 @@ a.btn {
 	transition: 800ms ease all;
 	outline: none;
 }
-
 a.btn:before, a.btn::after {
 	content: '';
 	position: absolute;
@@ -54,8 +52,6 @@ a.btn:hover:before, a.btn:hover::after {
 	width: 100%;
 	transition: 800ms ease all;
 }
-
-
 .js-load {
 	display: none;
 }
@@ -126,7 +122,6 @@ a.btn:hover:before, a.btn:hover::after {
 	-webkit-transition: all .3s;
 	transition: all .3s;
 }
-
 .button::before {
 	right: 0;
 }
@@ -138,77 +133,45 @@ a.btn:hover:before, a.btn:hover::after {
 	width: 0;
 	background-color: #131414;
 }
-
 </style>
 <script type="text/javascript" src="https://nanati.me/common/js/jquery-1.11.2.min.js"></script>
-<%@ include file="/WEB-INF/views/include/head.jsp"%>
 </head>
 <body>
 
-<%@ include file="/WEB-INF/views/include/nav.jsp"%>
+<%@ include file="/WEB-INF/views/include/nav.jsp" %>
+<h1 style="margin-top: 30px;"> ADMIN </h1>
+<div style=" margin-left : auto; margin-right : auto; width: 60%; ">
+	<ul class="nav nav-tabs">
+		<li class="nav-item">
+		<a class="nav-link active show" data-toggle="tab" href="#event">EVENT</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#list">LIST</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#users">USERS</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link disabled" href="#">Disabled</a>
+		</li>
+	</ul>
 
+	<div id="myTabContent" class="tab-content">
+		<!-- 이벤트 등록 -->
+		<div class="tab-pane fade active show" id="event">
+			<%@ include file="/WEB-INF/views/event/event_write.jsp" %>
+		</div>
+		<!-- 전체 게시글 목록 확인 -->
+		<div class="tab-pane fade show" id="list">
+			게시글 목록 확인
+		</div>
 
-
-<script type="text/javascript">
-$(window).on('load', function () {
-	load('#js-load', '5');
-	$("#js-btn-wrap .button").on("click", function () {
-		load('#js-load', '5', '#js-btn-wrap');
-	})
-});
-
-function load(id, cnt, btn) {
-	var girls_list = id + " .js-load:not(.active)";
-	var girls_length = $(girls_list).length;
-	var girls_total_cnt;
-	if (cnt < girls_length) {
-		girls_total_cnt = cnt;
-	} else {
-		girls_total_cnt = girls_length;
-		$('.button').hide()
-	}
-	$(girls_list + ":lt(" + girls_total_cnt + ")").addClass("active");
-}
-</script>
-
-
-
-<div id="contents">
-  <div id="js-load" class="lists">
-
-<!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
-
-<c:forEach items = "${list}" var = "BlogVO">
-   <table class="lists__item js-load table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
-			<tr>
-				<td style="text-align: left;">
-					<h3>
-					  <a href = "/lxa/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a>
-					</h3>
-				</td>
-				<td style="float: right;">
-
-					  <small class="text-muted"><i class="fas fa-eye">&nbsp;${BlogVO.cnt}</i> </small>
-
-				</td>
-
-			</tr>
-			<tr>
-				<td colspan="2" style="width: 750px; text-align: left;">
-					<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-					   <small class="text-muted"><c:out value='${fn:substring(BlogVO.now, 0, 19)}'/> <cite title="Source Title">by.${BlogVO.name}</cite></small>
-					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${BlogVO.comment_Cnt}</i>&nbsp;
-									<i class="fas fa-heart" >&nbsp;${BlogVO.like_count}</i></span>
-			 	</td>
-			</tr>
-
-   </table>
-		</c:forEach>
-</div>
-<br>
-  <div id="js-btn-wrap" class="btn-wrap"> <a href="javascript:;" class="button">more</a> </div>
-</div>
-
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
+		<!-- 회원정보 보기 -->
+		<div class="tab-pane fade show" id="users">
+			회원정보 확인
+		</div>
+		</div>
+		</div>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>

@@ -17,7 +17,15 @@
         <a class="nav-link" href="#">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/lxa/event/evnetList">evnet</a>
+        <a class="nav-link" href="/lxa/event/event">event</a>
+      </li>
+      <c:if test = "${sessionScope.name == 'admin'}">
+      <li class="nav-item">
+        <a class="nav-link" href="/lxa/admin/admin">Admin</a>
+      </li>
+      </c:if>
+      <li class="nav-item">
+        <a class="nav-link" href="/lxa/blog/list">List</a>
       </li>
 <c:choose>
 	<c:when test = "${sessionScope.name == null}">
@@ -27,14 +35,8 @@
       <li class="nav-item">
         <a class="nav-link" href="/lxa/user/login">Login</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/lxa/blog/list">List</a>
-      </li>
  </c:when>
       <c:otherwise>
-      <li class="nav-item">
-        <a class="nav-link" href="/lxa/blog/list">List</a>
-      </li>
       <li class="nav-item">
         <a class="nav-link" href="/lxa/blog/write">Write</a>
       </li>

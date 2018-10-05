@@ -200,7 +200,7 @@ a.btn:hover:before, a.btn:hover::after {
 
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
 <h1 style="margin-top: 30px;"> Your stories </h1>
-<div style=" margin-left : auto; margin-right : auto; width: 70%; ">
+<div style=" margin-left : auto; margin-right : auto; width: 50%; ">
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
 		<a class="nav-link active show" data-toggle="tab" href="#post">Post</a>
@@ -251,7 +251,7 @@ function load(id, cnt, btn) {
 						<span style="float: right;">${BlogVO.now}&nbsp;<i class="fas fa-eye">&nbsp;${BlogVO.cnt}</i>&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${BlogVO.comment_Cnt}</i>&nbsp; <i class="fas fa-heart">like</i></span>
 						</li>
 						</c:forEach>
-					
+
 					</ul>
 				</div>
 				<br>
@@ -270,7 +270,7 @@ function load(id, cnt, btn) {
 					  <i class="fas fa-clipboard-list"><a href="/blog/detail?no=${JoinVO.no}">${JoinVO.title}</a></i>
 					</h3>
 				</td>
-				
+
 			</tr>
 			<tr>
 				<td colspan="2" style="width: 750px; text-align: left;">
@@ -283,8 +283,8 @@ function load(id, cnt, btn) {
 
    			</table>
 		</div>
-		
-		<!-- 회원정보 수정 -->		
+
+		<!-- 회원정보 수정 -->
 		<div class="tab-pane fade show" id="profile">
 			<script type="text/javascript">
 				function validate() {

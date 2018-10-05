@@ -1,0 +1,30 @@
+package org.blog.dao;
+
+import java.util.List;
+
+import javax.inject.Inject;
+
+import org.apache.ibatis.session.SqlSession;
+import org.blog.domain.EventVO;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class EventDAOImpl implements EventDAO{
+
+	@Inject private SqlSession session;
+	private static String namespace = "org.blog.mapper.eventMapper";
+
+
+	@Override
+	public void event(EventVO vo) {
+		session.insert(namespace + ".event", vo);
+
+	}
+
+	@Override
+	public List<EventVO> list() {
+		return session.selectList(namespace + ".eventList");
+	}
+
+
+}
