@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.blog.dao.BlogDAO;
 import org.blog.domain.BlogVO;
+import org.blog.domain.ImgVO;
 import org.springframework.stereotype.Service;
 
 
@@ -129,6 +130,11 @@ public class BlogServiceImpl implements BlogService{
 	@Override
 	public int select_like_count(Integer no) {
 		return dao.select_like_count(no);
+	}
+
+	@Override
+	public int create_img(ImgVO vo) {
+		return dao.create_img(vo);
 	}
 
 	

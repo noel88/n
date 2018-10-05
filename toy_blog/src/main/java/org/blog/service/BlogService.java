@@ -3,10 +3,12 @@ package org.blog.service;
 import java.util.List;
 
 import org.blog.domain.BlogVO;
+import org.blog.domain.ImgVO;
 
 public interface BlogService {
 
 	public int create(BlogVO vo);
+	public int create_img(ImgVO vo);
 	public int update(BlogVO vo);
 	public void delete(Integer no);
 	public void like_cnt(Integer no);

@@ -50,5 +50,8 @@
 		SELECT like_count FROM blog WHERE no = #{no}
 	</select>
 
+	<insert id="img_upload">
+		insert into blog_img values (#{blog_name}, #{blog_name}, #{blog_img1},#{blog_img2},#{blog_img3},#{blog_img4},#{blog_img5}, #{blog_now})
+	</insert>
 
 </mapper>

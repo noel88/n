@@ -3370,7 +3370,7 @@ MediumEditor.extensions = {};
             action: 'image',
             aria: 'image',
             tagNames: ['img'],
-            contentDefault: '<b>image</b>',
+            contentDefault: '<img scr ="image"/>',
             contentFA: '<i class="fa fa-picture-o"></i>'
         },
         'html': {
@@ -3483,7 +3483,7 @@ MediumEditor.extensions = {};
             contentDefault: '<b>&ldquo;</b>',
             contentFA: '<i class="fa fa-quote-right"></i>'
         },
-        
+
         'pre': {
             name: 'pre',
             action: 'append-pre',

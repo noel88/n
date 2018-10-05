@@ -22,6 +22,7 @@ public class BlogVO {
 	
 	
 	
+	
 	public int getLike_count() {
 		return like_count;
 	}

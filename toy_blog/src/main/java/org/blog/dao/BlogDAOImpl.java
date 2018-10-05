@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.blog.domain.BlogVO;
+import org.blog.domain.ImgVO;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -73,6 +74,11 @@ public class BlogDAOImpl implements BlogDAO {
 	public int select_like_count(Integer no) {
 		return sqlsession.selectOne(namespace + ".select_like_count", no);
 		
+	}
+
+	@Override
+	public int create_img(ImgVO vo) {
+		return sqlsession.insert(namespace + ".img_upload", vo);
 	}
 
 
