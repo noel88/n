@@ -15,7 +15,7 @@
 
 <div style="max-width: 1500px; margin-right: auto; margin-left: auto;">
 
-   <table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
+   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 			<tr class="table-secondary">
 				<td style="width: 70%; text-align: left;">
 					<h3>
@@ -25,7 +25,7 @@
 				</td>
 
 				<td>
-					  <small class="text-muted"><i class="fas fa-calendar-alt">&nbsp;${blogVO.now}</i> </small>
+					  <small class="text-muted"><i class="fas fa-calendar-alt">&nbsp;<c:out value='${fn:substring(blogVO.now, 0, 19)}'/></i> </small>
 
 				<!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
 
@@ -102,7 +102,7 @@
 			</tr>
 
 </table>
-<table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 80%;">
+<table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 <c:forEach items = "${comment}" var = "ReplyVO">
 
 			<tr class="table-secondary">

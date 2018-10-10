@@ -14,7 +14,7 @@
 
 
 
-
+<div style="max-width: 1500px; margin-right: auto; margin-left: auto;">
 <form action = "loginAction">
 <table style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
 
@@ -45,6 +45,7 @@
 </table>
 
 </form>
+</div>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>

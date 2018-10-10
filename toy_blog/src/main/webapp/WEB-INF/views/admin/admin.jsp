@@ -139,8 +139,9 @@ a.btn:hover:before, a.btn:hover::after {
 <body>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
+<div style="max-width: 1500px; margin-right: auto; margin-left: auto;">
 <h1 style="margin-top: 30px;"> ADMIN </h1>
-<div style=" margin-left : auto; margin-right : auto; width: 60%; ">
+<div style=" margin-left : auto; margin-right : auto; width: 70%; ">
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
 		<a class="nav-link active show" data-toggle="tab" href="#event">EVENT</a>
@@ -172,6 +173,7 @@ a.btn:hover:before, a.btn:hover::after {
 		</div>
 		</div>
 		</div>
+</div>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>
