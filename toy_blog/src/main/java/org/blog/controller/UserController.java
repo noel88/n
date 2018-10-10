@@ -62,7 +62,7 @@ public class UserController {
 		if(result > 0) {
 			return "redirect:/user/login";
 		}else {
-			// TODO 회원가입이 되지 않으면 에 alert출력 필요.
+			// TODO 회원가입이 되지 않으면 에러 alert출력 필요.
 		}
 
 		return "redirect:/user/login";

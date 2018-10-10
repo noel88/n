@@ -17,7 +17,7 @@
         <a class="nav-link" href="#">About</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/lxa/event/event">event</a>
+        <a class="nav-link" href="/lxa/event/event_page">event</a>
       </li>
       <c:if test = "${sessionScope.name == 'admin'}">
       <li class="nav-item">

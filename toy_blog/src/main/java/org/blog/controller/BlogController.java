@@ -61,13 +61,9 @@ public class BlogController {
 	@RequestMapping(value = "/create" , method = RequestMethod.POST)
 			public String create(BlogVO vo) {
 
-
 		        service.create(vo);
 		        return "redirect:/blog/list";
 	}
-
-
-
 
 	/**
 	 * 게시글 목록 이동
@@ -89,18 +85,18 @@ public class BlogController {
 	 * 글 번호에 해당하는 글 내용, 댓글 목록, 댓글 카운트, like 개수 노출
 	 *
 	 * @param @RequestParam, Model
-	 * @return String
+	 * @return
 	 * @throws
 	 */
 
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public Model list_detail(@RequestParam("no") int no, Model model) {
+	public void list_detail(@RequestParam("no") int no, Model model) {
 		model.addAttribute(service.blog_detail(no));
 		model.addAttribute("comment", reservice.comment_list(no));
 		model.addAttribute("count", reservice.comment_count(no));
 		model.addAttribute("like", service.select_like_count(no));
 
-		return model;
+
 	}
 
 	/**
@@ -173,7 +169,6 @@ public class BlogController {
 		}else {
 			return "/blog/error";
 		}
-
 
 	}
 

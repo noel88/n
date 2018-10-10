@@ -13,4 +13,19 @@
 		select * from event
 	</select>
 
+	<insert id="entry">
+		insert into event_entry value(#{entry_code}, #{event_no}, #{user_name})
+	</insert>
+
+	<select id="numbering_count" resultType="Integer">
+		SELECT IFNULL(COUNT(*),0) FROM event_entry WHERE event_no = #{event_no}
+	</select>
+
+	<select id="entry_yn">
+		SELECT user_name FROM event_entry WHERE event_no = #{event_no} and user_name = #{user_name}
+	</select>
+
+
+
+
 </mapper>

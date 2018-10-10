@@ -145,9 +145,6 @@ a.btn:hover:before, a.btn:hover::after {
 </head>
 <body>
 
-<%@ include file="/WEB-INF/views/include/nav.jsp"%>
-
-
 
 <script type="text/javascript">
 $(window).on('load', function () {
@@ -172,22 +169,17 @@ function load(id, cnt, btn) {
 </script>
 
 
-<a href = "event_write">이벤트 등록하기</a>
-<a href = "event_cal">이벤트 달력</a>
-
-
-
 <div id="contents">
   <div id="js-load" class="lists">
 
 <!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
 
-<c:forEach items = "${list}" var = "BlogVO">
+<c:forEach items = "${event}" var = "EventVO">
    <table class="lists__item js-load table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
 			<tr>
 				<td style="text-align: left;">
 					<h3>
-					  블로그 제목
+					  ${EventVO.title}, #{EventVO.event_click} 명 참여중
 					</h3>
 				</td>
 				<td style="float: right;">
@@ -199,7 +191,7 @@ function load(id, cnt, btn) {
 			</tr>
 			<tr>
 				<td>
-				내용
+				${EventVO.content}
 			 	</td>
 			</tr>
 
@@ -210,6 +202,5 @@ function load(id, cnt, btn) {
   <div id="js-btn-wrap" class="btn-wrap"> <a href="javascript:;" class="button">more</a> </div>
 </div>
 
-<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>

@@ -1,7 +1,6 @@
 package org.blog.controller;
 
-import java.text.DateFormat;
-import java.util.Date;
+
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -19,9 +18,6 @@ public class HomeController {
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale locale, Model model) {
 

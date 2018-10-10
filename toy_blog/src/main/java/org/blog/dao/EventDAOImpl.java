@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
+import org.blog.domain.EventEntryVO;
 import org.blog.domain.EventVO;
 import org.springframework.stereotype.Repository;
 
@@ -24,6 +25,18 @@ public class EventDAOImpl implements EventDAO{
 	@Override
 	public List<EventVO> list() {
 		return session.selectList(namespace + ".eventList");
+	}
+
+	@Override
+	public void entry(EventEntryVO vo) {
+		session.insert(namespace + ".entry", vo);
+
+	}
+
+	@Override
+	public int entry_count(Integer code) {
+		return session.selectOne(namespace + ".numbering_count", code);
+
 	}
 
 
