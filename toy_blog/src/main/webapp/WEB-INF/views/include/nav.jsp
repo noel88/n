@@ -1,8 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 
 
@@ -11,40 +10,40 @@
   <div class="navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link" href="/lxa">Home<span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/lxa"><spring:message code="Home"/> <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link" href="#"><spring:message code="About"/></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/lxa/event/event_page">event</a>
+        <a class="nav-link" href="/lxa/event/event_page"><spring:message code="Event"/> </a>
       </li>
       <c:if test = "${sessionScope.name == 'admin'}">
       <li class="nav-item">
-        <a class="nav-link" href="/lxa/admin/admin">Admin</a>
+        <a class="nav-link" href="/lxa/admin/admin"><spring:message code="Admin"/> </a>
       </li>
       </c:if>
       <li class="nav-item">
-        <a class="nav-link" href="/lxa/blog/list">List</a>
+        <a class="nav-link" href="/lxa/blog/list"><spring:message code="List"/> </a>
       </li>
 <c:choose>
 	<c:when test = "${sessionScope.name == null}">
       <li class="nav-item">
-        <a class="nav-link" href="/lxa/user/join">Start</a>
+        <a class="nav-link" href="/lxa/user/join"><spring:message code="Start"/> </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/lxa/user/login">Login</a>
+        <a class="nav-link" href="/lxa/user/login"><spring:message code="Login"/> </a>
       </li>
  </c:when>
       <c:otherwise>
       <li class="nav-item">
-        <a class="nav-link" href="/lxa/blog/write">Write</a>
+        <a class="nav-link" href="/lxa/blog/write"><spring:message code="Write"/> </a>
       </li>
        <li class="nav-item">
-        <a class="nav-link" href="/lxa/user/page">${sessionScope.name}, page</a>
+        <a class="nav-link" href="/lxa/user/page">${sessionScope.name}, <spring:message code="Page"/> </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/lxa/user/logout">Logout</a>
+        <a class="nav-link" href="/lxa/user/logout"><spring:message code="Logout"/> </a>
       </li>
 
          </c:otherwise>
