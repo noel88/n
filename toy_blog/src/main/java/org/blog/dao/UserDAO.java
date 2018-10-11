@@ -12,5 +12,6 @@ public interface UserDAO {
 	public boolean login(UserVO vo);
 	public int name_check(UserVO vo);
 	public int email_check(UserVO vo);
+	public void user_delete(String name);
 
 }

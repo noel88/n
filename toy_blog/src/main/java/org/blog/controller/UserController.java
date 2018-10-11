@@ -192,6 +192,16 @@ public class UserController {
 
 	}
 
+	@RequestMapping(value = "delete", method = RequestMethod.GET)
+	public String delete(HttpSession session) throws Exception {
+
+		String name = (String)session.getAttribute("name");
+		service.user_delete(name);
+		session.invalidate();
+		return "redirect:/";
+
+	}
+
 	/**
 	 * 마이페이지
 	 *

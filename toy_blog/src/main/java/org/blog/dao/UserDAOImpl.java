@@ -25,7 +25,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public void createAuthKey(String user_email, String user_authCode) throws Exception {
-	
+
 		UserVO vo = new UserVO();
 		vo.setUser_authCode(user_authCode);
 		vo.setUser_email(user_email);
@@ -61,6 +61,12 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public int user_update(UserVO vo) {
 		return sqlsession.update(namespace + ".user_update", vo);
+	}
+
+	@Override
+	public void user_delete(String name) {
+		sqlsession.delete(namespace + ".user_delete", name);
+
 	}
 
 

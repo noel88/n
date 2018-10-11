@@ -15,9 +15,9 @@
 	</select>
 
 	<select id="userAuth" resultType="org.blog.domain.UserVO">
-		update USER set user_auth_yn = 'y' where user_email = #{user_email}	
+		update USER set user_auth_yn = 'y' where user_email = #{user_email}
 	</select>
-	
+
 	<update id="user_update">
 		update user set user_name = #{user_name}, user_pwd = #{user_pwd}
 	</update>
@@ -26,6 +26,9 @@
 		update USER set user_authCode = #{user_authCode} where user_email = #{user_email}
 	</update>
 
+	<delete id="user_delete">
+		delete from user where user_name = #{user_name}
+	</delete>
 
 	<select id="email_check"
 	    parameterType="org.blog.domain.UserVO"

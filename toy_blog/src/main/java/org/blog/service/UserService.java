@@ -16,6 +16,7 @@ public interface UserService {
 	public void logout(HttpSession session);
 	public int name_check(UserVO vo);
 	public int email_check(UserVO vo);
+	public void user_delete(String name);
 
 
 

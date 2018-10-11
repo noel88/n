@@ -324,7 +324,7 @@ function load(id, cnt, btn) {
 				<tr>
 					<td>
 						<button type="submit" class="btn btn-primary signupbtn" disabled="disabled"><i class="fas fa-edit">&nbsp;update</i></button>
-						<a href="/delete"><button type="button" class="btn btn-primary" style="float: right;" onclick="validate_delete();"><i class="fas fa-trash-alt">&nbsp;delete</i></button></a>
+						<a href="/lxa/user/delete"><button type="button" class="btn btn-primary" style="float: right;" onclick="validate_delete();"><i class="fas fa-trash-alt">&nbsp;delete</i></button></a>
 					</td>
 				</tr>
 				</table>
