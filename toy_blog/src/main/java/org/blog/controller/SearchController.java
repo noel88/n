@@ -25,6 +25,7 @@ public class SearchController {
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String search_page(SearchVO vo, Model model) {
 
+		model.addAttribute("search",vo.getSearch());
 		model.addAttribute("title",service.select_title(vo));
 		model.addAttribute("context",service.select_context(vo));
 		model.addAttribute("name",service.select_name(vo));
@@ -32,7 +33,7 @@ public class SearchController {
 		model.addAttribute("context_cnt", service.cnt_context(vo));
 		model.addAttribute("name_cnt", service.cnt_name(vo));
 
-		return "/search/search_list";
+		return "/search/search_page";
 	}
 
 

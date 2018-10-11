@@ -54,14 +54,45 @@ public class EventController {
 		String name = (String)session.getAttribute("name");
 		vo.setEvent_no(no);
 		vo.setUser_name(name);
+		int yn = service.entry_yn(vo);
 
-		service.entry(vo);
+		if(yn == 0) {
+			service.entry(vo);
+			return "event/success";
 
-		return "redirect:/event/event_page";
+		}else {
+
+			return "event/error";
+		}
 
 	}
 
 
+/*	@RequestMapping(value = "/entry", method = RequestMethod.GET)
+	public String entry(@RequestParam("event_no") int no, HttpSession session, EventEntryVO vo) {
+
+		String name = (String)session.getAttribute("name");
+		vo.setEvent_no(no);
+		vo.setUser_name(name);
+
+
+			service.entry(vo);
+			return "event/success";
+
+		}
+*/
+
+	@RequestMapping(value = "/event_succee", method = RequestMethod.GET)
+	public String event_success() {
+
+		return "redirect:/event/success";
+	}
+
+	@RequestMapping(value = "/event_error", method = RequestMethod.GET)
+	public String event_error() {
+
+		return "redirect:/event/errorr";
+	}
 
 
 

@@ -49,7 +49,7 @@
 								</c:when>
 								<c:otherwise>
 				      				 <a href= "event_page" class="btn btn-primary"><i class="fas fa-list">&nbsp;list</i></a>
-									<a href="entry?event_no=${eventVO.event_no}"><button type="button" class="btn btn-primary" onclick ="alert('이벤트 참여완료!');" style="float: right;"><i class="fab fa-gratipay">&nbsp;이벤트 참여하기</i></button></a>&nbsp;
+									<a href="entry?event_no=${eventVO.event_no}"><button type="button" class="btn btn-primary" style="float: right;"><i class="fab fa-gratipay">&nbsp;이벤트 참여하기</i></button></a>&nbsp;
 								</c:otherwise>
 							</c:choose>
 				</td>

@@ -16,7 +16,7 @@
 		<td>
 			<div class="form-group">
 				<label for="title">Title</label>
-				<input type="text" class="form-control" name="title" id="title" placeholder="Title">
+				<input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해주세요.">
 			</div>
 		</td>
 
@@ -34,7 +34,7 @@
 						<label for="exampleTextarea">write</label>
 						<hr>
 						<br>
-						<textarea class="editable" rows="70" name="context"></textarea>
+						<textarea class="editable" rows="70" name="context">글을 드래그하면 에디터가 나와 글자를 편집하거나, 이미지를 삽입할수 있습니다.</textarea>
 					</div>
 				</td>
 			</tr>

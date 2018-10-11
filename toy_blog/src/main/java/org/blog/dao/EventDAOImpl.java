@@ -44,5 +44,10 @@ public class EventDAOImpl implements EventDAO{
 		return session.selectOne(namespace + ".event_select", code);
 	}
 
+	@Override
+	public int entry_yn(EventEntryVO vo) {
+		return session.selectOne(namespace + ".entry_yn", vo);
+	}
+
 
 }

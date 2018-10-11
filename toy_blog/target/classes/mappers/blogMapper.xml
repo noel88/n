@@ -38,7 +38,7 @@
 
 
 	<select id="my_comment" resultType="org.blog.domain.JoinVO">
-		SELECT r.comment, r.reply_name, b.title, b.no FROM reply r left JOIN blog b ON r.blog_no = b.no where name = #{name}
+		SELECT r.comment, r.reply_name, b.title, b.no FROM reply r left JOIN blog b ON r.blog_no = b.no where reply_name = #{name}
 	</select>
 
 	<update id="like_count">
