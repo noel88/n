@@ -39,27 +39,15 @@
 						<tr>
 							<td style="text-align: left; width: 80%;">
 								<h3>
-								  ${EventVO.event_title}
+								  <a href = "event_detail?event_no=${EventVO.event_no}">${EventVO.event_title}</a>
 								</h3>
 								  <small class="text-muted">${EventVO.event_startDate} ~ ${EventVO.event_endDate}</small>
 							</td>
 							<td>
-							<c:choose>
-								<c:when test = "${sessionScope.name == null}">
-									<a href="/lxa/blog/loginCheck"><button type="button" class="btn btn-primary" style="float: right;" disabled="disabled"><i class="fab fa-gratipay">&nbsp;이벤트 참여하기</i></button></a>&nbsp;
-								</c:when>
-								<c:otherwise>
-									<a href="entry?event_no=${EventVO.event_no}"><button type="button" class="btn btn-primary" onclick ="alert('이벤트 참여완료!');" style="float: right;"><i class="fab fa-gratipay">&nbsp;이벤트 참여하기</i></button></a>&nbsp;
-								</c:otherwise>
-							</c:choose>
-
+									 <button type="button" class="btn btn-primary" style="float: right;" disabled="disabled"><i class="fab fa-gratipay">&nbsp;${EventVO.event_click}명 참여중</i></button></a>&nbsp;
 							</td>
 						</tr>
-						<tr>
-							<td colspan="2">
-							${EventVO.event_content}
-						 	</td>
-						</tr>
+
 
 			   </table>
 					</c:forEach>

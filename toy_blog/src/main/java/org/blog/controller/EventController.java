@@ -37,11 +37,19 @@ public class EventController {
 		model.addAttribute("event", service.list());
 	}
 
+	@RequestMapping(value = "/event_detail", method = RequestMethod.GET)
+	public void list_detail(@RequestParam("event_no") int no, Model model) {
+		model.addAttribute(service.select_event(no));
+		model.addAttribute("cnt", service.entry_count(no));
+
+	}
+
+
+
 	@RequestMapping(value = "/entry", method = RequestMethod.GET)
 	public String entry(@RequestParam("event_no") int no, HttpSession session) {
 
 		EventEntryVO vo = new EventEntryVO();
-		EventVO evnet = new EventVO();
 
 		String name = (String)session.getAttribute("name");
 		vo.setEvent_no(no);

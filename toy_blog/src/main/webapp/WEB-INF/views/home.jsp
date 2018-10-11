@@ -45,7 +45,7 @@ pageEncoding="UTF-8"%>
 <div style="margin-left: 400px; margin-right: auto; text-align:center; width: 100%; margin-top: 30px;">
 
 
-    <form action="lxa/serch" class="form-inline my-2 my-lg-3">
+    <form action="search/search" class="form-inline my-2 my-lg-3">
       <input name = "search" class="form-control mr-sm-2" type="text" placeholder="Search" style="width: 600px; height: 60px;">
       <button class="btn btn-secondary my-2 my-sm-3" type="submit">Search</button>
     </form>

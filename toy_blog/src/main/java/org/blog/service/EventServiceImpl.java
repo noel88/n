@@ -37,6 +37,11 @@ public class EventServiceImpl implements EventService{
 		return dao.entry_count(code);
 	}
 
+	@Override
+	public EventVO select_event(Integer code) {
+		return dao.select_event(code);
+	}
+
 
 
 }

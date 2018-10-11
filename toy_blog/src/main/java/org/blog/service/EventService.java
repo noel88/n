@@ -11,4 +11,7 @@ public interface EventService {
 	public List<EventVO> list();
 	public void entry(EventEntryVO vo);
 	public int entry_count(Integer code);
+	public EventVO select_event(Integer code);
+
+
 }

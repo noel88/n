@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.blog.mapper.searchMapper">
+
+	<select id="search_title" resultType="org.blog.domain.BlogVO">
+		select * from blog where title like CONCAT('%',#{search},'%')
+	</select>
+
+	<select id="search_context" resultType="org.blog.domain.BlogVO">
+		select * from blog where context like CONCAT('%',#{search},'%')
+	</select>
+
+	<select id="search_name" resultType="org.blog.domain.BlogVO">
+		select * from blog where name like CONCAT('%',#{search},'%')
+	</select>
+
+	<select id="title_count" resultType="java.lang.Integer">
+		SELECT IFNULL(COUNT(*),0) FROM blog WHERE title like CONCAT('%',#{search},'%')
+	</select>
+
+	<select id="context_count" resultType="java.lang.Integer">
+		SELECT IFNULL(COUNT(*),0) FROM blog WHERE context like CONCAT('%',#{search},'%')
+	</select>
+
+	<select id="name_count" resultType="java.lang.Integer">
+		SELECT IFNULL(COUNT(*),0) FROM blog WHERE name like CONCAT('%',#{search},'%')
+	</select>
+
+
+
+</mapper>

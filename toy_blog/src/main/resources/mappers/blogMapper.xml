@@ -18,7 +18,6 @@
 		select no, title, name, now, context, cnt, like_count, (select count(*) from reply where blog_no = blog.no) as comment_Cnt from blog where name = #{name} order by no desc
 	</select>
 
-
 	<select id="selectList" resultType="org.blog.domain.BlogVO">
 
 		select * from blog where no = #{no}
