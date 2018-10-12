@@ -13,7 +13,7 @@
         <a class="nav-link" href="/lxa"><spring:message code="Home"/> <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#"><spring:message code="About"/></a>
+        <a class="nav-link" href="/lxa/about/about"><spring:message code="About"/></a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="/lxa/event/event_page"><spring:message code="Event"/> </a>
