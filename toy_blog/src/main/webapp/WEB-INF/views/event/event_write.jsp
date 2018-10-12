@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 
 		<form action="event_create" method="get">
-	<table  style="margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
+	<table  style="margin-left : auto; margin-right : auto; margin-top : 30px; width: 100%;">
 
 		<tr>
 

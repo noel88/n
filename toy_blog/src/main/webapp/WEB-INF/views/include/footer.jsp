@@ -15,6 +15,7 @@
    background:#2E2E2E;
 	text-align: center;
 	padding-top: 15px;
+	z-index: 100;
 }
 
 </style>

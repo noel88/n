@@ -9,7 +9,7 @@
 <style type="text/css">
 
 #contents {
-	max-width: 780px;
+	max-width: 1000px;
 	margin: 0 auto;
 	text-align: center;
 	padding-bottom: 50px;
@@ -171,7 +171,7 @@ function load(id, cnt, btn) {
 }
 </script>
 
-
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 
 <div id="contents">
   <div id="js-load" class="lists">
@@ -194,9 +194,9 @@ function load(id, cnt, btn) {
 
 			</tr>
 			<tr>
-				<td colspan="2" style="width: 750px; text-align: left;">
+				<td colspan="2" style="width: 1000px; text-align: left;">
 					<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-					   <small class="text-muted"><c:out value='${fn:substring(BlogVO.now, 0, 19)}'/> <cite title="Source Title">by.${BlogVO.name}</cite></small>
+					   <small class="text-muted"><c:out value='${fn:substring(BlogVO.now, 0, 19)}'/> <cite title="Source Title">by.<a href = "/lxa/blog/user_blog?name=${BlogVO.name}">${BlogVO.name}</a></cite></small>
 					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${BlogVO.comment_Cnt}</i>&nbsp;
 									<i class="fas fa-heart" >&nbsp;${BlogVO.like_count}</i></span>
 			 	</td>
@@ -208,7 +208,7 @@ function load(id, cnt, btn) {
 <br>
   <div id="js-btn-wrap" class="btn-wrap"> <a href="javascript:;" class="button">more</a> </div>
 </div>
-
+</div>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>

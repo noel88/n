@@ -170,7 +170,7 @@ public class UserController {
 			model().attribute("user", vo);
 			return "redirect:/";
 		}else {
-			return "/user/loginForm";
+			return "/user/error";
 		}
 
 	}
@@ -218,6 +218,7 @@ public class UserController {
 		String name = (String)session.getAttribute("name");
 		model.addAttribute("my",blogservice.my_list(name));
 		model.addAttribute("my_comment",blogservice.my_comment(name));
+		model.addAttribute("list_count",blogservice.select_count_list(name));
 
 		return "user/user_page";
 	}

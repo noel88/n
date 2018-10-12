@@ -13,11 +13,11 @@
 
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
-<div style="max-width: 1500px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 
 
 
- <table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
+ <table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
 
 
 			<tr class="table-secondary">
@@ -26,7 +26,7 @@
 					<input type ="hidden" name = "event_no" value="${eventVO.event_no}">
 
 				</td>
-				<td>
+				<td style="float: right;">
 				 ${cnt}명 참여중
 
 				</td>
@@ -44,11 +44,11 @@
 
 							<c:choose>
 								<c:when test = "${sessionScope.name == null}">
-				      				 <a href= "event_page" class="btn btn-primary"><i class="fas fa-list">&nbsp;list</i></a>
+				      				 <a href= "event_page" class="btn btn-secondary"><i class="fas fa-list"></i></a>
 									 <a href="/lxa/blog/loginCheck"><button type="button" class="btn btn-primary" style="float: right;" disabled="disabled"><i class="fab fa-gratipay">&nbsp;이벤트 참여하기</i></button></a>&nbsp;
 								</c:when>
 								<c:otherwise>
-				      				 <a href= "event_page" class="btn btn-primary"><i class="fas fa-list">&nbsp;list</i></a>
+				      				 <a href= "event_page" class="btn btn-secondary"><i class="fas fa-list"></i></a>
 									<a href="entry?event_no=${eventVO.event_no}"><button type="button" class="btn btn-primary" style="float: right;"><i class="fab fa-gratipay">&nbsp;이벤트 참여하기</i></button></a>&nbsp;
 								</c:otherwise>
 							</c:choose>

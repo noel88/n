@@ -22,7 +22,7 @@ public class EventController {
 	public String eventList(Model model) {
 		model.addAttribute("event", service.list());
 
-		return "/event/event";
+		return "/event/eventList";
 	}
 
 	@RequestMapping(value = "/event_write", method = RequestMethod.GET)

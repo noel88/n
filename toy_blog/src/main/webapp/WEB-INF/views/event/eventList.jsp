@@ -5,11 +5,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
 
+
+<%@ include file="/WEB-INF/views/include/head.jsp"%>
 <style type="text/css">
 
 #contents {
-	max-width: 780px;
+	max-width: 1000px;
 	margin: 0 auto;
 	text-align: center;
 	padding-bottom: 50px;
@@ -141,10 +145,10 @@ a.btn:hover:before, a.btn:hover::after {
 
 </style>
 <script type="text/javascript" src="https://nanati.me/common/js/jquery-1.11.2.min.js"></script>
-<%@ include file="/WEB-INF/views/include/head.jsp"%>
+
 </head>
 <body>
-
+<%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
 <script type="text/javascript">
 $(window).on('load', function () {
@@ -167,40 +171,45 @@ function load(id, cnt, btn) {
 	$(girls_list + ":lt(" + girls_total_cnt + ")").addClass("active");
 }
 </script>
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
+
+	<div id="contents">
+		<div id="js-load" class="lists">
+
+			<!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
+
+			<c:forEach items="${event}" var="EventVO">
+				<table class="lists__item js-load table"
+					style="margin-left: auto; margin-right: auto; margin-top: 30px;">
 
 
-<div id="contents">
-  <div id="js-load" class="lists">
+					<tr>
+						<td style="text-align: left; width: 80%;">
+							<h3>
+								<a href="event_detail?event_no=${EventVO.event_no}">${EventVO.event_title}</a>
+							</h3> <small class="text-muted">${EventVO.event_startDate} ~
+								${EventVO.event_endDate}</small>
+						</td>
+						<td>
+							<button type="button" class="btn btn-primary"
+								style="float: right;">
+								<i class="fab fa-gratipay">&nbsp;${EventVO.event_click}명 참여중</i>
+							</button>
+						</td>
+					</tr>
 
-<!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
-
-<c:forEach items = "${event}" var = "EventVO">
-   <table class="lists__item js-load table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
-			<tr>
-				<td style="text-align: left;">
-					<h3>
-					  ${EventVO.title}, #{EventVO.event_click} 명 참여중
-					</h3>
-				</td>
-				<td style="float: right;">
 
 
 
-				</td>
-
-			</tr>
-			<tr>
-				<td>
-				${EventVO.content}
-			 	</td>
-			</tr>
-
-   </table>
-		</c:forEach>
-</div>
-<br>
-  <div id="js-btn-wrap" class="btn-wrap"> <a href="javascript:;" class="button">more</a> </div>
-</div>
-
+				</table>
+			</c:forEach>
+		</div>
+		<br>
+		<div id="js-btn-wrap" class="btn-wrap">
+			<a href="javascript:;" class="button">more</a>
+		</div>
+	</div>
+	</div>
+<%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>
 </html>

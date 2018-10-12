@@ -15,14 +15,21 @@ public class BlogVO {
 	private String name;
 	private String now;
 	private String context;
+	private String keyword;
 	private int cnt;
 	private int comment_Cnt;
 	private int like_count;
-	
-	
-	
-	
-	
+
+
+
+
+
+	public String getKeyword() {
+		return keyword;
+	}
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
 	public int getLike_count() {
 		return like_count;
 	}
@@ -59,7 +66,7 @@ public class BlogVO {
 	public void setContext(String context) {
 		this.context = context;
 	}
-	
+
 	public int getCnt() {
 		return cnt;
 	}
@@ -73,8 +80,15 @@ public class BlogVO {
 		this.comment_Cnt = comment_Cnt;
 	}
 
-	
-	
+
+
+	@Override
+	public String toString() {
+		return "BlogVO [keyword=" + keyword + "]";
+	}
+
+
+
 
 
 

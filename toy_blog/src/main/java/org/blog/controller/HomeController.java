@@ -1,6 +1,8 @@
 package org.blog.controller;
 
 
+import java.text.DateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import javax.inject.Inject;
@@ -20,13 +22,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class HomeController {
 
 	@Inject BlogService service;
-	
-	//private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String home(Model model) {
+	public String home(Locale local, Model model) {
 		model.addAttribute("list", service.list());
-		
+
+/*		logger.info("this time is {}", local);
+
+		Date date = new Date();
+		DateFormat dateformat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, local);
+
+		String format = dateformat.format(date);
+
+		model.addAttribute("server", format);*/
+
+
+
+
 		return "home";
 	}
 

@@ -26,6 +26,7 @@
       <li class="nav-item">
         <a class="nav-link" href="/lxa/blog/list"><spring:message code="List"/> </a>
       </li>
+
 <c:choose>
 	<c:when test = "${sessionScope.name == null}">
       <li class="nav-item">
@@ -48,6 +49,9 @@
 
          </c:otherwise>
 </c:choose>
+     <li class="nav-item" style="float: right;">
+        <a class="nav-link" href="/lxa/?lang=ko"><spring:message code="Translation"/> </a>
+      </li>
     </ul>
 
   </div>

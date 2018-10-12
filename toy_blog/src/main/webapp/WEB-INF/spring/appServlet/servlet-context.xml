@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
-	
+
 	<!-- Enables the Spring MVC @Controller programming model -->
 	<annotation-driven />
 
@@ -31,23 +31,25 @@
         <beans:property name="maxInMemorySize" value="1048576" /> <!-- 1MB -->
     </beans:bean>
 
-	<beans:bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-	     <beans:property name="basenames" value="locale/messages"/>	         
-	 </beans:bean>    
+ 	<beans:bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+	     <beans:property name="basenames" value="locale/messages"/>
+	 </beans:bean>
 
 
-	 <beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
-		<beans:property name="defaultLocale" value="ko" />
+ 	 <beans:bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver">
+		<beans:property name="defaultLocale" value="en" />
 	</beans:bean>
-	
+
    <mvc:interceptors>
     <beans:bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
     	<beans:property name="paramName" value="lang" />
     </beans:bean>
-    </mvc:interceptors>	
-	
+    </mvc:interceptors>
+
+
+
 	<context:component-scan base-package="org.blog.controller" />
-	
-	
-	
+
+
+
 </beans:beans>

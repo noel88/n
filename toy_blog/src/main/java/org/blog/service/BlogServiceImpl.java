@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.blog.dao.BlogDAO;
 import org.blog.domain.BlogVO;
 import org.blog.domain.ImgVO;
+import org.blog.domain.WordVO;
 import org.springframework.stereotype.Service;
 
 
@@ -18,45 +19,45 @@ public class BlogServiceImpl implements BlogService{
 	@Inject
 	private BlogDAO dao;
 
-	
+
 	/**
 	 * 글 등록
-	 * 
+	 *
 	 * @see org.blog.service.BlogService#create(org.blog.domain.BlogVO)
 	 * @param BlogVO
 	 * @return int
-	 * @throws 
+	 * @throws
 	 */
-	
+
 	@Override
 	public int create(BlogVO vo) {
 		int result = dao.create(vo);
 		return result;
 	}
-	
+
 	/**
 	 * 글 목록
-	 * 
+	 *
 	 * @see org.blog.service.BlogService#list()
-	 * @param 
+	 * @param
 	 * @return List
-	 * @throws 
+	 * @throws
 	 */
 
 	@Override
 	public List<BlogVO> list() {
 		return dao.list();
 	}
-	
+
 	/**
 	 * 글 상세 화면 로직
-	 * 
+	 *
 	 * 글 상세보기를 클릭했을때, 조회수 업데이트
-	 * 
+	 *
 	 * @see org.blog.service.BlogService#blog_detail(Integer)
 	 * @param Integer
 	 * @return BlogVO
-	 * @throws 
+	 * @throws
 	 */
 
 	@Override
@@ -67,25 +68,25 @@ public class BlogServiceImpl implements BlogService{
 
 	/**
 	 * 글 수정
-	 * 
+	 *
 	 * @see org.blog.service.BlogService#update(org.blog.domain.BlogVO)
 	 * @param BlogVO
 	 * @return int
-	 * @throws 
+	 * @throws
 	 */
-	
+
 	@Override
 	public int update(BlogVO vo) {
 		return dao.update(vo);
 	}
-	
+
 	/**
 	 * 내가 쓴 글 목록
-	 * 
+	 *
 	 * @see org.blog.service.BlogService#my_list(String)
 	 * @param BlogVO
 	 * @return int
-	 * @throws 
+	 * @throws
 	 */
 
 	@Override
@@ -94,14 +95,14 @@ public class BlogServiceImpl implements BlogService{
 	}
 
 	/**
-	 * 글 삭제 
-	 * 
+	 * 글 삭제
+	 *
 	 * @see org.blog.service.BlogService#delete(Integer)
 	 * @param Integer
 	 * @return void
-	 * @throws 
+	 * @throws
 	 */
-	
+
 	@Override
 	public void delete(Integer no) {
 		dao.delete(no);
@@ -109,13 +110,13 @@ public class BlogServiceImpl implements BlogService{
 
 	/**
 	 * 내가 쓴 코멘트 리스트
-	 * 
+	 *
 	 * @see org.blog.service.BlogService#my_comment(String)
 	 * @param String
 	 * @return List
-	 * @throws 
+	 * @throws
 	 */
-	
+
 	@Override
 	public List<BlogVO> my_comment(String name) {
 		return dao.my_comment(name);
@@ -124,7 +125,7 @@ public class BlogServiceImpl implements BlogService{
 	@Override
 	public void like_cnt(Integer no) {
 		dao.like_cnt(no);
-		
+
 	}
 
 	@Override
@@ -137,5 +138,40 @@ public class BlogServiceImpl implements BlogService{
 		return dao.create_img(vo);
 	}
 
-	
+	@Override
+	public int select_count_list(String name) {
+		return dao.select_count_list(name);
+	}
+
+	@Override
+	public int select_count_comment(Integer no) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public List<BlogVO> tag_list(String keyword) {
+		return dao.tag_list(keyword);
+	}
+
+	@Override
+	public void word_create(WordVO vo) {
+
+		dao.word_create(vo);
+
+	}
+
+	@Override
+	public int word_select(WordVO vo) {
+		return dao.word_select(vo);
+
+	}
+
+	@Override
+	public void word_update(WordVO vo) {
+		dao.word_update(vo);
+
+	}
+
+
 }

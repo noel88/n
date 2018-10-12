@@ -13,14 +13,14 @@
 
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
-<div style="max-width: 1500px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 
-   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
+   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
 			<tr class="table-secondary">
 				<td style="width: 70%; text-align: left;">
 					<h3>
 					 ${blogVO.title}
-					  <small class="text-muted">${blogVO.name}</small>
+					  <small class="text-muted"><a href = "/lxa/blog/user_blog?name=${BlogVO.name}">${blogVO.name}</a></small>
 					</h3>
 				</td>
 
@@ -43,38 +43,57 @@
 
 
    </table>
-
- <table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
+<table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+<c:forEach items = "${comment}" var = "ReplyVO">
 
 			<tr class="table-secondary">
 				<td>
-					comment ${count}
+				<h5><i class="fas fa-user">&nbsp;${ReplyVO.reply_name}</i></h5><hr>
+				<i class="fas fa-comment">&nbsp;${ReplyVO.comment}</i>
 				</td>
 			</tr>
+
+</c:forEach>
+
+</table>
+ <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+
+
 			<tr class="table-secondary">
-				<td>
+				<td >
 					<form action="comment">
 					<textarea style="resize: none; width: 100%; height: 100px;" name = "comment" placeholder="post a comment"></textarea>
 					<input type ="hidden" name = "reply_name" value="${sessionScope.name}">
 					<input type ="hidden" name = "blog_no" value="${blogVO.no}">
 
-				</td>
+
+
+					<c:choose>
+					<c:when test = "${sessionScope.name == null}">
+					<a href="/lxa/blog/loginCheck"><button type="button" class="btn btn-primary btn-xs" disabled="disabled" style="width:100%;"><i class="fas fa-comment-dots">&nbsp;comment&nbsp;</i></button></a>&nbsp;
+					</c:when>
+					<c:otherwise>
+					<button type="submit" class="btn btn-primary btn-xs" onclick ="alert('댓글이 동륵되었습니다');" style="width:100%;"><i class="fas fa-comment-dots">&nbsp;comment</i></button>&nbsp;
+					</c:otherwise>
+				</c:choose>
+					</form>
+
 			</tr>
 			<tr class="table-secondary">
 				<td>
 				<c:choose>
 					<c:when test = "${sessionScope.name == null}">
 
-				      	 <a href= "list" class="btn btn-primary"><i class="fas fa-list">&nbsp;list</i></a>
+				      	 <a href= "list"class="btn btn-secondary"><i class="fas fa-list"></i></a>
 				      	   </c:when>
 					<c:when test = "${sessionScope.name == blogVO.name}">
 
-				      	 <a href= "list" class="btn btn-primary"><i class="fas fa-list">&nbsp;list</i></a>
-				      	 <a href= "updateForm?no=${blogVO.no}" class="btn btn-primary"><i class="fas fa-edit">&nbsp;update</i></a>
-				      	 <a href= "delete?no=${blogVO.no}" class="btn btn-primary"><i class="fas fa-trash-alt">&nbsp;delete</i></a>
+				      	 <a href= "list" class="btn btn-secondary"><i class="fas fa-list"></i></a>
+				      	 <a href= "updateForm?no=${blogVO.no}" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
+				      	 <a href= "delete?no=${blogVO.no}" class="btn btn-secondary"><i class="fas fa-trash-alt"></i></a>
 				      	   </c:when>
 				      <c:otherwise>
-				      	 <a href= "list" class="btn btn-primary"><i class="fas fa-list">&nbsp;list</i></a>
+				      	<a href= "list"class="btn btn-secondary"><i class="fas fa-list"></i></a>
 				      </c:otherwise>
 
 
@@ -86,35 +105,19 @@
 
 				--%>
 
-
 				<c:choose>
 					<c:when test = "${sessionScope.name == null}">
-					<a href="/lxa/blog/loginCheck"><button type="button" class="btn btn-primary" style="float: right;" disabled="disabled"><i class="fab fa-gratipay">&nbsp;${like}</i></button></a>&nbsp;
-					<a href="/lxa/blog/loginCheck"><button type="button" class="btn btn-primary" style="float: right;" disabled="disabled"><i class="fas fa-comment-dots">&nbsp;comment&nbsp;</i></button></a>&nbsp;
+					<a href="/lxa/blog/loginCheck"><button type="button" class="btn btn-secondary" style="float: right;" disabled="disabled"><i class="fas fa-heart" >&nbsp;${like}</i></button></a>&nbsp;
 					</c:when>
 					<c:otherwise>
-					<a href="like_count?no=${blogVO.no}"><button type="button" class="btn btn-primary" onclick ="alert('like!');" style="float: right;"><i class="fab fa-gratipay">&nbsp;${like}</i></button></a>&nbsp;
-					<button type="submit" class="btn btn-primary" onclick ="alert('댓글이 동륵되었습니다');" style="float: right;"><i class="fas fa-comment-dots">&nbsp;comment</i></button>&nbsp;
+					<a href="like_count?no=${blogVO.no}"><button type="button" class="btn btn-secondary" onclick ="alert('like!');" style="float: right;"><i class="fas fa-heart" >&nbsp;${like}</i></button></a>&nbsp;
 					</c:otherwise>
 				</c:choose>
-					</form>
 				</td>
 			</tr>
 
 </table>
-<table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
-<c:forEach items = "${comment}" var = "ReplyVO">
 
-			<tr class="table-secondary">
-				<td>
-				<h5><i class="fas fa-user">&nbsp;${ReplyVO.reply_name}</i></h5><hr>
-				<i class="fas fa-comment">${ReplyVO.comment}</i>
-				</td>
-			</tr>
-</c:forEach>
- 			<tr style="height: 70px;">
-  			  </tr>
-</table>
 </div>
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
 </body>

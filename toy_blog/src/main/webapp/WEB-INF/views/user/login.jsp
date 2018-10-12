@@ -20,8 +20,8 @@
 
 	<tr>
    		<td><div class="form-group">
-      <label for="exampleInputname1">Name</label>
-      <input type="text" class="form-control" name = "user_name" id="exampleInputPassword1" placeholder="Name">
+      <label for="exampleInputname1"><spring:message code="login.name"/></label>
+      <input type="text" class="form-control" name = "user_name" id="exampleInputPassword1" placeholder="<spring:message code="login.name.placeholder"/>">
       <small id="emailHelp" class="form-text text-muted">Please enter a name for your blog.</small>
     </div></td>
 
@@ -30,8 +30,8 @@
   	<tr>
 
   		<td> <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" name = "user_pwd" id="exampleInputPassword1" placeholder="Password">
+      <label for="exampleInputPassword1"><spring:message code="login.password"/></label>
+      <input type="password" class="form-control" name = "user_pwd" id="exampleInputPassword1" placeholder="<spring:message code="login.password.placeholder"/>">
     </div></td>
 
   	</tr>

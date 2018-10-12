@@ -1,13 +1,17 @@
 package org.blog.controller;
 
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrlPattern;
+
 import java.io.File;
 import java.util.Iterator;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 
 import org.blog.domain.BlogVO;
 import org.blog.domain.ImgVO;
 import org.blog.domain.ReplyVO;
+import org.blog.domain.WordVO;
 import org.blog.service.BlogService;
 import org.blog.service.ReplyService;
 import org.springframework.stereotype.Controller;
@@ -34,6 +38,19 @@ public class BlogController {
 	@Inject private ReplyService reservice;
 
 
+	@RequestMapping(value = "/user_blog", method = RequestMethod.GET)
+	public String user_page(BlogVO vo, Model model, @RequestParam("name") String user) {
+
+		model.addAttribute("my",service.my_list(user));
+		model.addAttribute("list_count",service.select_count_list(user));
+
+		return "blog/user_blog";
+	}
+
+
+
+
+
 	/**
 	 * 글쓰기 폼으로 이동
 	 *
@@ -43,8 +60,9 @@ public class BlogController {
 	 */
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
-	public String write() {
+	public String write(Model model) {
 
+		model.addAttribute("keyword", service.list());
 		return "blog/write";
 	}
 
@@ -62,6 +80,30 @@ public class BlogController {
 			public String create(BlogVO vo) {
 
 		        service.create(vo);
+
+		        String [] word = vo.getKeyword().split("#");
+
+		        WordVO vo1 = new WordVO();
+
+		        for (int i = 0; i < word.length; i++) {
+
+		        	vo1.setWord(word[i]);
+
+		        if(vo1.getWord().equals("") == false) {
+
+		        	int cnt = service.word_select(vo1);
+
+			        	if(cnt == 0) {
+			        		vo1.setWord_cnt(0);
+			        		service.word_create(vo1);
+			        	}else {
+			        		service.word_update(vo1);
+			        	}
+
+		        }
+
+				}
+
 		        return "redirect:/blog/list";
 	}
 
@@ -77,6 +119,14 @@ public class BlogController {
 	public String list(Model model) {
 		model.addAttribute("list", service.list());
 		return "blog/list";
+	}
+
+
+	@RequestMapping(value = "/tags", method = RequestMethod.GET)
+	public String tag_list(Model model, @RequestParam("keyword") String keyword) {
+
+		model.addAttribute("list", service.tag_list(keyword));
+		return "blog/tag_list";
 	}
 
 	/**

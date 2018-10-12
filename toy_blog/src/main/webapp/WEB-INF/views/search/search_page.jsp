@@ -12,7 +12,8 @@
 
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
 <h1 style="margin-top: 30px;"> &#168;${search}&#168;(으)로 검색한 결과입니다. </h1>
-<div style=" margin-left : auto; margin-right : auto; width: 50%; ">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
+<div style=" margin-left : auto; margin-right : auto;">
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
 		<a class="nav-link active show" data-toggle="tab" href="#title">글 제목&nbsp;<span class="badge badge-pill badge-danger">${title_cnt}</span></a>
@@ -32,7 +33,7 @@
 
 			   <c:choose>
 					<c:when test="${title_cnt == 0}">
-					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px; width: 70%;">
+					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px;">
 						 <tr>
 
 						 	<td>
@@ -46,7 +47,7 @@
 					</table>
 					</c:when>
 					<c:otherwise>
-			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 70%;">
+			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
 					<c:forEach items = "${title}" var = "BlogVO">
 						<tr>
 							<td style="text-align: left;">
@@ -85,7 +86,7 @@
 		<div class="tab-pane fade show" id="content">
 		  <c:choose>
 					<c:when test="${context_cnt == 0}">
-					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px; width: 70%;">
+					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px;">
 						 <tr>
 						 	<td>
 								<p>&#168;${search}&#168;에 대한 검색 결과가 없습니다.</p>
@@ -97,7 +98,7 @@
 					</table>
 					</c:when>
 					<c:otherwise>
-			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 70%;">
+			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
 			<c:forEach items = "${context}" var = "BlogVO">
 						<tr>
 							<td style="text-align: left;">
@@ -136,7 +137,7 @@
 		<div class="tab-pane fade show" id="writer">
 		  <c:choose>
 					<c:when test="${name_cnt == 0}">
-					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px; width: 70%;">
+					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px;">
 						 <tr>
 						 	<td>
 								<p>&#168;${search}&#168;에 대한 검색 결과가 없습니다.</p>
@@ -148,7 +149,7 @@
 					</table>
 					</c:when>
 					<c:otherwise>
-			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 70%;">
+			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
 			<c:forEach items = "${name}" var = "BlogVO">
 						<tr>
 							<td style="text-align: left;">
@@ -184,6 +185,7 @@
 
 
 	</div>
+</div>
 </div>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
