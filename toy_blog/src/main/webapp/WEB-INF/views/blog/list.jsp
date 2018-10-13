@@ -198,7 +198,7 @@ function load(id, cnt, btn) {
 					<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
 					   <small class="text-muted"><c:out value='${fn:substring(BlogVO.now, 0, 19)}'/> <cite title="Source Title">by.<a href = "/lxa/blog/user_blog?name=${BlogVO.name}">${BlogVO.name}</a></cite></small>
 					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${BlogVO.comment_Cnt}</i>&nbsp;
-									<i class="fas fa-heart" >&nbsp;${BlogVO.like_count}</i></span>
+									<i class="fas fa-heart" >&nbsp;${BlogVO.like_cnt}</i></span>
 			 	</td>
 			</tr>
 

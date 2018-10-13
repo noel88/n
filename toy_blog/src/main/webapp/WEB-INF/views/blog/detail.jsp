@@ -107,10 +107,10 @@
 
 				<c:choose>
 					<c:when test = "${sessionScope.name == null}">
-					<a href="/lxa/blog/loginCheck"><button type="button" class="btn btn-secondary" style="float: right;" disabled="disabled"><i class="fas fa-heart" >&nbsp;${like}</i></button></a>&nbsp;
+					<a href="/lxa/blog/loginCheck"><button type="button" class="btn btn-secondary" style="float: right;" disabled="disabled"><i class="fas fa-heart" >&nbsp;${count_like}</i></button></a>&nbsp;
 					</c:when>
 					<c:otherwise>
-					<a href="like_count?no=${blogVO.no}"><button type="button" class="btn btn-secondary" onclick ="alert('like!');" style="float: right;"><i class="fas fa-heart" >&nbsp;${like}</i></button></a>&nbsp;
+					<a href="like?blog_no=${blogVO.no}"><button type="button" class="btn btn-secondary" style="float: right;"><i class="fas fa-heart" >&nbsp;${count_like}</i></button></a>&nbsp;
 					</c:otherwise>
 				</c:choose>
 				</td>

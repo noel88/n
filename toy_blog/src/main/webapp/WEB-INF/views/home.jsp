@@ -126,14 +126,23 @@ $(function() {
 </table> --%>
 
 
-<div class='row' id = "key" style="float: none; margin : 0 auto;">
+<%-- <div class='row' id = "key" style="float: none; margin : 0 auto;">
  <c:forEach items = "${list}" var = "BlogVO">
 		 	<c:forEach items="${fn:split(BlogVO.keyword, '#')}" var="item" varStatus="g">
 		 		<c:if test = "${item != ''}">
 				 <div class='col-sm-2'><a class="btn btn-secondary btn-lg" href="/lxa/blog/tags?keyword=${item}">#${item}</a></div>
-				 <%--  <c:if test="${g.index eq 0}"><div class='col-sm-4'>#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></div></c:if> --%>
+				  <c:if test="${g.index eq 0}"><div class='col-sm-4'>#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></div></c:if>
   				</c:if>
 			</c:forEach>
+		</c:forEach>
+</div> --%>
+
+<div class='row' id = "key" style="float: none; margin : 0 auto; margin-bottom: 100px;">
+ <c:forEach items = "${keyword}" var = "WordVO">
+		
+				 <div class='col-sm-2'><a class="btn btn-secondary btn-lg" href="/lxa/blog/tags?keyword=${WordVO.word}">#${WordVO.word}</a></div>
+				 <%--  <c:if test="${g.index eq 0}"><div class='col-sm-4'>#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></div></c:if> --%>
+  				
 		</c:forEach>
 </div>
 

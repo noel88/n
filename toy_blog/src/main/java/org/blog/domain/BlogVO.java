@@ -19,11 +19,17 @@ public class BlogVO {
 	private int cnt;
 	private int comment_Cnt;
 	private int like_count;
+	private int like_cnt;
 
 
 
 
-
+	public int getLike_cnt() {
+		return like_cnt;
+	}
+	public void setLike_cnt(int like_cnt) {
+		this.like_cnt = like_cnt;
+	}
 	public String getKeyword() {
 		return keyword;
 	}

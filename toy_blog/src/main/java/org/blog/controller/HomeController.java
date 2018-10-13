@@ -28,6 +28,7 @@ public class HomeController {
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Locale local, Model model) {
 		model.addAttribute("list", service.list());
+		model.addAttribute("keyword", service.word_cnt_list());
 
 /*		logger.info("this time is {}", local);
 

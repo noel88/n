@@ -23,20 +23,23 @@
 		update keyword_cnt set word_cnt = word_cnt+1 where word = #{word}
 	</update>
 
+	<select id="word_cnt_list" resultType = "org.blog.domain.WordVO">
+		select * from keyword_cnt order by word_cnt desc limit 0,12
+	</select>
+
 	<select id="list" resultType="org.blog.domain.BlogVO">
-		select no, title, name, now, context, keyword, cnt, like_count, (select count(*) from reply where blog_no = blog.no) as comment_Cnt from blog order by no desc
+		select no, title, name, now, context, keyword, cnt, (select count(*) from like_blog where blog_no = blog.no) as like_cnt, (select count(*) from reply where blog_no = blog.no) as comment_Cnt from blog order by no desc
 	</select>
 
 	<select id="tag_list" resultType="org.blog.domain.BlogVO">
-		select no, title, name, now, context, keyword, cnt, like_count, (select count(*) from reply where blog_no = blog.no) as comment_Cnt from blog where keyword like CONCAT('%',#{keyword},'%') order by no desc
+		select no, title, name, now, context, keyword, cnt, (select count(*) from like_blog where blog_no = blog.no) as like_cnt, (select count(*) from reply where blog_no = blog.no) as comment_Cnt from blog where keyword like CONCAT('%',#{keyword},'%') order by no desc
 	</select>
 
 	<select id="my_list" resultType="org.blog.domain.BlogVO">
-		select no, title, name, now, context, cnt, like_count, (select count(*) from reply where blog_no = blog.no) as comment_Cnt from blog where name = #{name} order by no desc
+		select no, title, name, now, context, cnt, (select count(*) from like_blog where blog_no = blog.no) as like_cnt, (select count(*) from reply where blog_no = blog.no) as comment_Cnt from blog where name = #{name} order by no desc
 	</select>
 
 	<select id="selectList" resultType="org.blog.domain.BlogVO">
-
 		select * from blog where no = #{no}
 	</select>
 
@@ -48,19 +51,25 @@
 		update blog set title = #{title}, context = #{context} where no = #{no}
 	</update>
 
-
 	<delete id="blog_delete" parameterType="java.lang.Integer">
 		delete from blog where no = #{no}
 	</delete>
-
 
 	<select id="my_comment" resultType="org.blog.domain.JoinVO">
 		SELECT r.comment, r.reply_name, b.title, b.no FROM reply r left JOIN blog b ON r.blog_no = b.no where reply_name = #{name}
 	</select>
 
-	<update id="like_count">
-		update blog set like_count= like_count+1 where no = #{no}
-	</update>
+	<select id="like_yn" parameterType = "org.blog.domain.LikeVO" resultType="Integer">
+		SELECT IFNULL(COUNT(*),0) FROM like_blog WHERE blog_no = #{blog_no} and like_user = #{like_user}
+	</select>
+
+	<insert id="like">
+		insert into like_blog value(#{like_no}, #{blog_no}, #{like_user}, #{like_now})
+	</insert>
+
+	<select id="like_count" parameterType = "org.blog.domain.LikeVO" resultType="Integer">
+		SELECT IFNULL(COUNT(*),0) FROM like_blog WHERE blog_no = #{blog_no}
+	</select>
 
 	<select id="select_like_count" resultType="java.lang.Integer">
 		SELECT like_count FROM blog WHERE no = #{no}

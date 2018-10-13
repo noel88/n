@@ -131,9 +131,9 @@ function checkPwd() {
 
 </script>
 
-<div style="max-width: 1500px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 <form action = "joinAction" method="post" onsubmit = "return validate()">
-<table style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
+<table style = "margin-left : auto; margin-right : auto; margin-top : 30px; margin-bottom: 100px;">
 
 
 	<tr>

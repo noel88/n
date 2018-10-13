@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.blog.dao.BlogDAO;
 import org.blog.domain.BlogVO;
 import org.blog.domain.ImgVO;
+import org.blog.domain.LikeVO;
 import org.blog.domain.WordVO;
 import org.springframework.stereotype.Service;
 
@@ -123,8 +124,8 @@ public class BlogServiceImpl implements BlogService{
 	}
 
 	@Override
-	public void like_cnt(Integer no) {
-		dao.like_cnt(no);
+	public int like_cnt(Integer no) {
+		return dao.like_cnt(no);
 
 	}
 
@@ -171,6 +172,22 @@ public class BlogServiceImpl implements BlogService{
 	public void word_update(WordVO vo) {
 		dao.word_update(vo);
 
+	}
+
+	@Override
+	public List<WordVO> word_cnt_list() {
+		return dao.word_cnt_list();
+	}
+
+	@Override
+	public int like_yn(LikeVO vo) {
+		return dao.like_yn(vo);
+	}
+
+	@Override
+	public void like(LikeVO vo) {
+		dao.like(vo);
+		
 	}
 
 

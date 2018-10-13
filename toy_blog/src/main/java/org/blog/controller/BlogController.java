@@ -9,7 +9,9 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.blog.domain.BlogVO;
+import org.blog.domain.EventEntryVO;
 import org.blog.domain.ImgVO;
+import org.blog.domain.LikeVO;
 import org.blog.domain.ReplyVO;
 import org.blog.domain.WordVO;
 import org.blog.service.BlogService;
@@ -143,9 +145,7 @@ public class BlogController {
 	public void list_detail(@RequestParam("no") int no, Model model) {
 		model.addAttribute(service.blog_detail(no));
 		model.addAttribute("comment", reservice.comment_list(no));
-		model.addAttribute("count", reservice.comment_count(no));
-		model.addAttribute("like", service.select_like_count(no));
-
+		model.addAttribute("count_like", service.like_cnt(no));
 
 	}
 
@@ -230,12 +230,31 @@ public class BlogController {
 	 * @throws
 	 */
 
-	@RequestMapping(value = "/like_count", method = RequestMethod.GET)
-	public String like_count(@RequestParam("no") int no) {
+//	@RequestMapping(value = "/like_count", method = RequestMethod.GET)
+//	public String like_count(@RequestParam("no") int no) {
+//
+//		service.like_cnt(no);
+//		return "redirect:/blog/detail?no=" + no;
+//
+//	}
+	
+	@RequestMapping(value = "/like", method = RequestMethod.GET)
+	public String like(@RequestParam("blog_no") int no, HttpSession session) {
 
-		service.like_cnt(no);
-		return "redirect:/blog/detail?no=" + no;
+		LikeVO vo = new LikeVO();
+		String name = (String)session.getAttribute("name");
+		vo.setLike_user(name);
+		vo.setBlog_no(no);
+		int yn = service.like_yn(vo);
 
+		if(yn == 0) {
+			service.like(vo);
+			return "blog/like_success";
+
+		}else {
+
+			return "blog/like_error";
+		}
 	}
 
 	/**

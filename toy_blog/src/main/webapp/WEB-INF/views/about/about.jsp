@@ -71,7 +71,7 @@
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-2. <del>상대방 이름을 클릭하면 상대방 블로그 페이지로 이동 가능하다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-3. <del>상대방 글을 보고 좋아요 버튼이나, 댓글을 남길수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-4. 불건전한 글이나, 스팸성 글이 있으면 신고할수 있다. (신고하면 게시글이 관리자 이메일로 감, or 추가로 글 블락 처리)</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-5. 좋아요는 글당 하나씩만 선택 가능하고, 댓글의 댓글도 남길수 있다.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-5. <del>좋아요는 글당 하나씩만 선택 가능하고</del>, 댓글의 댓글도 남길수 있다.</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-6. 댓글에도 좋아요, 싫어요, 신고하기 기능이 있다.(신고하면 댓글이 관리자 이메일로 감, or 추가로 댓글 블락 처리)</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-7. <del>블로그 글을 작성할수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-8. 블로그에는 이미지 업로드가 가능하고, 올리고 글쓸때 이미지 확인하게끔</p>

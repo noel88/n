@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.blog.domain.BlogVO;
 import org.blog.domain.ImgVO;
+import org.blog.domain.LikeVO;
 import org.blog.domain.WordVO;
 import org.springframework.stereotype.Repository;
 
@@ -66,8 +67,8 @@ public class BlogDAOImpl implements BlogDAO {
 	}
 
 	@Override
-	public void like_cnt(Integer no) {
-		sqlsession.update(namespace + ".like_count", no);
+	public int like_cnt(Integer no) {
+		return sqlsession.selectOne(namespace + ".like_count", no);
 
 	}
 
@@ -114,6 +115,21 @@ public class BlogDAOImpl implements BlogDAO {
 	public void word_update(WordVO vo) {
 		sqlsession.update(namespace + ".word_cnt", vo);
 
+	}
+
+	@Override
+	public List<WordVO> word_cnt_list() {
+		return sqlsession.selectList(namespace + ".word_cnt_list");
+	}
+
+	@Override
+	public int like_yn(LikeVO vo) {
+		return sqlsession.selectOne(namespace + ".like_yn", vo);
+	}
+
+	@Override
+	public void like(LikeVO vo) {
+		sqlsession.insert(namespace + ".like", vo);		
 	}
 
 
