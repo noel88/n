@@ -94,7 +94,7 @@ function checkPwd() {
 	<div id="myTabContent" class="tab-content">
 		<!-- 내가 쓴 게시물 보기 -->
 		<div class="tab-pane fade active show" id="post">
-		<table style="margin-top: 50px; margin-bottom: 100px; width: 75%; float: left;">
+		<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
 		<c:forEach items = "${my}" var = "BlogVO">
 			<tr >
 				<td>

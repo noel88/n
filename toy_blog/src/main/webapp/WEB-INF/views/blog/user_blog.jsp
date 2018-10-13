@@ -16,7 +16,7 @@
 
 		<!-- 블로그 페이지 -->
 
-		<table style="margin-top: 50px; margin-bottom: 100px; width: 75%; float: left;">
+		<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
 		<c:forEach items = "${my}" var = "BlogVO">
 			<tr >
 				<td>
