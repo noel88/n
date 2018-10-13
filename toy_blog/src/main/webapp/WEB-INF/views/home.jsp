@@ -38,14 +38,12 @@ $(function() {
 <c:forEach items = "${list}" var = "BlogVO">
 	"${BlogVO.title}",
 	"${BlogVO.name}",
-	<c:forEach items="${fn:split(BlogVO.keyword, '#')}" var="item">
-		<c:if test = "${item != ''}">
-			"#${item}",
-		</c:if>
+</c:forEach>
+	
+	 <c:forEach items = "${keyword}" var = "WordVO">
+			"#${WordVO.word}",	
 	</c:forEach>
 
-
-</c:forEach>
 
   ];
   $( "#tags" ).autocomplete({
@@ -64,17 +62,17 @@ $(function() {
 </div>
 
 
-<div class='row' style="float: none; margin : 0 auto;">
+<%-- <div class='row' style="float: none; margin : 0 auto;">
     <form action="search/search" class="form-inline my-2 my-lg-3">
      <div class="container">
 
 	            <div id="imaginary_container">
 	                <div class="input-group stylish-input-group">
-	                    <input type="text" class="form-control" style="width: 850px;" id ="tags" name = "search" placeholder='<spring:message code="bar"/>' >
-	                    <button type="submit" class="btn btn-primary">
-	                            <i class="fas fa-search"></i>
-	                        </button>
+	                    <input type="text" class="form-control" style="width: 700px;" id ="tags" name = "search" placeholder='<spring:message code="bar"/>' >
 	                    <span class="input-group-addon">
+	                    <button type="submit">
+	                           <span> <i class="fas fa-search"></i></span>
+	                        </button>
 
 	                    </span>
 	                </div>
@@ -82,7 +80,31 @@ $(function() {
 
 		</div>
     </form>
+</div> --%>
+
+
+<div class="container">
+    <br/>
+	<div class="row justify-content-center">
+                        <div class="col-12 col-md-10 col-lg-8">
+                            <form action="search/search">
+                                <div class="card-body row no-gutters align-items-center">
+                                    <!--end of col-->
+                                    <div class="col">
+                                        <input class="form-control form-control-lg form-control-borderless" id ="tags" name = "search" type="search" placeholder="Search topics or keywords">
+                                    </div>
+                                    <!--end of col-->
+                                    <div class="col-auto">
+                                        <button class="btn btn-lg btn-success" type="submit">Search</button>
+                                    </div>
+                                    <!--end of col-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end of col-->
+                    </div>
 </div>
+
 
 
 
@@ -143,7 +165,7 @@ $(function() {
 				 <div class='col-sm-2'><a class="btn btn-secondary btn-lg" href="/lxa/blog/tags?keyword=${WordVO.word}">#${WordVO.word}</a></div>
 				 <%--  <c:if test="${g.index eq 0}"><div class='col-sm-4'>#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></div></c:if> --%>
   				
-		</c:forEach>
+</c:forEach>
 </div>
 
 

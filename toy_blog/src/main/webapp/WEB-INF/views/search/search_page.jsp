@@ -33,7 +33,7 @@
 
 			   <c:choose>
 					<c:when test="${title_cnt == 0}">
-					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px;">
+					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px; margin-bottom: 100px;">
 						 <tr>
 
 						 	<td>
@@ -47,7 +47,7 @@
 					</table>
 					</c:when>
 					<c:otherwise>
-			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; margin-bottom: 100px;">
 					<c:forEach items = "${title}" var = "BlogVO">
 						<tr>
 							<td style="text-align: left;">
@@ -86,7 +86,7 @@
 		<div class="tab-pane fade show" id="content">
 		  <c:choose>
 					<c:when test="${context_cnt == 0}">
-					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px;">
+					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px; margin-bottom: 100px;">
 						 <tr>
 						 	<td>
 								<p>&#168;${search}&#168;에 대한 검색 결과가 없습니다.</p>
@@ -98,7 +98,7 @@
 					</table>
 					</c:when>
 					<c:otherwise>
-			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; margin-bottom: 100px;">
 			<c:forEach items = "${context}" var = "BlogVO">
 						<tr>
 							<td style="text-align: left;">
@@ -137,7 +137,7 @@
 		<div class="tab-pane fade show" id="writer">
 		  <c:choose>
 					<c:when test="${name_cnt == 0}">
-					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px;">
+					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px; margin-bottom: 100px;">
 						 <tr>
 						 	<td>
 								<p>&#168;${search}&#168;에 대한 검색 결과가 없습니다.</p>
@@ -149,7 +149,7 @@
 					</table>
 					</c:when>
 					<c:otherwise>
-			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; margin-bottom: 100px;">
 			<c:forEach items = "${name}" var = "BlogVO">
 						<tr>
 							<td style="text-align: left;">

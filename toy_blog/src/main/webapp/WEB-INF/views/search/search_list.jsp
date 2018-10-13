@@ -13,7 +13,7 @@
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
 
-<div style="max-width: 1500px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 <div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 70px;">
 
 
@@ -27,7 +27,7 @@
 <!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
 
 <c:forEach items = "${title}" var = "BlogVO">
-   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 50%;">
+   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; margin-bottom: 100px;">
 			<tr>
 				<td style="text-align: left;">
 					<h3>
