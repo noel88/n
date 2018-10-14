@@ -16,7 +16,7 @@
 
 
 <form action = "loginAction">
-<table style = "margin-left : auto; margin-right : auto; margin-top : 30px; width:100%; margin-bottom: 100px;">
+<table style = "margin-left : auto; margin-right : auto; margin-top : 150px; width:100%; margin-bottom: 100px;">
 
 	<tr>
    		<td><div class="form-group">

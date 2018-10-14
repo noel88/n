@@ -152,7 +152,7 @@ function checkPwd() {
 
 
 		<!-- 내가 쓴 댓글 보기 -->
-		<div class="tab-pane fade show" id="comment_my">
+		<div class="tab-pane fade" id="comment_my">
 			 <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; width: 70%;">
 			<c:forEach items="${my_comment}" var="JoinVO">
 			<tr>
@@ -176,12 +176,12 @@ function checkPwd() {
 		</div>
 		
 		<!-- 구독페이지 -->
-		<div class="tab-pane fade show" id="page">
+		<div class="tab-pane fade" id="page">
 			구독한 블로그의 글이 온다. or 블로그 제목과 한줄소개 
 		</div>
 
 		<!-- 블로그 정보 수정 -->
-		<div class="tab-pane fade show" id="blog">
+		<div class="tab-pane fade" id="blog">
 			블로그 제목, 블로그 한줄설명, 블로그 이미지, 
 			내 프로필 정보(사진, 한줄소개), 카테고리 설정
 			
@@ -254,7 +254,7 @@ function checkPwd() {
 
 	
 		<!-- 회원정보 수정 -->
-		<div class="tab-pane fade show" id="profile">
+		<div class="tab-pane fade" id="profile">
 			<script type="text/javascript">
 				function validate() {
 					alert('수정이 완료되었습니다.');

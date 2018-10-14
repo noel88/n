@@ -35,7 +35,7 @@
 			<!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
 
 			<c:forEach items = "${event}" var = "EventVO">
-			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 150px;">
 						<tr>
 							<td style="text-align: left; width: 80%;">
 								<h3>
@@ -61,6 +61,6 @@
 
 	</div>
 </div>
-<%@ include file="/WEB-INF/views/include/footer2.jsp" %>
+<%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>
 </html>

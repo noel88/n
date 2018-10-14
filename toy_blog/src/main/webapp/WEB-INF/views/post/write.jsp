@@ -31,7 +31,7 @@
 			</script>
 <form action="create" method="post">
 <div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
-	<table style="margin-left : auto; margin-right : auto; margin-top : 30px; width: 1000px;">
+	<table style="margin-left : auto; margin-right : auto; margin-top : 150px; width: 1000px;">
 	<tr>
 		<td colspan="2">
 			<div class="form-group">

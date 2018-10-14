@@ -100,7 +100,7 @@ $(document).ready(function(){
 			   </c:choose>
 		</div>
 		<!-- 글 내용 검색 결과 -->
-		<div class="tab-pane fade show" id="content">
+		<div class="tab-pane fade" id="content">
 		  <c:choose>
 					<c:when test="${context_cnt == 0}">
 					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px; margin-bottom: 100px;">
@@ -151,7 +151,7 @@ $(document).ready(function(){
 		</div>
 
 		<!-- 작성자 검색 결과 -->
-		<div class="tab-pane fade show" id="writer">
+		<div class="tab-pane fade" id="writer">
 		  <c:choose>
 					<c:when test="${name_cnt == 0}">
 					 <table style = "margin-left : auto; margin-right : auto; margin-top : 80px; margin-bottom: 100px;">

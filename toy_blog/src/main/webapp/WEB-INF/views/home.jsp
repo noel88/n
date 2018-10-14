@@ -54,7 +54,7 @@ $(function() {
 
 
 
-<div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 100px;">
+<div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 150px;">
 
 
 	<h2><p class="mb-0"><spring:message code="search"/> </p></h2>
@@ -104,8 +104,6 @@ $(function() {
                         <!--end of col-->
                     </div>
 </div>
-
-
 
 
 <div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 70px; margin-bottom: 30px;">
@@ -162,11 +160,13 @@ $(function() {
 <div class='row' id = "key" style="float: none; margin : 0 auto; margin-bottom: 100px;">
  <c:forEach items = "${keyword}" var = "WordVO">
 		
-				 <div class='col-sm-2'><a class="btn btn-secondary btn-lg" href="/lxa/blog/tags?keyword=${WordVO.word}">#${WordVO.word}</a></div>
+				 <div class='col-sm-2'><a class="btn btn-secondary btn-lg" style="width: 80%; text-align: center; margin-left: auto; margin-right: auto;" href="/lxa/blog/tags?keyword=${WordVO.word}">#${WordVO.word}</a></div>
 				 <%--  <c:if test="${g.index eq 0}"><div class='col-sm-4'>#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></div></c:if> --%>
   				
 </c:forEach>
 </div>
+
+
 
 
 <%-- <div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 70px;">

@@ -180,7 +180,7 @@ function load(id, cnt, btn) {
 
 			<c:forEach items="${event}" var="EventVO">
 				<table class="lists__item js-load table"
-					style="margin-left: auto; margin-right: auto; margin-top: 30px;">
+					style="margin-left: auto; margin-right: auto; margin-top: 150px;">
 
 
 					<tr>
