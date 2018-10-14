@@ -8,11 +8,28 @@
 <title>Insert title here</title>
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
 </head>
+<style>
+.highlight {background-color:yellow;}
+</style>
+
+<script src="https://johannburkard.de/resources/Johann/jquery.highlight-5.js"></script>
+<script>
+$(document).ready(function(){
+
+	var strKey = '${search}'; // 하이라이트를 적용할 스트링
+
+	 if(strKey != ''){
+		$('.line').highlight(strKey); //line class에 해당하는 요소들에서 strKey 값들을 하이라이트 처리
+	 }
+
+});
+</script>
+
 <body>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
 <h1 style="margin-top: 30px;"> &#168;${search}&#168;(으)로 검색한 결과입니다. </h1>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;" class ="line">
 <div style=" margin-left : auto; margin-right : auto;">
 	<ul class="nav nav-tabs">
 		<li class="nav-item">

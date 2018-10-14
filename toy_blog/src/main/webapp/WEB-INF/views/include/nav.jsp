@@ -37,9 +37,6 @@
       </li>
  </c:when>
       <c:otherwise>
-      <li class="nav-item">
-        <a class="nav-link" href="/lxa/post/write"><spring:message code="Write"/> </a>
-      </li>
        <li class="nav-item">
         <a class="nav-link" href="/lxa/user/page">${sessionScope.name}, <spring:message code="Page"/> </a>
       </li>

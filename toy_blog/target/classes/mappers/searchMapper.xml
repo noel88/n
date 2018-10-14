@@ -6,27 +6,27 @@
 <mapper namespace="org.blog.mapper.searchMapper">
 
 	<select id="search_title" resultType="org.blog.domain.PostVO">
-		select * from post where title like CONCAT('%',#{search},'%')
+		select * from post where title like CONCAT('%',#{search},'%') and public_yn = 'public'
 	</select>
 
 	<select id="search_context" resultType="org.blog.domain.PostVO">
-		select * from post where context like CONCAT('%',#{search},'%')
+		select * from post where context like CONCAT('%',#{search},'%') and public_yn = 'public'
 	</select>
 
 	<select id="search_name" resultType="org.blog.domain.PostVO">
-		select * from post where name like CONCAT('%',#{search},'%')
+		select * from post where name like CONCAT('%',#{search},'%') and public_yn = 'public'
 	</select>
 
 	<select id="title_count" resultType="java.lang.Integer">
-		SELECT IFNULL(COUNT(*),0) FROM post WHERE title like CONCAT('%',#{search},'%')
+		SELECT IFNULL(COUNT(*),0) FROM post WHERE title like CONCAT('%',#{search},'%') and public_yn = 'public'
 	</select>
 
 	<select id="context_count" resultType="java.lang.Integer">
-		SELECT IFNULL(COUNT(*),0) FROM post WHERE context like CONCAT('%',#{search},'%')
+		SELECT IFNULL(COUNT(*),0) FROM post WHERE context like CONCAT('%',#{search},'%') and public_yn = 'public'
 	</select>
 
 	<select id="name_count" resultType="java.lang.Integer">
-		SELECT IFNULL(COUNT(*),0) FROM post WHERE name like CONCAT('%',#{search},'%')
+		SELECT IFNULL(COUNT(*),0) FROM post WHERE name like CONCAT('%',#{search},'%') and public_yn = 'public'
 	</select>
 
 

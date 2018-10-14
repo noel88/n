@@ -33,7 +33,7 @@
 <div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 	<table style="margin-left : auto; margin-right : auto; margin-top : 30px; width: 1000px;">
 	<tr>
-		<td>
+		<td colspan="2">
 			<div class="form-group">
 				<label for="title">Title</label>
 				<input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해주세요.">
@@ -42,8 +42,40 @@
 		</td>
 
 		</tr>
+		
+		<tr>
+		<td style="width: 70%;">
+			 <div class="form-group">
+    		  <label for="">Category</label>
+    			  <select class="form-control" name = "category_no" id="">
+				        <option value="0" selected>전체</option>
+				        <option>2</option>
+				        <option>3</option>
+				        <option>4</option>
+				        <option>5</option>
+			      </select>
+    		</div>
+		</td>
+		<td>
+			 <div class="form-group">
+    		  <label for="">공개여부</label>
+    			  <select class="form-control" name = "public_yn" id="">
+				        <option value="public">공개</option>
+				        <option value="private">비공개</option>
+				        <option value="protect">구독자용공개</option>
+			      </select>
+    		</div>
+		</td>
+
+
+		</tr>
+		
+		
+		
+		
+		
 			<tr>
-				<td>
+				<td colspan="2">
 					<div class="form-group">
 						<label for="exampleTextarea">write</label>
 						<hr>
@@ -58,7 +90,7 @@
 
 
 			<tr>
-				<td>
+				<td colspan="2">
 					<div class="form-group">
 						<label for="">keyword</label>
 						<input type="text" class="form-control" name="keyword" id ="tags" placeholder="해쉬태그를 이용하여 키워드를 입력해주세요">
@@ -67,7 +99,7 @@
 
 			</tr>
 			<tr>
-				<td>
+				<td colspan="2">
 					<button type="submit" style="margin-left: auto; margin-right: auto; width: 100%;" class="btn btn-primary"><i class="fas fa-pen">&nbsp;Write</i></button>
 				</td>
 			</tr>

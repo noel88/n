@@ -84,10 +84,13 @@ function checkPwd() {
 		<a class="nav-link" data-toggle="tab" href="#comment_my">Comment</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#profile">Profile</a>
+		<a class="nav-link" data-toggle="tab" href="#page">구독페이지</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link disabled" href="#">Disabled</a>
+		<a class="nav-link" data-toggle="tab" href="#blog">블로그설정</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#profile">Profile</a>
 		</li>
 	</ul>
 
@@ -125,17 +128,22 @@ function checkPwd() {
 			    오늘의 좋아요
 			    <span class="badge badge-primary badge-pill">0</span>
 			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			  	<a href= "/lxa/post/write" style="margin-left: auto; margin-right: auto;" class="btn btn-primary"><i class="fas fa-list">글쓰기</i></a>
+
+			  </li>
 		</ul>
 
 		<div class="list-group" style="margin-top: 20px; float: right; width: 220px;">
 		  <a class="list-group-item list-group-item-action text-info">
-		    좋아요 목록
+		    카테고리 목록
 		  </a>
 		  <a href="#" class="list-group-item list-group-item-action">Dapibus ac facilisis in
 		  </a>
 		  <a href="#" class="list-group-item list-group-item-action disabled">Morbi leo risus
 		  </a>
 		</div>
+		
 
 
 
@@ -166,7 +174,85 @@ function checkPwd() {
 
    			</table>
 		</div>
+		
+		<!-- 구독페이지 -->
+		<div class="tab-pane fade show" id="page">
+			구독한 블로그의 글이 온다. or 블로그 제목과 한줄소개 
+		</div>
 
+		<!-- 블로그 정보 수정 -->
+		<div class="tab-pane fade show" id="blog">
+			블로그 제목, 블로그 한줄설명, 블로그 이미지, 
+			내 프로필 정보(사진, 한줄소개), 카테고리 설정
+			
+			<form action="blog" method="post" onsubmit="return validate()">
+				<table style=" margin-top : 30px; width: 60%; margin-bottom: 100px; float: left;">
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="exampleInputname1">프로필 사진</label>
+							<input type="text" class="form-control" name="blog_title">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="exampleInputPassword1">프로필 한줄설명</label>
+							<input type="text" class="form-control" name="profile_info" >
+						</div>
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="exampleInputname1">블로그제목</label>
+							<input type="text" class="form-control" name="blog_title">
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div class="form-group">
+							<label for="exampleInputPassword1">블로그 한줄설명</label>
+							<input type="text" class="form-control" name="blog_info">
+						</div>
+					</td>
+				</tr>
+				
+				
+				
+				<tr>
+					<td>
+						<button type="submit" class="btn btn-primary"><i class="fas fa-edit">&nbsp;update</i></button>
+					</td>
+				</tr>
+				</table>
+			</form>
+			
+			<div class="list-group" style="margin-top: 20px; float: right; width: 350px;">
+		  <a class="list-group-item list-group-item-action text-info">
+		    카테고리 목록
+		  </a>
+		  <a href="#" class="list-group-item list-group-item-action">
+		  				
+							<input type="text" class="form-control" name="blog_info" placeholder="카테고리를 추가해주세요" style=" width:220px; float: left">
+						
+							<button type="submit" class="btn btn-primary"><i class="fas fa-plus"></i></button>
+						
+		  </a>
+		  <a href="#" class="list-group-item list-group-item-action disabled">카테고리 추가한것 목록
+		  </a>
+		</div>
+		
+			
+			
+			
+		</div>
+			
+
+	
 		<!-- 회원정보 수정 -->
 		<div class="tab-pane fade show" id="profile">
 			<script type="text/javascript">
@@ -213,6 +299,10 @@ function checkPwd() {
 				</table>
 			</form>
 		</div>
+	
+	
+	
+	
 	</div>
 </div>
 </div>

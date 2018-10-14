@@ -140,6 +140,24 @@ a.btn:hover:before, a.btn:hover::after {
 }
 
 </style>
+
+
+<style>
+.highlight {background-color:yellow;}
+</style>
+
+<script src="https://johannburkard.de/resources/Johann/jquery.highlight-5.js"></script>
+<script>
+$(document).ready(function(){
+
+	var strKey = '${wordVO.word}'; // 하이라이트를 적용할 스트링
+
+	 if(strKey != ''){
+		$('.line').highlight(strKey); //line class에 해당하는 요소들에서 strKey 값들을 하이라이트 처리
+	 }
+
+});
+</script>
 <script type="text/javascript" src="https://nanati.me/common/js/jquery-1.11.2.min.js"></script>
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 </head>

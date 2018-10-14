@@ -20,10 +20,24 @@ public class PostVO {
 	private int comment_Cnt;
 	private int like_count;
 	private int like_cnt;
+	private int category_no;
+	private String public_yn;
 
 
 
 
+	public int getCategory_no() {
+		return category_no;
+	}
+	public void setCategory_no(int category_no) {
+		this.category_no = category_no;
+	}
+	public String getPublic_yn() {
+		return public_yn;
+	}
+	public void setPublic_yn(String public_yn) {
+		this.public_yn = public_yn;
+	}
 	public int getLike_cnt() {
 		return like_cnt;
 	}

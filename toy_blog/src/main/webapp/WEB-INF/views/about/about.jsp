@@ -81,6 +81,8 @@
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-12. <del>블로그 글 작성란에 해쉬태그를 입력할수 있다. (해쉬태그 입력란은 자동완성 기능 제공)</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-13. <del>글 목록에는 제목, 내용, 조회수, 작성일, 댓글수, 좋아요 수 가 노출되어야 한다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-14. 글을 삭제하게 되면 전체 댓글도 지워져야 한다.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-15. <del>글의 공개여부가 따로 존재한다. 공개, 비공개, 구독자에게만 공개</del></p>
+
 				 
 				<p class="text-primary">6. 이벤트</p>
 				
@@ -101,13 +103,16 @@
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-6. 카테고리별로 글을 분류할수 있다 (네이버 블로그 게시판 같은 기능)</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-7. <del>내 정보를 수정하거나 탈퇴할수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-8. 내가 이메일 인증 사용자인지, 미인증 사용자인지 표시해준다.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-9. 프로필 사진이나, 블로그 메인 사진, 블로그 소개, 내 소개등 수정하거나 추가할수 있다.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-10. 카테고리는 사용자 마음대로 실시간 추가 가능하다.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-11. 카테고리 또한 공개 여부를 설정할수 있다.</p>
 				
 				<p class="text-primary">8. 검색</p>
 				
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;8-1. <del>검색 자동 완성 기능.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;8-2. <del>검색 자동 완성에는 제목, 작성자, 키워드가 나온다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;8-3. <del>검색하면 검색 페이지로 넘어가서 제목별/글내용/작성자 순으로 분류하여 보여준다.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;8-4. 검색단어는 하이라이트 표시함</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;8-4. <del>검색단어는 하이라이트 표시함</del></p>
 				
 				<p class="text-primary">9. 관리자</p>
 				
