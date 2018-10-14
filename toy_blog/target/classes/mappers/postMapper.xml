@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.blog.mapper.postMapper">
+
+
+	<insert id="create">
+		insert into post value(#{post_no}, #{title}, #{name}, #{now}, #{context}, #{keyword}, #{cnt})
+	</insert>
+
+	<select id="word_select" resultType="Integer">
+		SELECT IFNULL(COUNT(*),0) FROM keyword_cnt where word = #{word}
+	</select>
+
+	<insert id="word_insert">
+		insert into keyword_cnt value(#{word}, #{word_cnt})
+	</insert>
+
+	<update id="word_cnt">
+		update keyword_cnt set word_cnt = word_cnt+1 where word = #{word}
+	</update>
+
+	<select id="word_cnt_list" resultType = "org.blog.domain.WordVO">
+		select * from keyword_cnt order by word_cnt desc limit 0,12
+	</select>
+
+	<select id="list" resultType="org.blog.domain.PostVO">
+		select post_no, title, name, now, context, keyword, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post order by post_no desc
+	</select>
+
+	<select id="tag_list" resultType="org.blog.domain.PostVO">
+		select post_no, title, name, now, context, keyword, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where keyword like CONCAT('%',#{keyword},'%') order by post_no desc
+	</select>
+
+	<select id="my_list" resultType="org.blog.domain.PostVO">
+		select post_no, title, name, now, context, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where name = #{name} order by post_no desc
+	</select>
+
+	<select id="selectList" resultType="org.blog.domain.PostVO">
+		select * from post where post_no = #{post_no}
+	</select>
+
+	<insert id="update_cnt">
+		update post set cnt = cnt+1 where post_no = #{post_no}
+	</insert>
+
+	<update id="post_update">
+		update post set title = #{title}, context = #{context} where post_no = #{post_no}
+	</update>
+
+	<delete id="post_delete" parameterType="java.lang.Integer">
+		delete from post where post_no = #{post_no}
+	</delete>
+
+	<select id="my_comment" resultType="org.blog.domain.JoinVO">
+		SELECT c.comment, c.comment_name, p.title, p.post_no FROM comment c left JOIN post p ON c.post_no = p.post_no where comment_name = #{name}
+	</select>
+
+	<select id="like_yn" parameterType = "org.blog.domain.LikeVO" resultType="Integer">
+		SELECT IFNULL(COUNT(*),0) FROM like_post WHERE post_no = #{post_no} and like_user = #{like_user}
+	</select>
+
+	<insert id="like">
+		insert into like_post value(#{like_no}, #{post_no}, #{like_user}, #{like_now})
+	</insert>
+
+	<select id="like_count" parameterType = "org.blog.domain.LikeVO" resultType="Integer">
+		SELECT IFNULL(COUNT(*),0) FROM like_post WHERE post_no = #{post_no}
+	</select>
+
+	<select id="select_like_count" resultType="java.lang.Integer">
+		SELECT like_count FROM post WHERE post_no = #{post_no}
+	</select>
+
+	<insert id="img_upload">
+		insert into post_img values (#{post_name}, #{post_name}, #{post_img1},#{post_img2},#{post_img3},#{post_img4},#{post_img5}, #{post_now})
+	</insert>
+
+	<select id="select_count_list"  resultType="java.lang.Integer">
+		SELECT IFNULL(COUNT(*),0) FROM post WHERE name = #{name} and now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59')
+	</select>
+
+	<select id="select_count_comment"  resultType="java.lang.Integer">
+		SELECT IFNULL(COUNT(*),0) FROM comment WHERE post_no = #{no} and comment_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59')
+	</select>
+
+
+
+
+
+</mapper>

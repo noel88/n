@@ -7,7 +7,7 @@ import java.util.Locale;
 
 import javax.inject.Inject;
 
-import org.blog.service.BlogService;
+import org.blog.service.PostService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class HomeController {
 
-	@Inject BlogService service;
+	@Inject PostService service;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 

@@ -119,6 +119,7 @@ function checkPwd() {
 
 
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 
 
 
@@ -131,9 +132,8 @@ function checkPwd() {
 
 </script>
 
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
 <form action = "joinAction" method="post" onsubmit = "return validate()">
-<table style = "margin-left : auto; margin-right : auto; margin-top : 30px; margin-bottom: 100px;">
+<table style = "margin-left : auto; margin-right : auto; margin-top : 30px; width:100%; margin-bottom: 100px;">
 
 
 	<tr>

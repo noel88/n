@@ -95,15 +95,15 @@ function checkPwd() {
 		<!-- 내가 쓴 게시물 보기 -->
 		<div class="tab-pane fade active show" id="post">
 		<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
-		<c:forEach items = "${my}" var = "BlogVO">
+		<c:forEach items = "${my}" var = "PostVO">
 			<tr >
 				<td>
 					<div class="card bg-secondary mb-3" style="width: 100%;">
-					  <div class="card-header"><a href="/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a></div>
+					  <div class="card-header"><a href="/post/detail?post_no=${PostVO.post_no}">${PostVO.title}</a></div>
 					  <div class="card-body">
-					  <span class="card-title"><c:out value='${fn:substring(BlogVO.now, 0, 19)}'/>&nbsp;<i class="fas fa-eye">&nbsp;${BlogVO.cnt}</i>
-					  &nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${BlogVO.comment_Cnt}</i>&nbsp; <i class="fas fa-heart">&nbsp;${BlogVO.like_count}</i></span>
-					    <p class="card-text"><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
+					  <span class="card-title"><c:out value='${fn:substring(PostVO.now, 0, 19)}'/>&nbsp;<i class="fas fa-eye">&nbsp;${PostVO.cnt}</i>
+					  &nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${PostVO.comment_Cnt}</i>&nbsp; <i class="fas fa-heart">&nbsp;${PostVO.like_count}</i></span>
+					    <p class="card-text"><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
 					  </div>
 					</div>
 				</td>
@@ -150,7 +150,7 @@ function checkPwd() {
 			<tr>
 				<td style="text-align: left;">
 					<h3>
-					  <i class="fas fa-clipboard-list"><a href="/blog/detail?no=${JoinVO.no}">${JoinVO.title}</a></i>
+					  <i class="fas fa-clipboard-list"><a href="/post/detail?post_no=${JoinVO.post_no}">${JoinVO.title}</a></i>
 					</h3>
 				</td>
 

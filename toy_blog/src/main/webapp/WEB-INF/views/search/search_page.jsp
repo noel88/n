@@ -48,26 +48,26 @@
 					</c:when>
 					<c:otherwise>
 			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; margin-bottom: 100px;">
-					<c:forEach items = "${title}" var = "BlogVO">
+					<c:forEach items = "${title}" var = "PostVO">
 						<tr>
 							<td style="text-align: left;">
 								<h3>
-								  <a href = "/lxa/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a>
+								  <a href = "/lxa/blog/detail?post_no=${PostVO.post_no}">${PostVO.title}</a>
 								</h3>
 							</td>
 							<td style="float: right;">
 
-								  <small class="text-muted"><i class="fas fa-eye">&nbsp;${BlogVO.cnt}</i> </small>
+								  <small class="text-muted"><i class="fas fa-eye">&nbsp;${PostVO.cnt}</i> </small>
 
 							</td>
 
 						</tr>
 						<tr>
 							<td colspan="2" style="width: 750px; text-align: left;">
-								<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-								   <small class="text-muted"><c:out value='${fn:substring(BlogVO.now, 0, 19)}'/> <cite title="Source Title">by.${BlogVO.name}</cite></small>
-								   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${BlogVO.comment_Cnt}</i>&nbsp;
-												<i class="fas fa-heart" >&nbsp;${BlogVO.like_count}</i></span>
+								<p><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
+								   <small class="text-muted"><c:out value='${fn:substring(PostVO.now, 0, 19)}'/> <cite title="Source Title">by.${PostVO.name}</cite></small>
+								   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${PostVO.comment_Cnt}</i>&nbsp;
+												<i class="fas fa-heart" >&nbsp;${PostVO.like_count}</i></span>
 						 	</td>
 						</tr>
 						</c:forEach>
@@ -99,26 +99,26 @@
 					</c:when>
 					<c:otherwise>
 			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; margin-bottom: 100px;">
-			<c:forEach items = "${context}" var = "BlogVO">
+			<c:forEach items = "${context}" var = "PostVO">
 						<tr>
 							<td style="text-align: left;">
 								<h3>
-								  <a href = "/lxa/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a>
+								  <a href = "/lxa/post/detail?post_no=${PostVO.no}">${PostVO.title}</a>
 								</h3>
 							</td>
 							<td style="float: right;">
 
-								  <small class="text-muted"><i class="fas fa-eye">&nbsp;${BlogVO.cnt}</i> </small>
+								  <small class="text-muted"><i class="fas fa-eye">&nbsp;${PostVO.cnt}</i> </small>
 
 							</td>
 
 						</tr>
 						<tr>
 							<td colspan="2" style="width: 750px; text-align: left;">
-								<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-								   <small class="text-muted"><c:out value='${fn:substring(BlogVO.now, 0, 19)}'/> <cite title="Source Title">by.${BlogVO.name}</cite></small>
-								   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${BlogVO.comment_Cnt}</i>&nbsp;
-												<i class="fas fa-heart" >&nbsp;${BlogVO.like_count}</i></span>
+								<p><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
+								   <small class="text-muted"><c:out value='${fn:substring(PostVO.now, 0, 19)}'/> <cite title="Source Title">by.${PostVO.name}</cite></small>
+								   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${PostVO.comment_Cnt}</i>&nbsp;
+												<i class="fas fa-heart" >&nbsp;${PostVO.like_count}</i></span>
 						 	</td>
 						</tr>
 
@@ -150,26 +150,26 @@
 					</c:when>
 					<c:otherwise>
 			   <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px; margin-bottom: 100px;">
-			<c:forEach items = "${name}" var = "BlogVO">
+			<c:forEach items = "${name}" var = "PostVO">
 						<tr>
 							<td style="text-align: left;">
 								<h3>
-								  <a href = "/lxa/blog/detail?no=${BlogVO.no}">${BlogVO.title}</a>
+								  <a href = "/lxa/post/detail?post_no=${PostVO.no}">${PostVO.title}</a>
 								</h3>
 							</td>
 							<td style="float: right;">
 
-								  <small class="text-muted"><i class="fas fa-eye">&nbsp;${BlogVO.cnt}</i> </small>
+								  <small class="text-muted"><i class="fas fa-eye">&nbsp;${PostVO.cnt}</i> </small>
 
 							</td>
 
 						</tr>
 						<tr>
 							<td colspan="2" style="width: 750px; text-align: left;">
-								<p><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-								   <small class="text-muted"><c:out value='${fn:substring(BlogVO.now, 0, 19)}'/> <cite title="Source Title">by.${BlogVO.name}</cite></small>
-								   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${BlogVO.comment_Cnt}</i>&nbsp;
-												<i class="fas fa-heart" >&nbsp;${BlogVO.like_count}</i></span>
+								<p><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
+								   <small class="text-muted"><c:out value='${fn:substring(PostVO.now, 0, 19)}'/> <cite title="Source Title">by.${PostVO.name}</cite></small>
+								   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${PostVO.comment_Cnt}</i>&nbsp;
+												<i class="fas fa-heart" >&nbsp;${PostVO.like_count}</i></span>
 						 	</td>
 						</tr>
 			</c:forEach>

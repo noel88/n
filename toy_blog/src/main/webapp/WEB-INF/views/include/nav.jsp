@@ -24,7 +24,7 @@
       </li>
       </c:if>
       <li class="nav-item">
-        <a class="nav-link" href="/lxa/blog/list"><spring:message code="List"/> </a>
+        <a class="nav-link" href="/lxa/post/list"><spring:message code="List"/> </a>
       </li>
 
 <c:choose>
@@ -38,7 +38,7 @@
  </c:when>
       <c:otherwise>
       <li class="nav-item">
-        <a class="nav-link" href="/lxa/blog/write"><spring:message code="Write"/> </a>
+        <a class="nav-link" href="/lxa/post/write"><spring:message code="Write"/> </a>
       </li>
        <li class="nav-item">
         <a class="nav-link" href="/lxa/user/page">${sessionScope.name}, <spring:message code="Page"/> </a>

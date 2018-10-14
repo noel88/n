@@ -5,16 +5,17 @@ public class JoinVO {
 	private String name;
 	private String title;
 	private String comment;
-	private String reply_name;
-	private int no;
+	private String comment_name;
+	private int post_no;
 	
 	
 	
-	public int getNo() {
-		return no;
+
+	public int getPost_no() {
+		return post_no;
 	}
-	public void setNo(int no) {
-		this.no = no;
+	public void setPost_no(int post_no) {
+		this.post_no = post_no;
 	}
 	public String getName() {
 		return name;
@@ -34,12 +35,13 @@ public class JoinVO {
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public String getReply_name() {
-		return reply_name;
+	public String getComment_name() {
+		return comment_name;
 	}
-	public void setReply_name(String reply_name) {
-		this.reply_name = reply_name;
+	public void setComment_name(String comment_name) {
+		this.comment_name = comment_name;
 	}
+	
 	
 	
 	

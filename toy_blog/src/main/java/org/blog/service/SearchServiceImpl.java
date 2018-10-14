@@ -5,7 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.blog.dao.SearchDAO;
-import org.blog.domain.BlogVO;
+import org.blog.domain.PostVO;
 import org.blog.domain.SearchVO;
 import org.springframework.stereotype.Service;
 
@@ -16,12 +16,12 @@ public class SearchServiceImpl implements SearchService{
 
 
 	@Override
-	public List<BlogVO> select_title(SearchVO vo) {
+	public List<PostVO> select_title(SearchVO vo) {
 		return dao.select_title(vo);
 	}
 
 	@Override
-	public List<BlogVO> select_context(SearchVO vo) {
+	public List<PostVO> select_context(SearchVO vo) {
 		return dao.select_context(vo);
 	}
 
@@ -36,7 +36,7 @@ public class SearchServiceImpl implements SearchService{
 	}
 
 	@Override
-	public List<BlogVO> select_name(SearchVO vo) {
+	public List<PostVO> select_name(SearchVO vo) {
 		return dao.select_name(vo);
 	}
 

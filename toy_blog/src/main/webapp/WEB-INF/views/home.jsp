@@ -35,9 +35,9 @@ pageEncoding="UTF-8"%>
 $(function() {
   var availableTags = [
 
-<c:forEach items = "${list}" var = "BlogVO">
-	"${BlogVO.title}",
-	"${BlogVO.name}",
+<c:forEach items = "${list}" var = "PostVO">
+	"${PostVO.title}",
+	"${PostVO.name}",
 </c:forEach>
 	
 	 <c:forEach items = "${keyword}" var = "WordVO">
@@ -117,8 +117,8 @@ $(function() {
 
 <%-- <table border="1" style="  margin-left: auto; margin-right: auto; width: 60%; margin-top: 30px; margin-bottom: 100px;">
 	<tr style=" margin: auto;">
-		 <c:forEach items = "${list}" var = "BlogVO">
-		 	<c:forEach items="${fn:split(BlogVO.keyword, '#')}" var="item" varStatus="g">
+		 <c:forEach items = "${list}" var = "PostVO">
+		 	<c:forEach items="${fn:split(PostVO.keyword, '#')}" var="item" varStatus="g">
 		 		<c:if test = "${item != ''}">
 						<c:if test="${g.index eq 0}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
 						<c:if test="${g.index eq 1}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
@@ -131,8 +131,8 @@ $(function() {
 
 	</tr>
 	<tr style=" margin: auto;">
-		 <c:forEach items = "${list}" var = "BlogVO">
-		 	<c:forEach items="${fn:split(BlogVO.keyword, '#')}" var="item" varStatus="g">
+		 <c:forEach items = "${list}" var = "PostVO">
+		 	<c:forEach items="${fn:split(PostVO.keyword, '#')}" var="item" varStatus="g">
 		 		<c:if test = "${item != ''}">
 						<c:if test="${g.index eq 5}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
 						<c:if test="${g.index eq 6}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
@@ -149,8 +149,8 @@ $(function() {
 
 
 <%-- <div class='row' id = "key" style="float: none; margin : 0 auto;">
- <c:forEach items = "${list}" var = "BlogVO">
-		 	<c:forEach items="${fn:split(BlogVO.keyword, '#')}" var="item" varStatus="g">
+ <c:forEach items = "${list}" var = "PostVO">
+		 	<c:forEach items="${fn:split(PostVO.keyword, '#')}" var="item" varStatus="g">
 		 		<c:if test = "${item != ''}">
 				 <div class='col-sm-2'><a class="btn btn-secondary btn-lg" href="/lxa/blog/tags?keyword=${item}">#${item}</a></div>
 				  <c:if test="${g.index eq 0}"><div class='col-sm-4'>#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></div></c:if>
@@ -182,12 +182,12 @@ $(function() {
 		<td style="width: 20%;">
 			<div class="list-group" style=" height: 100%;" >
 			  <a href="#" class="list-group-item list-group-item-action active">
-			  <c:forEach items = "${list}" var = "BlogVO"  end = "0">
-			    ${BlogVO.name}'s blog
+			  <c:forEach items = "${list}" var = "PostVO"  end = "0">
+			    ${PostVO.name}'s blog
 			    </c:forEach>
 			  </a>
-<c:forEach items = "${list}" var = "BlogVO"  end = "1">
-			  <a href="/lxa/blog/detail?no=${BlogVO.no}" class="list-group-item list-group-item-action">${BlogVO.title}
+<c:forEach items = "${list}" var = "PostVO"  end = "1">
+			  <a href="/lxa/post/detail?post_no=${PostVO.post_no}" class="list-group-item list-group-item-action">${PostVO.title}
 			  </a>
 </c:forEach>
 
@@ -195,10 +195,10 @@ $(function() {
 			</div>
 		</td>
 		<td style="width: 20%;">
-<c:forEach items = "${list}" var = "BlogVO"  end = "0">
+<c:forEach items = "${list}" var = "PostVO"  end = "0">
 			<blockquote class="blockquote">
-		  	<p class="mb-0"><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-		  	<footer class="blockquote-footer">Writer <cite title="Source Title">by. ${BlogVO.name}</cite></footer>
+		  	<p class="mb-0"><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
+		  	<footer class="blockquote-footer">Writer <cite title="Source Title">by. ${PostVO.name}</cite></footer>
 			</blockquote>
 		</c:forEach>
 		</td>
@@ -210,12 +210,12 @@ $(function() {
 		<td style="width: 20%;">
 			<div class="list-group" style=" height: 100%;" >
 			  <a href="#" class="list-group-item list-group-item-action active">
-			  <c:forEach items = "${list}" var = "BlogVO"  begin = "4" end = "4">
-			    ${BlogVO.name}'s blog
+			  <c:forEach items = "${list}" var = "PostVO"  begin = "4" end = "4">
+			    ${PostVO.name}'s blog
 			    </c:forEach>
 			  </a>
-<c:forEach items = "${list}" var = "BlogVO"  begin = "4" end = "5">
-			  <a href="/lxa/blog/detail?no=${BlogVO.no}" class="list-group-item list-group-item-action">${BlogVO.title}
+<c:forEach items = "${list}" var = "PostVO"  begin = "4" end = "5">
+			  <a href="/lxa/post/detail?post_no=${PostVO.post_no}" class="list-group-item list-group-item-action">${PostVO.title}
 			  </a>
 </c:forEach>
 
@@ -223,10 +223,10 @@ $(function() {
 			</div>
 		</td>
 		<td style="width: 20%;">
-<c:forEach items = "${list}" var = "BlogVO"  begin = "4" end = "4">
+<c:forEach items = "${list}" var = "PostVO"  begin = "4" end = "4">
 			<blockquote class="blockquote">
-		  	<p class="mb-0"><c:out value='${fn:substring(BlogVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-		  	<footer class="blockquote-footer">Writer <cite title="Source Title">by. ${BlogVO.name}</cite></footer>
+		  	<p class="mb-0"><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
+		  	<footer class="blockquote-footer">Writer <cite title="Source Title">by. ${PostVO.name}</cite></footer>
 			</blockquote>
 		</c:forEach>
 		</td>

@@ -4,7 +4,7 @@ public class LikeVO {
 
 	
 	private int like_no;
-	private int blog_no;
+	private int post_no;
 	private String like_user;
 	private String like_now;
 	
@@ -16,11 +16,11 @@ public class LikeVO {
 	public void setLike_no(int like_no) {
 		this.like_no = like_no;
 	}
-	public int getBlog_no() {
-		return blog_no;
+	public int getPost_no() {
+		return post_no;
 	}
-	public void setBlog_no(int blog_no) {
-		this.blog_no = blog_no;
+	public void setPost_no(int post_no) {
+		this.post_no = post_no;
 	}
 	public String getLike_user() {
 		return like_user;
