@@ -216,6 +216,36 @@
 			      <th style="width: 20%;">2018.10.11</th>
 			      <th style="width: 60%;">검색기능 구현, 이벤트 페이지 인원수 표기, 회원 탈퇴 수정, 검색구현 페이지 수정, 이메일 인증 주소 수정, 검색 자동 완성 및 메인 레이아웃, 다국어 지원 진행</th>
 			      <th style="width: 20%;">O</th>
+			    </tr>		 
+			    <tr class="table-secondary">
+			      <th style="width: 20%;">2018.10.12</th>
+			      <th style="width: 60%;">메인 레이아웃 수정, 키워드 등록, 키워드 자동완성, 키워드 빈도수 등,about 페이지 구현, 요구사항 마지막 정리</th>
+			      <th style="width: 20%;">O</th>
+			    </tr>	 
+			    <tr class="table-secondary">
+			      <th style="width: 20%;">2018.10.13</th>
+			      <th style="width: 60%;">한명당 하나씩 좋아요 선택가능하게 하기, footer에 화면 가려지는 문제 테스트중, main search-bar변경, 블로그 페이지 화면 틀어지는 것 수정</th>
+			      <th style="width: 20%;">O</th>
+			    </tr>
+			    <tr class="table-secondary">
+			      <th style="width: 20%;">2018.10.14</th>
+			      <th style="width: 60%;">DB수정 / blog -> post 변경, blog 따로 만들예정,블로그 페이지 만들기, 글 공개여부, 카테고리 추가하기 폼 만들기, 하이라이트 기능.margin 수정, 부트스트랩 js 수정, 상단메뉴 고정</th>
+			      <th style="width: 20%;">O</th>
+			    </tr>
+			    <tr class="table-secondary">
+			      <th style="width: 20%;">2018.10.15</th>
+			      <th style="width: 60%;">구독자 블로그 정보 받기, 카테고리 추가 구현, 구독하기 수정, 블로그 페이지 레이아웃 수정,상세페이지 글쓴사람 프로필 문제 해결, post DB수정, 코드 정리[주석]</th>
+			      <th style="width: 20%;">O</th>
+			    </tr>
+			    <tr class="table-secondary">
+			      <th style="width: 20%;">2018.10.16</th>
+			      <th style="width: 60%;"></th>
+			      <th style="width: 20%;">O</th>
+			    </tr>
+			    <tr class="table-secondary">
+			      <th style="width: 20%;">2018.10.17</th>
+			      <th style="width: 60%;"></th>
+			      <th style="width: 20%;">O</th>
 			    </tr>
 			 
 			</table>
