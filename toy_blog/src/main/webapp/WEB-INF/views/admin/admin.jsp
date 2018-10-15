@@ -154,8 +154,9 @@ a.btn:hover:before, a.btn:hover::after {
 		<a class="nav-link" data-toggle="tab" href="#users">USERS</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link disabled" href="#">Disabled</a>
+		<a class="nav-link" data-toggle="tab" href="#report">REPORT</a>
 		</li>
+		
 	</ul>
 
 	<div id="myTabContent" class="tab-content">
@@ -172,8 +173,12 @@ a.btn:hover:before, a.btn:hover::after {
 		<div class="tab-pane fade show" id="users">
 			회원정보 확인
 		</div>
+		<!-- 신고 글 및 댓글 보기 -->
+		<div class="tab-pane fade show" id="report">
+			신고된 글 및 댓글 보기
 		</div>
-		</div>
+	</div>
+	</div>
 </div>
 <%@ include file="/WEB-INF/views/include/footer.jsp" %>
 </body>

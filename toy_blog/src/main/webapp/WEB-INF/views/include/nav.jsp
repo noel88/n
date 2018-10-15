@@ -46,7 +46,6 @@
     <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">${sessionScope.name}, <spring:message code="Page"/> </a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
       <a class="dropdown-item" href="/lxa/user/page">page</a>
-      <a class="dropdown-item" href="#">프로필 설정</a>
       <a class="dropdown-item" href="/lxa/blog/blog_update">블로그 설정</a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="/lxa/user/user_update">회원정보 수정</a>
@@ -63,7 +62,7 @@
     <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="Translation"/></a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
       <a class="dropdown-item" href="/lxa/?lang=ko">ko</a>
-      <a class="dropdown-item" href="/xa/?lang=en">en</a>
+      <a class="dropdown-item" href="/lxa/?lang=en">en</a>
     </div>
   </li>
      

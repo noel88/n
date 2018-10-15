@@ -70,18 +70,19 @@
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-1. <del>전체 글 목록에선 최근 순으로 모든 글을 볼수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-2. <del>상대방 이름을 클릭하면 상대방 블로그 페이지로 이동 가능하다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-3. <del>상대방 글을 보고 좋아요 버튼이나, 댓글을 남길수 있다.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-4. 불건전한 글이나, 스팸성 글이 있으면 신고할수 있다. (신고하면 게시글이 관리자 이메일로 감, or 추가로 글 블락 처리)</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-4. 불건전한 글이나, 스팸성 글이 있으면 신고할수 있다. (글 블락 처리)</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-5. <del>좋아요는 글당 하나씩만 선택 가능하고</del>, 댓글의 댓글도 남길수 있다.</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-6. 댓글에도 좋아요, 싫어요, 신고하기 기능이 있다.(신고하면 댓글이 관리자 이메일로 감, or 추가로 댓글 블락 처리)</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-7. <del>블로그 글을 작성할수 있다.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-8. 블로그에는 이미지 업로드가 가능하고, 올리고 글쓸때 이미지 확인하게끔</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-9. <del>자신의 글은 수정하거나 삭제할수 있다.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-10. 상대방에게 구독 신청을 하면 실시간으로 상대방의 글을 내 블로그페이지에서 확인 가능하다.</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-11. <del>블로그 글 작성란에는 텍스트 에디터가 있다.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-12. <del>블로그 글 작성란에 해쉬태그를 입력할수 있다. (해쉬태그 입력란은 자동완성 기능 제공)</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-13. <del>글 목록에는 제목, 내용, 조회수, 작성일, 댓글수, 좋아요 수 가 노출되어야 한다.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-14. 글을 삭제하게 되면 전체 댓글도 지워져야 한다.</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-15. <del>글의 공개여부가 따로 존재한다. 공개, 비공개, 구독자에게만 공개</del></p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-6. 댓글에도 수정 및 삭제 버튼이 있다.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-7. 댓글에도 좋아요, 싫어요, 신고하기 기능이 있다.(댓글 블락 처리)</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-8. <del>블로그 글을 작성할수 있다.</del></p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-9. 블로그에는 이미지 업로드가 가능하고, 올리고 글쓸때 이미지 확인하게끔</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-10. <del>자신의 글은 수정하거나 삭제할수 있다.</del></p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-11. <del>상대방에게 구독 신청을 하면 상대방 블로그 프로필이 보이며,</del> 오늘 새글이 뜨면 아이콘이 떠 있는다.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-12. <del>블로그 글 작성란에는 텍스트 에디터가 있다.</del></p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-13. <del>블로그 글 작성란에 해쉬태그를 입력할수 있다. (해쉬태그 입력란은 자동완성 기능 제공)</del></p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-14. <del>글 목록에는 제목, 내용, 조회수, 작성일, 댓글수, 좋아요 수 가 노출되어야 한다.</del></p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-15. <del>글을 삭제하게 되면 전체 댓글도 지워져야 한다.</del></p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-16. <del>글의 공개여부가 따로 존재한다. 공개, 비공개, 구독자에게만 공개</del></p>
 
 				 
 				<p class="text-primary">6. 이벤트</p>
@@ -129,7 +130,7 @@
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;11-1. 블로그 글 노출을 어떤 방향으로 할지 생각해볼것. [지저분하지 않을 방법 찾기]</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;11-2. <del>검색창 크게</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;11-3. <del>키워드 빈도수별로 순서대로 나오고 키워드를 클릭하면 키워드만 따로 모아놓은 페이지로 이동한다.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;11-4. 키워드 클릭하여 이동한 페이지에 키워드 하이라이트 기능.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;11-4. <del>키워드 클릭하여 이동한 페이지에 키워드 하이라이트 기능.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;11-5. 키워드 실시간 업데이트 [00:00분 기준]</p>
 				
 				<p class="text-primary">12. 기타</p>

@@ -51,19 +51,32 @@
 					</div>
 				</td>
 			</tr>
-
-
    </table>
    
 
    
    
-<table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 10px;">
+<table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 10px;">
 <c:forEach items = "${comment}" var = "CommentVO">
 
-			<tr class="table-secondary">
+			<tr class="table-secondary" style="height: 20px;">
 				<td>
-				<h5><i class="fas fa-user">&nbsp;${CommentVO.comment_name}</i></h5><hr>
+				<h5><i class="fas fa-user">&nbsp;${CommentVO.comment_name}</i></h5>
+				</td>
+				<td style="float: right;">
+				<c:choose>
+					<c:when test = "${sessionScope.name == postVO.name}">
+				      	 <a href= "#" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
+				      	 <a href= "#" class="btn btn-secondary"><i class="fas fa-trash-alt"></i></a>
+				    </c:when>
+					<c:when test = "${sessionScope.name != null}">
+				      	 <a href= "#" class="btn btn-secondary"><i class="fas fa-exclamation-triangle"></i></a>
+					</c:when>
+				</c:choose>
+				</td>
+			</tr>
+			<tr class="table-secondary" style="height: 30px;">
+				<td colspan="2">
 				<i class="fas fa-comment">&nbsp;${CommentVO.comment}</i>
 				</td>
 			</tr>
@@ -109,6 +122,7 @@
 				      	   </c:when>
 				      <c:otherwise>
 				      	<a href= "list"class="btn btn-secondary"><i class="fas fa-list"></i></a>
+				      	<a href= "#" class="btn btn-secondary"><i class="fas fa-exclamation-triangle"></i></a>
 				      </c:otherwise>
 
 
