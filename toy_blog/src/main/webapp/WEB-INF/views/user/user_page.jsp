@@ -13,7 +13,7 @@
 <body>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
 <h1 style="margin-top: 30px;"> ${sessionScope.name}'s blog </h1>
 <div style=" margin-left : auto; margin-right : auto; ">
 	<ul class="nav nav-tabs">
@@ -32,7 +32,7 @@
 		<!-- 내가 쓴 게시물 보기 -->
 		<div class="tab-pane fade active show" id="post">
 		<c:choose>
-		<c:when test="${my == ''}">
+		<c:when test="${list_all_count == 0}">
 		<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
 			<tr >
 				<td>
@@ -41,7 +41,7 @@
 					  <div class="card-body">
 					  <span class="card-title">
 					 </span>
-					    <p class="card-text">내용이 없습니다 . </p>
+					    <p class="card-text">내용이 없습니다. </p>
 					  </div>
 					</div>
 				</td>
@@ -68,8 +68,20 @@
 		</table>
 		</c:otherwise>
 		</c:choose>
+	
 
-		<ul class="list-group" style="margin-top: 50px; float: right; width: 220px;">
+		<div class="list-group" style="margin-top: 50px; float: right;">
+		<a href= "/lxa/post/write" style="margin-left: auto; margin-right: auto; width: 220px;" class="btn btn-primary"><i class="fas fa-list">글쓰기</i></a>
+		</div>
+		<div class="list-group" style="margin-top: 20px; float: right;  width: 220px;">
+
+		  <a class="list-group-item list-group-item-action text-info"> 카테고리 목록</a>
+		   <c:forEach items="${category}" var ="CategoryVO">
+		  	<a href="#" class="list-group-item list-group-item-action disabled"><i class="fas fa-arrow-right">&nbsp;${CategoryVO.category}(0)</i></a>
+		  </c:forEach>  
+		</div>
+
+		<ul class="list-group" style="margin-top: 20px; float: right; width: 220px;">
 			  <li class="list-group-item d-flex justify-content-between align-items-center">
 			    오늘의 새글
 			    <span class="badge badge-primary badge-pill">${list_count}</span>
@@ -82,20 +94,9 @@
 			    오늘의 좋아요
 			    <span class="badge badge-primary badge-pill">0</span>
 			  </li>
-			  <li class="list-group-item d-flex justify-content-between align-items-center">
-			  	<a href= "/lxa/post/write" style="margin-left: auto; margin-right: auto;" class="btn btn-primary"><i class="fas fa-list">글쓰기</i></a>
-
-			  </li>
+			  
 		</ul>
 
-		<div class="list-group" style="margin-top: 20px; float: right; width: 220px;">
-		  <a class="list-group-item list-group-item-action text-info">
-		    카테고리 목록
-		  </a>
-		   <c:forEach items="${category}" var ="CategoryVO">
-		  	<a href="#" class="list-group-item list-group-item-action disabled"><i class="fas fa-arrow-right">&nbsp;${CategoryVO.category}(0)</i></a>
-		  </c:forEach>  
-		</div>
 		
 
 
@@ -130,7 +131,26 @@
 		
 		<!-- 구독페이지 -->
 		<div class="tab-pane fade" id="page">
-			<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
+		<c:choose>
+		<c:when test="${sub == null}">
+		<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
+			<tr >
+				<td>
+					<div class="card bg-secondary mb-3" style="width: 100%;">
+					  <div class="card-header"><a href="#"></a></div>
+					  <div class="card-body">
+					    <p class="card-text">구독하는 블로그가 없습니다.</p>
+					  </div>
+					</div>
+				</td>
+			</tr>
+		
+		</table>
+		</c:when>
+		</c:choose>
+
+
+		<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
 		<c:forEach items = "${sub}" var = "BlogVO">
 			<tr >
 				<td>

@@ -24,6 +24,8 @@ public interface PostService {
 	public List<PostVO> my_comment(String name);
 	public PostVO post_detail(Integer no);
 	public int select_count_list(String name);
+	public int select_count_like(String name);	
+	public int all_count_list(String name);
 	public int select_count_comment(Integer no);
 	public List<WordVO> word_cnt_list();
 	public int like_yn(LikeVO vo);

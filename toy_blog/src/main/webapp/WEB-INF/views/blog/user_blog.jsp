@@ -34,7 +34,11 @@
 
 		</table>
 
-		<ul class="list-group" style="margin-top: 50px; float: right; width: 220px;">
+		<div class="list-group" style="margin-top: 50px; float: right;">
+			<a href= "/lxa/blog/subscribe?name=${postVO.name}" style="margin-left: auto; width : 220px; margin-right: auto;" class="btn btn-primary"><i class="fas fa-list">구독하기</i></a>		
+		</div>
+
+		<ul class="list-group" style="margin-top: 20px; float: right; width: 220px;">
 			  <li class="list-group-item d-flex justify-content-between align-items-center">
 			    오늘의 새글
 			    <span class="badge badge-primary badge-pill">${list_count}</span>
@@ -46,10 +50,6 @@
 			  <li class="list-group-item d-flex justify-content-between align-items-center">
 			    구독자 수
 			    <span class="badge badge-primary badge-pill">0</span>
-			  </li>
-			  <li class="list-group-item d-flex justify-content-between align-items-center">
-				<a href= "/lxa/blog/subscribe?name=${postVO.name}" style="margin-left: auto; margin-right: auto;" class="btn btn-primary"><i class="fas fa-list">구독하기</i></a>
-
 			  </li>
 		</ul>
 

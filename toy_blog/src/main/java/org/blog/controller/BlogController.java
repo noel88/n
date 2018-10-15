@@ -84,7 +84,9 @@ public class BlogController {
 		vo.setMy_blog_no(service.blog_no(name));
 		vo.setSubscribe_blog_no(service.blog_no(user_name));
 		
-		return "redirect:/blog/blog_update";
+		sub.subscribe(vo);
+		
+		return "redirect:/user/page";
 	}
 
 	

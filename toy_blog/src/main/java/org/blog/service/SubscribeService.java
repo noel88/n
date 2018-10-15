@@ -8,6 +8,6 @@ import org.blog.domain.SubscribeVO;
 public interface SubscribeService {
 
 	public void subscribe(SubscribeVO vo);
-	public List<BlogVO> subcribe_list(String name);
+	public List<BlogVO> subcribe_list(Integer no);
 	
 }

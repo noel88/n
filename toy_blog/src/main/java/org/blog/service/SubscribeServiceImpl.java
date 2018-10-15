@@ -22,8 +22,8 @@ public class SubscribeServiceImpl implements SubscribeService {
 	}
 
 	@Override
-	public List<BlogVO> subcribe_list(String name) {
-		return dao.subcribe_list(name);
+	public List<BlogVO> subcribe_list(Integer no) {
+		return dao.subcribe_list(no);
 	}
 
 	

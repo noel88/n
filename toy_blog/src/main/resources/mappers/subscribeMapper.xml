@@ -10,7 +10,7 @@
 	</insert>
 	
 	<select id="subscribe_blog_info" resultType="org.blog.domain.BlogVO">
-		SELECT * FROM myblog b left JOIN subscribe_blog s ON s.subscribe_blog_no = b.blog_no where b.blog_user = #{name}
+		SELECT * FROM myblog b left JOIN subscribe_blog s ON s.subscribe_blog_no = b.blog_no where s.my_blog_no= #{no}
 	</select>
 	
 	

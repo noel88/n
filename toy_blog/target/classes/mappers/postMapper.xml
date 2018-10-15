@@ -81,6 +81,14 @@
 	<select id="select_count_list"  resultType="java.lang.Integer">
 		SELECT IFNULL(COUNT(*),0) FROM post WHERE name = #{name} and now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59')
 	</select>
+	
+	<select id="select_count_like"  resultType="java.lang.Integer">
+		SELECT IFNULL(COUNT(*),0) FROM like_post WHERE like_user = #{name} and now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59')
+	</select>
+	
+	<select id="all_count_list"  resultType="java.lang.Integer">
+		SELECT IFNULL(COUNT(*),0) FROM post WHERE name = #{name}
+	</select>
 
 	<select id="select_count_comment"  resultType="java.lang.Integer">
 		SELECT IFNULL(COUNT(*),0) FROM comment WHERE post_no = #{no} and comment_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59')

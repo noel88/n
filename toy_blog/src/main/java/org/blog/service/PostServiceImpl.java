@@ -190,5 +190,15 @@ public class PostServiceImpl implements PostService{
 		
 	}
 
+	@Override
+	public int all_count_list(String name) {
+		return dao.all_count_list(name);
+	}
+
+	@Override
+	public int select_count_like(String name) {
+		return dao.select_count_like(name);
+	}
+
 
 }

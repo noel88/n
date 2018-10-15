@@ -23,8 +23,8 @@ public class SubscribeDAOImpl implements SubscribeDAO {
 
 
 	@Override
-	public List<BlogVO> subcribe_list(String name) {
-		return sqlsession.selectList(namespace + ".subscribe_blog_info", name);
+	public List<BlogVO> subcribe_list(Integer no) {
+		return sqlsession.selectList(namespace + ".subscribe_blog_info", no);
 	}
 
 }

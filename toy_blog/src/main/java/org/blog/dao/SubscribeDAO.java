@@ -8,7 +8,7 @@ import org.blog.domain.SubscribeVO;
 public interface SubscribeDAO {
 
 	public void subscribe(SubscribeVO vo);
-	public List<BlogVO> subcribe_list(String name);
+	public List<BlogVO> subcribe_list(Integer no);
 	
 	
 	

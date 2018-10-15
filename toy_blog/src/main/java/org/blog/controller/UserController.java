@@ -234,7 +234,9 @@ public class UserController {
 		model.addAttribute("my_comment",postservice.my_comment(name));
 		model.addAttribute("list_count",postservice.select_count_list(name));
 		model.addAttribute("category", category.category_info(name));
-		model.addAttribute("sub", sub.subcribe_list(name));
+		model.addAttribute("list_all_count", postservice.all_count_list(name));
+		
+		model.addAttribute("sub", sub.subcribe_list(blog.blog_no(name)));
 
 		return "user/user_page";
 	}

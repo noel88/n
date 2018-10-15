@@ -90,8 +90,7 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public int select_count_comment(Integer no) {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlsession.selectOne(namespace + ".select_count_comment", no);
 	}
 
 	@Override
@@ -130,6 +129,16 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public void like(LikeVO vo) {
 		sqlsession.insert(namespace + ".like", vo);		
+	}
+
+	@Override
+	public int all_count_list(String name) {
+		return sqlsession.selectOne(namespace + ".all_count_list", name);
+	}
+
+	@Override
+	public int select_count_like(String name) {
+		return sqlsession.selectOne(namespace + ".select_count_like", name);
 	}
 
 
