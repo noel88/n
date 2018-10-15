@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.blog.dao.PostDAO;
 import org.blog.domain.PostVO;
+import org.blog.domain.BlogVO;
 import org.blog.domain.ImgVO;
 import org.blog.domain.LikeVO;
 import org.blog.domain.WordVO;
@@ -198,6 +199,11 @@ public class PostServiceImpl implements PostService{
 	@Override
 	public int select_count_like(String name) {
 		return dao.select_count_like(name);
+	}
+
+	@Override
+	public BlogVO select_post_blog_no(Integer no) {
+		return dao.select_post_blog_no(no);
 	}
 
 

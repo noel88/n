@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.blog.domain.PostVO;
+import org.blog.domain.BlogVO;
 import org.blog.domain.ImgVO;
 import org.blog.domain.LikeVO;
 import org.blog.domain.WordVO;
@@ -139,6 +140,11 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public int select_count_like(String name) {
 		return sqlsession.selectOne(namespace + ".select_count_like", name);
+	}
+
+	@Override
+	public BlogVO select_post_blog_no(Integer no) {
+		return sqlsession.selectOne(namespace + ".select_post_blog_no", no);
 	}
 
 

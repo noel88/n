@@ -7,7 +7,7 @@
 
 
 	<insert id="create">
-		insert into post value(#{post_no}, #{title}, #{name}, #{now}, #{context}, #{keyword}, #{cnt}, #{category_no}, #{public_yn})
+		insert into post value(#{post_no}, #{blog_no}, #{title}, #{name}, #{now}, #{context}, #{keyword}, #{cnt}, #{category_no}, #{public_yn})
 	</insert>
 
 	<select id="word_select" resultType="Integer">
@@ -27,15 +27,15 @@
 	</select>
 
 	<select id="list" resultType="org.blog.domain.PostVO">
-		select post_no, title, name, now, context, keyword, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where public_yn = 'public' order by post_no desc
+		select post_no, blog_no, title, name, now, context, keyword, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where public_yn = 'public' order by post_no desc
 	</select>
 
 	<select id="tag_list" resultType="org.blog.domain.PostVO">
-		select post_no, title, name, now, context, keyword, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where keyword like CONCAT('%',#{keyword},'%') order by post_no desc
+		select post_no, blog_no, title, name, now, context, keyword, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where keyword like CONCAT('%',#{keyword},'%') order by post_no desc
 	</select>
 
 	<select id="my_list" resultType="org.blog.domain.PostVO">
-		select post_no, title, name, now, context, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where name = #{name} order by post_no desc
+		select post_no, blog_no, title, name, now, context, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where name = #{name} order by post_no desc
 	</select>
 
 	<select id="selectList" resultType="org.blog.domain.PostVO">
@@ -94,6 +94,11 @@
 		SELECT IFNULL(COUNT(*),0) FROM comment WHERE post_no = #{no} and comment_now between concat(CURDATE(), ' ', '00:00:00') and concat(CURDATE(), ' ', '23:59:59')
 	</select>
 
+	<select id="select_post_blog_no" resultType="org.blog.domain.BlogVO">
+		select *  from  myblog b left join post p on b.blog_no = p.blog_no where post_no = #{post_no} 
+	</select>
+	
+	
 
 
 

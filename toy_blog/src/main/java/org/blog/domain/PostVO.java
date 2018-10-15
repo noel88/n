@@ -11,6 +11,7 @@ public class PostVO {
 
 
 	private int post_no;
+	private int blog_no;
 	private String title;
 	private String name;
 	private String now;
@@ -26,6 +27,12 @@ public class PostVO {
 
 
 
+	public int getBlog_no() {
+		return blog_no;
+	}
+	public void setBlog_no(int blog_no) {
+		this.blog_no = blog_no;
+	}
 	public int getCategory_no() {
 		return category_no;
 	}

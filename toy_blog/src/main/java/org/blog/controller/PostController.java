@@ -59,6 +59,10 @@ public class PostController {
 		String name = (String)session.getAttribute("name");
 		model.addAttribute("keyword", service.list());
 		model.addAttribute("category", category.category_info(name));
+		model.addAttribute("blog_info", blog.blog_no(name));
+		
+		
+		
 		return "post/write";
 	}
 
@@ -140,10 +144,8 @@ public class PostController {
 		model.addAttribute(service.post_detail(no));
 		model.addAttribute("comment", coservice.comment_list(no));
 		model.addAttribute("count_like", service.like_cnt(no));
-		
-		String name = (String)session.getAttribute("name");
-		
-		model.addAttribute("profile", blog.profile_info(blog.blog_no(name)) );
+		model.addAttribute("blog_info", service.select_post_blog_no(no));
+	
 		
 
 	}

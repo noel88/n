@@ -43,9 +43,10 @@
 			<tr>
 				<td colspan="4">
 					<div class="card bg-secondary mb-3" style="width: 100%;" >
-					  <div class="card-header"><a href="#">${profile.profile_img}, ${postVO.name}'s Profile</a></div>
+					  <div class="card-header"><a href="#">${blog_info.profile_img}, ${postVO.name}'s Profile</a></div>
 					  <div class="card-body">
-					    <p class="card-text">${profile.profile_info}</p>
+					    <p class="card-text">${blog_info.profile_info}</p>
+					    
 					  </div>
 					</div>
 				</td>

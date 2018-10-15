@@ -38,6 +38,7 @@
 				<label for="title">Title</label>
 				<input type="text" class="form-control" name="title" id="title" placeholder="제목을 입력해주세요.">
 				<input type="hidden" name="name" value="${sessionScope.name}">
+				<input type="hidden" name="blog_no" value="${blog_info}">
 			</div>
 		</td>
 

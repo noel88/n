@@ -3,6 +3,7 @@ package org.blog.service;
 import java.util.List;
 
 import org.blog.domain.PostVO;
+import org.blog.domain.BlogVO;
 import org.blog.domain.ImgVO;
 import org.blog.domain.LikeVO;
 import org.blog.domain.WordVO;
@@ -30,7 +31,7 @@ public interface PostService {
 	public List<WordVO> word_cnt_list();
 	public int like_yn(LikeVO vo);
 	public void like(LikeVO vo);
-
+	public BlogVO select_post_blog_no(Integer no);
 
 
 }
