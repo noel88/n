@@ -17,9 +17,18 @@
 <h1 style="margin-top: 30px;"> ${sessionScope.name}'s blog </h1>
 <div style=" margin-left : auto; margin-right : auto; ">
 	<ul class="nav nav-tabs">
-		<li class="nav-item">
+	<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">카테고리별</a>
+    <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
+      <a class="dropdown-item" href="#post">전체</a>
+      <c:forEach items="${category}" var ="CategoryVO">
+      <a class="dropdown-item" href="#${CategoryVO.category}">${CategoryVO.category}</a>
+      </c:forEach>
+    </div>
+  </li>
+<!-- 		<li class="nav-item">
 		<a class="nav-link active show" data-toggle="tab" href="#post">Post</a>
-		</li>
+		</li> -->
 		<li class="nav-item">
 		<a class="nav-link" data-toggle="tab" href="#comment_my">Comment</a>
 		</li>
@@ -103,6 +112,11 @@
 
 		</div>
 
+		<c:forEach items="${category}" var ="CategoryVO">
+		<div class="tab-pane fade" id="#{CategoryVO.category}">
+		    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+		  </div>
+		  </c:forEach>
 
 
 		<!-- 내가 쓴 댓글 보기 -->
