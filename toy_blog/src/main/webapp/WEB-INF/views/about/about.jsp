@@ -48,7 +48,7 @@
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;1-3. <del>패스워드는 처음 입력, 패스워드 확인으로 실시간으로 틀렸는지 확인 가능해야 한다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;1-4. <del>모든 조건이 충족되면 회원가입 버튼 활성화 </del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;1-5. <del>회원가입후에는 이메일 인증 팝업.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;1-6. 회원가입과 동시에 블로그 자동 개설됨.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;1-6. <del>회원가입과 동시에 블로그 자동 개설됨.</del></p>
 				
 				<p class="text-primary">2. 인증</p>
 				
@@ -97,14 +97,14 @@
 				
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-1. <del>나의 블로그에는 내 전체글을 따로 모아서 볼수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-2. 블로그에서는 오늘 내 글에 댓글을 단 사람 수, 오늘 좋아요 수, 총 게시물 수, 총 좋아요 수, 총 구독수가 표시된다.</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-3. 블로그에서는 블로그 제목, 블로그 한줄소개, 메인 이미지 편집이 가능하다.</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-4. 블로그에서 구독하는 블로거의 글을 받아볼수 있다.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-3. <del>블로그에서는 블로그 제목, 블로그 한줄소개, 메인 이미지 편집이 가능하다.</del> -폼만 만들어놓음 1015</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-4. <del>블로그에서 구독하는 블로거의 글을 받아볼수 있다.</del> - 블로그 카드로 구독표시함 1015</p> 
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-5. 블로그에서 내가 단 댓글의 게시물을 볼수 있다.</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-6. 카테고리별로 글을 분류할수 있다 (네이버 블로그 게시판 같은 기능)</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-6. <del>카테고리별로 글을 분류할수 있다 (네이버 블로그 게시판 같은 기능)</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-7. <del>내 정보를 수정하거나 탈퇴할수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-8. 내가 이메일 인증 사용자인지, 미인증 사용자인지 표시해준다.</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-9. 프로필 사진이나, 블로그 메인 사진, 블로그 소개, 내 소개등 수정하거나 추가할수 있다.</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-10. 카테고리는 사용자 마음대로 실시간 추가 가능하다.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-9. <del>프로필 사진이나, 블로그 메인 사진, 블로그 소개, 내 소개등 수정하거나 추가할수 있다.</del> - 폼만 만들어놓음 1015</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-10. <del>카테고리는 사용자 마음대로 실시간 추가 가능하다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-11. 카테고리 또한 공개 여부를 설정할수 있다.</p>
 				
 				<p class="text-primary">8. 검색</p>

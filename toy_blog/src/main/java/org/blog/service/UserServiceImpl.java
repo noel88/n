@@ -3,7 +3,11 @@ package org.blog.service;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.blog.dao.BlogDAO;
+import org.blog.dao.CategoryDAO;
 import org.blog.dao.UserDAO;
+import org.blog.domain.BlogVO;
+import org.blog.domain.CategoryVO;
 import org.blog.domain.UserVO;
 import org.blog.util.MailHandler;
 import org.blog.util.SHA256;
@@ -17,6 +21,8 @@ public class UserServiceImpl implements UserService{
 
 	@Inject private UserDAO dao;
 	@Inject private JavaMailSender mailSender;
+	@Inject private BlogDAO blog;
+
 
 
 	/**
@@ -51,6 +57,14 @@ public class UserServiceImpl implements UserService{
 			sendMail.setTo(vo.getUser_email());
 			sendMail.send();
 
+		BlogVO vo1 = new BlogVO();	
+		vo1.setBlog_user(vo.getUser_name());
+		vo1.setBlog_info(vo.getUser_name()+"의 블로그를 소개합니다.");
+		vo1.setBlog_title(vo.getUser_name()+"의 블로그.");
+		vo1.setProfile_info(vo.getUser_name()+"(을)를 소개합니다.");
+		blog.blog_create(vo1);	
+				
+			
 		return dao.join(vo);
 
 	}

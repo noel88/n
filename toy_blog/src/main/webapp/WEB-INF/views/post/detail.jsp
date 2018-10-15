@@ -40,10 +40,24 @@
 			<tr>
 			<td colspan="4">${postVO.context}</td>
 			</tr>
+			<tr>
+				<td colspan="4">
+					<div class="card bg-secondary mb-3" style="width: 100%;" >
+					  <div class="card-header"><a href="#">${profile.profile_img}, ${postVO.name}'s Profile</a></div>
+					  <div class="card-body">
+					    <p class="card-text">${profile.profile_info}</p>
+					  </div>
+					</div>
+				</td>
+			</tr>
 
 
    </table>
-<table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+   
+
+   
+   
+<table class="table"  style = "margin-left : auto; margin-right : auto; margin-top : 10px;">
 <c:forEach items = "${comment}" var = "CommentVO">
 
 			<tr class="table-secondary">

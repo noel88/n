@@ -48,7 +48,7 @@
 			    <span class="badge badge-primary badge-pill">0</span>
 			  </li>
 			  <li class="list-group-item d-flex justify-content-between align-items-center">
-				<a href= "#" style="margin-left: auto; margin-right: auto;" class="btn btn-primary"><i class="fas fa-list">구독하기</i></a>
+				<a href= "/lxa/blog/subscribe?name=${postVO.name}" style="margin-left: auto; margin-right: auto;" class="btn btn-primary"><i class="fas fa-list">구독하기</i></a>
 
 			  </li>
 		</ul>

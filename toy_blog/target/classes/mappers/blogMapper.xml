@@ -6,8 +6,24 @@
 <mapper namespace="org.blog.mapper.blogMapper">
 
 	<insert id="create">
-		insert into myblog value (#{blog_no}, #{blog_user}, #{blog_img} #{profile_img}, #{blog_title}, #{blog_info}, #{profile_info})
+		insert into myblog value (#{blog_no}, #{blog_user}, #{blog_img}, #{profile_img}, #{blog_title}, #{blog_info}, #{profile_info})
 	</insert>
+	
+	<select id="blog_info" parameterType="String" resultType="org.blog.domain.BlogVO">
+		select * from myblog where blog_user = #{name}
+	</select>
+
+	<select id="profile_info" parameterType="Integer" resultType="org.blog.domain.BlogVO">
+		select * from myblog where blog_no = #{no}
+	</select>
+	
+	<select id="blog_no" parameterType="String" resultType="Integer">
+		select blog_no from myblog where blog_user = #{name}
+	</select>
+	
+	
+	
+	
 
 
 </mapper>

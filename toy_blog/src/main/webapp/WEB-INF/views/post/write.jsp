@@ -49,10 +49,9 @@
     		  <label for="">Category</label>
     			  <select class="form-control" name = "category_no" id="">
 				        <option value="0" selected>전체</option>
-				        <option>2</option>
-				        <option>3</option>
-				        <option>4</option>
-				        <option>5</option>
+    			  <c:forEach items="${category}" var = "CategoryVO">
+				        <option value = "${CategoryVO.category_no}">${CategoryVO.category}</option>
+    			  </c:forEach>
 			      </select>
     		</div>
 		</td>

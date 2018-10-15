@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.blog.mapper.categoryMapper">
+
+	<insert id="category">
+		insert into category value (#{category_no}, #{blog_no}, #{category})
+	</insert>
+
+	<select id="category_info" resultType="org.blog.domain.CategoryVO">
+		SELECT c.blog_no, c.category_no, c.category FROM category c left JOIN myblog b ON c.blog_no = b.blog_no where b.blog_user = #{name}
+	</select>
+
+</mapper>

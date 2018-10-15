@@ -14,6 +14,8 @@ import org.blog.domain.ImgVO;
 import org.blog.domain.LikeVO;
 import org.blog.domain.PostVO;
 import org.blog.domain.WordVO;
+import org.blog.service.BlogService;
+import org.blog.service.CategoryService;
 import org.blog.service.CommentService;
 import org.blog.service.PostService;
 import org.springframework.stereotype.Controller;
@@ -38,6 +40,8 @@ public class PostController {
 
 	@Inject private PostService service;
 	@Inject private CommentService coservice;
+	@Inject private CategoryService category;
+	@Inject private BlogService blog;
 
 
 
@@ -50,9 +54,11 @@ public class PostController {
 	 */
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
-	public String write(Model model) {
-
+	public String write(Model model, HttpSession session) {
+		
+		String name = (String)session.getAttribute("name");
 		model.addAttribute("keyword", service.list());
+		model.addAttribute("category", category.category_info(name));
 		return "post/write";
 	}
 
@@ -130,10 +136,15 @@ public class PostController {
 	 */
 
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
-	public void list_detail(@RequestParam("post_no") int no, Model model) {
+	public void list_detail(@RequestParam("post_no") int no, Model model, HttpSession session) {
 		model.addAttribute(service.post_detail(no));
 		model.addAttribute("comment", coservice.comment_list(no));
 		model.addAttribute("count_like", service.like_cnt(no));
+		
+		String name = (String)session.getAttribute("name");
+		
+		model.addAttribute("profile", blog.profile_info(blog.blog_no(name)) );
+		
 
 	}
 

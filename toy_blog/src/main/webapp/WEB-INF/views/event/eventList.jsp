@@ -171,7 +171,7 @@ function load(id, cnt, btn) {
 	$(girls_list + ":lt(" + girls_total_cnt + ")").addClass("active");
 }
 </script>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
 
 	<div id="contents">
 		<div id="js-load" class="lists">
@@ -180,7 +180,7 @@ function load(id, cnt, btn) {
 
 			<c:forEach items="${event}" var="EventVO">
 				<table class="lists__item js-load table"
-					style="margin-left: auto; margin-right: auto; margin-top: 150px;">
+					style="margin-left: auto; margin-right: auto; margin-top: 30px;">
 
 
 					<tr>

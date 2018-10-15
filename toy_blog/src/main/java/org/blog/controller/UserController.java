@@ -5,11 +5,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
-
+import org.blog.domain.BlogVO;
+import org.blog.domain.CategoryVO;
 import org.blog.domain.PostVO;
 import org.blog.domain.UserVO;
-
+import org.blog.service.BlogService;
+import org.blog.service.CategoryService;
 import org.blog.service.PostService;
+import org.blog.service.SubscribeService;
 import org.blog.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +33,9 @@ public class UserController {
 
 	@Inject private UserService service;
 	@Inject private PostService postservice;
+	@Inject private BlogService blog;
+	@Inject private CategoryService category;
+	@Inject private SubscribeService sub;
 
 
 
@@ -58,8 +64,14 @@ public class UserController {
 
 	@RequestMapping(value = "/joinAction", method = RequestMethod.POST)
 	public String joinAction(UserVO vo) throws Exception {
-
+		
+		BlogVO vo1 = new BlogVO();
+		CategoryVO vo2 = new CategoryVO();
+		
 		int result = service.join(vo);
+		
+		blog.blog_create(vo1);
+		
 
 		if(result > 0) {
 			return "redirect:/user/login";
@@ -221,9 +233,18 @@ public class UserController {
 		model.addAttribute("my",postservice.my_list(name));
 		model.addAttribute("my_comment",postservice.my_comment(name));
 		model.addAttribute("list_count",postservice.select_count_list(name));
+		model.addAttribute("category", category.category_info(name));
+		model.addAttribute("sub", sub.subcribe_list(name));
 
 		return "user/user_page";
 	}
+	
+	@RequestMapping(value = "/user_update", method = RequestMethod.GET)
+	public String user_update(Model model, HttpSession session) {
+	
+		return "user/user_update";
+	}
+	
 
 
 

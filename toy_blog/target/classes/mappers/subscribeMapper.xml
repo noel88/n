@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.blog.mapper.subscribeMapper">
+
+	<insert id="subscribe">
+		INSERT INTO subscribe_blog value (#{subscribe_blog_no}, #{my_blog_no})
+	</insert>
+	
+	<select id="subscribe_blog_info" resultType="org.blog.domain.BlogVO">
+		SELECT * FROM myblog b left JOIN subscribe_blog s ON s.subscribe_blog_no = b.blog_no where b.blog_user = #{name}
+	</select>
+	
+	
+
+
+</mapper>

@@ -171,7 +171,7 @@ function load(id, cnt, btn) {
 }
 </script>
 
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top : 150px;">
 
 <div id="contents">
   <div id="js-load" class="lists">
@@ -179,7 +179,7 @@ function load(id, cnt, btn) {
 <!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
 
 <c:forEach items = "${list}" var = "PostVO">
-   <table class="lists__item js-load table" style = "margin-left : auto; margin-right : auto; margin-top : 150px;">
+   <table class="lists__item js-load table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
 			<tr>
 				<td style="text-align: left;">
 					<h3>
