@@ -13,5 +13,8 @@ public interface UserDAO {
 	public int name_check(UserVO vo);
 	public int email_check(UserVO vo);
 	public void user_delete(String name);
+	public void user_all_post_delete(String name);
+	public void user_all_comment_delete(String name);
+	public void user_blog_delete(String name);
 
 }

@@ -61,8 +61,6 @@ public class PostController {
 		model.addAttribute("category", category.category_info(name));
 		model.addAttribute("blog_info", blog.blog_no(name));
 		
-		
-		
 		return "post/write";
 	}
 
@@ -77,34 +75,27 @@ public class PostController {
 	 */
 
 	@RequestMapping(value = "/create" , method = RequestMethod.POST)
-			public String create(PostVO vo) {
+	public String create(PostVO vo) {
 
-		        service.create(vo);
+		service.create(vo);
+		String [] word = vo.getKeyword().split("#");
 
-		        String [] word = vo.getKeyword().split("#");
+		WordVO vo1 = new WordVO();
 
-		        WordVO vo1 = new WordVO();
-
-		        for (int i = 0; i < word.length; i++) {
-
-		        	vo1.setWord(word[i]);
-
-		        if(vo1.getWord().equals("") == false) {
-
-		        	int cnt = service.word_select(vo1);
-
-			        	if(cnt == 0) {
-			        		vo1.setWord_cnt(0);
-			        		service.word_create(vo1);
-			        	}else {
-			        		service.word_update(vo1);
-			        	}
-
+		for (int i = 0; i < word.length; i++) {
+			vo1.setWord(word[i]);
+			if(vo1.getWord().equals("") == false) {
+				int cnt = service.word_select(vo1);
+					if(cnt == 0) {
+						vo1.setWord_cnt(0);
+			        	service.word_create(vo1);
+			        }else {
+			        	service.word_update(vo1);
+			        }
 		        }
+		}
 
-				}
-
-		        return "redirect:/post/list";
+		return "redirect:/post/list";
 	}
 
 	/**
@@ -121,6 +112,13 @@ public class PostController {
 		return "post/list";
 	}
 
+	/**
+	 * 메인에서 키워드를 클릭하면 그 키워드와 연관된 블로그의 글을 찾아 목록으로 보여주는 페이지
+	 *
+	 * @param Model, @RequestParam("keyword")
+	 * @return String
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/tags", method = RequestMethod.GET)
 	public String tag_list(Model model, @RequestParam("keyword") String keyword) {
@@ -146,8 +144,6 @@ public class PostController {
 		model.addAttribute("count_like", service.like_cnt(no));
 		model.addAttribute("blog_info", service.select_post_blog_no(no));
 	
-		
-
 	}
 
 	/**
@@ -188,7 +184,7 @@ public class PostController {
 	}
 
 	/**
-	 * 글 삭제
+	 * 글 삭제[코멘트도 모두 삭제된다.]
 	 *
 	 * @param @RequestParam
 	 * @return String
@@ -225,19 +221,14 @@ public class PostController {
 
 	/**
 	 * like버튼 누르면 카운트 증가
+	 * 
+	 * 유저 한사람당 한 게시물만 클릭 가능하다. (중복안됨)
 	 *
-	 * @param @RequestParam
+	 * @param @RequestParam("post_no"), HttpSession
 	 * @return String
 	 * @throws
 	 */
 
-//	@RequestMapping(value = "/like_count", method = RequestMethod.GET)
-//	public String like_count(@RequestParam("no") int no) {
-//
-//		service.like_cnt(no);
-//		return "redirect:/post/detail?no=" + no;
-//
-//	}
 	
 	@RequestMapping(value = "/like", method = RequestMethod.GET)
 	public String like(@RequestParam("post_no") int no, HttpSession session) {
@@ -251,9 +242,7 @@ public class PostController {
 		if(yn == 0) {
 			service.like(vo);
 			return "post/like_success";
-
 		}else {
-
 			return "post/like_error";
 		}
 	}

@@ -53,6 +53,10 @@
 	<delete id="post_delete" parameterType="java.lang.Integer">
 		delete from post where post_no = #{post_no}
 	</delete>
+	
+	<delete id="post_comment_delete" parameterType="java.lang.Integer">
+		delete from comment where post_no = #{post_no}
+	</delete>
 
 	<select id="my_comment" resultType="org.blog.domain.JoinVO">
 		SELECT c.comment, c.comment_name, p.title, p.post_no FROM comment c left JOIN post p ON c.post_no = p.post_no where comment_name = #{name}

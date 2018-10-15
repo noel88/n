@@ -69,6 +69,24 @@ public class UserDAOImpl implements UserDAO {
 
 	}
 
+	@Override
+	public void user_all_post_delete(String name) {
+		sqlsession.delete(namespace + "user_post_delete", name);
+		
+	}
+
+	@Override
+	public void user_all_comment_delete(String name) {
+		sqlsession.delete(namespace + "user_comment_delete", name);
+		
+	}
+
+	@Override
+	public void user_blog_delete(String name) {
+		sqlsession.delete(namespace + ".user_blog_delete", name);
+		
+	}
+
 
 
 

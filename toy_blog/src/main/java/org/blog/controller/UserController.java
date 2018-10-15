@@ -206,6 +206,16 @@ public class UserController {
 
 	}
 
+	/**
+	 * 회원 탈퇴 액션
+	 *
+	 * 세션 초기화
+	 * 
+	 * @param HttpSession
+	 * @return String
+	 * @throws
+	 */
+	
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public String delete(HttpSession session) throws Exception {
 
@@ -240,6 +250,14 @@ public class UserController {
 
 		return "user/user_page";
 	}
+	
+	/**
+	 * 회원 정보 수정페이지 이동
+	 *
+	 * @param HttpSession, Model
+	 * @return String
+	 * @throws
+	 */
 	
 	@RequestMapping(value = "/user_update", method = RequestMethod.GET)
 	public String user_update(Model model, HttpSession session) {

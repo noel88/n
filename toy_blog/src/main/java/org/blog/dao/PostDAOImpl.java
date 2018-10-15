@@ -24,13 +24,11 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public int create(PostVO vo) {
-
 		return sqlsession.insert(namespace + ".create", vo);
 	}
 
 	@Override
 	public List<PostVO> list() {
-
 		return sqlsession.selectList(namespace + ".list");
 	}
 
@@ -42,7 +40,6 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public PostVO post_detail(Integer no) {
-
 		return sqlsession.selectOne(namespace + ".selectList", no);
 	}
 
@@ -145,6 +142,12 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public BlogVO select_post_blog_no(Integer no) {
 		return sqlsession.selectOne(namespace + ".select_post_blog_no", no);
+	}
+
+	@Override
+	public void post_comment_delete(Integer no) {
+		sqlsession.delete(namespace + ".post_comment_delete", no);
+		
 	}
 
 

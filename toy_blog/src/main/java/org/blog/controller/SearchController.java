@@ -20,7 +20,13 @@ public class SearchController {
 
 	@Inject private SearchService service;
 
-
+	/**
+	 * 검색후 검색 목록 페이지
+	 *
+	 * @param SearchVO, Model
+	 * @return String
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
 	public String search_page(SearchVO vo, Model model) {

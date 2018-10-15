@@ -24,6 +24,7 @@ public interface PostDAO {
 	public int create_img(ImgVO vo);
 	public int update(PostVO vo);
 	public void delete(Integer no);
+	public void post_comment_delete(Integer no);
 	public List<PostVO> list();
 	public List<PostVO> tag_list(String keyword);
 	public List<PostVO> my_list(String name);

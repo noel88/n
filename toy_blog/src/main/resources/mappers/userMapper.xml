@@ -29,6 +29,15 @@
 	<delete id="user_delete">
 		delete from user where user_name = #{user_name}
 	</delete>
+	<delete id="user_post_delete">
+		delete from post where name = #{user_name}
+	</delete>
+	<delete id="user_comment_delete">
+		delete from comment where comment_name = #{user_name}
+	</delete>
+	<delete id="user_blog_delete">
+		delete from myblog where blog_user = #{user_name}
+	</delete>
 
 	<select id="email_check"
 	    parameterType="org.blog.domain.UserVO"

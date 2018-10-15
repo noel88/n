@@ -47,6 +47,13 @@ public class BlogController {
 	@Inject private BlogService service;
 	@Inject private SubscribeService sub;
 
+	/**
+	 * 블로그 페이지 이동
+	 *
+	 * @param PostVO, Model, @RequestParam("name") 
+	 * @return String
+	 * @throws
+	 */
 
 	@RequestMapping(value = "/user_blog", method = RequestMethod.GET)
 	public String user_page(PostVO vo, Model model, @RequestParam("name") String user) {
@@ -57,6 +64,15 @@ public class BlogController {
 		return "blog/user_blog";
 	}
 
+	/**
+	 * 블로그 업데이트 페이지
+	 *
+	 * @param Model, HttpSession
+	 * @return String
+	 * @throws
+	 */
+
+	
 	@RequestMapping(value = "/blog_update", method = RequestMethod.GET)
 	public String user_blog_update(Model model, HttpSession session) {
 		
@@ -66,13 +82,28 @@ public class BlogController {
 		return "blog/user_blog_update";
 	}
 	
+	/**
+	 * 블로그 카테고리 추가 액션
+	 *
+	 * @param Model, HttpSession, CategoryVO
+	 * @return String
+	 * @throws
+	 */
+	
 	@RequestMapping(value = "/blog_category", method = RequestMethod.GET)
 	public String user_blog_category(Model model, CategoryVO vo, HttpSession session) {
 		
 		category.category_insert(vo);
-		
 		return "redirect:/blog/blog_update";
 	}
+	
+	/**
+	 * 블로그 구독신청 액션
+	 *
+	 * @param Model, HttpSession, @RequestParam("name") 
+	 * @return String
+	 * @throws
+	 */
 	
 	@RequestMapping(value = "/subscribe", method = RequestMethod.GET)
 	public String blog_subscribe(Model model, @RequestParam("name") String user_name, HttpSession session) {
@@ -80,7 +111,6 @@ public class BlogController {
 		SubscribeVO vo = new SubscribeVO();
 		
 		String name = (String)session.getAttribute("name");
-		 
 		vo.setMy_blog_no(service.blog_no(name));
 		vo.setSubscribe_blog_no(service.blog_no(user_name));
 		

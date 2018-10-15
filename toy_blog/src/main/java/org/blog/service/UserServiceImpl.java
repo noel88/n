@@ -99,15 +99,11 @@ public class UserServiceImpl implements UserService{
 
 		SHA256 sha = new SHA256();
 		vo.setUser_pwd(sha.getSHA256(vo.getUser_pwd()));
-
 		boolean isCheck = dao.login(vo);
-
 		if(isCheck) {
 			session.setAttribute("name", vo.getUser_name());
 		}
-
 		return isCheck;
-
 	}
 
 	/**
@@ -167,10 +163,22 @@ public class UserServiceImpl implements UserService{
 	public int user_update(UserVO vo) {
 		return dao.user_update(vo);
 	}
+	
+	/**
+	 * 회원정보 삭제 메소드[포스트, 블로그, 코멘트 다 삭제됨]
+	 *
+	 * @see org.blog.service.UserService#email_check(org.blog.domain.UserVO)
+	 * @param String 
+	 * @return void
+	 * @throws
+	 */
 
 	@Override
 	public void user_delete(String name) {
 		dao.user_delete(name);
+		dao.user_all_post_delete(name);
+		dao.user_all_comment_delete(name);
+		dao.user_blog_delete(name);
 
 	}
 
