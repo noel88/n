@@ -10,7 +10,7 @@
    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  
+
   <div class="navbar-collapse" id="navbarColor02">
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -41,7 +41,7 @@
       </li>
  </c:when>
       <c:otherwise>
- 
+
        <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">${sessionScope.name}, <spring:message code="Page"/> </a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
@@ -51,7 +51,7 @@
       <a class="dropdown-item" href="/lxa/user/user_update">회원정보 수정</a>
     </div>
   </li>
-    
+
       <li class="nav-item">
         <a class="nav-link" href="/lxa/user/logout"><spring:message code="Logout"/> </a>
       </li>
@@ -65,7 +65,7 @@
       <a class="dropdown-item" href="/lxa/?lang=en">en</a>
     </div>
   </li>
-     
+
     </ul>
 
   </div>

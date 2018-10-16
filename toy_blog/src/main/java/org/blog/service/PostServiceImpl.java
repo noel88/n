@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.blog.dao.CategoryDAO;
 import org.blog.dao.PostDAO;
 import org.blog.domain.PostVO;
 import org.blog.domain.BlogVO;
@@ -16,8 +17,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PostServiceImpl implements PostService{
 
-	@Inject
-	private PostDAO dao;
+	@Inject private PostDAO dao;
 
 	/**
 	 * 글 등록
@@ -130,7 +130,7 @@ public class PostServiceImpl implements PostService{
 	 * @return List
 	 * @throws
 	 */
-	
+
 	@Override
 	public int like_cnt(Integer no) {
 		return dao.like_cnt(no);
@@ -158,8 +158,8 @@ public class PostServiceImpl implements PostService{
 		return 0;
 	}
 
-	
-	
+
+
 	@Override
 	public List<PostVO> tag_list(String keyword) {
 		return dao.tag_list(keyword);
@@ -184,11 +184,11 @@ public class PostServiceImpl implements PostService{
 	 * 키워드 카운트한것 리스트 [메인에 뿌려줄것]
 	 *
 	 * @see org.blog.service.PostService#word_cnt_list()
-	 * @param 
+	 * @param
 	 * @return List<WordVO>
 	 * @throws
 	 */
-	
+
 	@Override
 	public List<WordVO> word_cnt_list() {
 		return dao.word_cnt_list();
@@ -196,7 +196,7 @@ public class PostServiceImpl implements PostService{
 
 	/**
 	 * 좋아요 유무 확인
-	 * 
+	 *
 	 * 글 하나당 유저 한번씩만 좋아요 가능 [중복불가]
 	 *
 	 * @see org.blog.service.PostService#like_yn(LikeVO)
@@ -204,7 +204,7 @@ public class PostServiceImpl implements PostService{
 	 * @return int
 	 * @throws
 	 */
-	
+
 	@Override
 	public int like_yn(LikeVO vo) {
 		return dao.like_yn(vo);
@@ -218,7 +218,7 @@ public class PostServiceImpl implements PostService{
 	 * @return void
 	 * @throws
 	 */
-	
+
 	@Override
 	public void like(LikeVO vo) {
 		dao.like(vo);
@@ -242,7 +242,7 @@ public class PostServiceImpl implements PostService{
 	 * @return BlogVO
 	 * @throws
 	 */
-	
+
 	@Override
 	public BlogVO select_post_blog_no(Integer no) {
 		return dao.select_post_blog_no(no);

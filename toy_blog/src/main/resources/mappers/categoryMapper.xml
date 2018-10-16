@@ -13,4 +13,13 @@
 		SELECT c.blog_no, c.category_no, c.category FROM category c left JOIN myblog b ON c.blog_no = b.blog_no where b.blog_user = #{name}
 	</select>
 
+	<select id="category_post" resultType="org.blog.domain.PostVO">
+		SELECT * FROM post where category_no = #{category_no}
+	</select>
+
+	<select id="select_category_name" resultType="org.blog.domain.CategoryVO">
+		select c.category from  post p left join category c on p.category_no = c.category_no where post_no = #{post_no}
+	</select>
+
+
 </mapper>

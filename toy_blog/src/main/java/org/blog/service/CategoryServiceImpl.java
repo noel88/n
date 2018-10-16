@@ -6,11 +6,12 @@ import javax.inject.Inject;
 
 import org.blog.dao.CategoryDAO;
 import org.blog.domain.CategoryVO;
+import org.blog.domain.PostVO;
 import org.springframework.stereotype.Service;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
-	
+
 	@Inject private CategoryDAO dao;
 
 	/**
@@ -21,13 +22,13 @@ public class CategoryServiceImpl implements CategoryService {
 	 * @return void
 	 * @throws
 	 */
-	
+
 	@Override
 	public void category_insert(CategoryVO vo) {
 		dao.category_insert(vo);
-		
+
 	}
-	
+
 	/**
 	 * 블로그 유저 이름으로 카테고리 정보 확인
 	 *
@@ -36,10 +37,20 @@ public class CategoryServiceImpl implements CategoryService {
 	 * @return List<CategoryVO>
 	 * @throws
 	 */
-	
+
 	@Override
 	public List<CategoryVO> category_info(String name){
 		return dao.category_info(name);
+	}
+
+	@Override
+	public List<PostVO> category_post(Integer no){
+		return dao.category_post(no);
+	}
+
+	@Override
+	public CategoryVO select_category_name(Integer no) {
+		return dao.select_category_name(no);
 	}
 
 }

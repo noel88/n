@@ -55,12 +55,12 @@ public class PostController {
 
 	@RequestMapping(value = "/write", method = RequestMethod.GET)
 	public String write(Model model, HttpSession session) {
-		
+
 		String name = (String)session.getAttribute("name");
 		model.addAttribute("keyword", service.list());
 		model.addAttribute("category", category.category_info(name));
 		model.addAttribute("blog_info", blog.blog_no(name));
-		
+
 		return "post/write";
 	}
 
@@ -143,7 +143,9 @@ public class PostController {
 		model.addAttribute("comment", coservice.comment_list(no));
 		model.addAttribute("count_like", service.like_cnt(no));
 		model.addAttribute("blog_info", service.select_post_blog_no(no));
-	
+		model.addAttribute("category", category.select_category_name(no));
+
+
 	}
 
 	/**
@@ -221,7 +223,7 @@ public class PostController {
 
 	/**
 	 * like버튼 누르면 카운트 증가
-	 * 
+	 *
 	 * 유저 한사람당 한 게시물만 클릭 가능하다. (중복안됨)
 	 *
 	 * @param @RequestParam("post_no"), HttpSession
@@ -229,7 +231,7 @@ public class PostController {
 	 * @throws
 	 */
 
-	
+
 	@RequestMapping(value = "/like", method = RequestMethod.GET)
 	public String like(@RequestParam("post_no") int no, HttpSession session) {
 

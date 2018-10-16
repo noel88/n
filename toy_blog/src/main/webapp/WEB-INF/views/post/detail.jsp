@@ -18,10 +18,11 @@
    <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 150px;">
 			<tr class="table-secondary">
 				<td style="width: 70%; text-align: left;">
-					<h3>
-					 ${postVO.title}
-					  <small class="text-muted"><a href = "/lxa/blog/user_blog?name=${postVO.name}">${postVO.name}</a></small>
-					</h3>
+					<h4>
+					  <small class="text-muted">[${category.category}]</small>&nbsp;${postVO.title}
+					  <small class="text-muted"><a href = "/lxa/blog/user_blog?name=${postVO.name}">${postVO.name}</a>
+					 </small>
+					</h4>
 				</td>
 
 				<td>
@@ -41,21 +42,24 @@
 			<td colspan="4">${postVO.context}</td>
 			</tr>
 			<tr>
+				<td colspan="4"> KEYWORD : ${postVO.keyword}</td>
+			</tr>
+			<tr>
 				<td colspan="4">
 					<div class="card bg-secondary mb-3" style="width: 100%;" >
 					  <div class="card-header"><a href="#">${blog_info.profile_img}, ${postVO.name}'s Profile</a></div>
 					  <div class="card-body">
 					    <p class="card-text">${blog_info.profile_info}</p>
-					    
+
 					  </div>
 					</div>
 				</td>
 			</tr>
    </table>
-   
 
-   
-   
+
+
+
 <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 10px;">
 <c:forEach items = "${comment}" var = "CommentVO">
 

@@ -187,15 +187,14 @@ function load(id, cnt, btn) {
 					</h3>
 				</td>
 				<td style="float: right;">
-
 					  <small class="text-muted"><i class="fas fa-eye">&nbsp;${PostVO.cnt}</i> </small>
-
 				</td>
-
 			</tr>
+
 			<tr>
 				<td colspan="2" style="width: 1000px; text-align: left;">
 					<p><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
+					<small class="text-muted"><p>KEYWORD: ${PostVO.keyword}</p></small>
 					   <small class="text-muted"><c:out value='${fn:substring(PostVO.now, 0, 19)}'/> <cite title="Source Title">by.<a href = "/lxa/blog/user_blog?name=${PostVO.name}">${PostVO.name}</a></cite></small>
 					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${PostVO.comment_Cnt}</i>&nbsp;
 									<i class="fas fa-heart" >&nbsp;${PostVO.like_cnt}</i></span>

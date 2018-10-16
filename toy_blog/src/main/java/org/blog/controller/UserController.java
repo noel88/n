@@ -19,6 +19,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -64,14 +65,14 @@ public class UserController {
 
 	@RequestMapping(value = "/joinAction", method = RequestMethod.POST)
 	public String joinAction(UserVO vo) throws Exception {
-		
+
 		BlogVO vo1 = new BlogVO();
 		CategoryVO vo2 = new CategoryVO();
-		
+
 		int result = service.join(vo);
-		
+
 		blog.blog_create(vo1);
-		
+
 
 		if(result > 0) {
 			return "redirect:/user/login";
@@ -176,12 +177,13 @@ public class UserController {
 	 */
 
 	@RequestMapping(value = "/loginAction", method = RequestMethod.GET)
-	public String logincheck(@ModelAttribute UserVO vo, HttpSession session) {
+	public String logincheck(@ModelAttribute UserVO vo, HttpSession session, Model model) {
 
 		boolean isCheck = service.loginCheck(vo, session);
 
 		if(isCheck == true) {
-			model().attribute("user", vo);
+			//model().attribute("user", vo);
+			model.addAttribute("user", vo);
 			return "redirect:/";
 		}else {
 			return "/user/error";
@@ -210,12 +212,12 @@ public class UserController {
 	 * 회원 탈퇴 액션
 	 *
 	 * 세션 초기화
-	 * 
+	 *
 	 * @param HttpSession
 	 * @return String
 	 * @throws
 	 */
-	
+
 	@RequestMapping(value = "delete", method = RequestMethod.GET)
 	public String delete(HttpSession session) throws Exception {
 
@@ -245,12 +247,31 @@ public class UserController {
 		model.addAttribute("list_count",postservice.select_count_list(name));
 		model.addAttribute("category", category.category_info(name));
 		model.addAttribute("list_all_count", postservice.all_count_list(name));
-		
+
 		model.addAttribute("sub", sub.subcribe_list(blog.blog_no(name)));
+/*		model.addAttribute("category_post", category.category_post(no));*/
+
 
 		return "user/user_page";
 	}
-	
+
+
+	@RequestMapping(value = "/category_page", method = RequestMethod.GET)
+	public String category_page(@RequestParam("category_no") int no, PostVO vo, Model model, HttpSession session) {
+
+		String name = (String)session.getAttribute("name");
+		model.addAttribute("my",postservice.my_list(name));
+		model.addAttribute("list_count",postservice.select_count_list(name));
+		model.addAttribute("category", category.category_info(name));
+		model.addAttribute("list_all_count", postservice.all_count_list(name));
+
+		model.addAttribute("category_post", category.category_post(no));
+
+
+		return "user/category_page";
+	}
+
+
 	/**
 	 * 회원 정보 수정페이지 이동
 	 *
@@ -258,13 +279,13 @@ public class UserController {
 	 * @return String
 	 * @throws
 	 */
-	
+
 	@RequestMapping(value = "/user_update", method = RequestMethod.GET)
 	public String user_update(Model model, HttpSession session) {
-	
+
 		return "user/user_update";
 	}
-	
+
 
 
 

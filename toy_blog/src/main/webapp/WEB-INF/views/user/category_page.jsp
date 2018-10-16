@@ -11,16 +11,15 @@
 </head>
 <body>
 
-
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
 <div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
 <h1 style="margin-top: 30px;"> ${sessionScope.name}'s blog </h1>
 <div style=" margin-left : auto; margin-right : auto;">
 	<ul class="nav">
 	<li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/lxa" role="button" aria-haspopup="true" aria-expanded="false">카테고리별</a>
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">카테고리별</a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
-     <a class="dropdown-item" data-toggle="tab"  href="#post">전체</a>
+      <a class="dropdown-item" href="/lxa/user/page">전체</a>
      <c:forEach items="${category}" var ="CategoryVO">
       <a class="dropdown-item" href="category_page?category_no=${CategoryVO.category_no}">${CategoryVO.category}</a>
       </c:forEach>
@@ -59,7 +58,7 @@
 		</c:when>
 		<c:otherwise>
 		<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
-		<c:forEach items = "${my}" var = "PostVO">
+		<c:forEach items = "${category_post}" var = "PostVO">
 			<tr >
 				<td>
 					<div class="card bg-secondary mb-3" style="width: 100%;">
@@ -107,35 +106,6 @@
 		</ul>
 
 		</div>
-
-
-
-
-<%-- 		<div class="tab-pane fade" id="${CategoryVO.category_no}" >
-			${category.category}의 글입니다.
-		<div id = list>
-		<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
-		<c:forEach items = "${my}" var = "PostVO">
-			<tr >
-				<td>
-					<div class="card bg-secondary mb-3" style="width: 100%;" id="${CategoryVO.category_no}">
-					  <div class="card-header"><a href="/post/detail?post_no=${PostVO.post_no}">${PostVO.title}</a></div>
-					  <div class="card-body">
-					  <span class="card-title"><c:out value='${fn:substring(PostVO.now, 0, 19)}'/>&nbsp;<i class="fas fa-eye">&nbsp;${PostVO.cnt}</i>
-					  &nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${PostVO.comment_Cnt}</i>&nbsp; <i class="fas fa-heart">&nbsp;${PostVO.like_count}</i></span>
-					    <p class="card-text"><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-					  </div>
-					</div>
-				</td>
-			</tr>
-			</c:forEach>
-		</table>
-		</div>
-
-
-
-
-			</div> --%>
 
 
 
