@@ -141,23 +141,6 @@ a.btn:hover:before, a.btn:hover::after {
 
 </style>
 
-
-<style>
-.highlight {background-color:yellow;}
-</style>
-
-<script src="https://johannburkard.de/resources/Johann/jquery.highlight-5.js"></script>
-<script>
-$(document).ready(function(){
-
-	var strKey = '${wordVO.word}'; // 하이라이트를 적용할 스트링
-
-	 if(strKey != ''){
-		$('.line').highlight(strKey); //line class에 해당하는 요소들에서 strKey 값들을 하이라이트 처리
-	 }
-
-});
-</script>
 <script type="text/javascript" src="https://nanati.me/common/js/jquery-1.11.2.min.js"></script>
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 </head>
@@ -189,7 +172,7 @@ function load(id, cnt, btn) {
 }
 </script>
 
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
 
 <div id="contents">
   <div id="js-load" class="lists">
@@ -201,7 +184,7 @@ function load(id, cnt, btn) {
 			<tr>
 				<td style="text-align: left;">
 					<h3>
-					  <a href = "/lxa/post/detail?post_no=${PostVO.no}">${PostVO.title}</a>
+					  <a href = "/lxa/post/detail?post_no=${PostVO.post_no}">${PostVO.title}</a>
 					</h3>
 				</td>
 				<td style="float: right;">
@@ -214,6 +197,7 @@ function load(id, cnt, btn) {
 			<tr>
 				<td colspan="2" style="width: 1000px; text-align: left;">
 					<p><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
+					  <small class="text-muted"><p>KEYWORD: ${PostVO.keyword}</p></small>
 					   <small class="text-muted"><c:out value='${fn:substring(PostVO.now, 0, 19)}'/> <cite title="Source Title">by.<a href = "/lxa/blog/user_blog?name=${PostVO.name}">${PostVO.name}</a></cite></small>
 					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${PostVO.comment_Cnt}</i>&nbsp;
 									<i class="fas fa-heart" >&nbsp;${PostVO.like_count}</i></span>

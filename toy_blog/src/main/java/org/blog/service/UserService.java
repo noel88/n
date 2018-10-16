@@ -17,6 +17,7 @@ public interface UserService {
 	public int name_check(UserVO vo);
 	public int email_check(UserVO vo);
 	public void user_delete(String name);
+	public String user_auth_yn(String name);
 
 
 

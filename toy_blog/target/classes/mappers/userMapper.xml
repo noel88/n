@@ -35,22 +35,21 @@
 	<delete id="user_comment_delete">
 		delete from comment where comment_name = #{user_name}
 	</delete>
+
 	<delete id="user_blog_delete">
 		delete from myblog where blog_user = #{user_name}
 	</delete>
 
-	<select id="email_check"
-	    parameterType="org.blog.domain.UserVO"
-	    resultType="java.lang.Integer">
-	    SELECT ifnull(COUNT(*),0)
-	    FROM user WHERE user_email = #{user_email}
+	<select id="user_auth_yn" resultType="String">
+		select user_auth_yn from user where user_name = #{user_name}
 	</select>
 
-	<select id="name_check"
-	    parameterType="org.blog.domain.UserVO"
-	    resultType="java.lang.Integer">
-	    SELECT ifnull(COUNT(*),0)
-	    FROM user WHERE user_name = #{user_name}
+	<select id="email_check" parameterType="org.blog.domain.UserVO" resultType="java.lang.Integer">
+	    SELECT ifnull(COUNT(*),0) FROM user WHERE user_email = #{user_email}
+	</select>
+
+	<select id="name_check" parameterType="org.blog.domain.UserVO" resultType="java.lang.Integer">
+	    SELECT ifnull(COUNT(*),0) FROM user WHERE user_name = #{user_name}
 	</select>
 
 

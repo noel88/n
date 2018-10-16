@@ -19,7 +19,7 @@
 	<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">카테고리별</a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
-      <a class="dropdown-item" href="/lxa/user/page">전체</a>
+     <a class="dropdown-item" href="category_page?category_no=-1">전체</a>
      <c:forEach items="${category}" var ="CategoryVO">
       <a class="dropdown-item" href="category_page?category_no=${CategoryVO.category_no}">${CategoryVO.category}</a>
       </c:forEach>
@@ -62,7 +62,7 @@
 			<tr >
 				<td>
 					<div class="card bg-secondary mb-3" style="width: 100%;">
-					  <div class="card-header"><a href="/post/detail?post_no=${PostVO.post_no}">${PostVO.title}</a></div>
+					  <div class="card-header"><a href="/lxa/post/detail?post_no=${PostVO.post_no}">${PostVO.title}</a></div>
 					  <div class="card-body">
 					  <span class="card-title"><c:out value='${fn:substring(PostVO.now, 0, 19)}'/>&nbsp;<i class="fas fa-eye">&nbsp;${PostVO.cnt}</i>
 					  &nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${PostVO.comment_Cnt}</i>&nbsp; <i class="fas fa-heart">&nbsp;${PostVO.like_count}</i></span>
@@ -84,10 +84,12 @@
 		<div class="list-group" style="margin-top: 20px; float: right;  width: 220px;">
 
 		  <a class="list-group-item list-group-item-action text-info"> 카테고리 목록</a>
-		   <c:forEach items="${category}" var ="CategoryVO">
-		  	<a href="#" class="list-group-item list-group-item-action disabled"><i class="fas fa-arrow-right">&nbsp;${CategoryVO.category}(0)</i></a>
+		   <c:forEach items="${category}" var ="CategoryVO" varStatus="status">
+		  	<a href="#" class="list-group-item list-group-item-action disabled"><i class="fas fa-arrow-right">${CategoryVO.category}(${category_count.get(status.index)})</i></a>
 		  </c:forEach>
 		</div>
+
+
 
 		<ul class="list-group" style="margin-top: 20px; float: right; width: 220px;">
 			  <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -104,9 +106,7 @@
 			  </li>
 
 		</ul>
-
-		</div>
-
+	</div>
 
 
 		<!-- 내가 쓴 댓글 보기 -->

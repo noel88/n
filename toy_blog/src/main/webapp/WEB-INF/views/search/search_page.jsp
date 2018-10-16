@@ -28,9 +28,9 @@ $(document).ready(function(){
 <body>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
 <h1 style="margin-top: 30px;"> &#168;${search}&#168;(으)로 검색한 결과입니다. </h1>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;" class ="line">
-<div style=" margin-left : auto; margin-right : auto;">
+<div style=" margin-left : auto; margin-right : auto;" class ="line">
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
 		<a class="nav-link active show" data-toggle="tab" href="#title">글 제목&nbsp;<span class="badge badge-pill badge-danger">${title_cnt}</span></a>
@@ -120,7 +120,7 @@ $(document).ready(function(){
 						<tr>
 							<td style="text-align: left;">
 								<h3>
-								  <a href = "/lxa/post/detail?post_no=${PostVO.no}">${PostVO.title}</a>
+								  <a href = "/lxa/post/detail?post_no=${PostVO.post_no}">${PostVO.title}</a>
 								</h3>
 							</td>
 							<td style="float: right;">
@@ -171,7 +171,7 @@ $(document).ready(function(){
 						<tr>
 							<td style="text-align: left;">
 								<h3>
-								  <a href = "/lxa/post/detail?post_no=${PostVO.no}">${PostVO.title}</a>
+								  <a href = "/lxa/post/detail?post_no=${PostVO.post_no}">${PostVO.title}</a>
 								</h3>
 							</td>
 							<td style="float: right;">

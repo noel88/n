@@ -37,6 +37,16 @@ public class CategoryDAOImpl implements CategoryDAO{
 		return sqlsession.selectOne(namespace + ".select_category_name", no);
 	}
 
+	@Override
+	public List<Integer> category_no(String name) {
+		return sqlsession.selectList(namespace + ".category_no", name);
+	}
+
+	@Override
+	public int category_count(Integer category_no) {
+		return sqlsession.selectOne(namespace + ".category_count", category_no);
+	}
+
 
 
 

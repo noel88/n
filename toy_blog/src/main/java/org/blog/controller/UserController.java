@@ -2,6 +2,10 @@ package org.blog.controller;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
@@ -238,7 +242,7 @@ public class UserController {
 	 * @throws
 	 */
 
-	@RequestMapping(value = "/page", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/page", method = RequestMethod.GET)
 	public String user_page(PostVO vo, Model model, HttpSession session) {
 
 		String name = (String)session.getAttribute("name");
@@ -249,24 +253,44 @@ public class UserController {
 		model.addAttribute("list_all_count", postservice.all_count_list(name));
 
 		model.addAttribute("sub", sub.subcribe_list(blog.blog_no(name)));
-/*		model.addAttribute("category_post", category.category_post(no));*/
+		model.addAttribute("user_auth", service.user_auth_yn(name));
+
 
 
 		return "user/user_page";
-	}
+	}*/
 
 
 	@RequestMapping(value = "/category_page", method = RequestMethod.GET)
 	public String category_page(@RequestParam("category_no") int no, PostVO vo, Model model, HttpSession session) {
 
 		String name = (String)session.getAttribute("name");
-		model.addAttribute("my",postservice.my_list(name));
+		model.addAttribute("my_comment",postservice.my_comment(name));
 		model.addAttribute("list_count",postservice.select_count_list(name));
 		model.addAttribute("category", category.category_info(name));
 		model.addAttribute("list_all_count", postservice.all_count_list(name));
+		model.addAttribute("user_auth", service.user_auth_yn(name));
+		model.addAttribute("sub", sub.subcribe_list(blog.blog_no(name)));
 
-		model.addAttribute("category_post", category.category_post(no));
+			List<Integer> cate = category.category_no(name);
+			List<Integer> c_no = new ArrayList<>();
+			for (int i = 0; i < cate.size(); i++) {
+				c_no.add(category.category_count(cate.get(i)));
+			}
 
+			for(Integer arr : c_no) {
+				System.out.println( "배열" + arr);
+			}
+
+
+
+		model.addAttribute("category_count", c_no);
+
+		if(no == -1) {
+			model.addAttribute("category_post",postservice.my_list(name));
+		}else {
+			model.addAttribute("category_post", category.category_post(no));
+		}
 
 		return "user/category_page";
 	}

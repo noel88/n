@@ -7,7 +7,7 @@
 
 
 	<select id="user_list">
-		select * from user;
+		select * from user where user_name != 'admin';
 	</select>
 
 

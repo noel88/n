@@ -140,9 +140,9 @@ a.btn:hover:before, a.btn:hover::after {
 
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
 
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
 <h1 style="margin-top: 30px;"> ADMIN </h1>
-<div style=" margin-left : auto; margin-right : auto; ">
+<div style=" margin-left : auto; margin-right : auto;">
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
 		<a class="nav-link active show" data-toggle="tab" href="#event">EVENT</a>
@@ -156,7 +156,6 @@ a.btn:hover:before, a.btn:hover::after {
 		<li class="nav-item">
 		<a class="nav-link" data-toggle="tab" href="#report">REPORT</a>
 		</li>
-		
 	</ul>
 
 	<div id="myTabContent" class="tab-content">
@@ -168,7 +167,6 @@ a.btn:hover:before, a.btn:hover::after {
 		<div class="tab-pane fade show" id="list">
 			게시글 목록 확인
 		</div>
-
 		<!-- 회원정보 보기 -->
 		<div class="tab-pane fade show" id="users">
 			회원정보 확인

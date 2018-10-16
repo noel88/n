@@ -57,14 +57,14 @@ public class UserServiceImpl implements UserService{
 			sendMail.setTo(vo.getUser_email());
 			sendMail.send();
 
-		BlogVO vo1 = new BlogVO();	
+		BlogVO vo1 = new BlogVO();
 		vo1.setBlog_user(vo.getUser_name());
 		vo1.setBlog_info(vo.getUser_name()+"의 블로그를 소개합니다.");
 		vo1.setBlog_title(vo.getUser_name()+"의 블로그.");
 		vo1.setProfile_info(vo.getUser_name()+"(을)를 소개합니다.");
-		blog.blog_create(vo1);	
-				
-			
+		blog.blog_create(vo1);
+
+
 		return dao.join(vo);
 
 	}
@@ -163,12 +163,12 @@ public class UserServiceImpl implements UserService{
 	public int user_update(UserVO vo) {
 		return dao.user_update(vo);
 	}
-	
+
 	/**
 	 * 회원정보 삭제 메소드[포스트, 블로그, 코멘트 다 삭제됨]
 	 *
 	 * @see org.blog.service.UserService#email_check(org.blog.domain.UserVO)
-	 * @param String 
+	 * @param String
 	 * @return void
 	 * @throws
 	 */
@@ -180,6 +180,11 @@ public class UserServiceImpl implements UserService{
 		dao.user_all_comment_delete(name);
 		dao.user_blog_delete(name);
 
+	}
+
+	@Override
+	public String user_auth_yn(String name) {
+		return dao.user_auth_yn(name);
 	}
 
 

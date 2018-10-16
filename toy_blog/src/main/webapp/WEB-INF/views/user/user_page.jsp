@@ -63,7 +63,7 @@
 			<tr >
 				<td>
 					<div class="card bg-secondary mb-3" style="width: 100%;">
-					  <div class="card-header"><a href="/post/detail?post_no=${PostVO.post_no}">${PostVO.title}</a></div>
+					  <div class="card-header"><a href="/lxa/post/detail?post_no=${PostVO.post_no}">${PostVO.title}</a></div>
 					  <div class="card-body">
 					  <span class="card-title"><c:out value='${fn:substring(PostVO.now, 0, 19)}'/>&nbsp;<i class="fas fa-eye">&nbsp;${PostVO.cnt}</i>
 					  &nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${PostVO.comment_Cnt}</i>&nbsp; <i class="fas fa-heart">&nbsp;${PostVO.like_count}</i></span>
@@ -104,38 +104,24 @@
 			    <span class="badge badge-primary badge-pill">0</span>
 			  </li>
 
+			    <c:if test = "${user_auth == 'N'}">
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			  	<p class="text-danger">	이메일 미인증 사용자</p>
+			  </li>
+			  	</c:if>
+
+			  	 <c:if test = "${user_auth == 'y'}">
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			  	<p class="text-success">이메일 인증 사용자</p>
+			  </li>
+			  	 </c:if>
+
+
 		</ul>
 
 		</div>
 
 
-
-
-<%-- 		<div class="tab-pane fade" id="${CategoryVO.category_no}" >
-			${category.category}의 글입니다.
-		<div id = list>
-		<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
-		<c:forEach items = "${my}" var = "PostVO">
-			<tr >
-				<td>
-					<div class="card bg-secondary mb-3" style="width: 100%;" id="${CategoryVO.category_no}">
-					  <div class="card-header"><a href="/post/detail?post_no=${PostVO.post_no}">${PostVO.title}</a></div>
-					  <div class="card-body">
-					  <span class="card-title"><c:out value='${fn:substring(PostVO.now, 0, 19)}'/>&nbsp;<i class="fas fa-eye">&nbsp;${PostVO.cnt}</i>
-					  &nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${PostVO.comment_Cnt}</i>&nbsp; <i class="fas fa-heart">&nbsp;${PostVO.like_count}</i></span>
-					    <p class="card-text"><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-					  </div>
-					</div>
-				</td>
-			</tr>
-			</c:forEach>
-		</table>
-		</div>
-
-
-
-
-			</div> --%>
 
 
 

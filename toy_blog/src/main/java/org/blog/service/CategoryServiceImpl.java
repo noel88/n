@@ -53,4 +53,14 @@ public class CategoryServiceImpl implements CategoryService {
 		return dao.select_category_name(no);
 	}
 
+	@Override
+	public List<Integer> category_no(String name) {
+		return dao.category_no(name);
+	}
+
+	@Override
+	public int category_count(Integer category_no) {
+		return dao.category_count(category_no);
+	}
+
 }

@@ -39,9 +39,9 @@ $(function() {
 	"${PostVO.title}",
 	"${PostVO.name}",
 </c:forEach>
-	
+
 	 <c:forEach items = "${keyword}" var = "WordVO">
-			"#${WordVO.word}",	
+			"#${WordVO.word}",
 	</c:forEach>
 
 
@@ -159,10 +159,10 @@ $(function() {
 
 <div class='row' id = "key" style="float: none; margin : 0 auto; margin-bottom: 100px;">
  <c:forEach items = "${keyword}" var = "WordVO">
-		
-				 <div class='col-sm-2'><a class="btn btn-secondary btn-lg" style="width: 80%; text-align: center; margin-left: auto; margin-right: auto;" href="/lxa/blog/tags?keyword=${WordVO.word}">#${WordVO.word}</a></div>
+
+				 <div class='col-sm-2'><a class="btn btn-secondary btn-lg" style="width: 80%; text-align: center; margin-left: auto; margin-right: auto;" href="/lxa/post/tags?keyword=${WordVO.word}">#${WordVO.word}</a></div>
 				 <%--  <c:if test="${g.index eq 0}"><div class='col-sm-4'>#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></div></c:if> --%>
-  				
+
 </c:forEach>
 </div>
 

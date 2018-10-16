@@ -11,5 +11,7 @@ public interface CategoryService {
 	public List<CategoryVO> category_info(String name);
 	public List<PostVO> category_post(Integer no);
 	public CategoryVO select_category_name(Integer no);
+	public List<Integer> category_no(String name);
+	public int category_count(Integer category_no);
 
 }

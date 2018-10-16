@@ -16,5 +16,6 @@ public interface UserDAO {
 	public void user_all_post_delete(String name);
 	public void user_all_comment_delete(String name);
 	public void user_blog_delete(String name);
+	public String user_auth_yn(String name);
 
 }
