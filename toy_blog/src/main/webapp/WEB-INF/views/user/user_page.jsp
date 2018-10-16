@@ -20,13 +20,13 @@
 	<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">카테고리별</a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
-      <a class="dropdown-item" href="#post">전체</a>
+      <a class="dropdown-item" data-toggle="tab"  href="#post">전체</a>
      <c:forEach items="${category}" var ="CategoryVO">
-      <a class="dropdown-item" href="#${CategoryVO.category}">${CategoryVO.category}</a>
+      <a class="dropdown-item" data-toggle="tab" href="#${CategoryVO.category_no}">${CategoryVO.category}</a>
       </c:forEach>
     </div>
   </li>
-<!-- 		<li class="nav-item">
+<!-- 	<li class="nav-item">
 		<a class="nav-link active show" data-toggle="tab" href="#post">Post</a>
 		</li> -->
 		<li class="nav-item">
@@ -106,14 +106,11 @@
 
 		</ul>
 
-
-
-
-
 		</div>
 
+
 		<c:forEach items="${category}" var ="CategoryVO">
-		<div class="tab-pane fade" id="#${CategoryVO.category}">
+		<div class="tab-pane fade" id="${CategoryVO.category_no}">
 		    <p>${CategoryVO.category}</p>
 		  </div>
 		</c:forEach>
