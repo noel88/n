@@ -21,7 +21,7 @@
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">카테고리별</a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
       <a class="dropdown-item" href="#post">전체</a>
-      <c:forEach items="${category}" var ="CategoryVO">
+     <c:forEach items="${category}" var ="CategoryVO">
       <a class="dropdown-item" href="#${CategoryVO.category}">${CategoryVO.category}</a>
       </c:forEach>
     </div>
@@ -77,7 +77,7 @@
 		</table>
 		</c:otherwise>
 		</c:choose>
-	
+
 
 		<div class="list-group" style="margin-top: 50px; float: right;">
 		<a href= "/lxa/post/write" style="margin-left: auto; margin-right: auto; width: 220px;" class="btn btn-primary"><i class="fas fa-list">글쓰기</i></a>
@@ -87,7 +87,7 @@
 		  <a class="list-group-item list-group-item-action text-info"> 카테고리 목록</a>
 		   <c:forEach items="${category}" var ="CategoryVO">
 		  	<a href="#" class="list-group-item list-group-item-action disabled"><i class="fas fa-arrow-right">&nbsp;${CategoryVO.category}(0)</i></a>
-		  </c:forEach>  
+		  </c:forEach>
 		</div>
 
 		<ul class="list-group" style="margin-top: 20px; float: right; width: 220px;">
@@ -103,20 +103,20 @@
 			    오늘의 좋아요
 			    <span class="badge badge-primary badge-pill">0</span>
 			  </li>
-			  
+
 		</ul>
 
-		
+
 
 
 
 		</div>
 
 		<c:forEach items="${category}" var ="CategoryVO">
-		<div class="tab-pane fade" id="#{CategoryVO.category}">
-		    <p>Etsy mixtape wayfarers, ethical wes anderson tofu before they sold out mcsweeney's organic lomo retro fanny pack lo-fi farm-to-table readymade. Messenger bag gentrify pitchfork tattooed craft beer, iphone skateboard locavore carles etsy salvia banksy hoodie helvetica. DIY synth PBR banksy irony. Leggings gentrify squid 8-bit cred pitchfork.</p>
+		<div class="tab-pane fade" id="#${CategoryVO.category}">
+		    <p>${CategoryVO.category}</p>
 		  </div>
-		  </c:forEach>
+		</c:forEach>
 
 
 		<!-- 내가 쓴 댓글 보기 -->
@@ -142,7 +142,7 @@
 
    			</table>
 		</div>
-		
+
 		<!-- 구독페이지 -->
 		<div class="tab-pane fade" id="page">
 		<c:choose>
@@ -158,7 +158,7 @@
 					</div>
 				</td>
 			</tr>
-		
+
 		</table>
 		</c:when>
 		</c:choose>
@@ -181,9 +181,9 @@
 		</table>
 		</div>
 
-		
-	
-	
+
+
+
 	</div>
 </div>
 </div>
