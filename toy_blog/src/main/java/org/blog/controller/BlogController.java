@@ -162,7 +162,7 @@ public class BlogController {
 		String name = (String)session.getAttribute("name");
         Iterator<String> itr =  multipartRequest.getFileNames();
 
-//        String filePath = "C:/Users/a/git/toy/toy_blog/src/main/webapp/resources/updat<!--  -->e"; //설정파일로 뺀다.
+//        String filePath = "C:/Users/a/git/toy/toy_blog/src/main/webapp/resources/update"; //설정파일로 뺀다.
         String filePath = "/opt/tomcat/webapps/update"; //설정파일로 뺀다.
 
         while (itr.hasNext()) { //받은 파일들을 모두 돌린다.
