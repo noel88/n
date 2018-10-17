@@ -18,7 +18,7 @@
             }
             .round img {
                 display: block;
-            /* Stretch 
+            /* Stretch
                   height: 100%;
                   width: 100%; */
             min-width: 100%;
@@ -31,7 +31,7 @@
 
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
 <div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
-<h1 style="margin-top: 30px;"> ${sessionScope.name}'s blog </h1>
+<h1 style="margin-top: 30px;"> ${info.blog_title} </h1>
 <div style=" margin-left : auto; margin-right : auto;">
 	<ul class="nav">
 	<li class="nav-item dropdown">
@@ -207,11 +207,11 @@
 
 		</table>
 		</div>
-		
+
 		<div class="tab-pane fade" id="info">
-		
-		
-		
+
+
+
 		<table class="table" border="1">
 			<tr>
 				<td>사진</td>
@@ -233,11 +233,11 @@
 				<td>블로그 사진</td>
 				<td><img width="100px;" height="100px;" src = "<spring:url value ='/image/${info.blog_img}'/>"></td>
 			</tr>
-			
-		
+
+
 		</table>
-		
-		
+
+
 		</div>
 
 

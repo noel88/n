@@ -11,8 +11,8 @@
 <body>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
-<h1 style="margin-top: 30px;"> ${postVO.name}'s blog </h1>
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
+<h1 style="margin-top: 30px;">${info.blog_title}</h1>
 
 		<!-- 블로그 페이지 -->
 
@@ -35,7 +35,7 @@
 		</table>
 
 		<div class="list-group" style="margin-top: 50px; float: right;">
-			<a href= "/lxa/blog/subscribe?name=${postVO.name}" style="margin-left: auto; width : 220px; margin-right: auto;" class="btn btn-primary"><i class="fas fa-list">구독하기</i></a>		
+			<a href= "/lxa/blog/subscribe?name=${postVO.name}" style="margin-left: auto; width : 220px; margin-right: auto;" class="btn btn-primary"><i class="fas fa-list">구독하기</i></a>
 		</div>
 
 		<ul class="list-group" style="margin-top: 20px; float: right; width: 220px;">

@@ -24,20 +24,37 @@
 <div style=" margin-left : auto; margin-right : auto;">
 	<ul class="nav nav-tabs">
 		<li class="nav-item">
-		<a class="nav-link active show" data-toggle="tab" href="#aa">요구사항정의서</a>
+		<a class="nav-link active show" data-toggle="tab" href="#cc">PROFILE</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#bb">진행과정</a>
+		<a class="nav-link" data-toggle="tab" href="#aa">REQUIREMENTS</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#cc">Profile</a>
+		<a class="nav-link" data-toggle="tab" href="#dd">ERD</a>
 		</li>
 		<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#ee">STORYBOARD</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#ff">CLASS DIAGRAM</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#bb">PROCESS</a>
+		</li>
+
 
 	</ul>
 
 		<div id="myTabContent" class="tab-content">
-			<div class="tab-pane fade active show" id="aa">
+
+
+		<div class="tab-pane fade active show" id="cc">
+		//프로필 올리기
+			</div>
+
+
+
+			<div class="tab-pane fade show" id="aa">
 			<div style="margin-top: 30px; margin-bottom: 100px;">
 
 
@@ -98,14 +115,14 @@
 
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-1. <del>나의 블로그에는 내 전체글을 따로 모아서 볼수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-2. 블로그에서는 오늘 내 글에 댓글을 단 사람 수, 오늘 좋아요 수, 총 게시물 수, 총 좋아요 수, 총 구독수가 표시된다.</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-3. <del>블로그에서는 블로그 제목, 블로그 한줄소개, 메인 이미지 편집이 가능하다.</del> -폼만 만들어놓음 1015</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-3. <del>블로그에서는 블로그 제목, 블로그 한줄소개, 메인 이미지 편집이 가능하다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-4. <del>블로그에서 구독하는 블로거의 글을 받아볼수 있다.</del> - 블로그 카드로 구독표시함 1015</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-5. 블로그에서 내가 단 댓글의 게시물을 볼수 있다.</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-6. <del>카테고리별로 글을 분류할수 있다 (네이버 블로그 게시판 같은 기능)</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-7. <del>카테고리별로 글 개수를 알수 있다</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-8. <del>내 정보를 수정하거나 탈퇴할수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-9. <del>내가 이메일 인증 사용자인지, 미인증 사용자인지 표시해준다.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-10. <del>프로필 사진이나, 블로그 메인 사진, 블로그 소개, 내 소개등 수정하거나 추가할수 있다.</del> - 폼만 만들어놓음 1015</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-10. <del>프로필 사진이나, 블로그 메인 사진, 블로그 소개, 내 소개등 수정하거나 추가할수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-11. <del>카테고리는 사용자 마음대로 실시간 추가 가능하다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-12. 카테고리 또한 공개 여부를 설정할수 있다.</p>
 
@@ -140,6 +157,27 @@
 
 			</div>
 			</div>
+
+
+			<div class="tab-pane fade show" id="dd">
+				<img width= "1000px;" src="../resources/img/blog.png">
+			</div>
+
+
+
+			<div class="tab-pane fade show" id="ee">
+			//화면설계서
+			</div>
+
+
+			<div class="tab-pane fade show" id="ff">
+			//클래스 다이어그램
+			</div>
+
+
+
+
+
 			<div class="tab-pane fade show" id="bb">
 
 			<table class="table table-hover" style="margin-top: 50px; margin-bottom: 100px;">
@@ -234,8 +272,15 @@
 
 
 			</div>
+
+
+
 			<div class="tab-pane fade show" id="cc">
 			</div>
+
+
+
+
 		</div>
 </div>
 

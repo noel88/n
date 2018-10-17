@@ -51,7 +51,7 @@ public class BlogController {
 	/**
 	 * 블로그 페이지 이동
 	 *
-	 * @param PostVO, Model, @RequestParam("name") 
+	 * @param PostVO, Model, @RequestParam("name")
 	 * @return String
 	 * @throws
 	 */
@@ -61,10 +61,11 @@ public class BlogController {
 
 		model.addAttribute("my",poservice.my_list(user));
 		model.addAttribute("list_count",poservice.select_count_list(user));
+		model.addAttribute("info", service.blog_info(user));
 
 		return "blog/user_blog";
 	}
-	
+
 
 	/**
 	 * 블로그 업데이트 페이지
@@ -74,25 +75,25 @@ public class BlogController {
 	 * @throws
 	 */
 
-	
+
 	@RequestMapping(value = "/blog_update", method = RequestMethod.GET)
 	public String user_blog_update(Model model, HttpSession session) {
-		
+
 		String name = (String)session.getAttribute("name");
 		model.addAttribute("blog_info", service.blog_info(name));
 		model.addAttribute("category", category.category_info(name));
 		return "blog/user_blog_update";
 	}
-	
+
 	@RequestMapping(value = "/profile_update", method = RequestMethod.GET)
 	public String user_profile_update(Model model, HttpSession session) {
-		
+
 		String name = (String)session.getAttribute("name");
 		model.addAttribute("blog_info", service.blog_info(name));
 		model.addAttribute("category", category.category_info(name));
 		return "blog/user_profile_update";
 	}
-	
+
 	/**
 	 * 블로그 카테고리 추가 액션
 	 *
@@ -100,59 +101,59 @@ public class BlogController {
 	 * @return String
 	 * @throws
 	 */
-	
+
 	@RequestMapping(value = "/blog_category", method = RequestMethod.GET)
 	public String user_blog_category(Model model, CategoryVO vo, HttpSession session) {
-		
+
 		category.category_insert(vo);
 		return "redirect:/blog/blog_update";
 	}
-	
+
 	/**
 	 * 블로그 구독신청 액션
 	 *
-	 * @param Model, HttpSession, @RequestParam("name") 
+	 * @param Model, HttpSession, @RequestParam("name")
 	 * @return String
 	 * @throws
 	 */
-	
+
 	@RequestMapping(value = "/subscribe", method = RequestMethod.GET)
 	public String blog_subscribe(Model model, @RequestParam("name") String user_name, HttpSession session) {
-		
+
 		SubscribeVO vo = new SubscribeVO();
-		
+
 		String name = (String)session.getAttribute("name");
 		vo.setMy_blog_no(service.blog_no(name));
 		vo.setSubscribe_blog_no(service.blog_no(user_name));
-		
+
 		sub.subscribe(vo);
-		
+
 		return "redirect:/user/page";
 	}
-	
-	
-	
+
+
+
 	@RequestMapping(value = "/blog_info", method = RequestMethod.GET)
 	public String blog_info(Model model, BlogVO vo, HttpSession session) {
 		String name = (String)session.getAttribute("name");
 		vo.setBlog_user(name);
 		service.blog_info(vo);
-		
+
 		return "redirect:/user/page?category_no=-1";
 	}
-	
+
 	@RequestMapping(value = "/profile_info", method = RequestMethod.POST)
 	public String profile_info(Model model, BlogVO vo, HttpSession session) {
 		String name = (String)session.getAttribute("name");
 		vo.setBlog_user(name);
 		service.profile_info(vo);
-		
+
 		return "redirect:/user/page?category_no=-1";
 	}
 
-	
-	
-	
+
+
+
 
 	@RequestMapping(value = "/fileUpload/post") //ajax에서 호출하는 부분
     @ResponseBody
@@ -161,8 +162,9 @@ public class BlogController {
 		String name = (String)session.getAttribute("name");
         Iterator<String> itr =  multipartRequest.getFileNames();
 
-        String filePath = "/Users/n/Desktop/img_test"; //설정파일로 뺀다.
-        
+//        String filePath = "C:/Users/a/git/toy/toy_blog/src/main/webapp/resources/updat<!--  -->e"; //설정파일로 뺀다.
+        String filePath = "/opt/tomcat/webapps/update"; //설정파일로 뺀다.
+
         while (itr.hasNext()) { //받은 파일들을 모두 돌린다.
 
 
@@ -188,26 +190,27 @@ public class BlogController {
        }
 
         return "success";
-	}	
-	
+	}
+
         @RequestMapping(value = "/fileUpload/profile") //ajax에서 호출하는 부분
         @ResponseBody
         public String upload_profile(MultipartHttpServletRequest multipartRequest,BlogVO vo,HttpSession session) { //Multipart로 받는다.
-        	
+
         	String name = (String)session.getAttribute("name");
         	Iterator<String> itr =  multipartRequest.getFileNames();
-        	
-        	String filePath = "/Users/n/Desktop/img_test"; //설정파일로 뺀다.
-        	
+
+//        	String filePath = "C:/Users/a/git/toy/toy_blog/src/main/webapp/resources/update"; //설정파일로 뺀다.
+        	String filePath = "/opt/tomcat/webapps/update"; //설정파일로 뺀다.
+
         	while (itr.hasNext()) { //받은 파일들을 모두 돌린다.
-        		
-        		
+
+
         		MultipartFile mpf = multipartRequest.getFile(itr.next());
-        		
+
         		String originalFilename = mpf.getOriginalFilename(); //파일명
-        		
+
         		String fileFullPath = filePath+"/"+originalFilename; //파일 전체 경로
-        		
+
         		try {
         			//파일 저장
         			mpf.transferTo(new File(fileFullPath)); //파일저장 실제로는 service에서 처리
@@ -220,12 +223,12 @@ public class BlogController {
         			System.out.println("postTempFile_ERROR======>"+fileFullPath);
         			e.printStackTrace();
         		}
-        		
+
         	}
-        	
+
         	return "success";
-        	
-        	
+
+
 
 	}
 
