@@ -215,7 +215,8 @@
 		<table class="table" border="1">
 			<tr>
 				<td>사진</td>
-				<td><div class="round"><img width="50px;" height="50px;" src = "<spring:url value ='/image/${info.profile_img}'/>"></div></td>
+				<td><div class="round"><img width="50px;" height="50px;" src = "<spring:url value ='/update/${info.profile_img}'/>"></div></td>
+				<td><div class="round"><img width="50px;" height="50px;" src = "http://bigmit.iptime.org/update/${info.profile_img}"></div></td>
 			</tr>
 			<tr>
 				<td>프로필정보</td>
