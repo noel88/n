@@ -45,7 +45,8 @@
        <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">${sessionScope.name}, <spring:message code="Page"/> </a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
-      <a class="dropdown-item" href="/lxa/user/category_page?category_no=-1">page</a>
+      <a class="dropdown-item" href="/lxa/user/page?category_no=-1">page</a>
+      <a class="dropdown-item" href="/lxa/blog/profile_update">프로필 설정</a>
       <a class="dropdown-item" href="/lxa/blog/blog_update">블로그 설정</a>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="/lxa/user/user_update">회원정보 수정</a>

@@ -8,6 +8,7 @@ import java.util.Iterator;
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
+import org.blog.domain.BlogVO;
 import org.blog.domain.CategoryVO;
 import org.blog.domain.CommentVO;
 import org.blog.domain.EventEntryVO;
@@ -63,6 +64,7 @@ public class BlogController {
 
 		return "blog/user_blog";
 	}
+	
 
 	/**
 	 * 블로그 업데이트 페이지
@@ -80,6 +82,15 @@ public class BlogController {
 		model.addAttribute("blog_info", service.blog_info(name));
 		model.addAttribute("category", category.category_info(name));
 		return "blog/user_blog_update";
+	}
+	
+	@RequestMapping(value = "/profile_update", method = RequestMethod.GET)
+	public String user_profile_update(Model model, HttpSession session) {
+		
+		String name = (String)session.getAttribute("name");
+		model.addAttribute("blog_info", service.blog_info(name));
+		model.addAttribute("category", category.category_info(name));
+		return "blog/user_profile_update";
 	}
 	
 	/**
@@ -118,11 +129,105 @@ public class BlogController {
 		
 		return "redirect:/user/page";
 	}
+	
+	
+	
+	@RequestMapping(value = "/blog_info", method = RequestMethod.GET)
+	public String blog_info(Model model, BlogVO vo, HttpSession session) {
+		String name = (String)session.getAttribute("name");
+		vo.setBlog_user(name);
+		service.blog_info(vo);
+		
+		return "redirect:/user/page?category_no=-1";
+	}
+	
+	@RequestMapping(value = "/profile_info", method = RequestMethod.POST)
+	public String profile_info(Model model, BlogVO vo, HttpSession session) {
+		String name = (String)session.getAttribute("name");
+		vo.setBlog_user(name);
+		service.profile_info(vo);
+		
+		return "redirect:/user/page?category_no=-1";
+	}
 
 	
 	
 	
+
+	@RequestMapping(value = "/fileUpload/post") //ajax에서 호출하는 부분
+    @ResponseBody
+    public String upload(MultipartHttpServletRequest multipartRequest,BlogVO vo,HttpSession session) { //Multipart로 받는다.
+
+		String name = (String)session.getAttribute("name");
+        Iterator<String> itr =  multipartRequest.getFileNames();
+
+        String filePath = "/Users/n/Desktop/img_test"; //설정파일로 뺀다.
+        
+        while (itr.hasNext()) { //받은 파일들을 모두 돌린다.
+
+
+            MultipartFile mpf = multipartRequest.getFile(itr.next());
+
+            String originalFilename = mpf.getOriginalFilename(); //파일명
+
+            String fileFullPath = filePath+"/"+originalFilename; //파일 전체 경로
+
+            try {
+                //파일 저장
+                mpf.transferTo(new File(fileFullPath)); //파일저장 실제로는 service에서 처리
+                vo.setBlog_user(name);
+                vo.setBlog_img(originalFilename);
+                service.blog_img(vo);
+                System.out.println("originalFilename => "+originalFilename);
+                System.out.println("fileFullPath => "+fileFullPath);
+            } catch (Exception e) {
+                System.out.println("postTempFile_ERROR======>"+fileFullPath);
+                e.printStackTrace();
+            }
+
+       }
+
+        return "success";
+	}	
+	
+        @RequestMapping(value = "/fileUpload/profile") //ajax에서 호출하는 부분
+        @ResponseBody
+        public String upload_profile(MultipartHttpServletRequest multipartRequest,BlogVO vo,HttpSession session) { //Multipart로 받는다.
+        	
+        	String name = (String)session.getAttribute("name");
+        	Iterator<String> itr =  multipartRequest.getFileNames();
+        	
+        	String filePath = "/Users/n/Desktop/img_test"; //설정파일로 뺀다.
+        	
+        	while (itr.hasNext()) { //받은 파일들을 모두 돌린다.
+        		
+        		
+        		MultipartFile mpf = multipartRequest.getFile(itr.next());
+        		
+        		String originalFilename = mpf.getOriginalFilename(); //파일명
+        		
+        		String fileFullPath = filePath+"/"+originalFilename; //파일 전체 경로
+        		
+        		try {
+        			//파일 저장
+        			mpf.transferTo(new File(fileFullPath)); //파일저장 실제로는 service에서 처리
+        			vo.setBlog_user(name);
+        			vo.setProfile_img(originalFilename);
+        			service.profile_img(vo);
+        			System.out.println("originalFilename => "+originalFilename);
+        			System.out.println("fileFullPath => "+fileFullPath);
+        		} catch (Exception e) {
+        			System.out.println("postTempFile_ERROR======>"+fileFullPath);
+        			e.printStackTrace();
+        		}
+        		
+        	}
+        	
+        	return "success";
+        	
+        	
 
 	}
 
 
+}

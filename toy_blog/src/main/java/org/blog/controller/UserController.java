@@ -261,7 +261,7 @@ public class UserController {
 	}*/
 
 
-	@RequestMapping(value = "/category_page", method = RequestMethod.GET)
+	@RequestMapping(value = "/page", method = RequestMethod.GET)
 	public String category_page(@RequestParam("category_no") int no, PostVO vo, Model model, HttpSession session) {
 
 		String name = (String)session.getAttribute("name");
@@ -271,6 +271,7 @@ public class UserController {
 		model.addAttribute("list_all_count", postservice.all_count_list(name));
 		model.addAttribute("user_auth", service.user_auth_yn(name));
 		model.addAttribute("sub", sub.subcribe_list(blog.blog_no(name)));
+		model.addAttribute("info", blog.blog_info(name));
 
 			List<Integer> cate = category.category_no(name);
 			List<Integer> c_no = new ArrayList<>();
@@ -282,8 +283,6 @@ public class UserController {
 				System.out.println( "배열" + arr);
 			}
 
-
-
 		model.addAttribute("category_count", c_no);
 
 		if(no == -1) {
@@ -292,7 +291,7 @@ public class UserController {
 			model.addAttribute("category_post", category.category_post(no));
 		}
 
-		return "user/category_page";
+		return "user/user_page";
 	}
 
 

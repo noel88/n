@@ -71,6 +71,30 @@ public class BlogServiceImpl implements BlogService{
 		return dao.profile_info(no);
 	}
 
+	@Override
+	public void profile_img(BlogVO vo) {
+		dao.profile_img(vo);
+		
+	}
+
+	@Override
+	public void blog_img(BlogVO vo) {
+		dao.blog_img(vo);
+		
+	}
+
+	@Override
+	public void blog_info(BlogVO vo) {
+		dao.blog_info(vo);
+		
+	}
+
+	@Override
+	public void profile_info(BlogVO vo) {
+		dao.profile_info(vo);
+		
+	}
+
 
 	
 	

@@ -13,6 +13,10 @@ public interface BlogDAO {
 	public BlogVO blog_info(String name);
 	public int blog_no(String name);
 	public BlogVO profile_info(Integer no);
+	public void profile_img(BlogVO vo);
+	public void blog_img(BlogVO vo);
+	public void blog_info(BlogVO vo);
+	public void profile_info(BlogVO vo);
 	
 	
 }

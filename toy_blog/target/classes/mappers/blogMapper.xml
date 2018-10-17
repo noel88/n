@@ -21,8 +21,21 @@
 		select blog_no from myblog where blog_user = #{name}
 	</select>
 	
+	<update id="profile_img">
+		update myblog set profile_img = #{profile_img} where blog_user = #{blog_user}
+	</update>
 	
+	<update id="blog_img">
+		update myblog set blog_img = #{blog_img} where blog_user = #{blog_user}
+	</update>
 	
+	<update id="user_blog_info">
+		update myblog set blog_title = #{blog_title}, blog_info = #{blog_info} where blog_user = #{blog_user}
+	</update>
+	
+	<update id="user_profile_info">
+		update myblog set profile_info = #{profile_info} where blog_user = #{blog_user}
+	</update>
 	
 
 

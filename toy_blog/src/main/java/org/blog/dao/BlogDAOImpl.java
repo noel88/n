@@ -44,6 +44,34 @@ public class BlogDAOImpl implements BlogDAO {
 	}
 
 
+	@Override
+	public void profile_img(BlogVO vo) {
+		sqlsession.update(namespace +".profile_img", vo);
+		
+	}
+
+
+	@Override
+	public void blog_img(BlogVO vo) {
+		sqlsession.update(namespace +".blog_img", vo);
+		
+	}
+
+
+	@Override
+	public void blog_info(BlogVO vo) {
+		sqlsession.update(namespace + ".user_blog_info", vo);
+		
+	}
+
+
+	@Override
+	public void profile_info(BlogVO vo) {
+		sqlsession.update(namespace + ".user_profile_info", vo);
+		
+	}
+
+
 
 	
 	

@@ -1,13 +1,30 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
-
+<style>
+            .round {
+                border-radius: 50%;
+                overflow: hidden;
+                width: 50px;
+                height: 50px;
+            }
+            .round img {
+                display: block;
+            /* Stretch 
+                  height: 100%;
+                  width: 100%; */
+            min-width: 100%;
+            min-height: 100%;
+            }
+</style>
 </head>
 <body>
 
@@ -20,9 +37,9 @@
 	<li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="/lxa" role="button" aria-haspopup="true" aria-expanded="false">카테고리별</a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
-     <a class="dropdown-item" data-toggle="tab"  href="#post">전체</a>
+     <a class="dropdown-item" href="page?category_no=-1">전체</a>
      <c:forEach items="${category}" var ="CategoryVO">
-      <a class="dropdown-item" href="category_page?category_no=${CategoryVO.category_no}">${CategoryVO.category}</a>
+      <a class="dropdown-item" href="page?category_no=${CategoryVO.category_no}">${CategoryVO.category}</a>
       </c:forEach>
     </div>
   </li>
@@ -34,6 +51,9 @@
 		</li>
 		<li class="nav-item">
 		<a class="nav-link" data-toggle="tab" href="#page">구독페이지</a>
+		</li>
+		<li class="nav-item">
+		<a class="nav-link" data-toggle="tab" href="#info">나의정보</a>
 		</li>
 	</ul>
 
@@ -59,7 +79,7 @@
 		</c:when>
 		<c:otherwise>
 		<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
-		<c:forEach items = "${my}" var = "PostVO">
+		<c:forEach items = "${category_post}" var = "PostVO">
 			<tr >
 				<td>
 					<div class="card bg-secondary mb-3" style="width: 100%;">
@@ -85,8 +105,9 @@
 		<div class="list-group" style="margin-top: 20px; float: right;  width: 220px;">
 
 		  <a class="list-group-item list-group-item-action text-info"> 카테고리 목록</a>
-		   <c:forEach items="${category}" var ="CategoryVO">
-		  	<a href="#" class="list-group-item list-group-item-action disabled"><i class="fas fa-arrow-right">&nbsp;${CategoryVO.category}(0)</i></a>
+		   <c:forEach items="${category}" var ="CategoryVO" varStatus="status">
+		  	<a href="#" class="list-group-item list-group-item-action disabled"><i class="fas fa-arrow-right">&nbsp;${CategoryVO.category}
+		  	(${category_count.get(status.index)})</i></a>
 		  </c:forEach>
 		</div>
 
@@ -186,7 +207,38 @@
 
 		</table>
 		</div>
-
+		
+		<div class="tab-pane fade" id="info">
+		
+		
+		
+		<table class="table" border="1">
+			<tr>
+				<td>사진</td>
+				<td><div class="round"><img width="50px;" height="50px;" src = "<spring:url value ='/image/${info.profile_img}'/>"></div></td>
+			</tr>
+			<tr>
+				<td>프로필정보</td>
+				<td>${info.profile_info}</td>
+			</tr>
+			<tr>
+				<td>블로그 제목</td>
+				<td>${info.blog_title}</td>
+			</tr>
+			<tr>
+				<td>블로그 내용</td>
+				<td>${info.blog_info }</td>
+			</tr>
+			<tr>
+				<td>블로그 사진</td>
+				<td><img width="100px;" height="100px;" src = "<spring:url value ='/image/${info.blog_img}'/>"></td>
+			</tr>
+			
+		
+		</table>
+		
+		
+		</div>
 
 
 

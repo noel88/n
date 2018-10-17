@@ -109,7 +109,7 @@
                  
                 function sendFileToServer(formData,status)
                 {
-                    var uploadURL = "/lxa/blog/fileUpload/post"; //Upload URL
+                    var uploadURL = "/lxa/blog/fileUpload/profile"; //Upload URL
                     var extraData ={}; //Extra Data.
                     var jqXHR=$.ajax({
                             xhr: function() {
@@ -149,36 +149,23 @@
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
 <div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
 
-
-			블로그 제목, 블로그 한줄설명, 블로그 이미지, 
-			내 프로필 정보(사진, 한줄소개), 카테고리 설정
 			
-			<form action="blog_info" method="get">
+			<form action="profile_info" method="post" onsubmit="return validate()">
 				<table style=" margin-top : 30px; width: 60%; margin-bottom: 100px; float: left;">
-				
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="exampleInputname1">블로그제목</label>
-							<input type="text" class="form-control" name="blog_title" value ="${blog_info.blog_title}">
-						</div>
-					</td>
-				</tr>
-				
-				<tr>
-					<td>
-						<div class="form-group">
-							<label for="exampleInputname1">블로그 이미지 추가하기</label>
+							<label for="exampleInputname1">프로필 사진</label>
+							<%-- <input type="text" class="form-control" name="profile_img" value="${blog_info.profile_img}"> --%>
 							<div id="fileUpload" class="dragAndDropDiv">프로필 사진을 넣어주세요.</div>
-						</div>
+						</div>	
 					</td>
 				</tr>
-				
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="exampleInputPassword1">블로그 한줄설명</label>
-							<input type="text" class="form-control" name="blog_info" value = "${blog_info.blog_info}">
+							<label for="exampleInputPassword1">프로필 한줄설명</label>
+							<input type="text" class="form-control" name="profile_info" value = "${blog_info.profile_info }">
 						</div>
 					</td>
 				</tr>
