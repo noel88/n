@@ -59,15 +59,79 @@
 
          </c:otherwise>
 </c:choose>
+
+    </ul>
+
+	<ul class="nav navbar-nav mx-auto navbar-right">
+    <li class="nav-item">
+        <a class="nav-link" href="#search">search </a>
+
+    </li>
       <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="Translation"/></a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
       <a class="dropdown-item" href="/lxa/?lang=ko">ko</a>
       <a class="dropdown-item" href="/lxa/?lang=en">en</a>
     </div>
-  </li>
+</ul>
 
-    </ul>
+
 
   </div>
 </nav>
+
+
+
+<script type="text/javascript">
+$(function () {
+    $('a[href="#search"]').on('click', function(event) {
+        event.preventDefault();
+        $('#search').addClass('open');
+        $('#search > form > input[type="search"]').focus();
+    });
+
+    $('#search, #search button.close').on('click keyup', function(event) {
+        if (event.target == this || event.target.className == 'close' || event.keyCode == 27) {
+            $(this).removeClass('open');
+        }
+    });
+
+
+    //Do not include! This prevents the form from submitting for DEMO purposes only!
+   /*  $('form').submit(function(event) {
+        event.preventDefault();
+        return false;
+    }) */
+});
+</script>
+
+<script>
+$(function() {
+  var availableTags = [
+
+<c:forEach items = "${list}" var = "PostVO">
+	"${PostVO.title}",
+	"${PostVO.name}",
+</c:forEach>
+
+	 <c:forEach items = "${keyword}" var = "WordVO">
+			"#${WordVO.word}",
+	</c:forEach>
+
+
+  ];
+  $( "#tags" ).autocomplete({
+    source: availableTags
+  });
+} );
+</script>
+
+
+
+<div id="search">
+    <button type="button" class="close">×</button>
+    <form action="/lxa/search/search">
+        <input type="search" id ="tags" name = "search" placeholder="type keyword(s) here" />
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+</div>

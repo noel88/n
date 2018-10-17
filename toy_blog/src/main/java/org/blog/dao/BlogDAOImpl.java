@@ -14,15 +14,15 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class BlogDAOImpl implements BlogDAO {
 
-	
+
 	@Inject private SqlSession sqlsession;
 	private static String namespace = "org.blog.mapper.blogMapper";
-	
-	
+
+
 	@Override
 	public void blog_create(BlogVO vo) {
 		sqlsession.insert(namespace + ".create", vo);
-		
+
 	}
 
 
@@ -47,33 +47,39 @@ public class BlogDAOImpl implements BlogDAO {
 	@Override
 	public void profile_img(BlogVO vo) {
 		sqlsession.update(namespace +".profile_img", vo);
-		
+
 	}
 
 
 	@Override
 	public void blog_img(BlogVO vo) {
 		sqlsession.update(namespace +".blog_img", vo);
-		
+
 	}
 
 
 	@Override
 	public void blog_info(BlogVO vo) {
 		sqlsession.update(namespace + ".user_blog_info", vo);
-		
+
 	}
 
 
 	@Override
 	public void profile_info(BlogVO vo) {
 		sqlsession.update(namespace + ".user_profile_info", vo);
-		
+
+	}
+
+
+	@Override
+	public List<BlogVO> blog() {
+		return sqlsession.selectList(namespace + ".all_blog_info");
 	}
 
 
 
-	
-	
-	
+
+
+
 }

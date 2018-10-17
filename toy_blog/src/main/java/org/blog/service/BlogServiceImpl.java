@@ -14,7 +14,7 @@ public class BlogServiceImpl implements BlogService{
 
 	@Inject private BlogDAO dao;
 
-	
+
 	/**
 	 * 블로그 추가 액션[회원가입과 동시에 자동 추가]
 	 *
@@ -23,12 +23,12 @@ public class BlogServiceImpl implements BlogService{
 	 * @return void
 	 * @throws
 	 */
-	
+
 	@Override
 	public void blog_create(BlogVO vo) {
-		dao.blog_create(vo);	
+		dao.blog_create(vo);
 	}
-	
+
 	/**
 	 * 회원이름으로 블로그 정보 확인
 	 *
@@ -51,7 +51,7 @@ public class BlogServiceImpl implements BlogService{
 	 * @return int
 	 * @throws
 	 */
-	
+
 	@Override
 	public int blog_no(String name) {
 		return dao.blog_no(name);
@@ -65,7 +65,7 @@ public class BlogServiceImpl implements BlogService{
 	 * @return BlogVO
 	 * @throws
 	 */
-	
+
 	@Override
 	public BlogVO profile_info(Integer no) {
 		return dao.profile_info(no);
@@ -74,29 +74,34 @@ public class BlogServiceImpl implements BlogService{
 	@Override
 	public void profile_img(BlogVO vo) {
 		dao.profile_img(vo);
-		
+
 	}
 
 	@Override
 	public void blog_img(BlogVO vo) {
 		dao.blog_img(vo);
-		
+
 	}
 
 	@Override
 	public void blog_info(BlogVO vo) {
 		dao.blog_info(vo);
-		
+
 	}
 
 	@Override
 	public void profile_info(BlogVO vo) {
 		dao.profile_info(vo);
-		
+
+	}
+
+	@Override
+	public List<BlogVO> blog() {
+		return dao.blog();
 	}
 
 
-	
-	
-	
+
+
+
 }

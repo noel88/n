@@ -10,12 +10,54 @@ pageEncoding="UTF-8"%>
 #key {
 
  border: 4px dashed #bcbcbc;
-
-
 }
+
 .col-sm-2 {
 	text-align: center;
 	height: 100px;
+
+section{
+    padding:60px 0px;
+    font-family: 'Raleway', sans-serif;
+}
+
+h2 {
+    color: #4C4C4C;
+    word-spacing: 5px;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom:30px;
+    font-family: 'Raleway', sans-serif;
+}
+
+.ion-minus{
+    padding:0px 10px;
+}
+
+.blog{
+	background-color:#f6f6f6;
+}
+
+.blog .card {
+    background-color: #FFF;
+    border: 1px solid #eceaea;
+    margin: 20px 0px;
+}
+
+.blog .card-block {
+    padding: 15px;
+}
+
+.btn.btn-default {
+    background-color: #5db4c0;
+    color: #fff;
+    border-radius: 0;
+    border: none;
+    padding: 13px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 10px;
+}
 }
 
 </style>
@@ -25,9 +67,6 @@ pageEncoding="UTF-8"%>
 <body>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
-
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
-
 
 
 
@@ -54,56 +93,60 @@ $(function() {
 
 
 
-<div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 150px;">
+<div class="blog">
+      <div class="container">
+
+          <div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 150px; margin-bottom: 30px;">
 
 
-	<h2><p class="mb-0"><spring:message code="search"/> </p></h2>
-
-</div>
-
-
-<%-- <div class='row' style="float: none; margin : 0 auto;">
-    <form action="search/search" class="form-inline my-2 my-lg-3">
-     <div class="container">
-
-	            <div id="imaginary_container">
-	                <div class="input-group stylish-input-group">
-	                    <input type="text" class="form-control" style="width: 700px;" id ="tags" name = "search" placeholder='<spring:message code="bar"/>' >
-	                    <span class="input-group-addon">
-	                    <button type="submit">
-	                           <span> <i class="fas fa-search"></i></span>
-	                        </button>
-
-	                    </span>
-	                </div>
-	            </div>
+			<h2><p class="mb-0">B L O G</p></h2>
 
 		</div>
-    </form>
-</div> --%>
 
 
-<div class="container">
-    <br/>
-	<div class="row justify-content-center">
-                        <div class="col-12 col-md-10 col-lg-8">
-                            <form action="search/search">
-                                <div class="card-body row no-gutters align-items-center">
-                                    <!--end of col-->
-                                    <div class="col">
-                                        <input class="form-control form-control-lg form-control-borderless" id ="tags" name = "search" type="search" placeholder="Search topics or keywords">
-                                    </div>
-                                    <!--end of col-->
-                                    <div class="col-auto">
-                                        <button class="btn btn-lg btn-success" type="submit">Search</button>
-                                    </div>
-                                    <!--end of col-->
-                                </div>
-                            </form>
+           <div class="row">
+				<c:forEach items="${blog_info}" varStatus="status" var="blog">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-right">
+					 <div class="card text-center">
+					 <c:if test="${blog.profile_img == null}">
+                        <img class="card-img-top" src="<spring:url value ='/img/no_image.png'/>" alt="" width="90%">
+					 </c:if>
+					 <c:if test="${blog.profile_img != null}">
+                        <img class="card-img-top" src="<spring:url value ='/image/${blog.profile_img}'/>" alt="" width="100%">
+                      </c:if>
+                        <div class="card-block">
+                            <h4 class="card-title">${blog.blog_title}</h4>
+                            <p class="card-text">${blog.blog_info}</p>
+                            <a class="btn btn-default" href="#">Read More</a>
                         </div>
-                        <!--end of col-->
-                    </div>
-</div>
+                     </div>
+                </div>
+				</c:forEach>
+
+            <%--     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-up">
+					 <div class="card text-center">
+                        <img class="card-img-top" src="<spring:url value ='/image/${blog.profile_img}'/>" alt="" width="100%">
+                        <div class="card-block">
+                            <h4 class="card-title">${blog.blog_title}</h4>
+                            <p class="card-text">${blog.blog_info}</p>
+                            <a class="btn btn-default" href="#">Read More</a>
+                        </div>
+                     </div>
+                </div>
+
+                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-left">
+					 <div class="card text-center">
+                        <img class="card-img-top" src="<spring:url value ='/image/${blog.profile_img}'/>" alt="" width="100%">
+                        <div class="card-block">
+                            <h4 class="card-title">Post Title</h4>
+                            <p class="card-text">${blog.blog_title}</p>
+                            <a class="btn btn-default" href="#">${blog.blog_info}</a>
+                        </div>
+                     </div>
+                </div>
+ --%>
+            </div>
+
 
 
 <div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 70px; margin-bottom: 30px;">
@@ -113,128 +156,16 @@ $(function() {
 
 </div>
 
-<%-- <table border="1" style="  margin-left: auto; margin-right: auto; width: 60%; margin-top: 30px; margin-bottom: 100px;">
-	<tr style=" margin: auto;">
-		 <c:forEach items = "${list}" var = "PostVO">
-		 	<c:forEach items="${fn:split(PostVO.keyword, '#')}" var="item" varStatus="g">
-		 		<c:if test = "${item != ''}">
-						<c:if test="${g.index eq 0}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
-						<c:if test="${g.index eq 1}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
-						<c:if test="${g.index eq 2}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
-						<c:if test="${g.index eq 3}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
-						<c:if test="${g.index eq 4}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
-				</c:if>
-			</c:forEach>
-		</c:forEach>
-
-	</tr>
-	<tr style=" margin: auto;">
-		 <c:forEach items = "${list}" var = "PostVO">
-		 	<c:forEach items="${fn:split(PostVO.keyword, '#')}" var="item" varStatus="g">
-		 		<c:if test = "${item != ''}">
-						<c:if test="${g.index eq 5}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
-						<c:if test="${g.index eq 6}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
-						<c:if test="${g.index eq 7}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
-						<c:if test="${g.index eq 8}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
-						<c:if test="${g.index eq 9}"><td style="width: 20%; height: 100px; text-align: center;">#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></td></c:if>
-				</c:if>
-			</c:forEach>
-		</c:forEach>
-
-	</tr>
-
-</table> --%>
-
-
-<%-- <div class='row' id = "key" style="float: none; margin : 0 auto;">
- <c:forEach items = "${list}" var = "PostVO">
-		 	<c:forEach items="${fn:split(PostVO.keyword, '#')}" var="item" varStatus="g">
-		 		<c:if test = "${item != ''}">
-				 <div class='col-sm-2'><a class="btn btn-secondary btn-lg" href="/lxa/blog/tags?keyword=${item}">#${item}</a></div>
-				  <c:if test="${g.index eq 0}"><div class='col-sm-4'>#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></div></c:if>
-  				</c:if>
-			</c:forEach>
-		</c:forEach>
-</div> --%>
-
 <div class='row' id = "key" style="float: none; margin : 0 auto; margin-bottom: 100px;">
  <c:forEach items = "${keyword}" var = "WordVO">
 
-				 <div class='col-sm-2'><a class="btn btn-secondary btn-lg" style="width: 80%; text-align: center; margin-left: auto; margin-right: auto;" href="/lxa/post/tags?keyword=${WordVO.word}">#${WordVO.word}</a></div>
+				 <div class='col-sm-2'><a class="btn btn-secondary" style="width: 80%; margin-top:15px; text-align: center; margin-left: auto; margin-right: auto;" href="/lxa/post/tags?keyword=${WordVO.word}">#${WordVO.word}</a></div>
 				 <%--  <c:if test="${g.index eq 0}"><div class='col-sm-4'>#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></div></c:if> --%>
 
 </c:forEach>
 </div>
 
-
-
-
-<%-- <div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 70px;">
-
-
-	<h2><p class="mb-0"> <spring:message code="magazines"/> </p></h2>
-
-</div>
-
-<table style="margin-left: auto; margin-right: auto; width: 60%; margin-top: 30px;">
-	<tr style="height: 150px;">
-
-		<td style="width: 20%;">
-			<div class="list-group" style=" height: 100%;" >
-			  <a href="#" class="list-group-item list-group-item-action active">
-			  <c:forEach items = "${list}" var = "PostVO"  end = "0">
-			    ${PostVO.name}'s blog
-			    </c:forEach>
-			  </a>
-<c:forEach items = "${list}" var = "PostVO"  end = "1">
-			  <a href="/lxa/post/detail?post_no=${PostVO.post_no}" class="list-group-item list-group-item-action">${PostVO.title}
-			  </a>
-</c:forEach>
-
-
-			</div>
-		</td>
-		<td style="width: 20%;">
-<c:forEach items = "${list}" var = "PostVO"  end = "0">
-			<blockquote class="blockquote">
-		  	<p class="mb-0"><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-		  	<footer class="blockquote-footer">Writer <cite title="Source Title">by. ${PostVO.name}</cite></footer>
-			</blockquote>
-		</c:forEach>
-		</td>
-	</tr>
-
-
-	<tr style="height: 150px;">
-
-		<td style="width: 20%;">
-			<div class="list-group" style=" height: 100%;" >
-			  <a href="#" class="list-group-item list-group-item-action active">
-			  <c:forEach items = "${list}" var = "PostVO"  begin = "4" end = "4">
-			    ${PostVO.name}'s blog
-			    </c:forEach>
-			  </a>
-<c:forEach items = "${list}" var = "PostVO"  begin = "4" end = "5">
-			  <a href="/lxa/post/detail?post_no=${PostVO.post_no}" class="list-group-item list-group-item-action">${PostVO.title}
-			  </a>
-</c:forEach>
-
-
-			</div>
-		</td>
-		<td style="width: 20%;">
-<c:forEach items = "${list}" var = "PostVO"  begin = "4" end = "4">
-			<blockquote class="blockquote">
-		  	<p class="mb-0"><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
-		  	<footer class="blockquote-footer">Writer <cite title="Source Title">by. ${PostVO.name}</cite></footer>
-			</blockquote>
-		</c:forEach>
-		</td>
-	</tr>
-
-</table> --%>
-
-
+    </div>
 </div>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>

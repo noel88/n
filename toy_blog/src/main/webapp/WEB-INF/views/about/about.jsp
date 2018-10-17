@@ -92,7 +92,7 @@
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-6. 댓글에도 수정 및 삭제 버튼이 있다.</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-7. 댓글에도 좋아요, 싫어요, 신고하기 기능이 있다.(댓글 블락 처리)</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-8. <del>블로그 글을 작성할수 있다.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-9. 블로그에는 이미지 업로드가 가능하고, 올리고 글쓸때 이미지 확인하게끔</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-9. 블로그에는 이미지 업로드가 가능하고, 올리고 글쓸때 이미지 확인하게끔[미정]</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-10. <del>자신의 글은 수정하거나 삭제할수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-11. <del>상대방에게 구독 신청을 하면 상대방 블로그 프로필이 보이며,</del> 오늘 새글이 뜨면 아이콘이 떠 있는다.</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-12. <del>블로그 글 작성란에는 텍스트 에디터가 있다.</del></p>
@@ -124,7 +124,7 @@
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-9. <del>내가 이메일 인증 사용자인지, 미인증 사용자인지 표시해준다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-10. <del>프로필 사진이나, 블로그 메인 사진, 블로그 소개, 내 소개등 수정하거나 추가할수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-11. <del>카테고리는 사용자 마음대로 실시간 추가 가능하다.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-12. 카테고리 또한 공개 여부를 설정할수 있다.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;7-12. 카테고리 또한 공개 여부를 설정할수 있다.[미정]</p>
 
 				<p class="text-primary">8. 검색</p>
 

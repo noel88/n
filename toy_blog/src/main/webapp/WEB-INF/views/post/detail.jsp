@@ -8,22 +8,41 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<style>
-            .round {
-                border-radius: 50%;
-                overflow: hidden;
-                width: 50px;
-                height: 50px;
-            }
-            .round img {
-                display: block;
 
-            /* Stretch
-                  height: 100%;
-                  width: 100%; */
-            min-width: 100%;
-            min-height: 100%;
-            }
+<style type="text/css">
+.container{
+    padding:5%;
+    width: 800px;
+
+}
+.container .img{
+    text-align:center;
+
+
+}
+.container .details{
+    border-left:3px solid #ded4da;
+}
+.container .details p{
+    font-size:15px;
+    font-weight:bold;
+}
+
+.round {
+     border-radius: 50%;
+     overflow: hidden;
+     width: 50px;
+     height: 50px;
+}
+.round img {
+     display: block;
+
+     /* Stretch
+     height: 100%;
+     width: 100%; */
+     min-width: 100%;
+     min-height: 100%;
+}
 </style>
  <%@ include file="/WEB-INF/views/include/head.jsp"%>
 </head>
@@ -65,13 +84,39 @@
 
    </table>
 
-	<table class="table" style="width: 50%; margin-left: auto; margin-right: auto;" >
+
+
+	<div class="container" style="margin-left: auto; margin-right: auto;">
+	  <div class="row">
+	    <div class="col-md-6 img">
+	      <img width = "200px;"  src = "<spring:url value ='/image/${blog_info.profile_img}'/>" alt="" class="img-rounded">
+	    </div>
+	    <div class="col-md-6 details">
+			<br>
+	        <h5>${postVO.name}</h5>
+	        <small><cite title="Source Title">${blog_info.profile_info}
+	        <br>
+	        <br>
+	      <p>
+	         ${blog_info.blog_info} <br>
+	      </p>
+	        </cite></small>
+	    </div>
+	  </div>
+	</div>
+
+
+
+
+
+
+<%-- 	<table class="table" style="width: 50%; margin-left: auto; margin-right: auto;" >
 		<tr>
 			<td width="20%;">
 				<div class="round">
 					  <img width="50px;" height="50px;" src = "<spring:url value ='/image/${blog_info.profile_img}'/>">
 				</div>
-<%-- 			<div class="round"><img width="50px;" height="50px;" src = "http://bigmit.iptime.org/update/${info.profile_img}"></div> --%>
+			<div class="round"><img width="50px;" height="50px;" src = "http://bigmit.iptime.org/update/${info.profile_img}"></div>
 			</td>
 			<td>
 				${postVO.name}<br>
@@ -80,7 +125,7 @@
 		</tr>
 	</table>
 
-
+ --%>
 
 
 <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 10px;">
@@ -100,8 +145,8 @@
 				<td style="float: right;">
 				<c:choose>
 					<c:when test = "${sessionScope.name == postVO.name}">
-				      	 <a href= "#" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-				      	 <a href= "#" class="btn btn-secondary"><i class="fas fa-trash-alt"></i></a>
+				      	 <a href= "comment_update_form" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
+				      	 <a href= "comment_delete" class="btn btn-secondary"><i class="fas fa-trash-alt"></i></a>
 				    </c:when>
 					<c:when test = "${sessionScope.name != null}">
 				      	 <a href= "#" class="btn btn-secondary"><i class="fas fa-exclamation-triangle"></i></a>
@@ -131,7 +176,7 @@
 
 
 
-					<c:choose>
+				<c:choose>
 					<c:when test = "${sessionScope.name == null}">
 					<a href="/lxa/post/loginCheck"><button type="button" class="btn btn-primary btn-xs" disabled="disabled" style="width:100%;"><i class="fas fa-comment-dots">&nbsp;comment&nbsp;</i></button></a>&nbsp;
 					</c:when>
@@ -139,12 +184,14 @@
 					<button type="submit" class="btn btn-primary btn-xs" onclick ="alert('댓글이 동륵되었습니다');" style="width:100%;"><i class="fas fa-comment-dots">&nbsp;comment</i></button>&nbsp;
 					</c:otherwise>
 				</c:choose>
+
 					</form>
 
 			</tr>
 			<tr class="table-secondary">
 				<td>
 				<c:choose>
+
 					<c:when test = "${sessionScope.name == null}">
 
 				      	 <a href= "list"class="btn btn-secondary"><i class="fas fa-list"></i></a>
@@ -160,8 +207,9 @@
 				      	<a href= "#" class="btn btn-secondary"><i class="fas fa-exclamation-triangle"></i></a>
 				      </c:otherwise>
 
-
 				</c:choose>
+
+
 				<%--
 
 					세션값이 null일때 comment, like 버튼 모두 로그인 화면으로 이동.
@@ -177,6 +225,7 @@
 					<a href="like?post_no=${postVO.post_no}"><button type="button" class="btn btn-secondary" style="float: right;"><i class="fas fa-heart" >&nbsp;${count_like}</i></button></a>&nbsp;
 					</c:otherwise>
 				</c:choose>
+
 				</td>
 			</tr>
 

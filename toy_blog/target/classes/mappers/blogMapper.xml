@@ -8,35 +8,39 @@
 	<insert id="create">
 		insert into myblog value (#{blog_no}, #{blog_user}, #{blog_img}, #{profile_img}, #{blog_title}, #{blog_info}, #{profile_info})
 	</insert>
-	
+
 	<select id="blog_info" parameterType="String" resultType="org.blog.domain.BlogVO">
 		select * from myblog where blog_user = #{name}
+	</select>
+
+	<select id="all_blog_info" resultType="org.blog.domain.BlogVO">
+		select * from myblog LIMIT 3
 	</select>
 
 	<select id="profile_info" parameterType="Integer" resultType="org.blog.domain.BlogVO">
 		select * from myblog where blog_no = #{no}
 	</select>
-	
+
 	<select id="blog_no" parameterType="String" resultType="Integer">
 		select blog_no from myblog where blog_user = #{name}
 	</select>
-	
+
 	<update id="profile_img">
 		update myblog set profile_img = #{profile_img} where blog_user = #{blog_user}
 	</update>
-	
+
 	<update id="blog_img">
 		update myblog set blog_img = #{blog_img} where blog_user = #{blog_user}
 	</update>
-	
+
 	<update id="user_blog_info">
 		update myblog set blog_title = #{blog_title}, blog_info = #{blog_info} where blog_user = #{blog_user}
 	</update>
-	
+
 	<update id="user_profile_info">
 		update myblog set profile_info = #{profile_info} where blog_user = #{blog_user}
 	</update>
-	
+
 
 
 </mapper>
