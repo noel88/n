@@ -17,8 +17,9 @@
 	<resources mapping="/resources/**" location="/resources/" />
 	<resources mapping="/img/**" location="/resources/img/" />
 <!-- 	<resources mapping="/image/**" location="file:///users/n/Desktop/img_test/" /> -->
-<!--  	<resources mapping="/image/**" location="file:///C:/Users/a/git/toy/toy_blog/src/main/webapp/resources/update" /> -->
- 	<resources mapping="/update/**" location="/update" />
+<!--   	<resources mapping="/image/**" location="file:///C:/Users/a/Desktop/img/" /> -->
+  	<resources mapping="/image/**" location="http://bigmit.iptime.org/update/" />
+
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

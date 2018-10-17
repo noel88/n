@@ -139,10 +139,14 @@ public class PostController {
 
 	@RequestMapping(value = "/detail", method = RequestMethod.GET)
 	public void list_detail(@RequestParam("post_no") int no, Model model, HttpSession session) {
+
+		String name = (String)session.getAttribute("name");
+
 		model.addAttribute(service.post_detail(no));
 		model.addAttribute("comment", coservice.comment_list(no));
 		model.addAttribute("count_like", service.like_cnt(no));
 		model.addAttribute("blog_info", service.select_post_blog_no(no));
+		model.addAttribute("my_info", blog.blog_info(name));
 		model.addAttribute("category", category.select_category_name(no));
 
 
