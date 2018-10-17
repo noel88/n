@@ -53,7 +53,7 @@ public class UserServiceImpl implements UserService{
 					new StringBuffer().append("<h2>이메일을 인증하시면 블로그 글 쓰기, 계정 찾기 등\n" +
 		"블로그를 더욱 편하게 이용하실 수 있습니다.</h2>").append("<a href='http://bigmit.iptime.org/lxa/user/emailConfirm?user_email=").append(vo.getUser_email()).append("&key=").append(key).append("' target='_blenk'><button>이메일 인증하기</button></a>").toString());
 		/*"블로그를 더욱 편하게 이용하실 수 있습니다.</h2>").append("<a href='http://localhost:8090/lxa/user/emailConfirm?user_email=").append(vo.getUser_email()).append("&key=").append(key).append("' target='_blenk'><button>이메일 인증하기</button></a>").toString());
-*/			sendMail.setFrom("xiah0526@gmail.com", "관리자");
+*/			sendMail.setFrom("amdintest@gmail.com", "관리자");
 			sendMail.setTo(vo.getUser_email());
 			sendMail.send();
 
