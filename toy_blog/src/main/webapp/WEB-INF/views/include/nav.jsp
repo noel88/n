@@ -45,11 +45,11 @@
        <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">${sessionScope.name}, <spring:message code="Page"/> </a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
-      <a class="dropdown-item" href="/lxa/user/page?category_no=-1">page</a>
-      <a class="dropdown-item" href="/lxa/blog/profile_update">프로필 설정</a>
-      <a class="dropdown-item" href="/lxa/blog/blog_update">블로그 설정</a>
+      <a class="dropdown-item" href="/lxa/user/page?category_no=-1"><spring:message code="page"/></a>
+      <a class="dropdown-item" href="/lxa/blog/profile_update"><spring:message code="profile"/></a>
+      <a class="dropdown-item" href="/lxa/blog/blog_update"><spring:message code="blog_info"/></a>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="/lxa/user/user_update">회원정보 수정</a>
+      <a class="dropdown-item" href="/lxa/user/user_update"><spring:message code="my"/></a>
     </div>
   </li>
 
@@ -64,14 +64,14 @@
 
 	<ul class="nav navbar-nav mx-auto navbar-right">
     <li class="nav-item">
-        <a class="nav-link" href="#search">search </a>
+        <a class="nav-link" href="#search"><spring:message code="search"/></a>
 
     </li>
       <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false"><spring:message code="Translation"/></a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
-      <a class="dropdown-item" href="/lxa/?lang=ko">ko</a>
-      <a class="dropdown-item" href="/lxa/?lang=en">en</a>
+      <a class="dropdown-item" href="?lang=ko"><spring:message code="ko"/></a>
+      <a class="dropdown-item" href="?lang=en"><spring:message code="en"/></a>
     </div>
 </ul>
 
@@ -132,6 +132,6 @@ $(function() {
     <button type="button" class="close">×</button>
     <form action="/lxa/search/search">
         <input type="search" id ="tags" name = "search" placeholder="type keyword(s) here" />
-        <button type="submit" class="btn btn-primary">Search</button>
+        <button type="submit" class="btn btn-primary"><spring:message code="search"/></button>
     </form>
 </div>

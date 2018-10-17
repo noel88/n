@@ -11,7 +11,7 @@
 
  border: 4px dashed #bcbcbc;
  height: 100px;
- width: 600px;
+ width: 700px;
  text-align: center;
  margin: auto;
 
@@ -160,11 +160,16 @@
             });
         </script>
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 100px;">
+<div style="margin-left: auto; margin-right: auto; text-align:center; margin-top: 30px; margin-bottom: 20px;">
 
+
+	<h2><p class="mb-0"><spring:message code="profileinfo"/></p></h2>
+
+</div>
 
 			<form action="profile_info" method="post" onsubmit="return validate()">
-				<table style=" margin-top : 30px; width: 60%; margin-bottom: 100px;">
+				<table style="margin-left:auto; margin-right: auto;  margin-top : 30px; width: 70%; margin-bottom: 100px;">
 				<tr>
 					<td>
 						<div class="form-group">

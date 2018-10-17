@@ -96,7 +96,7 @@
 <body>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 100px;">
 <div class="col-lg-6 col-sm-6">
     <div class="card hovercard" style="width: 1000px;">
         <div class="card-background">
@@ -115,7 +115,19 @@
 
 		<!-- 블로그 페이지 -->
 
-		<table style="margin-top: 50px; margin-bottom: 100px; width: 65%; float: left;">
+		<table style="margin-top: 30px; margin-bottom: 100px; width: 65%; float: left;">
+			<tr>
+				<td>
+						<div class="col-sm-12">   
+						<div class="page-header text-muted" style="float: left;">
+						<ul class="nav">
+						<li><a href="#">· Popularity&nbsp;</a></li>
+						<li><a href="#">· Latest</a></li>
+						</ul>
+						</div> 
+						</div>
+				</td>
+			<tr>
 		<c:forEach items = "${my}" var = "PostVO">
 			<tr >
 				<td>

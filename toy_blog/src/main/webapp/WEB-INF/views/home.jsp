@@ -96,10 +96,10 @@ $(function() {
 <div class="blog">
       <div class="container">
 
-          <div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 150px; margin-bottom: 30px;">
+          <div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 100px; margin-bottom: 30px;">
 
 
-			<h2><p class="mb-0">B L O G</p></h2>
+			<h2><p class="mb-0"><spring:message code="blog.blog"/></p></h2>
 
 		</div>
 

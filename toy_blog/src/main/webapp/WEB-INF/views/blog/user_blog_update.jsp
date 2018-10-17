@@ -160,11 +160,13 @@
             });
         </script>
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 100px;">
+<div style="margin-left: auto; margin-right: auto; text-align:center; margin-top: 30px; margin-bottom: 20px;">
 
 
-			블로그 제목, 블로그 한줄설명, 블로그 이미지,
-			내 프로필 정보(사진, 한줄소개), 카테고리 설정
+	<h2><p class="mb-0"><spring:message code="bloginfo"/></p></h2>
+
+</div>
 
 			<form action="blog_info" method="get">
 				<table style=" margin-top : 30px; width: 60%; margin-bottom: 100px; float: left;">
@@ -206,7 +208,7 @@
 				</table>
 			</form>
 
-			<div class="list-group" style="margin-top: 20px; float: right; width: 350px;">
+			<div class="list-group" style="margin-top: 40px; float: right; width: 350px;">
 		  <a class="list-group-item list-group-item-action text-info">
 		    카테고리 목록
 		  </a>

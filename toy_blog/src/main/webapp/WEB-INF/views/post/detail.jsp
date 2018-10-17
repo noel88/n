@@ -13,11 +13,11 @@
 .container{
     padding:5%;
     width: 800px;
+    
 
 }
 .container .img{
     text-align:center;
-
 
 }
 .container .details{
@@ -43,6 +43,50 @@
      min-width: 100%;
      min-height: 100%;
 }
+
+
+/* CSS Test begin */
+.comment-box {
+    margin-top: 30px !important;
+}
+/* CSS Test end */
+
+.comment-box img {
+    width: 50px;
+    height: 50px;
+}
+.comment-box .media-left {
+    padding-right: 10px;
+    width: 65px;
+}
+.comment-box .media-body p {
+    border: 1px solid #ddd;
+    padding: 10px;
+}
+.comment-box .media-body .media p {
+    margin-bottom: 0;
+}
+.comment-box .media-heading {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 7px 10px;
+    position: relative;
+    margin-bottom: -1px;
+}
+.comment-box .media-heading:before {
+    content: "";
+    width: 12px;
+    height: 12px;
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    border-width: 1px 0 0 1px;
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    position: absolute;
+    top: 10px;
+    left: -6px;
+}
+
 </style>
  <%@ include file="/WEB-INF/views/include/head.jsp"%>
 </head>
@@ -106,64 +150,37 @@
 	</div>
 
 
-
-
-
-
-<%-- 	<table class="table" style="width: 50%; margin-left: auto; margin-right: auto;" >
-		<tr>
-			<td width="20%;">
-				<div class="round">
-					  <img width="50px;" height="50px;" src = "<spring:url value ='/image/${blog_info.profile_img}'/>">
-				</div>
-			<div class="round"><img width="50px;" height="50px;" src = "http://bigmit.iptime.org/update/${info.profile_img}"></div>
-			</td>
-			<td>
-				${postVO.name}<br>
-			    <p class="card-text">${blog_info.profile_info}</p>
-			</td>
-		</tr>
-	</table>
-
- --%>
-
-
-<table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 10px;">
 <c:forEach items = "${comment}" var = "CommentVO">
-
-			<tr class="table-secondary" style="height: 20px;">
-				<td width="10%;">
-				<div class="round">
-					  <img width="50px;" height="50px;" src = "<spring:url value ='/image/${my_info.profile_img}'/>">
-<%-- 					  <img width="50px;" height="50px;" src = "http://bigmit.iptime.org/update/${my_info.profile_img}"> --%>
-					</div>
-				</td>
-
-				<td colspan="2">
-					<h5 style="margin-top: 15px;">&nbsp;${CommentVO.comment_name}</h5>
-				</td>
-				<td style="float: right;">
+				<div class='container' style="width: 95%;">
+				 <div class="media comment-box">
+		            <div class="media-left">
+		                <a href="#">
+		                    <img class="img-responsive user-photo" src = "<spring:url value ='/image/${my_info.profile_img}'/>">
+		                </a>
+		                 
+		            </div>
+		            <div class="media-body">
+		                <h4 class="media-heading">${CommentVO.comment_name}
 				<c:choose>
 					<c:when test = "${sessionScope.name == postVO.name}">
-				      	 <a href= "comment_update_form" class="btn btn-secondary"><i class="fas fa-edit"></i></a>
-				      	 <a href= "comment_delete" class="btn btn-secondary"><i class="fas fa-trash-alt"></i></a>
+		                	
+				      		<a style="float: right;"  href= "comment_delete"><i class="fas fa-trash-alt"></i></a>
+		                	<a style="float: right;" href= "comment_update_form"><i class="fas fa-edit"></i></a>
 				    </c:when>
 					<c:when test = "${sessionScope.name != null}">
 				      	 <a href= "#" class="btn btn-secondary"><i class="fas fa-exclamation-triangle"></i></a>
 					</c:when>
 				</c:choose>
-				</td>
-			</tr>
-			<tr class="table-secondary" style="height: 30px;">
-
-				<td colspan="4">
-				<i class="fas fa-comment">&nbsp;${CommentVO.comment}</i>
-				</td>
-			</tr>
-
+				      	 </h4>
+		                <p>${CommentVO.comment}</p>
+		              
+		            </div>
+		        </div>
+				</div>
+				
+		
 </c:forEach>
 
-</table>
  <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
 
 
@@ -218,7 +235,7 @@
 				--%>
 
 				<c:choose>
-					<c:when test = "${sessionScope.name == null}">
+					<c:when test="${sessionScope.name == null}">
 					<a href="/lxa/post/loginCheck"><button type="button" class="btn btn-secondary" style="float: right;" disabled="disabled"><i class="fas fa-heart" >&nbsp;${count_like}</i></button></a>&nbsp;
 					</c:when>
 					<c:otherwise>

@@ -73,8 +73,13 @@ function checkPwd() {
 <body>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 100px;">
+<div style="margin-left: auto; margin-right: auto; text-align:center; margin-top: 30px; margin-bottom: 20px;">
 
+
+	<h2><p class="mb-0"><spring:message code="blog.my"/> </p></h2>
+
+</div>
 
 
 			<script type="text/javascript">
@@ -86,11 +91,11 @@ function checkPwd() {
 				}
 			</script>
 			<form action="user_update" method="post" onsubmit="return validate()">
-				<table style="margin-left : auto; margin-right : auto; margin-top : 150px; width: 70%;">
+				<table style="margin-left : auto; margin-right : auto; margin-top : 30px; width: 70%;">
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="exampleInputname1">Name</label>
+							<label for="exampleInputname1"><spring:message code="name"/></label>
 							<input type="text" class="form-control name" name="user_name" placeholder="Name" oninput="checkName()" id="checkname" autofocuss>
 							<small id="emailHelp" class="form-text text-muted">Please enter a name for your blog.</small>
 						</div>
@@ -99,7 +104,7 @@ function checkPwd() {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label>
+							<label for="exampleInputPassword1"><spring:message code="pwd"/></label>
 							<input type="password" class="form-control pass" name="user_pwd" placeholder="Password" oninput="checkPwd()">
 						</div>
 					</td>
@@ -107,15 +112,15 @@ function checkPwd() {
 				<tr>
 					<td>
 						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label>
+							<label for="exampleInputPassword1"><spring:message code="pwd"/></label>
 							<input type="password" class="form-control pass" name="user_pwdcheck" placeholder="Password" id="repwd" oninput="checkPwd()">
 						</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<button type="submit" class="btn btn-primary signupbtn" disabled="disabled"><i class="fas fa-edit">&nbsp;update</i></button>
-						<a href="/lxa/user/delete"><button type="button" class="btn btn-primary" style="float: right;" onclick="validate_delete();"><i class="fas fa-trash-alt">&nbsp;delete</i></button></a>
+						<button type="submit" class="btn btn-primary signupbtn" disabled="disabled"><i class="fas fa-edit">&nbsp;<spring:message code="update"/></i></button>
+						<a href="/lxa/user/delete"><button type="button" class="btn btn-primary" style="float: right;" onclick="validate_delete();"><i class="fas fa-trash-alt">&nbsp;<spring:message code="delete.user"/></i></button></a>
 					</td>
 				</tr>
 				</table>

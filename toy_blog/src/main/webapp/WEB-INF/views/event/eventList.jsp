@@ -171,16 +171,29 @@ function load(id, cnt, btn) {
 	$(girls_list + ":lt(" + girls_total_cnt + ")").addClass("active");
 }
 </script>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 100px;">
+<div style="margin-left: auto; margin-right: auto; text-align:center; margin-top: 50px; margin-bottom: 20px;">
 
+
+	<h2><p class="mb-0"><spring:message code="blog.event"/> </p></h2>
+
+</div>
+ <div class="col-sm-12">   
+<div class="page-header text-muted" style="float: right;">
+<ul class="nav">
+<li><a href="#">· <spring:message code="popularity"/>&nbsp;</a></li>
+<li><a href="#">· <spring:message code="latest"/></a></li>
+</ul>
+</div> 
+</div>
+                        
 	<div id="contents">
 		<div id="js-load" class="lists">
-
 			<!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
 
 			<c:forEach items="${event}" var="EventVO">
 				<table class="lists__item js-load table"
-					style="margin-left: auto; margin-right: auto; margin-top: 30px;">
+					style="margin-left: auto; margin-right: auto; margin-top: 10px;">
 
 
 					<tr>

@@ -114,7 +114,7 @@
 <body>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 100px;">
 <div class="col-lg-6 col-sm-6">
     <div class="card hovercard" style="width: 1000px;">
         <div class="card-background">
@@ -198,7 +198,7 @@
 		</c:choose>
 
 
-		<div class="list-group" style="margin-top: 50px; float: right;">
+		<div class="list-group" style="margin-top: 30px; float: right;">
 		<a href= "/lxa/post/write" style="margin-left: auto; margin-right: auto; width: 220px;" class="btn btn-primary"><i class="fas fa-list">글쓰기</i></a>
 		</div>
 		<div class="list-group" style="margin-top: 20px; float: right;  width: 220px;">

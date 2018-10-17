@@ -12,7 +12,7 @@
 
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 150px;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 100px;">
 
 <div style="margin-left: auto; margin-right: auto; text-align:center; margin-top: 50px; margin-bottom: 20px;">
 
