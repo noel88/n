@@ -22,7 +22,7 @@ public class AboutController {
 	 * @return String
 	 * @throws
 	 */
-	
+
 	@RequestMapping(value = "/about", method = RequestMethod.GET)
 	public String about() {
 		return "about/about";

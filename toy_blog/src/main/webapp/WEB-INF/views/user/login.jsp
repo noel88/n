@@ -11,12 +11,18 @@
 <body>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
-<div style="max-width: 1000px; margin-right: auto; margin-left: auto;">
+<div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 100px;">
+
+<div style="margin-left: auto; margin-right: auto; text-align:center; margin-top: 50px; margin-bottom: 20px;">
 
 
+	<h2><p class="mb-0">L O G I N</p></h2>
+
+</div>
 
 <form action = "loginAction">
-<table style = "margin-left : auto; margin-right : auto; margin-top : 150px; width:100%; margin-bottom: 100px;">
+<table style = "margin-left : auto; margin-right : auto; margin-top : 10px; width:100%; margin-bottom: 100px;">
+
 
 	<tr>
    		<td><div class="form-group">
