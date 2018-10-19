@@ -109,10 +109,10 @@ $(function() {
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-right">
 					 <div class="card text-center">
 					 <c:if test="${blog.profile_img == null}">
-                        <img class="card-img-top" src="<spring:url value ='/img/no_image.png'/>" alt="" width="90%">
+                        <img class="card-img-top" src="<spring:url value ='/img/no_image.png'/>" alt="" height="300px;">
 					 </c:if>
 					 <c:if test="${blog.profile_img != null}">
-                        <img class="card-img-top" src="<spring:url value ='/image/${blog.profile_img}'/>" alt="" width="100%">
+                        <img class="card-img-top" src="<spring:url value ='/image/${blog.profile_img}'/>" alt="" height="300px;">
                       </c:if>
                         <div class="card-block">
                             <h4 class="card-title">${blog.blog_title}</h4>
@@ -135,7 +135,7 @@ $(function() {
 </div>
 
 <div class='row' id = "key" style="float: none; margin : 0 auto; margin-bottom: 100px;">
- <c:forEach items = "${keyword}" var = "WordVO">
+ <c:forEach items = "${keywords}" var = "WordVO">
 
 				 <div class='col-sm-2'><a class="btn btn-secondary" style="width: 80%; margin-top:15px; text-align: center; margin-left: auto; margin-right: auto;" href="/lxa/post/tags?keyword=${WordVO.word}">#${WordVO.word}</a></div>
 				 <%--  <c:if test="${g.index eq 0}"><div class='col-sm-4'>#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></div></c:if> --%>
