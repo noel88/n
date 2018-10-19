@@ -91,6 +91,41 @@
     -webkit-border-radius:0 !important;
 }
 
+.single {
+padding: 30px 15px;
+margin-top: 40px;
+background: #fcfcfc;
+border: 1px solid #f0f0f0; }
+.single h3.side-title {
+margin: 0;
+margin-bottom: 10px;
+padding: 0;
+font-size: 20px;
+color: #333;
+text-transform: uppercase; }
+.single h3.side-title:after {
+content: '';
+width: 80px;
+height: 1px;
+background: #ff173c;
+display: block;
+margin-top: 6px; }
+
+.single ul {
+margin-bottom: 0; }
+.single li a {
+color: #666;
+font-size: 14px;
+text-transform: uppercase;
+border-bottom: 1px solid #f0f0f0;
+line-height: 40px;
+display: block;
+text-decoration: none; }
+.single li a:hover {
+color: #ff173c; }
+.single li:last-child a {
+border-bottom: 0; }
+
 </style>
 <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
 <%@ include file="/WEB-INF/views/include/head.jsp" %>
@@ -116,7 +151,7 @@
 <%@ include file="/WEB-INF/views/include/nav.jsp" %>
 <div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 100px;">
 <div class="col-lg-6 col-sm-6">
-    <div class="card hovercard" style="width: 1000px;">
+    <div class="card hovercard" style="width: 960px;">
         <div class="card-background">
             <img class="card-bkimg" alt="" src = "<spring:url value ='/image/${info.blog_img}'/>">
         </div>
@@ -161,7 +196,7 @@
 		<div class="tab-pane fade active show" id="post">
 		<c:choose>
 		<c:when test="${list_all_count == 0}">
-		<table style="margin-top: 30px; margin-bottom: 100px; width: 60%; float: left;">
+		<table style="margin-top: 30px; margin-bottom: 100px; width: 70%; float: left;">
 			<tr >
 				<td>
 					<div class="card bg-secondary mb-3" style="width: 100%;">
@@ -177,7 +212,7 @@
 		</table>
 		</c:when>
 		<c:otherwise>
-		<table style="margin-top: 30px; margin-bottom: 100px; margin-left:15px; width: 65%; float: left;">
+		<table style="margin-top: 30px; margin-bottom: 100px; margin-left:20px; width: 70%; float: left;">
 		<c:forEach items = "${category_post}" var = "PostVO">
 			<tr >
 				<td>
@@ -198,19 +233,81 @@
 		</c:choose>
 
 
-		<div class="list-group" style="margin-top: 30px; float: right;">
-		<a href= "/lxa/post/write" style="margin-left: auto; margin-right: auto; width: 220px;" class="btn btn-primary"><i class="fas fa-list">글쓰기</i></a>
+		
+		<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Category -->
+				<div class="single category">
+					<ul class="list-unstyled">
+						<li><a href= "/lxa/post/write" style="margin-left: auto; margin-right: auto;" class="btn btn-primary"><i class="fas fa-list">글쓰기</i></a></li>	
+					</ul>
+			   </div>
+			</div> 
 		</div>
-		<div class="list-group" style="margin-top: 20px; float: right;  width: 220px;">
-
+	</div>
+		
+		
+		
+<%-- 		<div class="list-group" style="margin-top: 20px; float: right;  width: 220px;">
 		  <a class="list-group-item list-group-item-action text-info"> 카테고리 목록</a>
 		   <c:forEach items="${category}" var ="CategoryVO" varStatus="status">
 		  	<a href="#" class="list-group-item list-group-item-action disabled"><i class="fas fa-arrow-right">&nbsp;${CategoryVO.category}
 		  	(${category_count.get(status.index)})</i></a>
 		  </c:forEach>
-		</div>
+		</div> --%>
 
-		<ul class="list-group" style="margin-top: 20px; float: right; width: 220px;">
+    <div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Category -->
+				<div class="single category">
+					<h3 class="side-title">Category</h3>
+					<ul class="list-unstyled">
+		   <c:forEach items="${category}" var ="CategoryVO" varStatus="status">
+						<li><a href="" title="">${CategoryVO.category}<span class="pull-right">${category_count.get(status.index)}</span></a></li>
+		  </c:forEach>
+			<%-- 			<li><a href="" title="">오늘의 새글<span class="pull-right">${list_count}</span></a></li>
+						<li><a href="" title="">오늘의 댓글<span class="pull-right">0</span></a></li>
+						<li><a href="" title="">오늘의 좋아요<span class="pull-right">0</span></a></li>
+						 <c:if test = "${user_auth == 'N'}">
+						<li><a href="" title="">이메일 미인증 사용자<span class="pull-right"></span></a></li>
+						</c:if>
+						 <c:if test = "${user_auth == 'y'}">
+						<li><a href="" title="">이메일 인증 사용자<span class="pull-right"></span></a></li>
+						</c:if> --%>
+					</ul>
+			   </div>
+			</div> 
+		</div>
+	</div>
+	
+    <div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<!-- Category -->
+				<div class="single category">
+					<h3 class="side-title">Today</h3>
+					<ul class="list-unstyled">
+						<li><a href="" title="">오늘의 새글<span class="pull-right">${list_count}</span></a></li>
+						<li><a href="" title="">오늘의 댓글<span class="pull-right">0</span></a></li>
+						<li><a href="" title="">오늘의 좋아요<span class="pull-right">0</span></a></li>
+						 <c:if test = "${user_auth == 'N'}">
+						<li><a href="" title="">이메일 미인증 사용자<span class="pull-right"></span></a></li>
+						</c:if>
+						 <c:if test = "${user_auth == 'y'}">
+						<li><a href="" title="">이메일 인증 사용자<span class="pull-right"></span></a></li>
+						</c:if>
+					</ul>
+			   </div>
+			</div> 
+		</div>
+	</div>
+
+
+
+
+		<%-- <ul class="list-group" style="margin-top: 20px; float: right; width: 220px;">
 			  <li class="list-group-item d-flex justify-content-between align-items-center">
 			    오늘의 새글
 			    <span class="badge badge-primary badge-pill">${list_count}</span>
@@ -240,7 +337,7 @@
 		</ul>
 
 		</div>
-
+ --%>
 
 
 
