@@ -36,7 +36,7 @@ public class HomeController {
 	public String home(Model model) {
 		model.addAttribute("list", service.list());
 		model.addAttribute("blog_info", blog.blog());
-		model.addAttribute("keyword", service.word_cnt_list());
+		model.addAttribute("keywords", service.word_cnt_list());
 
 		return "home";
 	}

@@ -114,7 +114,7 @@ $(function() {
 	"${PostVO.name}",
 </c:forEach>
 
-	 <c:forEach items = "${keyword}" var = "WordVO">
+	 <c:forEach items = "${keywords}" var = "WordVO">
 			"#${WordVO.word}",
 	</c:forEach>
 
