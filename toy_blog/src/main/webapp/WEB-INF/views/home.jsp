@@ -117,34 +117,12 @@ $(function() {
                         <div class="card-block">
                             <h4 class="card-title">${blog.blog_title}</h4>
                             <p class="card-text">${blog.blog_info}</p>
-                            <a class="btn btn-default" href="#">Read More</a>
+                            <a class="btn btn-default" href="blog/user_blog?name=${blog.blog_user}">블로그 보기</a>
                         </div>
                      </div>
                 </div>
 				</c:forEach>
 
-            <%--     <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-up">
-					 <div class="card text-center">
-                        <img class="card-img-top" src="<spring:url value ='/image/${blog.profile_img}'/>" alt="" width="100%">
-                        <div class="card-block">
-                            <h4 class="card-title">${blog.blog_title}</h4>
-                            <p class="card-text">${blog.blog_info}</p>
-                            <a class="btn btn-default" href="#">Read More</a>
-                        </div>
-                     </div>
-                </div>
-
-                 <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-left">
-					 <div class="card text-center">
-                        <img class="card-img-top" src="<spring:url value ='/image/${blog.profile_img}'/>" alt="" width="100%">
-                        <div class="card-block">
-                            <h4 class="card-title">Post Title</h4>
-                            <p class="card-text">${blog.blog_title}</p>
-                            <a class="btn btn-default" href="#">${blog.blog_info}</a>
-                        </div>
-                     </div>
-                </div>
- --%>
             </div>
 
 

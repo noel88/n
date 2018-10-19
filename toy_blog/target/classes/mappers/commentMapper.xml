@@ -18,8 +18,12 @@
 		SELECT IFNULL(COUNT(*),0) FROM comment WHERE post_no = #{post_no}
 	</select>
 
+	<select id="my_comment" resultType="org.blog.domain.CommentVO">
+		select * from comment where post_no = #{post_no} and comment_no = #{comment_no}
+	</select>
+
 	<update id="comment_update">
-		update comment set comment = #{comment}, comment_now = #{comment_now} where comment_name = #{name}
+		update comment set comment = #{comment}, comment_now = #{comment_now} where comment_no = #{comment_no} and post_no = #{post_no}
 	</update>
 
 	<delete id="comment_delete">

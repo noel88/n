@@ -42,5 +42,10 @@ public class CommentDAOImpl implements CommentDAO {
 
 	}
 
+	@Override
+	public CommentVO my_comment(CommentVO vo) {
+		return sqlsession.selectOne(namespace + ".my_comment", vo);
+	}
+
 
 }

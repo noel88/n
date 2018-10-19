@@ -13,7 +13,8 @@
 .container{
     padding:5%;
     width: 800px;
-    
+    height: 100px;
+
 
 }
 .container .img{
@@ -47,7 +48,7 @@
 
 /* CSS Test begin */
 .comment-box {
-    margin-top: 30px !important;
+    margin-top: 100px !important;
 }
 /* CSS Test end */
 
@@ -150,6 +151,7 @@
 	</div>
 
 
+
 <c:forEach items = "${comment}" var = "CommentVO">
 				<div class='container' style="width: 95%;">
 				 <div class="media comment-box">
@@ -157,15 +159,17 @@
 		                <a href="#">
 		                    <img class="img-responsive user-photo" src = "<spring:url value ='/image/${my_info.profile_img}'/>">
 		                </a>
-		                 
+
 		            </div>
+
+
 		            <div class="media-body">
 		                <h4 class="media-heading">${CommentVO.comment_name}
 				<c:choose>
 					<c:when test = "${sessionScope.name == postVO.name}">
-		                	
-				      		<a style="float: right;"  href= "comment_delete"><i class="fas fa-trash-alt"></i></a>
-		                	<a style="float: right;" href= "comment_update_form"><i class="fas fa-edit"></i></a>
+
+				      		<a style="float: right;" onclick="alert('댓글이 삭제되었습니다.');" href= "/lxa/comment/comment_delete?post_no=${CommentVO.post_no}&comment_no=${CommentVO.comment_no}"><i class="fas fa-trash-alt"></i></a>
+		                	<a style="float: right;" onclick="window.open('/lxa/comment/comment_update_form?post_no=${CommentVO.post_no}&comment_no=${CommentVO.comment_no}','','width=500, height=360, resizable=no, scrollbars=no, status=no;')"><i class="fas fa-edit"></i></a>
 				    </c:when>
 					<c:when test = "${sessionScope.name != null}">
 				      	 <a href= "#" class="btn btn-secondary"><i class="fas fa-exclamation-triangle"></i></a>
@@ -173,15 +177,15 @@
 				</c:choose>
 				      	 </h4>
 		                <p>${CommentVO.comment}</p>
-		              
+
 		            </div>
 		        </div>
 				</div>
-				
-		
+
+
 </c:forEach>
 
- <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 30px;">
+ <table class="table" style = "margin-left : auto; margin-right : auto; margin-top : 180px;">
 
 
 			<tr class="table-secondary">

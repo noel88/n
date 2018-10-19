@@ -89,7 +89,7 @@
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-3. <del>상대방 글을 보고 좋아요 버튼이나, 댓글을 남길수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-4. 불건전한 글이나, 스팸성 글이 있으면 신고할수 있다. (글 블락 처리)</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-5. <del>좋아요는 글당 하나씩만 선택 가능하고</del>, 댓글의 댓글도 남길수 있다.</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-6. 댓글에도 수정 및 삭제 버튼이 있다.</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-6. <del>댓글에도 수정 및 삭제 버튼이 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-7. 댓글에도 좋아요, 싫어요, 신고하기 기능이 있다.(댓글 블락 처리)</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-8. <del>블로그 글을 작성할수 있다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;5-9. 블로그에는 이미지 업로드가 가능하고, 올리고 글쓸때 이미지 확인하게끔[미정]</p>
@@ -109,7 +109,7 @@
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;6-3. 이벤트 종료가 되면 자동으로 글을 클릭해서 볼수 없게 한다.</p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;6-4. <del>이벤트 참여는 클릭으로 이루어진다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;6-5. <del>이벤트 참여는 이벤트 1개당 한번만 가능하다.</del></p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;6-6. 이벤트 결과는 메일로 당첨소식 알리기</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;6-6. 이벤트 결과는 메일로 당첨소식 알리기[미정]</p>
 
 				<p class="text-primary">7. 나의 블로그</p>
 
@@ -149,7 +149,7 @@
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;11-2. <del>검색창 크게</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;11-3. <del>키워드 빈도수별로 순서대로 나오고 키워드를 클릭하면 키워드만 따로 모아놓은 페이지로 이동한다.</del></p>
 				<p class="text-primary">&nbsp;&nbsp;&nbsp;11-4. 키워드 클릭하여 이동한 페이지에 키워드 하이라이트 기능.</p>
-				<p class="text-primary">&nbsp;&nbsp;&nbsp;11-5. 키워드 실시간 업데이트 [00:00분 기준]</p>
+				<p class="text-primary">&nbsp;&nbsp;&nbsp;11-5. <del>키워드 실시간 업데이트 [많이 노출된 12개 메인에 표시]</del></p>
 
 				<p class="text-primary">12. 기타</p>
 

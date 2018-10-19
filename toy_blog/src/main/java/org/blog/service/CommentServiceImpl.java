@@ -67,6 +67,11 @@ public class CommentServiceImpl implements CommentService{
 
 	}
 
+	@Override
+	public CommentVO my_comment(CommentVO vo) {
+		return dao.my_comment(vo);
+	}
+
 
 
 

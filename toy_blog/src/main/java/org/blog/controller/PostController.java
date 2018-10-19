@@ -225,36 +225,6 @@ public class PostController {
 
 	}
 
-	@RequestMapping(value = "/comment_update_form", method = RequestMethod.GET)
-	public String comment_update_form(CommentVO vo, @RequestParam("post_no") int no) {
-
-		//TODO 코멘트 수정창 만들기
-		return "";
-
-	}
-
-	@RequestMapping(value = "/comment_update", method = RequestMethod.GET)
-	public String comment_update(CommentVO vo, @RequestParam("post_no") int no) {
-
-		coservice.comment_update(vo);
-		return "redirect:/post/detail?post_no=" + no;
-
-	}
-
-	@RequestMapping(value = "/comment_delete", method = RequestMethod.GET)
-	public String comment_delete(CommentVO vo, @RequestParam("comment_no") int no) {
-
-		coservice.comment_delete(no);
-		return "redirect:/post/detail?post_no=" + no;
-
-	}
-
-
-
-
-
-
-
 
 	/**
 	 * like버튼 누르면 카운트 증가

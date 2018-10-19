@@ -11,5 +11,6 @@ public interface CommentDAO {
 	public List<CommentVO> comment_list(Integer no);
 	public void comment_update(CommentVO vo);
 	public void comment_delete(Integer comment_no);
+	public CommentVO my_comment(CommentVO vo);
 
 }
