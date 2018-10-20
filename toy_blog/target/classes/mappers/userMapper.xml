@@ -19,7 +19,7 @@
 	</select>
 
 	<update id="user_update">
-		update user set user_name = #{user_name}, user_pwd = #{user_pwd}
+		update user set user_pwd = #{user_pwd} where user_name = #{user_name}
 	</update>
 
 	<update id="createAuthKey">

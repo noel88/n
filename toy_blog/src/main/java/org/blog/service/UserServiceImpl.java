@@ -161,6 +161,8 @@ public class UserServiceImpl implements UserService{
 
 	@Override
 	public int user_update(UserVO vo) {
+		SHA256 sha = new SHA256();
+		vo.setUser_pwd(sha.getSHA256(vo.getUser_pwd()));
 		return dao.user_update(vo);
 	}
 

@@ -163,7 +163,11 @@ public class PostController {
 	 */
 
 	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
-	public String post_updateForm(@RequestParam("post_no") int no, PostVO vo, Model model) {
+	public String post_updateForm(@RequestParam("post_no") int no, HttpSession session, PostVO vo, Model model) {
+		
+		String name = (String)session.getAttribute("name");
+		model.addAttribute("keyword", service.list());
+		model.addAttribute("category", category.category_info(name));
 		model.addAttribute(service.post_detail(no));
 		return "post/update";
 	}

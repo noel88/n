@@ -47,7 +47,7 @@
 	</insert>
 
 	<update id="post_update">
-		update post set title = #{title}, context = #{context} where post_no = #{post_no}
+		update post set title = #{title}, context = #{context}, category_no = #{category_no}, public_yn = #{public_yn} where post_no = #{post_no}
 	</update>
 
 	<delete id="post_delete" parameterType="java.lang.Integer">

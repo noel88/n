@@ -9,40 +9,8 @@
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
 </head>
 <script type="text/javascript">
-//아이디와 비밀번호가 맞지 않을 경우 가입버튼 비활성화를 위한 변수설정
+
 var pwdCheck = 0;
-var nameCheck = 0;
-//가입버튼 비활성화, 중복확인.
-function checkName() {
-   var inputed = $('.name').val();
-   console.log(inputed);
-    $.ajax({
-        data : {
-            user_name : inputed
-        },
-        url : "nameCheck",
-        success : function(data) {
-            if(inputed=="" && data=='0') {
-                $(".signupbtn").prop("disabled", true);
-                $(".signupbtn").css("background-color", "#aaaaaa");
-                $("#checkname").css("background-color", "#FFCECE");
-                nameCheck = 0;
-            } else if (data == '0') {
-                $("#checkname").css("background-color", "#fcfadb");
-                nameCheck = 1;
-                if(pwdCheck == 1 && nameCheck == 1) {
-                    $(".signupbtn").prop("disabled", false);
-                    $(".signupbtn").css("background-color", "#ff7777");
-                }
-            } else if (data == '1') {
-                $(".signupbtn").prop("disabled", true);
-                $(".signupbtn").css("background-color", "#aaaaaa");
-                $("#checkname").css("background-color", "#FFCECE");
-                nameCheck = 0;
-            }
-        }
-    });
-}
 //재입력 비밀번호 체크하여 가입버튼 비활성화 또는 맞지않음을 알림.
 function checkPwd() {
     var inputed = $('.pass').val();
@@ -96,8 +64,8 @@ function checkPwd() {
 					<td>
 						<div class="form-group">
 							<label for="exampleInputname1"><spring:message code="name"/></label>
-							<input type="text" class="form-control name" name="user_name" placeholder="Name" oninput="checkName()" id="checkname" autofocuss>
-							<small id="emailHelp" class="form-text text-muted">Please enter a name for your blog.</small>
+							<input type="text" class="form-control name" name="user_name" value ="${sessionScope.name}" readonly>
+							<small id="emailHelp" class="form-text text-muted">이름은 변경할수 없습니다.</small>
 						</div>
 					</td>
 				</tr>
