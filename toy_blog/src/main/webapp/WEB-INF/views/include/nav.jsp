@@ -7,7 +7,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <a class="navbar-brand" href="/lxa"><i class="fas fa-draw-polygon">&nbsp;BLOG</i></a>
-   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="true" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
@@ -43,7 +43,7 @@
       <c:otherwise>
 
        <li class="nav-item dropdown">
-    <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">${sessionScope.name}, <spring:message code="Page"/> </a>
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown"  role="button" href= "#" aria-haspopup="true" aria-expanded="false">${sessionScope.name}, <spring:message code="Page"/> </a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
       <a class="dropdown-item" href="/lxa/user/page?category_no=-1"><spring:message code="page"/></a>
       <a class="dropdown-item" href="/lxa/blog/profile_update"><spring:message code="profile"/></a>
