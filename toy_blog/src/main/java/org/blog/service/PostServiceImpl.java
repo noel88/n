@@ -248,6 +248,16 @@ public class PostServiceImpl implements PostService{
 		return dao.select_post_blog_no(no);
 	}
 
+	@Override
+	public List<PostVO> list_cnt() {
+		return dao.list_cnt();
+	}
+
+	@Override
+	public List<PostVO> list_pop() {
+		return dao.list_pop();
+	}
+
 
 
 

@@ -29,6 +29,12 @@
 	<select id="list" resultType="org.blog.domain.PostVO">
 		select post_no, blog_no, title, name, now, context, keyword, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where public_yn = 'public' order by post_no desc
 	</select>
+	<select id="list_pop" resultType="org.blog.domain.PostVO">
+		select post_no, blog_no, title, name, now, context, keyword, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where public_yn = 'public' order by like_cnt desc
+	</select>
+	<select id="list_cnt" resultType="org.blog.domain.PostVO">
+		select post_no, blog_no, title, name, now, context, keyword, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where public_yn = 'public' order by cnt desc
+	</select>
 
 	<select id="tag_list" resultType="org.blog.domain.PostVO">
 		select post_no, blog_no, title, name, now, context, keyword, cnt, (select count(*) from like_post where post_no = post.post_no) as like_cnt, (select count(*) from comment where post_no = post.post_no) as comment_Cnt from post where keyword like CONCAT('%',#{keyword},'%') order by post_no desc

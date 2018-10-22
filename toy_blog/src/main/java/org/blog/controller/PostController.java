@@ -111,6 +111,16 @@ public class PostController {
 		model.addAttribute("list", service.list());
 		return "post/list";
 	}
+	@RequestMapping(value = "/list_cnt", method = RequestMethod.GET)
+	public String list_cnt(Model model) {
+		model.addAttribute("list_cnt", service.list_cnt());
+		return "post/list_cnt";
+	}
+	@RequestMapping(value = "/list_pop", method = RequestMethod.GET)
+	public String list_pop(Model model) {
+		model.addAttribute("list_pop", service.list_pop());
+		return "post/list_pop";
+	}
 
 	/**
 	 * 메인에서 키워드를 클릭하면 그 키워드와 연관된 블로그의 글을 찾아 목록으로 보여주는 페이지

@@ -20,6 +20,8 @@ public interface PostService {
 	public int like_cnt(Integer no);
 	public int select_like_count(Integer no);
 	public List<PostVO> list();
+	public List<PostVO> list_cnt();
+	public List<PostVO> list_pop();
 	public List<PostVO> tag_list(String keyowrd);
 	public List<PostVO> my_list(String name);
 	public List<PostVO> my_comment(String name);

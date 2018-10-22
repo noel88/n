@@ -26,6 +26,8 @@ public interface PostDAO {
 	public void delete(Integer no);
 	public void post_comment_delete(Integer no);
 	public List<PostVO> list();
+	public List<PostVO> list_cnt();
+	public List<PostVO> list_pop();
 	public List<PostVO> tag_list(String keyword);
 	public List<PostVO> my_list(String name);
 	public List<PostVO> my_comment(String name);

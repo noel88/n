@@ -93,7 +93,7 @@
 
 .single {
 padding: 30px 15px;
-margin-top: 40px;
+margin-top: 0px;
 background: #fcfcfc;
 border: 1px solid #f0f0f0; }
 .single h3.side-title {
@@ -177,9 +177,9 @@ border-bottom: 0; }
       </c:forEach>
     </div>
   </li>
-<!-- 	<li class="nav-item">
+<!--  	<li class="nav-item">
 		<a class="nav-link active show" data-toggle="tab" href="#post">Post</a>
-		</li> -->
+		</li>  -->
 		<li class="nav-item">
 		<a class="nav-link" data-toggle="tab" href="#comment_my">Comment</a>
 		</li>
@@ -235,10 +235,10 @@ border-bottom: 0; }
 
 		
 		<div class="container">
-		<div class="row">
+		<div class="row" >
 			<div class="col-sm-12">
 				<!-- Category -->
-				<div class="single category">
+				<div class="single category" style="margin-top: 30px;">
 					<ul class="list-unstyled">
 						<li><a href= "/lxa/post/write" style="margin-left: auto; margin-right: auto;" class="btn btn-primary"><i class="fas fa-list">글쓰기</i></a></li>	
 					</ul>
@@ -339,8 +339,7 @@ border-bottom: 0; }
 		</div>
  --%>
 
-
-
+</div>
 
 		<!-- 내가 쓴 댓글 보기 -->
 		<div class="tab-pane fade" id="comment_my">

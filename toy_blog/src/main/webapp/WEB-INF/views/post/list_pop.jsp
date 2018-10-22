@@ -181,8 +181,8 @@ function load(id, cnt, btn) {
 <div class="col-sm-12">   
 <div class="page-header text-muted" style="float: right;">
 <ul class="nav">
-<li><a href="list">· <b><spring:message code="latest"/></b></a></li>
-<li><a href="list_pop">· <spring:message code="popularity"/>&nbsp;</a></li>
+<li><a href="list_pop">· <b><spring:message code="popularity"/>&nbsp;</b></a></li>
+<li><a href="list">· <spring:message code="latest"/></a></li>
 <li><a href="list_cnt">· <spring:message code="cnt"/></a></li>
 </ul>
 </div> 
@@ -193,7 +193,7 @@ function load(id, cnt, btn) {
 
 <!-- alter table blog modify column now timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP; -->
 
-<c:forEach items = "${list}" var = "PostVO">
+<c:forEach items = "${list_pop}" var = "PostVO">
    <table class="lists__item js-load table" style = "margin-left : auto; margin-right : auto; margin-top: 10px;">
 			<tr>
 				<td style="text-align: left;">

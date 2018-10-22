@@ -150,6 +150,16 @@ public class PostDAOImpl implements PostDAO {
 		
 	}
 
+	@Override
+	public List<PostVO> list_cnt() {
+		return sqlsession.selectList(namespace + ".list_cnt");
+	}
+
+	@Override
+	public List<PostVO> list_pop() {
+		return sqlsession.selectList(namespace +".list_pop");
+	}
+
 
 
 
