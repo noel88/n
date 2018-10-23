@@ -109,7 +109,7 @@ $(function () {
 $(function() {
   var availableTags = [
 
-<c:forEach items = "${list}" var = "PostVO">
+<c:forEach items = "${lists}" var = "PostVO">
 	"${PostVO.title}",
 	"${PostVO.name}",
 </c:forEach>

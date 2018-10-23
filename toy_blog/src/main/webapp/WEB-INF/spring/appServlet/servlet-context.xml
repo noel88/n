@@ -62,6 +62,13 @@
     </mvc:interceptors>
 
 
+	<interceptors>
+		<interceptor>
+			<mapping path="/**" />
+			<beans:bean class="org.blog.controller.HomeController"></beans:bean>
+		</interceptor>
+	</interceptors>
+
 
 	<context:component-scan base-package="org.blog.controller" />
 
