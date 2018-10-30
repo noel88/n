@@ -309,6 +309,12 @@ public class UserController {
 		return "user/user_update";
 	}
 
+	@RequestMapping(value = "/user_admin", method = RequestMethod.GET)
+	public String user_admin(Model model, HttpSession session) {
+
+		return "user/user_admin";
+	}
+
 
 
 

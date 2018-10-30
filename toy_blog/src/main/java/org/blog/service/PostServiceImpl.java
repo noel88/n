@@ -258,6 +258,21 @@ public class PostServiceImpl implements PostService{
 		return dao.list_pop();
 	}
 
+	@Override
+	public List<BlogVO> keyword_best(String keyword) {
+		return dao.keyword_best(keyword);
+	}
+
+	@Override
+	public List<PostVO> keyword_list_blog(String keyword) {
+		return dao.keyword_list_blog(keyword);
+	}
+
+	@Override
+	public List<BlogVO> list_blog() {
+		return dao.list_blog();
+	}
+
 
 
 

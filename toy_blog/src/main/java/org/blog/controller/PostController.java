@@ -106,9 +106,31 @@ public class PostController {
 	 * @throws
 	 */
 
-	@RequestMapping(value = "/list", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/list", method = RequestMethod.GET)
 	public String list(Model model) {
+		model.addAttribute("keywords", service.word_cnt_list());
 		model.addAttribute("list", service.list());
+		return "post/list";
+	}*/
+	@RequestMapping(value = "/list", method = RequestMethod.GET)
+	public String list(Model model, @RequestParam("keyword") String keyword) {
+
+		//model.addAttribute("key_best", service.keyword_best(keyword));
+		//model.addAttribute("key_list", service.keyword_list_blog(keyword));
+		//model.addAttribute("keywords", service.word_cnt_list());
+		//model.addAttribute("list", service.list());
+
+		if(keyword.equals("-1")) {
+			model.addAttribute("list", service.list());
+			model.addAttribute("keywords", service.word_cnt_list());
+			model.addAttribute("key_best", service.list_blog());
+		}else {
+			model.addAttribute("keywords", service.word_cnt_list());
+			model.addAttribute("key_best", service.keyword_best(keyword));
+			model.addAttribute("list", service.keyword_list_blog(keyword));
+		}
+
+
 		return "post/list";
 	}
 	@RequestMapping(value = "/list_cnt", method = RequestMethod.GET)
@@ -174,7 +196,7 @@ public class PostController {
 
 	@RequestMapping(value = "/updateForm", method = RequestMethod.GET)
 	public String post_updateForm(@RequestParam("post_no") int no, HttpSession session, PostVO vo, Model model) {
-		
+
 		String name = (String)session.getAttribute("name");
 		model.addAttribute("keyword", service.list());
 		model.addAttribute("category", category.category_info(name));

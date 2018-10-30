@@ -23,7 +23,7 @@
 	</update>
 
 	<select id="word_cnt_list" resultType = "org.blog.domain.WordVO">
-		select * from keyword_cnt order by word_cnt desc limit 0,12
+		select * from keyword_cnt order by word_cnt desc limit 0,5
 	</select>
 
 	<select id="list" resultType="org.blog.domain.PostVO">
@@ -108,9 +108,17 @@
 		select *  from  myblog b left join post p on b.blog_no = p.blog_no where post_no = #{post_no}
 	</select>
 
+	<select id ="keyword_best" resultType="org.blog.domain.BlogVO">
+		select *, (select ifnull(count(*),0) from post where blog_no = m.blog_no) as cnt from myblog m left join post p on p.blog_no = m.blog_no where p.keyword like CONCAT('%',#{keyword},'%') order by cnt desc limit 3;
+	</select>
 
+	<select id ="keyword_list_blog" resultType="org.blog.domain.PostVO">
+ 		select * from post where keyword like CONCAT('%',#{keyword},'%')
+	</select>
 
-
+	<select id="list_blog" resultType="org.blog.domain.BlogVO">
+		select *, (select ifnull(count(*),0) from post where blog_no = myblog.blog_no) as cnt from myblog order by cnt desc limit 3;
+	</select>
 
 
 </mapper>

@@ -47,8 +47,10 @@ public class HomeController extends HandlerInterceptorAdapter{
 	    @Override
 	    public void postHandle(HttpServletRequest request,
 	            HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-	    	modelAndView.addObject("lists", service.list());
-	    	modelAndView.addObject("keywords", service.word_cnt_list());
+	    	request.setAttribute("lists", service.list());
+	    	request.setAttribute("keywords", service.word_cnt_list());
+	    	//modelAndView.addObject("lists", service.list());
+	    	//modelAndView.addObject("keywords", service.word_cnt_list());
 	        System.out.println("postHandle executed");
 	    }
 

@@ -97,9 +97,26 @@
  <%@ include file="/WEB-INF/views/include/head.jsp" %>
 <%@ include file="/WEB-INF/views/include/side_nav.jsp" %>
 <body>
-
+<%--
+<%-- <%@ include file="/WEB-INF/views/include/nav.jsp" %> --%>
  <div style="max-width: 1000px; margin-right: auto; margin-left: auto; margin-top: 100px;">
+<%-- <div class="col-lg-6 col-sm-6">
+    <div class="card hovercard" style="width: 1000px;">
+        <div class="card-background">
+            <img class="card-bkimg" alt="" src = "<spring:url value ='/image/${info.blog_img}'/>">
+        </div>
+        <div class="useravatar">
+            <img alt="" src = "<spring:url value ='/image/${info.profile_img}'/>">
+        </div>
+        <div class="card-info"> <span class="card-title">${info.blog_title}</span>
 
+
+        </div>
+    </div>
+</div> --%>
+
+<%-- <div class="card-info"> <span class="card-title" style="text-align: center;"><h2>${info.blog_title}</h2></span></div> --%>
+		<!-- 블로그 페이지 -->
 
 		<table style="margin-top: 20px; margin-bottom: 100px; width: 100%;">
 			<tr>
@@ -131,6 +148,25 @@
 
 		</table>
 
+<%-- 		<div class="list-group" style="margin-top: 50px; float: right;">
+			<a href= "/lxa/blog/subscribe?name=${postVO.name}" style="margin-left: auto; width : 220px; margin-right: auto;" class="btn btn-primary"><i class="fas fa-list">구독하기</i></a>
+		</div>
+
+		<ul class="list-group" style="margin-top: 20px; float: right; width: 220px;">
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			    오늘의 새글
+			    <span class="badge badge-primary badge-pill">${list_count}</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			    좋아요
+			    <span class="badge badge-primary badge-pill">0</span>
+			  </li>
+			  <li class="list-group-item d-flex justify-content-between align-items-center">
+			    구독자 수
+			    <span class="badge badge-primary badge-pill">0</span>
+			  </li>
+		</ul>
+ --%>
 
 
 </div>

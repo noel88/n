@@ -3,7 +3,9 @@ package org.blog.controller;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.forwardedUrlPattern;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
@@ -62,6 +64,19 @@ public class BlogController {
 		model.addAttribute("my",poservice.my_list(user));
 		model.addAttribute("list_count",poservice.select_count_list(user));
 		model.addAttribute("info", service.blog_info(user));
+		model.addAttribute("category", category.category_info(user));
+
+		List<Integer> cate = category.category_no(user);
+		List<Integer> c_no = new ArrayList<>();
+		for (int i = 0; i < cate.size(); i++) {
+			c_no.add(category.category_count(cate.get(i)));
+		}
+
+		for(Integer arr : c_no) {
+			System.out.println( "배열" + arr);
+		}
+
+		model.addAttribute("category_count", c_no);
 
 		return "blog/user_blog";
 	}

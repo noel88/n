@@ -6,147 +6,198 @@ pageEncoding="UTF-8"%>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+
 <style type="text/css">
 #key {
 
  border: 4px dashed #bcbcbc;
 }
 
-.col-sm-2 {
-	text-align: center;
-	height: 100px;
-
-section{
-    padding:60px 0px;
-    font-family: 'Raleway', sans-serif;
-}
-
-h2 {
-    color: #4C4C4C;
-    word-spacing: 5px;
-    font-size: 30px;
-    font-weight: 700;
-    margin-bottom:30px;
-    font-family: 'Raleway', sans-serif;
-}
-
-.ion-minus{
-    padding:0px 10px;
-}
-
-.blog{
-	background-color:#f6f6f6;
-}
-
-.blog .card {
-    background-color: #FFF;
-    border: 1px solid #eceaea;
-    margin: 20px 0px;
-}
-
-.blog .card-block {
-    padding: 15px;
-}
-
-.btn.btn-default {
-    background-color: #5db4c0;
-    color: #fff;
-    border-radius: 0;
-    border: none;
-    padding: 13px 20px;
-    font-size: 13px;
-    font-weight: 600;
-    margin-top: 10px;
-}
-}
-
 </style>
 
 <%@ include file="/WEB-INF/views/include/head.jsp"%>
-</head>
-<body>
 
 <%@ include file="/WEB-INF/views/include/nav.jsp"%>
 
 
-<!--
-<script>
-$(function() {
-  var availableTags = [
+    <!-- Custom fonts for this template -->
 
-<c:forEach items = "${lists}" var = "PostVO">
-	"${PostVO.title}",
-	"${PostVO.name}",
-</c:forEach>
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-	 <c:forEach items = "${keyword}" var = "WordVO">
-			"#${WordVO.word}",
-	</c:forEach>
+    <!-- Custom styles for this template -->
+    <link href="resources/css/agency.min.css" rel="stylesheet">
 
-
-  ];
-  $( "#tags" ).autocomplete({
-    source: availableTags
-  });
-} );
-</script> -->
+  </head>
 
 
 
-<div class="blog">
+
+    <!-- Portfolio Grid -->
+    <section class="bg-light" id="portfolio">
       <div class="container">
-
-          <div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 100px; margin-bottom: 30px;">
-
-
-			<h2><p class="mb-0"><spring:message code="blog.blog"/></p></h2>
-
-		</div>
-
-
-           <div class="row">
-				<c:forEach items="${blog_info}" varStatus="status" var="blog">
-				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-right">
-					 <div class="card text-center">
-					 <c:if test="${blog.profile_img == null}">
-                        <img class="card-img-top" src="<spring:url value ='/img/no_image.png'/>" alt="" height="300px;">
-					 </c:if>
-					 <c:if test="${blog.profile_img != null}">
-                        <img class="card-img-top" src="<spring:url value ='/image/${blog.profile_img}'/>" alt="" height="300px;">
-                      </c:if>
-                        <div class="card-block">
-                            <h4 class="card-title">${blog.blog_title}</h4>
-                            <p class="card-text">${blog.blog_info}</p>
-                            <a class="btn btn-default" href="blog/user_blog?name=${blog.blog_user}">블로그 보기</a>
-                        </div>
-                     </div>
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">HOT BLOG</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          </div>
+        </div>
+        <div class="row">
+        <c:forEach items="${blog_info}" varStatus="status" var="blog">
+          <div class="col-md-4 col-sm-6 portfolio-item">
+            <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
+              <div class="portfolio-hover">
+                <div class="portfolio-hover-content">
+                  <i class="fas fa-plus fa-3x"></i>
                 </div>
-				</c:forEach>
-
+              </div>
+               <c:if test="${blog.profile_img == null}">
+                <a href="blog/user_blog?name=${blog.blog_user}"><img class="img-fluid" src="<spring:url value ='/img/no_image.png'/>" alt=""></a>
+				</c:if>
+				<c:if test="${blog.profile_img != null}">
+             	 <a href="blog/user_blog?name=${blog.blog_user}"><img class="img-fluid" src="<spring:url value ='/image/${blog.profile_img}'/>" alt=""></a>
+                </c:if>
+            </a>
+            <div class="portfolio-caption">
+              <h4>${blog.blog_title}</h4>
+              <p class="text-muted">${blog.blog_info}</p>
             </div>
+          </div>
+          </c:forEach>
+        </div>
+      </div>
+    </section>
+<!--
+Services
+    <section id="services">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">Services</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fas fa-circle fa-stack-2x text-primary"></i>
+              <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+            </span>
+            <h4 class="service-heading">E-Commerce</h4>
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fas fa-circle fa-stack-2x text-primary"></i>
+              <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+            </span>
+            <h4 class="service-heading">Responsive Design</h4>
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fas fa-circle fa-stack-2x text-primary"></i>
+              <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+            </span>
+            <h4 class="service-heading">Web Security</h4>
+            <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+          </div>
+        </div>
+      </div>
+    </section> -->
 
 
+    <!-- About -->
+    <section id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">About</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-12">
+            <ul class="timeline">
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="<spring:url value ='/img/132.PNG'/>" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>2018.09</h4>
+                    <h4 class="subheading">블로그 첫 개설일</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">블로그 홈페이지가 처음 개설되었습니다.</p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="<spring:url value ='/img/blog_.PNG'/>" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>2018.10</h4>
+                    <h4 class="subheading">1st 리뉴얼</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">자신만의 블로그가 완성되었습니다.</p>
+                  </div>
+                </div>
+              </li>
+              <li>
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="#" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>2018.11</h4>
+                    <h4 class="subheading">2nd 리뉴얼</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">기존 디자인을 버리고 새롭게 태어났습니다.</p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <img class="rounded-circle img-fluid" src="#" alt="">
+                </div>
+                <div class="timeline-panel">
+                  <div class="timeline-heading">
+                    <h4>2018.12</h4>
+                    <h4 class="subheading">완성</h4>
+                  </div>
+                  <div class="timeline-body">
+                    <p class="text-muted">완성된 홈페이지</p>
+                  </div>
+                </div>
+              </li>
+              <li class="timeline-inverted">
+                <div class="timeline-image">
+                  <h4>Be Part
+                    <br>Of Our
+                    <br>Story!</h4>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
 
-<div style="margin-left: auto; margin-right: auto; text-align:center; width: 60%; margin-top: 70px; margin-bottom: 30px;">
 
-
-	<h2><p class="mb-0"><spring:message code="blog.keyword"/></p></h2>
-
-</div>
-
-<div class='row' id = "key" style="float: none; margin : 0 auto; margin-bottom: 100px;">
- <c:forEach items = "${keywords}" var = "WordVO">
-
-				 <div class='col-sm-2'><a class="btn btn-secondary" style="width: 80%; margin-top:15px; text-align: center; margin-left: auto; margin-right: auto;" href="/lxa/post/tags?keyword=${WordVO.word}">#${WordVO.word}</a></div>
-				 <%--  <c:if test="${g.index eq 0}"><div class='col-sm-4'>#<a href="/lxa/blog/tags?keyword=${item}">${item}</a></div></c:if> --%>
-
-</c:forEach>
-</div>
-
-    </div>
-</div>
 
 <%@ include file="/WEB-INF/views/include/footer.jsp"%>
+<script src="<spring:url value ='/resources/js/jquery.easing.min.js'/>"></script>
+
+    <!-- Custom scripts for this template -->
+    <script src="<spring:url value ='/resources/js/agency.min.js'/>"></script>
+
+
+
 
 </body>
 </html>

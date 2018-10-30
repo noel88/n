@@ -36,12 +36,15 @@ public interface PostDAO {
 	public int select_like_count(Integer no);
 	public PostVO post_detail(Integer no);
 	public int select_count_list(String name);
-	public int select_count_like(String name);	
+	public int select_count_like(String name);
 	public int select_count_comment(Integer no);
 	public int all_count_list(String name);
 	public List<WordVO> word_cnt_list();
 	public int like_yn(LikeVO vo);
 	public void like(LikeVO vo);
 	public BlogVO select_post_blog_no(Integer no);
+	public List<BlogVO> keyword_best(String keyword);
+	public List<BlogVO> list_blog();
+	public List<PostVO> keyword_list_blog(String keyword);
 
 }

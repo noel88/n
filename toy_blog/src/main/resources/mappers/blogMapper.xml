@@ -14,7 +14,7 @@
 	</select>
 
 	<select id="all_blog_info" resultType="org.blog.domain.BlogVO">
-		select *, (select ifnull(count(*),0) from post where blog_no = myblog.blog_no) as cnt from myblog order by cnt desc limit 3;
+		select *, (select ifnull(count(*),0) from post where blog_no = myblog.blog_no) as cnt from myblog order by cnt desc limit 6;
 	</select>
 
 	<select id="profile_info" parameterType="Integer" resultType="org.blog.domain.BlogVO">

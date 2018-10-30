@@ -126,7 +126,7 @@ public class PostDAOImpl implements PostDAO {
 
 	@Override
 	public void like(LikeVO vo) {
-		sqlsession.insert(namespace + ".like", vo);		
+		sqlsession.insert(namespace + ".like", vo);
 	}
 
 	@Override
@@ -147,7 +147,7 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public void post_comment_delete(Integer no) {
 		sqlsession.delete(namespace + ".post_comment_delete", no);
-		
+
 	}
 
 	@Override
@@ -158,6 +158,21 @@ public class PostDAOImpl implements PostDAO {
 	@Override
 	public List<PostVO> list_pop() {
 		return sqlsession.selectList(namespace +".list_pop");
+	}
+
+	@Override
+	public List<BlogVO> keyword_best(String keyword) {
+		return sqlsession.selectList(namespace + ".keyword_best", keyword);
+	}
+
+	@Override
+	public List<PostVO> keyword_list_blog(String keyword) {
+		return sqlsession.selectList(namespace + ".keyword_list_blog", keyword);
+	}
+
+	@Override
+	public List<BlogVO> list_blog() {
+		return sqlsession.selectList(namespace + ".list_blog");
 	}
 
 
