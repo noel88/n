@@ -6,6 +6,7 @@ import javax.servlet.http.HttpSession;
 import org.blog.dao.BlogDAO;
 import org.blog.dao.CategoryDAO;
 import org.blog.dao.UserDAO;
+import org.blog.domain.BlogAndUserVO;
 import org.blog.domain.BlogVO;
 import org.blog.domain.CategoryVO;
 import org.blog.domain.UserVO;
@@ -187,6 +188,11 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public String user_auth_yn(String name) {
 		return dao.user_auth_yn(name);
+	}
+
+	@Override
+	public BlogAndUserVO userAndBlog_info(String name) {
+		return dao.userAndBlog_info(name);
 	}
 
 

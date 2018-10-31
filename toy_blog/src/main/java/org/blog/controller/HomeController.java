@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.blog.service.BlogService;
 import org.blog.service.PostService;
+import org.blog.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,7 @@ public class HomeController extends HandlerInterceptorAdapter{
 
 	@Inject PostService service;
 	@Inject BlogService blog;
+	@Inject UserService user;
 
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
@@ -47,10 +49,16 @@ public class HomeController extends HandlerInterceptorAdapter{
 	    @Override
 	    public void postHandle(HttpServletRequest request,
 	            HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
+
+
 	    	request.setAttribute("lists", service.list());
 	    	request.setAttribute("keywords", service.word_cnt_list());
+	    	if(request.getSession().getAttribute("name") != null) {
+	    		String name = (String)request.getSession().getAttribute("name");
+	    		request.setAttribute("info", user.userAndBlog_info(name));
 	    	//modelAndView.addObject("lists", service.list());
 	    	//modelAndView.addObject("keywords", service.word_cnt_list());
+	    	}
 	        System.out.println("postHandle executed");
 	    }
 
@@ -66,7 +74,8 @@ public class HomeController extends HandlerInterceptorAdapter{
 	public String home(Model model) {
 		//model.addAttribute("lists", service.list());
 		model.addAttribute("blog_info", blog.blog());
-		model.addAttribute("keywords", service.word_cnt_list());
+		//model.addAttribute("keywords", service.word_cnt_list());
+		//model.addAttribute("info", user.userAndBlog_info(name));
 
 		return "home";
 	}

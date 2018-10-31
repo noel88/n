@@ -256,7 +256,7 @@ function load(id, cnt, btn) {
  <c:forEach items="${key_best}" var = "best">
 				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" data-aos="fade-right">
 					 <div class="card text-center">
-                        <img class="card-img-top" src="<spring:url value ='/image/${best.profile_img}'/>" alt="" width="100%">
+                        <a href="blog/user_blog?name=${best.blog_user}"><img class="card-img-top" src="<spring:url value ='/image/${best.profile_img}'/>" alt="" width="100%"></a>
                         <div class="card-block">
                             <h4 class="card-title">${best.blog_title}</h4>
                             <p class="card-text">${best.blog_info}</p>
@@ -321,17 +321,17 @@ function load(id, cnt, btn) {
 					</h3>
 				</td>
 				<td style="float: right;">
-					  <small class="text-muted"><i class="fas fa-eye">&nbsp;${PostVO.cnt}</i> </small>
+					  <small class="text-muted">조회수&nbsp;${PostVO.cnt} </small>
 				</td>
 			</tr>
 
 			<tr>
 				<td colspan="2" style="width: 1000px; text-align: left;">
-					<p><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> <i class="fas fa-angle-down"></i> </small></p>
+					<p><c:out value='${fn:substring(PostVO.context.replaceAll("\\\<.*?\\\>",""),0, 150)}' />.. <small class="text-muted"> </small></p>
 					<small class="text-muted"><p>KEYWORD: ${PostVO.keyword}</p></small>
 					   <small class="text-muted"><c:out value='${fn:substring(PostVO.now, 0, 19)}'/> <cite title="Source Title">by.<a href = "/lxa/blog/user_blog?name=${PostVO.name}">${PostVO.name}</a></cite></small>
-					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;<i class="fas fa-comment-dots">&nbsp;${PostVO.comment_Cnt}</i>&nbsp;
-									<i class="fas fa-heart" >&nbsp;${PostVO.like_cnt}</i></span>
+					   				<span style="float: right;">&nbsp;&nbsp;&nbsp;댓글&nbsp;${PostVO.comment_Cnt}&nbsp;
+									좋아요&nbsp;${PostVO.like_cnt}</span>
 			 	</td>
 			</tr>
 

@@ -45,12 +45,11 @@
     <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">${sessionScope.name}'s page</a>
     <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 39px, 0px);">
-	   <a class="dropdown-header">유저 메일주소</a>
-	   <a class="dropdown-header"><b>${sessionScope.name}</b></a>
-	 <a class="dropdown-item"  href="/lxa/blog/profile_update">계정관리</a>
+	   <a class="dropdown-header">${info.user_email}</a>
+	 <a class="dropdown-item"  href="/lxa/blog/profile_update">${sessionScope.name}'s 계정관리</a>
       <div class="dropdown-divider"></div>
      <a class="dropdown-header">운영중인 블로그</a>
-      <a class="dropdown-item" href="/lxa/user/page?category_no=-1">블로그이름이 들어갑니다.</a>
+      <a class="dropdown-item" href="/lxa/user/page?category_no=-1">${info.blog_title}</a>
     </div>
   </li>
     <li class="nav-item">

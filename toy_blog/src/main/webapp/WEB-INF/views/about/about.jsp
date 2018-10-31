@@ -33,9 +33,6 @@
 		<a class="nav-link" data-toggle="tab" href="#dd">ERD</a>
 		</li>
 		<li class="nav-item">
-		<a class="nav-link" data-toggle="tab" href="#ee">STORYBOARD</a>
-		</li>
-		<li class="nav-item">
 		<a class="nav-link" data-toggle="tab" href="#ff">CLASS DIAGRAM</a>
 		</li>
 		<li class="nav-item">
@@ -49,7 +46,8 @@
 
 
 		<div class="tab-pane fade active show" id="cc">
-		//프로필 올리기
+		<p>Xiah lee</p>
+
 			</div>
 
 
@@ -165,13 +163,10 @@
 
 
 
-			<div class="tab-pane fade show" id="ee">
-			//화면설계서
-			</div>
 
 
 			<div class="tab-pane fade show" id="ff">
-			//클래스 다이어그램
+			<img width= "1000px;" src="<spring:url value ='/img/toy_blog.umlcd.png'/>" >
 			</div>
 
 

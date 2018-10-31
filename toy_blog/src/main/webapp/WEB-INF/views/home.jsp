@@ -39,7 +39,7 @@ pageEncoding="UTF-8"%>
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">HOT BLOG</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading text-muted">가장 활동이 많은 블로거가 메인에 등장합니다.</h3>
           </div>
         </div>
         <div class="row">
@@ -113,7 +113,7 @@ Services
         <div class="row">
           <div class="col-lg-12 text-center">
             <h2 class="section-heading text-uppercase">About</h2>
-            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+            <h3 class="section-subheading text-muted">홈페이지의 리뉴얼 내역을 볼수 있습니다.</h3>
           </div>
         </div>
         <div class="row">

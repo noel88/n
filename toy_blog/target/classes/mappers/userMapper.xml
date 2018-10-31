@@ -29,9 +29,11 @@
 	<delete id="user_delete">
 		delete from user where user_name = #{user_name}
 	</delete>
+
 	<delete id="user_post_delete">
 		delete from post where name = #{user_name}
 	</delete>
+
 	<delete id="user_comment_delete">
 		delete from comment where comment_name = #{user_name}
 	</delete>
@@ -50,6 +52,10 @@
 
 	<select id="name_check" parameterType="org.blog.domain.UserVO" resultType="java.lang.Integer">
 	    SELECT ifnull(COUNT(*),0) FROM user WHERE user_name = #{user_name}
+	</select>
+
+	<select id="userAndBlog_info" resultType="org.blog.domain.BlogAndUserVO">
+		select blog_title, (select user_email from user where user_name = myblog.blog_user) as user_email from myblog where blog_user = #{blog_user}
 	</select>
 
 

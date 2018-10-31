@@ -4,6 +4,7 @@ import javax.inject.Inject;
 
 
 import org.apache.ibatis.session.SqlSession;
+import org.blog.domain.BlogAndUserVO;
 import org.blog.domain.UserVO;
 import org.springframework.stereotype.Repository;
 
@@ -90,6 +91,11 @@ public class UserDAOImpl implements UserDAO {
 	@Override
 	public String user_auth_yn(String name) {
 		return sqlsession.selectOne(namespace + ".user_auth_yn", name);
+	}
+
+	@Override
+	public BlogAndUserVO userAndBlog_info(String name) {
+		return sqlsession.selectOne(namespace + ".userAndBlog_info", name);
 	}
 
 

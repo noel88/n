@@ -3,6 +3,7 @@ package org.blog.service;
 
 import javax.servlet.http.HttpSession;
 
+import org.blog.domain.BlogAndUserVO;
 import org.blog.domain.UserVO;
 
 public interface UserService {
@@ -18,6 +19,7 @@ public interface UserService {
 	public int email_check(UserVO vo);
 	public void user_delete(String name);
 	public String user_auth_yn(String name);
+	public BlogAndUserVO userAndBlog_info(String name);
 
 
 
