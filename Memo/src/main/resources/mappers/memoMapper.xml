@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ntoday.mapper.memoMapper">
+
+	<insert id="writeMemoAction">
+		insert into memo value (#{memoNo}, #{memoTitle}, #{memoText}, #{memoNow})
+	</insert>
+	<select id="memoList" resultType="com.ntoday.domain.MemoVO">
+		select * from memo
+	</select>
+	<select id="memoDatails" resultType="com.ntoday.domain.MemoVO">
+		select * from memo where memoNo = #{memoNo}
+	</select>
+
+
+
+</mapper>
