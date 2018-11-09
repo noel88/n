@@ -34,7 +34,7 @@ public class AdminController {
 
 		return "/admin/admin";
 	}
-	
+
 	/**
 	 * 이벤트 등록 액션
 	 *
@@ -43,12 +43,12 @@ public class AdminController {
 	 * @throws
 	 */
 
-	@RequestMapping(value = "/event_create", method = RequestMethod.GET)
+/*	@RequestMapping(value = "/event_create", method = RequestMethod.GET)
 	public String admin_event(EventVO vo) {
 
 		service.event(vo);
 		return "/admin/admin";
-	}
+	}*/
 
 
 }

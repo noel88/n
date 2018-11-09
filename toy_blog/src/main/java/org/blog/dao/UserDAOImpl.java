@@ -93,6 +93,7 @@ public class UserDAOImpl implements UserDAO {
 		return sqlsession.selectOne(namespace + ".user_auth_yn", name);
 	}
 
+
 	@Override
 	public BlogAndUserVO userAndBlog_info(String name) {
 		return sqlsession.selectOne(namespace + ".userAndBlog_info", name);
