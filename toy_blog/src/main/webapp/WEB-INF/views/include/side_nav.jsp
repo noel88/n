@@ -293,6 +293,9 @@ ul.CTAs a {
                             <li class="nav-item active">
                                 <a class="nav-link" href="#search">search</a>
                             </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" href="/lxa/post/write">write</a>
+                            </li>
 
                         </ul>
                     </div>
